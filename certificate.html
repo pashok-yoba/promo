@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<style>
+    .detail_leftcell  {
+        width: auto!important
+    }
+    .pageCenterNoLeft {
+        padding: 0;
+
+    }
+    .pageContent .PageModule {
+        margin: 0;
+    }
+    #PageContent {
+        padding: 0;
+    }
+    .pageCenterNoLeft div.pageContent .PageModule {
+        margin: 0;
+    }
+    #eski-root .wrap {
+        padding: 0;
+    }
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    #prm_sertificat .eFon{
+        height:354px;
+        width:100%;
+        margin-bottom:20px;
+        min-width: 960px;;
+    }
+    #prm_sertificat .bContent{
+        margin:0 auto;
+        width:960px;
+    }
+    #prm_sertificat .mContent{
+        zoom:1;
+    }
+    #prm_sertificat .mContent:after,
+    #prm_sertificat .mContent:before{
+        display:table;
+        content:'';
+    }
+    #prm_sertificat .mContent:after{
+        clear:both;
+    }
+    #prm_sertificat .mContent .eLeft{
+        float:left;
+        padding-left:34px;
+    }
+    #prm_sertificat .mContent .eRight{
+        float:right;
+        padding-right:34px;
+    }
+    #prm_sertificat .mContent .eRight,
+    #prm_sertificat .mContent .eLeft{
+        width:415px;
+    }
+    #prm_sertificat .bContent .eLeft .eName{
+        background-image:url(http://ozon.ru/graphics/action/150303_sertificat/foto1.jpg);
+        width:411px;
+    }
+    #prm_sertificat .bContent .eRight .eName{
+        background-image:url(http://ozon.ru/graphics/action/150303_sertificat/foto2.jpg);
+        width:319px;
+    }
+    #prm_sertificat .bContent .eName{
+        background-position:0 0;
+        background-repeat:no-repeat;
+        height:61px;
+    }
+    #prm_sertificat .bContent .eText{
+        font-family:Arial, Verdana, sans-serif;
+        font-size:14px;
+        color:#58595b;
+        margin:-5px 0 25px 70px;
+    }
+    #prm_sertificat .bContent .eBut{
+        display:block;
+        cursor:pointer;
+        height:42px;
+        margin-left:70px;
+    }
+    #prm_sertificat .bContent .eLeft .eBut{
+        background:url(http://ozon.ru/graphics/action/150303_sertificat/but1.jpg);
+        width:319px;
+    }
+    #prm_sertificat .bContent .eRight .eBut{
+        background:url(http://ozon.ru/graphics/action/150303_sertificat/but2.jpg);
+        width:268px;
+    }
+    @media only screen and (min-width: 769px) {
+        #prm_sertificat .eFon{
+            background:url(http://ozon.ru/graphics/action/150303_sertificat/fon.jpg) center 0 no-repeat;
+        }
+        #prm_sertificat .bContent .eLeft .eName{
+            background-image:url(http://ozon.ru/graphics/action/150303_sertificat/foto1.jpg);
+        }
+        #prm_sertificat .bContent .eRight .eName{
+            background-image:url(http://ozon.ru/graphics/action/150303_sertificat/foto2.jpg);
+        }
+        #prm_sertificat .bContent .eLeft .eBut{
+            background:url(http://ozon.ru/graphics/action/150303_sertificat/but1.jpg);
+        }
+        #prm_sertificat .bContent .eRight .eBut{
+            background:url(http://ozon.ru/graphics/action/150303_sertificat/but2.jpg);
+        }
+    }
+    @media only screen and (max-width: 768px) {
+        #prm_sertificat .bContent {
+            width: auto;
+            min-width: 320px!important;
+        }
+        #prm_sertificat .mContent .eRight, #prm_sertificat .mContent .eLeft {
+            padding: 0!important;
+            width: 50%!important;
+            text-align: center!important;
+        }
+        #prm_sertificat .bContent .eText {
+            margin: 0;
+        }
+
+        #prm_sertificat .bContent .eText {
+            font-size: 10px;
+            padding: 0 10px;
+            min-height: 67px;
+        }
+
+    }
+        @media only screen and (max-width: 479px) {
+            #prm_sertificat .eFon {
+                background-color: #85bf00;
+                background-image :url(http://ozon.ru/graphics/action/150303_sertificat/back-320.jpg);
+                height: 170px!important;
+                background-size: auto 100%!important;
+                background-position: center top;
+                background-repeat: no-repeat;
+                min-width: 320px;
+            }
+            #prm_sertificat .bContent .eLeft .eBut {
+                width: 129px!important;
+                background-image :url(http://ozon.ru/graphics/action/150303_sertificat/button1-320.jpg)!important;
+                height: 33px!important;
+                background-size: cover!important;
+                margin: 0!important;
+                display: inline-block!important;
+                margin-top: 15px!important;
+            }
+            #prm_sertificat .bContent .eRight .eBut {
+                width: 129px!important;
+                background-image :url(http://ozon.ru/graphics/action/150303_sertificat/button2-320.jpg)!important;
+                height: 33px!important;
+                background-size: cover!important;
+                margin: 0!important;
+                display: inline-block!important;
+                margin-top: 15px!important;
+            }
+            #prm_sertificat .bContent .eLeft .eName {
+                width: 136px!important;
+                height: 51px!important;
+                background-image :url(http://ozon.ru/graphics/action/150303_sertificat/item1-320.jpg);
+                background-size: 100% 100%!important;
+                display: inline-block!important;
+            }
+            #prm_sertificat .bContent .eRight .eName {
+                height: 51px!important;
+                width: 99px!important;
+                background-image :url(http://ozon.ru/graphics/action/150303_sertificat/item2-320.jpg);
+                background-size: 100% 100%!important;
+                display: inline-block!important;
+            }
+        }
+        @media only screen and (min-width: 480px) and (max-width: 768px) {
+        #prm_sertificat .eFon {
+            background-color: #85bf00;
+            background-image :url(http://ozon.ru/graphics/action/150303_sertificat/back-480.jpg);
+            height: 119px!important;
+            background-size: auto 100%!important;
+            background-position: center top;
+            background-repeat: no-repeat;
+            min-width: 320px;
+        }
+        #prm_sertificat .bContent .eLeft .eName {
+            width: 176px!important;
+            height: 31px!important;
+            background-image :url(http://ozon.ru/graphics/action/150303_sertificat/item1-480.jpg);
+            background-size: 100% 100%!important;
+            display: inline-block!important;
+        }
+        #prm_sertificat .bContent .eRight .eName {
+            height: 31px!important;
+            width: 142px!important;
+            background-image :url(http://ozon.ru/graphics/action/150303_sertificat/item2-480.jpg);
+            background-size: 100% 100%!important;
+            display: inline-block!important;
+        }
+        #prm_sertificat .bContent .eText {
+            max-width: 300px;
+            margin: 0 auto;
+            min-height: 48px;
+        }
+        #prm_sertificat .bContent .eLeft .eBut {
+            width: 163px!important;
+            background-image :url(http://ozon.ru/graphics/action/150303_sertificat/button1-480.jpg);
+            height: 24px!important;
+            background-size: cover!important;
+            margin: 0!important;
+            display: inline-block!important;
+            margin-top: 5px!important;
+        }
+        #prm_sertificat .bContent .eRight .eBut {
+            width: 163px!important;
+            background-image :url(http://ozon.ru/graphics/action/150303_sertificat/button2-480.jpg)!important;
+            height: 24px!important;
+            background-size: cover!important;
+            margin: 0!important;
+            display: inline-block!important;
+            margin-top: 5px!important;
+        }
+    }
+</style>
+<div id="prm_sertificat">
+    <div class="eFon"></div>
+    <div class="bContent">
+        <div class="mContent">
+            <div class="eLeft">
+                <div class="eName"></div>
+                <div class="eText">Больше не нужно никуда ехать или ждать курьера. Мы просто отправим  сертификат с уникальным кодом на e-mail, сразу после оплаты.</div>
+                <a class="eBut" href="/catalog/1173934/?type=56903"></a>
+            </div>
+            <div class="eRight">
+                <div class="eName"></div>
+                <div class="eText">Закажите подарочный сертификат на нашем сайте и ожидайте доставки курьером либо заберите его в офисах наших партнеров.</div>
+                <a class="eBut" href="/catalog/1173934/?type=48347"></a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

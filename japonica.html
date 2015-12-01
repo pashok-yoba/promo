@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+<style>
+    #japonica {
+        width: 959px;
+        margin: 0 auto;
+        font-family: Century Gothic, Arial, sans-serif;
+        position: relative;
+    }
+    #japonica * {
+        margin: 0;
+        padding: 0;
+    }
+    #japonica .japonicaHeader {
+        background-image: url(//static.ozone.ru/graphics/action/150813-japonica/back-all.jpg);
+        height: 503px;
+        position: relative;
+    }
+    #japonica .japonicaMiddleText {
+        position: absolute;
+        top: 130px;
+        left: 373px;
+        font-size: 30px;
+        line-height: 1.3em;
+    }
+    #japonica .japonicaMiddleText--big {
+        font-size: 50px;
+        display: inline-block;
+        padding-top: 7px;
+    }
+    #japonica .japonicaMiddleText--blue {
+        color: #00b9f2;
+        font-weight: bold;
+        font-size: 27px;
+    }
+    #japonica .japonicaLink {
+        background-image: url(//static.ozone.ru/graphics/action/150813-japonica/link.jpg);
+        height: 31px;
+        width: 213px;
+        display: block;
+        position: absolute;
+        top: 275px;
+        left: 373px;
+    }
+    #japonica .japonicaComputer {
+        width: 194px;
+        height: 121px;
+        background-image: url(//static.ozone.ru/graphics/action/150813-japonica/mac.png);
+        position: absolute;
+        bottom: 12px;
+        right: 16px;
+    }
+    #japonica .japonicaComputer__text {
+        font-size: 17px;
+        width: 216px;
+        line-height: 21px;
+        text-align: right;
+        left: -230px;
+        position: absolute;
+        top: 21px;
+    }
+    #japonica .japonicaList {
+        list-style-type: none;
+        position: relative;
+    }
+    #japonica .japonicaList--left {
+        float: left;
+    }
+    #japonica .japonicaList--right {
+        float: right;
+    }
+    #japonica .japonicaItem {
+        padding-top: 17px;
+        box-sizing: border-box;
+        width: 471px;
+        height: 338px;
+        position: relative;
+    }
+    #japonica .japonicaItem__header {
+        background-image: url(//static.ozone.ru/graphics/action/150813-japonica/back-item.jpg);
+        background-repeat: repeat-y;
+        height: 48px;
+        font-size: 25px;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: middle;
+    }
+    #japonica .japonicaItem__header:after {
+        display: inline-block;
+        width:0;
+        height: 100%;
+        content: ' ';
+        vertical-align: middle;
+    }
+    #japonica .japonicaItem__link {
+        width: 196px;
+        background-color: #afafaf;
+        color: #ffffff;
+        font-size: 21px;
+        text-align: center;
+        font-weight: bold;
+        line-height:  30px;
+        text-decoration: none;
+        bottom: 16px;
+        right: 58px;
+        position: absolute;
+        -moz-transition: all 0.3s;
+        -o-transition: all 0.3s;
+        -ms-transition: all 0.3s;
+        -webkit-transition: all 0.3s;
+    }
+    #japonica .japonicaItem__link:hover {
+        opacity: 0.6;
+        -webkit-box-shadow: inset 0px 0px 99px 3px rgba(0,0,0,0.57);
+        -moz-box-shadow: inset 0px 0px 99px 3px rgba(0,0,0,0.57);
+        box-shadow: inset 0px 0px 99px 3px rgba(0,0,0,0.57);
+    }
+    #japonica .japonicaItem__image {
+        position:absolute;
+        bottom: 0;
+    }
+    #japonica .japonicaItem__image--1 {
+        background-image: url(//static.ozone.ru/graphics/action/150813-japonica/item-1.jpg);
+        width: 107px;
+        height: 273px;
+        left: 40px;
+    }
+    #japonica .japonicaItem__image--2 {
+        background-image: url(//static.ozone.ru/graphics/action/150813-japonica/item-2.jpg);
+        width: 165px;
+        height: 237px;
+        left: 10px;
+    }
+    #japonica .japonicaItem__image--3 {
+        background-image: url(//static.ozone.ru/graphics/action/150813-japonica/item-3.jpg);
+        width: 164px;
+        height: 225px;
+        left: 10px;
+    }
+    #japonica .japonicaItem__image--4 {
+        background-image: url(//static.ozone.ru/graphics/action/150813-japonica/item-4.jpg);
+        width: 130px;
+        height: 237px;
+        left: 40px;
+    }
+    #japonica .japonicaItem__text {
+        padding-top: 40px;
+        font-size: 17px;
+        padding-left: 185px;
+        box-sizing: border-box;
+        padding-right: 25px;
+    }
+    #japonica .japonicaItem__text--right {
+        padding-left: 215px;
+    }
+    #japonica .japonicaTextBold {
+        font-weight: bold;
+    }
+</style>
+<div id="japonica">
+    <div class="japonicaHeader">
+        <p class="japonicaMiddleText">
+            рекомендации Бьюти-гуру<br/>
+            <span class="japonicaMiddleText--big">Коджи Мацуда</span><br/>
+            <span class="japonicaMiddleText--blue">модная японская косметика</span>
+        </p>
+        <div class="japonicaComputer">
+           <div class="japonicaComputer__text">Рекомендации читайте
+               на официальном блоге
+               Коджи Мацуда</div>
+        </div>
+    </div>
+    <ul class="japonicaList">
+        <li class="japonicaList__item japonicaItem japonicaList--left">
+            <div class="japonicaItem__header">Прямые утяжеленные волосы</div>
+            <div class="japonicaItem__image japonicaItem__image--1"></div>
+            <div class="japonicaItem__text">Шампунь <span class="japonicaTextBold">Reveur Moist&Gloss</span> содержит масла, экстракты растений и ни грамма силикона. Твои волосы будут как японский шелк.</div>
+            <a href="/catalog/1158886/?brand=32503652" class="japonicaItem__link">Уход за волосами</a>
+        </li>
+        <li class="japonicaList__item japonicaItem japonicaList--right">
+            <div class="japonicaItem__header">Бархатистая упругая кожа</div>
+            <div class="japonicaItem__image japonicaItem__image--2"></div>
+            <div class="japonicaItem__text japonicaItem__text--right">Маски и сыворотки для лица <span class="japonicaTextBold">Japan Gals</span>
+                содержат нано-молекулы золота, которые замедляют процесс старения кожи.</div>
+            <a href="/catalog/1158883/?brand=20897160" class="japonicaItem__link">Уход за лицом</a>
+        </li>
+        <li class="japonicaList__item japonicaItem japonicaList--left">
+            <div class="japonicaItem__header">Увлажненная и гладкая кожа</div>
+            <div class="japonicaItem__image japonicaItem__image--3"></div>
+            <div class="japonicaItem__text">Лошадиное масло – древний японской компонент, увлажняющий кожу и придающий ей гладкость.
+                Кремы для тела и рук <span class="japonicaTextBold">Roland</span> – новое «прочтение» народного компонента.</div>
+            <a href="http://www.ozon.ru/?context=search&text=roland&group=div_beauty" class="japonicaItem__link">Уход за телом</a>
+        </li>
+        <li class="japonicaList__item japonicaItem japonicaList--right">
+            <div class="japonicaItem__header">Педикюр на дому</div>
+            <div class="japonicaItem__image japonicaItem__image--4"></div>
+            <div class="japonicaItem__text japonicaItem__text--right">Всего 1,5 часа – и можно забыть о грубой коже и напотнышах. Все девушки Японии уже перешли на домашний педикюр с носочками <span class="japonicaTextBold">SOSU</span> и забыли о пемзе и пилках.</div>
+            <a href="/catalog/1158883/?brand=19664510" class="japonicaItem__link">Уход за ногами</a>
+        </li>
+    </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="http://ozon.ru/graphics/action/150619-baby/TweenMax.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+<style>
+* {
+    padding: 0; margin : 0;
+}
+#PageCenter {
+    padding: 0;
+    margin: 0;
+}
+    /*slider */
+    #philips {
+        font-family: Arial, sans-serif;
+    }
+    #philips * {
+        margin: 0;
+        padding: 0;
+    }
+    #philips .heroesSlider {
+        position: relative;
+        height: 600px;
+    }
+    #philips .heroesSlide {
+        position: absolute;
+        width: 100%;
+        height: 600px;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background-size: cover;
+        background-position: center;
+    }
+    #philips .heroesSlideInner {
+        width: 960px;
+        height: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        position: relative;
+    }
+    #philips .heroesSlide__text {
+        height: 312px;
+        width: 479px;
+        box-sizing: border-box;
+        padding: 27px 53px 27px 27px;
+        color: black;
+        font-size: 15px;
+        line-height: 18px;
+        position: absolute;
+        top: 94px;
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    #philips .braviaLogo {
+        display: inline-block;
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/logobravia.png);
+        width: 114px;
+        height: 40px;
+        margin-right: 16px;
+        margin-bottom: 23px;
+    }
+    #philips .androidLogo {
+        display: inline-block;
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/androidtv.png);
+        width: 94px;
+        height: 40px;
+        margin-bottom: 23px;
+    }
+    #philips .tvLink {
+        width: 257px;
+        display: block;
+        height: 36px;
+        line-height: 36px;
+        color: #ffffff;
+        text-align: center;
+        background-color: #0083ca;
+        font-size: 15px;
+        text-decoration: none;
+        margin-top: 25px;
+    }
+    #philips .tvLink:hover{
+        background-color: #336891
+    }
+    #philips .sliderTextBold{
+        font-size: 27px;
+        display: block;
+        padding-bottom: 15px;
+    }
+    #philips .heroesSlider__left {
+        top: 256px;
+        position: absolute;
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/arrowleft.png);
+        width: 45px;
+        height: 85px;
+        left: 20px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        border-radius: 5px;
+    }
+    #philips .heroesSlider__right {
+        top: 256px;
+        position: absolute;
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/arrowright.png);
+        width: 45px;
+        height: 85px;
+        right: 20px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        border-radius: 5px;
+    }
+
+    #philips .heroesSlider__left:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    #philips .heroesSlider__right:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+
+    #philips .heroesSlider__circles {
+        position: absolute;
+        bottom: 30px;
+        width: 100%;
+        text-align: center;
+    }
+    #philips .sliderPointer {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.6);
+        margin: 0 3px;
+        border-radius: 7px;;
+    }
+    #philips .sliderPointer-active {
+        background-color: #f04d32;
+    }
+
+
+    #philips .heroesSlide--1 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/slide-1.jpg);
+    }
+
+    #philips .heroesSlide--2 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/slide-2.jpg);
+    }
+
+    #philips .activeSlide {
+        opacity: 1;
+    }
+    /*------------------------------ */
+    /* video */
+    #philips .philipsVideo {
+        padding-top: 30px;
+        position: relative;
+    }
+    #philips .philipsVideoArticle {
+        width: 960px;
+        margin: 0 auto;
+    }
+    #philips .PhilipsArticleName {
+        font-size: 30px;
+    }
+    #philips .PhilipsArticleName__detail {
+        display: block;
+        font-size: 15px;
+        color: #808285;
+        padding-top: 15px;
+    }
+    #philips .PhilipsArticleDetail {
+        font-size: 18px;
+        padding-top: 25px;
+        width: 390px;
+        line-height: 1.3em;
+    }
+    #philips .philipsSliderContainer {
+        padding-top: 23px;
+        width: 100%;
+        overflow: hidden;
+        padding-bottom: 80px;
+    }
+    #philips .philipsSlider {
+        white-space: nowrap;
+        position: relative;
+        left: 0;
+    }
+    #philips .philipsSlider_item {
+        display: inline-block;
+        margin-right: 30px;
+        white-space: normal;
+    }
+    #philips .philipsItem {
+        background-color: #e8e7e7;
+        width: 379px;
+        height: 520px;
+        vertical-align: top;
+    }
+    #philips .philipsSlider_item--0 {
+        margin-left: 90px;
+    }
+    #philips .philipsItem__video {
+        height: 256px;
+        position: relative;
+        box-sizing: border-box;
+        padding-top: 84px;
+        text-align: center;
+
+    }
+    #philips .philipsItemContainer {
+        position: relative;
+        display: inline-block;
+    }
+    #philips .philipsItemPlay {
+        width: 70px;
+        height: 70px;
+        left: 10px;
+        top: 10px;
+        background-color: #e76129;
+        border-radius: 35px;
+        position: absolute;
+        cursor: pointer;
+    }
+    #philips .philipsItemPlay__shadow {
+        content: ' ';
+        display: block;
+        width: 90px;
+        height: 90px;
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 45px;
+    }
+    #philips .philipsItemPlay__trigl {
+        border: 10px solid transparent;
+        border-left: 20px solid #ffffff;
+        position: absolute;
+        left: 27px;
+        top: 25px;
+    }
+    #philips .philipsItem__name {
+        font-size: 24px;
+        padding: 23px 0 0 40px;
+    }
+    #philips .philipsItem__detail {
+        font-size: 13px;
+        color: #636363;
+        padding: 16px 40px 0 40px;
+        line-height: 20px;
+    }
+
+    #philips .philipsItem__video--0 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/video0.jpg);
+    }
+    #philips .philipsItem__video--1 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/video1.jpg);
+    }
+    #philips .philipsItem__video--2 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/video2.jpg);
+    }
+    #philips .philipsItem__video--3 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/video3.jpg);
+    }
+    #philips .philipsItem__video--4 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/video4.jpg);
+    }
+    #philips .philipsItem__video--5 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/video5.jpg);
+    }
+    #philips .philipsItem__video--6 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/video6.jpg);
+    }
+    #philips .philipsItem__video--7 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/video7.jpg);
+    }
+    #philips .philipsVideoActive {
+        background-color: rgba(0,0,0,0.8);
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+        padding-top: 200px;
+        display: none;
+    }
+    #philips .philipsVideoFrame {
+        display: inline-block;
+    }
+    #philips .philipsVideoClose {
+        cursor: pointer;
+        position: absolute;
+        width: 43px;
+        height: 43px;
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/btn_close.png);
+        top: 140px;
+        left: 50%;
+        margin-left: 350px;
+    }
+    #philips .philipsVideoClose:hover {
+        opacity: 0.8;
+    }
+    #philips .philipsVideo__left {
+        top: 400px;
+        position: absolute;
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/arrowleft.png);
+        width: 45px;
+        height: 85px;
+        left: 20px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        border-radius: 5px;
+        z-index: 10;
+    }
+    #philips .philipsVideo__right {
+        top: 400px;
+        position: absolute;
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/arrowright.png);
+        width: 45px;
+        height: 85px;
+        right: 20px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+        border-radius: 5px;
+        z-index: 10;
+    }
+
+    #philips .philipsVideo__left:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    #philips .philipsVideo__right:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+    /* ---------------------- */
+    /*androidTV */
+    #philips .philipsTV {
+        width: 960px;
+        margin: 0 auto;
+    }
+    #philips .philipsTvList {
+        list-style-type: none;
+        text-align: center;
+    }
+    #philips .philipsTvList:after {
+        content: ' ';
+        width: 100%;
+        height: 0;
+        display: inline-block;
+    }
+    #philips .philipsTvList__item {
+        display: inline-block;
+        vertical-align: top;
+    }
+    #philips .philipsTvList__item--2 {
+        margin: 0 20px;
+    }
+    #philips .philipsTv {
+        width: 300px;
+    }
+    #philips .philipsTv__image {
+        height: 197px;
+    }
+    #philips .philipsTv__image--1 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/tv1.jpg);
+    }
+    #philips .philipsTv__image--2 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/tv2.jpg);
+    }
+    #philips .philipsTv__image--3 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/tv3.jpg);
+    }
+    #philips .philipsTv__image--4 {
+        background-image: url(//static.ozone.ru/graphics/action/150910-android/tv4.jpg);
+    }
+    #philips .philipsTv__name {
+        font-size: 15px;
+        font-weight: bold;
+        padding: 25px 0 10px 0;
+        text-align: left;
+    }
+    #philips .detailList {
+        list-style-type: disc;
+        text-align: left;
+        font-size: 13px;
+        line-height: 15px;
+        color: #808285;
+        box-sizing: border-box;
+        padding-right: 30px;
+        margin-left: 16px;
+    }
+    #philips .philipsTv__price {
+        font-size: 18px;
+        display: inline-block;
+    }
+
+    #philips .heroesProduct__link {
+        width: 100px;
+        height: 32px;
+        box-sizing: border-box;
+        display: inline-block;
+        font-size: 18px;
+        color: white;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        background-color: #00b9f2;
+        text-decoration: none;
+        margin: 12px 12px;
+    }
+    #philips .heroesProduct__link:hover {
+        background-color: #0083ca;
+    }
+    #philips .heroesProduct__link:before {
+        vertical-align: middle;
+        width: 0;
+        content: ' ';
+        color: white;
+        display: inline-block;
+        height: 100%;
+    }
+    #philips .heroesProduct__link:after {
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+        content: ' ';
+        border: 5px solid transparent;
+        border-left: 5px solid #ffffff;
+        display: inline-block;
+    }
+    #philips .philipsTvContainer {
+        text-align: left;
+    }
+    #philips .detailList__item {
+        padding-bottom: 2px;
+    }
+
+
+/* animation classes */
+    #philips .philipsItemPlay-active {
+        width: 90px;
+        height: 90px;
+        border-radius: 45px;
+        left: 0;
+        top: 0;
+    }
+    #philips .philipsItemPlay__trigl-active {
+        left: 37px;
+        top: 35px;
+    }
+
+</style>
+<script>
+    function change(dataAttribute, dataAttributeDescription, thisElem){
+        var classes = thisElem.className.split(' ');
+        if (classes.indexOf('pointActive') == -1 ){
+            var all = thisElem.parentElement.children;
+            for (var i = 0; i < all.length; i++ ){
+                all[i].className = classes[0];
+            }
+            thisElem.className += ' pointActive';
+        }
+        var attrData = thisElem.getAttribute(dataAttribute);
+        var detailElement = document.querySelectorAll('['+dataAttributeDescription+'="'+attrData+'"]');
+        var allDetailElements = document.querySelectorAll('['+dataAttributeDescription+']');
+        var classDetail = detailElement[0].className.split(' ');
+        if (classDetail.indexOf('listBlock') == -1 ){
+            if (attrData == 1) {
+                TweenMax.to(document.getElementsByClassName('heroesDescriptionContainer'), 0.5, {className: '+=heroesDescriptionContainer--small'});
+            }
+            else {
+                TweenMax.to(document.getElementsByClassName('heroesDescriptionContainer'), 0.5, {className: '-=heroesDescriptionContainer--small'});
+            }
+            TweenMax.to(allDetailElements, 0.5, {className: '-=listBlock'});
+            TweenMax.to(detailElement, 0.5, {className: '+=listBlock'});
+        }
+
+    }
+    function changeBottom(){
+        var classes = this.className.split(' ');
+        if (classes.indexOf('activeDetail') == -1 ){
+            var dataAttribute = this.getAttribute('data-detail-number');
+            var allItemsDetail = document.querySelectorAll('[data-detail-bottom]');
+            var itemDetail = document.querySelector('[data-detail-bottom="'+dataAttribute+'"]');
+            if ( dataAttribute == 1 ){
+                TweenMax.to(document.getElementsByClassName('heroesArrow'), 0.3, {left: '222px'});
+            }
+            else {
+                TweenMax.to(document.getElementsByClassName('heroesArrow'), 0.3, {left: '702px'});
+            }
+            TweenMax.to(allItemsDetail, 0.5, {className: '-=activBottomDetail'});
+            TweenMax.to(itemDetail, 0.5, {className: "+=activBottomDetail"});
+
+        }
+    }
+    function Slider(){
+        var slides = document.getElementsByClassName('heroesSlide');
+        var dataNumber = document.getElementsByClassName('activeSlide')[0].getAttribute('data-slide');
+
+        function rightSlide(){
+            var dataNumber = document.getElementsByClassName('activeSlide')[0].getAttribute('data-slide');
+            var nextData = undefined;
+            if ( dataNumber < slides.length - 1 ) {
+                nextData = +dataNumber + 1;
+            }
+            else {
+                nextData = 0;
+            }
+            var points = document.getElementsByClassName('sliderPointer');
+            for(var i = 0; i < points.length; i++){
+                points[i].className = points[i].className.split(' ')[0];
+            }
+            document.querySelectorAll('[data-number="'+nextData+'"]')[0].className += ' sliderPointer-active';
+            TweenMax.to(document.getElementsByClassName('heroesSlide'), 0.5, {className: '-=activeSlide'});
+            TweenMax.to(document.querySelector('[data-slide="'+nextData+'"]'), 0.5, {className: '+=activeSlide'});
+        }
+
+        function leftSlide(){
+            var dataNumber = document.getElementsByClassName('activeSlide')[0].getAttribute('data-slide');
+            var nextData = undefined;
+            if ( dataNumber > 0 ) {
+                nextData = +dataNumber - 1;
+            }
+            else {
+                nextData = slides.length -1;
+            }
+            var points = document.getElementsByClassName('sliderPointer');
+            for(var i = 0; i < points.length; i++){
+                points[i].className = points[i].className.split(' ')[0];
+            }
+            document.querySelectorAll('[data-number="'+nextData+'"]')[0].className += ' sliderPointer-active';
+            TweenMax.to(document.getElementsByClassName('heroesSlide'), 0.5, {className: '-=activeSlide'});
+            TweenMax.to(document.querySelector('[data-slide="'+nextData+'"]'), 0.5, {className: '+=activeSlide'});
+        }
+
+        function changePoint() {
+            var number = this.getAttribute('data-number');
+            var all = this.parentElement.children;
+            for (var i = 0; i < all.length; i++){
+                all[i].className = all[i].className.split(' ')[0];
+            }
+            this.className = this.className += ' sliderPointer-active';
+            TweenMax.to(document.getElementsByClassName('heroesSlide'), 0.5, {className: '-=activeSlide'});
+            TweenMax.to(document.querySelector('[data-slide="'+number+'"]'), 0.5, {className: '+=activeSlide'});
+
+        }
+
+        document.getElementsByClassName('heroesSlider__right')[0].addEventListener('click', rightSlide);
+        document.getElementsByClassName('heroesSlider__left')[0].addEventListener('click', leftSlide);
+
+        for (var i = 0; i < slides.length; i++ ){
+            var elem = document.createElement('div');
+            elem.setAttribute('class', 'sliderPointer');
+            elem.setAttribute('data-number', ''+i);
+            document.getElementsByClassName('heroesSlider__circles')[0].appendChild(elem);
+            elem.addEventListener('click', changePoint);
+        }
+        document.querySelector('[data-number="'+dataNumber+'"]').className += ' sliderPointer-active';
+        setInterval(rightSlide, 10000);
+    }
+
+    function activateVideoButton() {
+        var tl = new TimelineMax({paused: true});
+        tl.to(this, 0.2, { className: '+=philipsItemPlay-active', ease: Elastic.easeOut.config(1, 0.3)})
+          .to(this.getElementsByClassName('philipsItemPlay__trigl')[0], 0.2, { className: '+=philipsItemPlay__trigl-active', ease: Elastic.easeOut.config(1, 0.3)}, 0);
+        tl.play();
+    }
+
+    function deactivateVideoButton() {
+        var tl = new TimelineMax({paused: true});
+        tl.to(this, 0.1, { className: '-=philipsItemPlay-active'})
+          .to(this.getElementsByClassName('philipsItemPlay__trigl')[0], 0.1, { className: '-=philipsItemPlay__trigl-active'}, 0);
+        tl.play();
+    }
+
+    function addListener(elements, eventName, functionName) {
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener(eventName, functionName);
+        }
+    }
+
+    var videoList = [];
+    videoList[0] = $('<iframe class="philipsVideoFrame" width="640" height="360" src="//www.youtube.com/embed/MLOCRR6Adxk?cc_lang_pref=ru&amp;cc_load_policy=1controls=1&amp;showinfo=0&amp;autoplay=0&amp;rel=0&amp;enablejsapi=1&amp;autohide=1" frameborder="0" allowfullscreen=""></iframe>');
+    videoList[1] = $('<iframe class="philipsVideoFrame" width="640" height="360" src="//www.youtube.com/embed/z7wRHJhy4RA?cc_lang_pref=ru&amp;cc_load_policy=1controls=1&amp;showinfo=0&amp;autoplay=0&amp;rel=0&amp;enablejsapi=1&amp;autohide=1" frameborder="0" allowfullscreen=""></iframe>');
+    videoList[2] = $('<iframe class="philipsVideoFrame" width="640" height="360" src="//www.youtube.com/embed/BY3VgOGKDXk?cc_lang_pref=ru&amp;cc_load_policy=1controls=1&amp;showinfo=0&amp;autoplay=0&amp;rel=0&amp;enablejsapi=1&amp;autohide=1" frameborder="0" allowfullscreen=""></iframe>');
+    videoList[3] = $('<iframe class="philipsVideoFrame" width="640" height="360" src="//www.youtube.com/embed/IDWTrRF9fKM?cc_lang_pref=ru&amp;cc_load_policy=1controls=1&amp;showinfo=0&amp;autoplay=0&amp;rel=0&amp;enablejsapi=1&amp;autohide=1" frameborder="0" allowfullscreen=""></iframe>');
+    videoList[4] = $('<iframe class="philipsVideoFrame" width="640" height="360" src="//www.youtube.com/embed/8Y9VrhXCh_0?cc_lang_pref=ru&amp;cc_load_policy=1controls=1&amp;showinfo=0&amp;autoplay=0&amp;rel=0&amp;enablejsapi=1&amp;autohide=1" frameborder="0" allowfullscreen=""></iframe>');
+    videoList[5] = $('<iframe class="philipsVideoFrame" width="640" height="360" src="//www.youtube.com/embed/cdFUyR8FXWM?cc_lang_pref=ru&amp;cc_load_policy=1controls=1&amp;showinfo=0&amp;autoplay=0&amp;rel=0&amp;enablejsapi=1&amp;autohide=1" frameborder="0" allowfullscreen=""></iframe>');
+    videoList[6] = $('<iframe class="philipsVideoFrame" width="640" height="360" src="//www.youtube.com/embed/-er58E6Nyy0?cc_lang_pref=ru&amp;cc_load_policy=1controls=1&amp;showinfo=0&amp;autoplay=0&amp;rel=0&amp;enablejsapi=1&amp;autohide=1" frameborder="0" allowfullscreen=""></iframe>');
+    videoList[7] = $('<iframe class="philipsVideoFrame" width="640" height="360" src="//www.youtube.com/embed/lD9mZ1hzQZE?cc_lang_pref=ru&amp;cc_load_policy=1controls=1&amp;showinfo=0&amp;autoplay=0&amp;rel=0&amp;enablejsapi=1&amp;autohide=1" frameborder="0" allowfullscreen=""></iframe>');
+
+    function changeVideo() {
+        var numberVideo = $(this).parents('.philipsSlider_item').attr('data-number');
+        videoList[numberVideo].appendTo($('.philipsVideoActive'));
+        $('.philipsVideoActive').css({'display': 'block'});
+    }
+
+    var tlwh;
+    var timeout;
+    var left;
+    var allWidth = ($('.philipsItem').width() + 30) * ($('.philipsItem').length);
+            function leftVideoOver() {
+
+        if ($('.philipsSlider').css('left').split('px')[0] > -left ) {
+           tlwh = TweenMax.to( $('.philipsSlider'), 30, {'left': '-=1900'});
+            timeout = setInterval(checkLeft, 100);
+        }
+    }
+    function checkLeft() {
+        if ($('.philipsSlider').css('left').split('px')[0] < -left ) {
+            tlwh.pause();
+        }
+    }
+
+
+    function rightVideoOver() {
+        if ($('.philipsSlider').css('left').split('px')[0] < 0 ) {
+            tlwh = TweenMax.to( $('.philipsSlider'), 50, {'left': '+=1900'});
+            timeout = setInterval(checkRight, 100);
+        }
+    }
+    function checkRight() {
+        if ($('.philipsSlider').css('left').split('px')[0] > 0 ) {
+            tlwh.pause();
+        }
+   //     timeout = setTimeout(checkRight, 100);
+    }
+    function checkWidth() {
+        var deviceWidth = $(window).width();
+        var number = Math.floor(deviceWidth/409);
+        return number
+    }
+    window.addEventListener('DOMContentLoaded', function(){
+        left  = ($('.philipsSlider_item').length - checkWidth())*409 + 90;
+        $('.philipsSliderContainer').width(($(window).width()));
+        Slider();
+        addListener(document.getElementsByClassName('philipsItemPlay'), 'mouseover', activateVideoButton);
+        $('.philipsItemPlay').on('mouseleave', deactivateVideoButton);
+        $('.philipsItemPlay').on('click',changeVideo);
+
+        $('.philipsVideoClose').on('click', function(){
+            $('.philipsVideoFrame').remove();
+            $('.philipsVideoActive').css({'display': 'none'});
+        });
+
+
+
+        $('.philipsVideo__left').on('mouseenter', leftVideoOver);
+        $('.philipsVideo__left').on('mouseleave', function(){
+            tlwh.pause();
+            clearInterval(timeout);
+        });
+        $('.philipsVideo__left').on('click', function(){
+            if (($('.philipsSlider').css('left').split('px')[0] > ( -left + 409 ) )) {
+                tlwh.pause();
+                clearInterval(timeout);
+                TweenMax.to( $('.philipsSlider'), 1, {'left': '-=379'});
+            }
+            else {
+                TweenMax.to( $('.philipsSlider'), 1, {'left': -left});
+            }
+        });
+
+
+
+        $('.philipsVideo__right').on('mouseenter', rightVideoOver);
+        $('.philipsVideo__right').on('mouseleave', function(){
+            tlwh.pause();
+            clearInterval(timeout);
+        });
+        $('.philipsVideo__right').on('click', function(){
+            if (($('.philipsSlider').css('left').split('px')[0] < 0 )) {
+                tlwh.pause();
+                clearInterval(timeout);
+                if (($('.philipsSlider').css('left').split('px')[0] > -379 )) {
+                    TweenMax.to( $('.philipsSlider'), 1, {'left': '0'});
+                }
+                else {
+                    TweenMax.to( $('.philipsSlider'), 1, {'left': '+=379'});
+                }
+            }
+        });
+    });
+</script>
+<script>
+    $(function(){
+        $('.MaterialSection').eq(($('.MaterialSection').length-1)).css({'display': 'none'});
+        var price = [];
+        price[0] = $('.iteminfo[js_itemid="33481788"]').attr('js_price');
+        price[1] = $('.iteminfo[js_itemid="32991675"]').attr('js_price');
+        price[2] = $('.iteminfo[js_itemid="32991676"]').attr('js_price');
+        for ( var i = 0; i < price.length; i++ ) {
+            $('.philips__price').eq(i).text(price[i]);
+        }
+    });
+</script>
+<div id="philips">
+    <div class="heroesSlider">
+        <div class="heroesSlide heroesSlide--1 activeSlide" data-slide="0">
+            <div class="heroesSlideInner heroesSlideInner--1">
+                <div class="heroesSlide__text heroesSlide__text--1">
+                    <div class="braviaLogo"></div>
+                    <div class="androidLogo"></div>
+                    <span class="sliderTextBold">BRAVIA теперь с Android TV™</span>
+                    Ваш умный телевизор стал еще умнее. Вспомните все возможности вашего телефона или планшета, которыми вы часто пользуетесь. Теперь вы можете получить еще больше удовольствия от их использования в большом формате на телевизорах BRAVIA.
+                    <a class="tvLink" href="/catalog/1133763/?brand=26303399&features=60141">Найдите свой телевизор BRAVIA</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="heroesSlide heroesSlide--2" data-slide="1">
+            <div class="heroesSlideInner heroesSlideInner--2">
+                <div class="heroesSlide__text heroesSlide__text--2">
+                    <div class="braviaLogo"></div>
+                    <div class="androidLogo"></div>
+                    <span class="sliderTextBold">BRAVIA теперь с Android TV™</span>
+                    Ваш умный телевизор стал еще умнее. Вспомните все возможности вашего телефона или планшета, которыми вы часто пользуетесь. Теперь вы можете получить еще больше удовольствия от их использования в большом формате на телевизорах BRAVIA.
+                    <a class="tvLink" href="/catalog/1133763/?brand=26303399&features=60141">Найдите свой телевизор BRAVIA</a>
+                </div>
+            </div>
+        </div>
+        <div class="heroesSlider__left"></div>
+        <div class="heroesSlider__right"></div>
+        <div class="heroesSlider__circles"></div>
+    </div>
+    <div class="philipsVideo">
+        <div class="philipsVideoArticle">
+            <p class="PhilipsArticleName">Узнайте обо всех возможностях
+                <span class="PhilipsArticleName__detail">Ознакомьтесь с интеллектуальными функциями</span>
+            </p>
+            <p class="PhilipsArticleDetail">Перейдите на новый уровень телепросмотра.
+                Телевизор, отражающий ваш стиль жизни.</p>
+        </div>
+        <div class="philipsSliderContainer">
+            <div class="philipsVideo__right"></div>
+            <div class="philipsVideo__left"></div>
+            <ul class="philipsSlider">
+                <li class="philipsSlider_item philipsItem philipsSlider_item--0" data-number="0">
+                    <div class="philipsItem__video philipsItem__video--0">
+                        <div class="philipsItemContainer">
+                            <div class="philipsItemPlay">
+                                <div class="philipsItemPlay__trigl"></div>
+                            </div>
+                            <div class="philipsItemPlay__shadow"></div>
+                        </div>
+                    </div>
+                    <p class="philipsItem__name">TV SideView</p>
+                    <p class="philipsItem__detail">Скачайте приложение TV SideView для смартфона, которое превратит ваш смартфон или планшет в пульт BRAVIA™. Больше вам не нужно будет искать пульт.</p>
+                    <p class="philipsItem__detail">* Функционал зависит от вашей страны проживания. Пожалуйста, уточняйте подробности на сайте TV SideView для вашей страны.</p>
+                </li>
+
+                <li class="philipsSlider_item philipsItem" data-number="1">
+                    <div class="philipsItem__video philipsItem__video--1">
+                        <div class="philipsItemContainer">
+                            <div class="philipsItemPlay">
+                                <div class="philipsItemPlay__trigl"></div>
+                            </div>
+                            <div class="philipsItemPlay__shadow"></div>
+                        </div>
+                    </div>
+                    <p class="philipsItem__name">Photo Sharing Plus</p>
+                    <p class="philipsItem__detail">Делитесь приятными воспоминаниями с семьей и друзьями, добавляйте их в избранное. Возможность подключения до 10&nbsp;смартфонов*.</p>
+                    <p class="philipsItem__detail">* Android 2.3 и более поздние версии, iOS6 и более поздние версии</p>
+                </li>
+
+                <li class="philipsSlider_item philipsItem" data-number="2">
+                    <div class="philipsItem__video philipsItem__video--2">
+                        <div class="philipsItemContainer">
+                            <div class="philipsItemPlay">
+                                <div class="philipsItemPlay__trigl"></div>
+                            </div>
+                            <div class="philipsItemPlay__shadow"></div>
+                        </div>
+                    </div>
+                    <p class="philipsItem__name">Google Play™</p>
+                    <p class="philipsItem__detail">Смотрите фильмы, слушайте радио и составляйте плейлисты с любимой музыкой с помощью Google Play и любимых приложений.</p>
+                </li>
+
+                <li class="philipsSlider_item philipsItem" data-number="3">
+                    <div class="philipsItem__video philipsItem__video--3">
+                        <div class="philipsItemContainer">
+                            <div class="philipsItemPlay">
+                                <div class="philipsItemPlay__trigl"></div>
+                            </div>
+                            <div class="philipsItemPlay__shadow"></div>
+                        </div>
+                    </div>
+                    <p class="philipsItem__name">One-Flick Entertainment</p>
+                    <p class="philipsItem__detail">Быстрый поиск и управление медиаконтентом с помощью интуитивно понятного интерфейса BRAVIA.</p>
+                </li>
+
+                <li class="philipsSlider_item philipsItem" data-number="4">
+                    <div class="philipsItem__video philipsItem__video--4">
+                        <div class="philipsItemContainer">
+                            <div class="philipsItemPlay">
+                                <div class="philipsItemPlay__trigl"></div>
+                            </div>
+                            <div class="philipsItemPlay__shadow"></div>
+                        </div>
+                    </div>
+                    <p class="philipsItem__name">Функция "Родительский контроль"</p>
+                    <p class="philipsItem__detail">Узнайте, как ограничить доступ к определенному типу контента на телевизоре, настроив функцию "Родительский контроль".</p>
+                </li>
+
+                <li class="philipsSlider_item philipsItem" data-number="5">
+                    <div class="philipsItem__video philipsItem__video--5">
+                        <div class="philipsItemContainer">
+                            <div class="philipsItemPlay">
+                                <div class="philipsItemPlay__trigl"></div>
+                            </div>
+                            <div class="philipsItemPlay__shadow"></div>
+                        </div>
+                    </div>
+                    <p class="philipsItem__name">Пульт ДУ с тачпадом</p>
+                    <p class="philipsItem__detail">Узнайте, как сделать управление Sony с Android TV еще более простым и удобным с помощью нового пульта ДУ с тачпадом.</p>
+                </li>
+
+                <li class="philipsSlider_item philipsItem" data-number="6">
+                    <div class="philipsItem__video philipsItem__video--6">
+                        <div class="philipsItemContainer">
+                            <div class="philipsItemPlay">
+                                <div class="philipsItemPlay__trigl"></div>
+                            </div>
+                            <div class="philipsItemPlay__shadow"></div>
+                        </div>
+                    </div>
+                    <p class="philipsItem__name">Голосовой поиск</p>
+                    <p class="philipsItem__detail">Если вы знаете, что вам нужно, просто произнесите команду и Android TV найдет это для вас. Смотрите, не теряя времени на поиск.</p>
+                </li>
+
+                <li class="philipsSlider_item philipsItem" data-number="7">
+                    <div class="philipsItem__video philipsItem__video--7">
+                        <div class="philipsItemContainer">
+                            <div class="philipsItemPlay">
+                                <div class="philipsItemPlay__trigl"></div>
+                            </div>
+                            <div class="philipsItemPlay__shadow"></div>
+                        </div>
+                    </div>
+                    <p class="philipsItem__name">Google Cast™</p>
+                    <p class="philipsItem__detail">Google Cast позволяет передавать фильмы, телешоу и фотографии с мобильного устройства Android или iOS или ноутбука на телевизор.</p>
+                    <p class="philipsItem__detail">* Android 2.3 и более поздние версии, iOS7 и более поздние версии</p>
+                </li>
+            </ul>
+        </div>
+        <div class="philipsVideoActive">
+            <div class="philipsVideoClose"></div>
+        </div>
+    </div>
+    <div class="philipsTV">
+        <div class="philipsVideoArticle">
+            <p class="PhilipsArticleName">Найдите свой телевизор BRAVIA
+                <span class="PhilipsArticleName__detail">BRAVIA с Android TV</span>
+            </p>
+            <p class="PhilipsArticleDetail">Любимый контент всего на расстоянии одного жеста или голосовой команды.</p>
+        </div>
+        <div class="philipsTV">
+            <ul class="philipsTvList">
+                <li class="philipsTvList__item philipsTv">
+                    <div class="philipsTv__image philipsTv__image--1"></div>
+                    <p class="philipsTv__name">3D LED телевизор Sony KDL-43 W 808 CBR2 с Android TV</p>
+                    <ul class="philipsTv__detail detailList">
+                        <li class="detailList__item">Диагональ экрана: 43 дюйма</li>
+                        <li class="detailList__item">3D-технология: затворная</li>
+                        <li class="detailList__item">Максимальное разрешение 1920x1080 FullHD</li>
+                    </ul>
+                    <div class="philipsTvContainer">
+                        <p class="philipsTv__price"><span class="philips__price">1212 1212 </span><span class="bRub">руб.</span></p>
+                        <a href="/context/detail/id/33481788/" class="heroesProduct__link">
+                            Купить
+                        </a>
+                    </div>
+                </li>
+
+             <!--   <li class="philipsTvList__item  philipsTvList__item--2 philipsTv ">
+                    <div class="philipsTv__image philipsTv__image--2"></div>
+                    <p class="philipsTv__name">3D LED телевизор Sony KDL-65 W 855 CBR2 с Android TV </p>
+                    <ul class="philipsTv__detail detailList">
+                        <li class="detailList__item">иагональ экрана: 65 дюймов</li>
+                        <li class="detailList__item">3D-технология: затворная</li>
+                        <li class="detailList__item">Максимальное разрешение 1920x1080 FullHD</li>
+                    </ul>
+                    <div class="philipsTvContainer">
+                        <p class="philipsTv__price">1212 1212</p>
+                        <a href="" class="heroesProduct__link">
+                            Купить
+                        </a>
+                    </div>
+                </li> -->
+
+                <li class="philipsTvList__item philipsTv philipsTvList__item--2 ">
+                    <div class="philipsTv__image philipsTv__image--3"></div>
+                    <p class="philipsTv__name">Телевизор Sony KD-49X8305C с Android TV  </p>
+                    <ul class="philipsTv__detail detailList">
+                        <li class="detailList__item"> Диагональ экрана: 49 дюймов</li>
+                        <li class="detailList__item">Светодиодная подсветка</li>
+                        <li class="detailList__item">Максимальное разрешение 3840x2160 4K UltraHD</li>
+                    </ul>
+                    <div class="philipsTvContainer">
+                        <p class="philipsTv__price"><span class="philips__price">1212 1212 </span><span class="bRub">руб.</span></p>
+                        <a href="/context/detail/id/32991675/" class="heroesProduct__link">
+                            Купить
+                        </a>
+                    </div>
+                </li>
+
+                <li class="philipsTvList__item philipsTv">
+                    <div class="philipsTv__image philipsTv__image--4"></div>
+                    <p class="philipsTv__name">Телевизор Sony KDL-55W807C с Android TV</p>
+                    <ul class="philipsTv__detail detailList">
+                        <li class="detailList__item">Диагональ экрана: 55 дюймов</li>
+                        <li class="detailList__item">Светодиодная подсветка</li>
+                        <li class="detailList__item">Максимальное разрешение 1920x1080 FullHD</li>
+                    </ul>
+                    <div class="philipsTvContainer">
+                        <p class="philipsTv__price"><span class="philips__price">1212 1212 </span><span class="bRub">руб.</span></p>
+                        <a href="/context/detail/id/32991676/" class="heroesProduct__link">
+                            Купить
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

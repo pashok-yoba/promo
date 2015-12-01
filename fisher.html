@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+<style>
+#eski-root .wrap {
+    padding: 0;
+}
+.pageCenterNoLeft {
+    padding: 0;
+
+}
+.pageContent .PageModule {
+    margin: 0;
+}
+#PageContent {
+    padding: 0;
+}
+.pageCenterNoLeft div.pageContent .PageModule {
+    margin: 0;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+#fisher {
+    font-family: Arial, sans-serif;
+    background-color: #151d28;
+    position: relative;
+    min-width: 1000px;
+    max-width: 1200px;
+    margin:  0 auto;
+    padding: 0 10px 10px;
+    overflow: hidden;
+}
+#fisher * {
+    padding: 0;
+    margin: 0;
+}
+#fisher .fisherLogo {
+    position: absolute;
+    right: 50px;
+    top: 0;
+    z-index: 10;
+}
+#fisher .fisherMenu {
+    width: 350px;
+    background-color: #f1ed0e;
+    position: relative;
+    padding: 0 0 0 10px;
+    box-sizing: border-box;
+}
+#fisher .fisherMenu:after {
+    display: inline-block;
+    position: absolute;
+    content: ' ';
+    border: 25px solid transparent;
+    border-top: 50px solid #f1ed0e;
+    top: 0;
+    right: -25px;
+}
+#fisher .fisherMenu__item {
+    color: #151d28;
+    font-size: 18px;
+    line-height: 50px;
+    display: inline-block;
+    padding: 0 15px;
+    text-decoration: none;
+}
+#fisher .fisherMenu__item:hover {
+    text-decoration: underline;
+}
+#fisher .fisherSkiesContainer {
+    position: relative;
+    overflow: hidden;
+}
+#fisher .fisherSkies {
+    width: 49.5%;
+}
+#fisher .fisherSkies--mountain {
+    float: left;
+}
+#fisher .fisherSkies--run {
+    float: right;
+}
+#fisher .fisherSkies__title {
+    height: 450px;
+    position: relative;
+    cursor: pointer;
+}
+#fisher .fisherSkies__title--left {
+    background-image: url(http://ozon.ru/graphics/action/151123-fisher/left.jpg);
+    background-position: left top;;
+}
+#fisher .fisherSkies__title--right {
+    background-image: url(http://ozon.ru/graphics/action/151123-fisher/right.jpg);
+    background-position: right top;;
+}
+#fisher .fisherSkies__textName {
+    color: white;
+    padding: 0 15px;
+    text-transform: uppercase;
+    line-height: 43px;
+    position: absolute;
+    background-color: #151d28;
+    top: 348px;
+    left: 40px;
+    font-size: 24px;
+    font-weight: normal;
+}
+#fisher .fisherCategories {
+    list-style-type: none;
+    height: 200px;
+    overflow: hidden;
+}
+#fisher .fishersCategories__item {
+    float: left;
+    width: 33.333333333333333333333%;
+}
+#fisher .fisherLink {
+    text-decoration: none;
+    background-color: white;
+    display: block;
+}
+#fisher .fisherLink__image {
+    height: 170px;
+    display: block;
+}
+#fisher .fisherLink__image--left1 {
+    background-image: url(http://ozon.ru/graphics/action/151123-fisher/leftbottom-1.jpg);
+}
+#fisher .fisherLink__image--left2 {
+    background-image: url(http://ozon.ru/graphics/action/151123-fisher/leftbottom-2.jpg);
+}
+#fisher .fisherLink__image--left3 {
+    background-image: url(http://ozon.ru/graphics/action/151123-fisher/leftbottom-3.jpg);
+}
+#fisher .fisherLink__image--right1 {
+    background-image: url(http://ozon.ru/graphics/action/151123-fisher/rightbottom-1.jpg);
+}
+#fisher .fisherLink__image--right2 {
+    background-image: url(http://ozon.ru/graphics/action/151123-fisher/rightbottom-2.jpg);
+}
+#fisher .fisherLink__image--right3 {
+    background-image: url(http://ozon.ru/graphics/action/151123-fisher/rightbottom-3.jpg);
+}
+#fisher .fisherLink__text {
+    font-size: 18px;
+    text-align: center;
+    color: #151d28;
+    line-height: 30px;
+    display: block;
+}
+#fisher .active-parent {
+    width: 75%;
+}
+#fisher .active-left {
+    margin-right: -25%;
+    opacity: 0.5;
+}
+#fisher .active-right {
+    margin-left: -25%;
+    opacity: 0.5;
+}
+#fisher .nameLeft {
+    left: 55%;
+}
+#videosContaier {
+    padding: 80px 15px;
+    background-color: #f1f2f6;
+
+}
+#videosContaier .fisherVideos {
+    list-style-type: none;
+    width: 1000px;
+    margin: 0 auto;
+}
+#videosContaier .fisherVideos__item {
+    height: 132px;
+    margin: 0 10px;
+    width: 200px;
+    background-size: cover;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+}
+#videosContaier .fisherVideos__item--1 {
+    background-image: url(http://ozon.ru/graphics/action/151123-fisher/video1.jpg);
+}
+#videosContaier .fisherVideos__item--2 {
+    background-image: url(http://ozon.ru/graphics/action/151123-fisher/video2.jpg);
+}
+#videosContaier .fisherVideos__item--3 {
+    background-image: url(http://ozon.ru/graphics/action/151123-fisher/video3.jpg);
+}
+#videosContaier .fisherVideos__item--4 {
+    background-image: url(http://ozon.ru/graphics/action/151123-fisher/video4.jpg);
+}
+#videosContaier .fisherVideos__item:after {
+    content: ' ';
+    border: 15px solid transparent;
+    border-left: 25px solid #fff;
+    display: inline-block;
+    opacity: 0.9;
+    vertical-align: middle;
+}
+#videosContaier .fisherVideos__item:before {
+    content: ' ';
+    width: 0;
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+#videosContaier .videoHover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    display: none;
+    text-align: center;
+    padding-top: 200px;
+    box-sizing: border-box;
+}
+#videosContaier .videoHoverClose {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-family: Arial, sans-serif;
+    color: #d1d1d1;
+    font-size: 15px;
+    cursor: pointer;
+}
+#videosContaier .videoHoverClose:hover {
+    text-decoration: underline;
+}
+#videosContaier .fisherVideo {
+    display: inline-block;
+}
+.containerFisher {
+    position: relative;
+}
+@media only screen and (max-width: 768px) {
+    .containerFisher {
+        background-color: #151d28
+    }
+    #fisher {
+        min-width: 320px;
+        max-width: 575px;
+        padding: 90px 0 0 0;
+        overflow: hidden;
+        margin: 0 auto;
+
+    }
+    #fisher .fisherSkies__title {
+        height: 125px;
+        background-size: auto 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    #fisher .fisherMenu {
+        width: auto;
+        background-color: #151d28;
+        text-align: center;
+    }
+    #fisher .fisherMenu:after {
+        display: none;
+    }
+    #fisher .fisherMenu__item {
+        color: #f1ed0f;
+        font-size: 15px;
+    }
+    #fisher .fisherSkies__textName {
+        font-size: 14px;
+        text-transform: uppercase;
+        top: 85px;
+        left: 10px;
+        line-height: 24px;
+    }
+    #fisher .fisherCategories {
+        height: auto;
+    }
+    #fisher .fishersCategories__item {
+        float: none;
+        width: 100%;
+        padding: 5px 0;
+    }
+    #fisher .fisherLink__image {
+        display: none;
+    }
+    #fisher .fisherLink {
+        background-color: #151d28;
+    }
+    #fisher .fisherLink__text {
+        color: #fff;
+        font-size: 15px;
+        text-align: left;
+        padding-left: 5%;
+    }
+    #fisher .fisherLink__text:hover {
+        text-decoration: underline;
+    }
+
+    #videosContaier {
+        padding: 20px 15px;
+        overflow-x: scroll;
+    }
+    #videosContaier .fisherVideos {
+        width: 900px;
+    }
+    #videosContaier .videoHover {
+        padding-top: 100px;
+        z-index: 100;
+    }
+    #videosContaier .fisherVideo {
+        width: 320px!important;
+        height: 180px!important;
+    }
+}
+</style>
+<script>
+    var videos = [];
+    videos[0] = $('<iframe class="fisherVideo" width="560" height="315" src="https://www.youtube.com/embed/woA69txT1MM" frameborder="0" allowfullscreen></iframe>');
+    videos[1] = $('<iframe class="fisherVideo" width="560" height="315" src="https://www.youtube.com/embed/EE-6d27rFRs"" frameborder="0" allowfullscreen></iframe>');
+    videos[2] = $('<iframe class="fisherVideo" width="560" height="315" src="https://www.youtube.com/embed/SrL9OeHK74M" frameborder="0" allowfullscreen></iframe>');
+    videos[3] = $('<iframe class="fisherVideo" width="560" height="315" src="https://www.youtube.com/embed/4DzQgU9yZbg" frameborder="0" allowfullscreen></iframe>');
+    function playVideo() {
+        var number =  this.className.split(' ')[1];
+        console.log(number);
+        number = +number.split('fisherVideos__item--')[1];
+        $('.videoHover').append(videos[number-1]);
+        $('.videoHover').css({'display': 'block'});
+    }
+    function fisherClose() {
+        $('.videoHover').css({'display': 'none'});
+        $('.fisherVideo').remove()
+    }
+
+
+    function changeSki(){
+        var tl = new TimelineMax({'paused': true});
+        var tl1 = new TimelineMax({'paused': true});
+        tl.kill();
+        tl1.kill();
+        if ( $(this).hasClass('active') ) {
+            $(this).removeClass('active');
+            tl.to($('.fisherSkies'), 0.3, {className: '-=active-parent'}, 0);
+            tl.to($('.active-left'), 0.3, {className: '-=active-left'}, 0);
+            tl.to($('.active-right'), 0.3, {className: '-=active-right'}, 0);
+            tl.to($('.fisherSkies__textName'), 0.3, {className: '-=nameLeft'}, 0);
+            tl.play();
+        }
+        else {
+            $('.fisherSkies__title').removeClass('active');
+            if ( $(this).parent().hasClass('fisherSkies--run') == false ) {
+                tl.to($(this), 0.3, {className: '+=active'});
+                tl.to($('.fisherSkies').eq(1), 0.3, {className: '+=active-left'}, 0);
+                tl.to($(this).parent(), 0.3, {className: '+=active-parent'}, 0);
+
+                tl1.to($('.fisherSkies--run'), 0.3, {className: '-=active-parent'}, 0);
+                tl1.to($('.fisherSkies--mountain'), 0.3, {className: '-=active-right'}, 0);
+                tl1.to($('.fisherSkies').eq(0).find('.fisherSkies__textName'), 0.3, {className: '-=nameLeft'}, 0);
+
+            }
+            else {
+                tl.to($(this), 0.3, {className: '+=active'});
+                tl.to($('.fisherSkies').eq(0), 0.3,{ className: '+=active-right'}, 0);
+                tl.to($(this).parent(), 0.3,{ className: '+=active-parent'}, 0);
+                tl.to($('.fisherSkies').eq(0).find('.fisherSkies__textName'), 0, {className: '+=nameLeft'}, 0.1);
+
+                tl1.to($('.fisherSkies--mountain'), 0.3, {className: '-=active-parent'}, 0);
+                tl1.to($('.fisherSkies--run'), 0.3, {className: '-=active-left'}, 0);
+            }
+            tl.play();
+            tl1.play();
+        }
+    }
+    $(function(){
+        $('.fisherSkies__title').on('click', changeSki);
+        $('.fisherVideos__item').on('click', playVideo);
+        $('.videoHoverClose').on('click', fisherClose);
+    })
+</script>
+<div class="containerFisher">
+    <section id="fisher">
+        <h1 class="fisherLogo">
+            <img class=fisherLogo__img" src="http://ozon.ru/graphics/action/151123-fisher/logo.jpg" alt="fisherLogo">
+        </h1>
+        <nav class="fisherMenu">
+            <a class="fisherMenu__item" href="#">Новинки</a>
+            <a class="fisherMenu__item" href="#">Бестселлеры</a>
+            <a class="fisherMenu__item" href="#">Акции</a>
+        </nav>
+        <div class="fisherSkiesContainer">
+            <article class="fisherSkies fisherSkies--mountain">
+                <h2 class="fisherSkies__title fisherSkies__title--left">
+                    <span class="fisherSkies__textName">Горные лыжи</span>
+                </h2>
+                <ul class="fisherCategories">
+                    <li class="fishersCategories__item">
+                        <a class="fisherLink" href="#">
+                            <span class="fisherLink__image fisherLink__image--left1"></span>
+                            <span class="fisherLink__text">Лыжи</span>
+                        </a>
+                    </li>
+                    <li class="fishersCategories__item">
+                        <a class="fisherLink" href="#">
+                            <span class="fisherLink__image fisherLink__image--left2"></span>
+                            <span class="fisherLink__text">Ботинки</span>
+                        </a>
+                    </li>
+                    <li class="fishersCategories__item">
+                        <a class="fisherLink" href="#">
+                            <span class="fisherLink__image fisherLink__image--left3"></span>
+                            <span class="fisherLink__text">Аксессуары</span>
+                        </a>
+                    </li>
+                </ul>
+            </article>
+
+            <article class="fisherSkies fisherSkies--run">
+                <h2 class="fisherSkies__title fisherSkies__title--right">
+                    <span class="fisherSkies__textName">Беговые лыжи</span>
+                </h2>
+                <ul class="fisherCategories">
+                    <li class="fishersCategories__item">
+                        <a class="fisherLink" href="#">
+                            <span class="fisherLink__image fisherLink__image--right1"></span>
+                            <span class="fisherLink__text">Лыжи</span>
+                        </a>
+                    </li>
+                    <li class="fishersCategories__item">
+                        <a class="fisherLink" href="#">
+                            <span class="fisherLink__image fisherLink__image--right2"></span>
+                            <span class="fisherLink__text">Ботинки</span>
+                        </a>
+                    </li>
+                    <li class="fishersCategories__item">
+                        <a class="fisherLink" href="#">
+                            <span class="fisherLink__image fisherLink__image--right3"></span>
+                            <span class="fisherLink__text">Аксессуары</span>
+                        </a>
+                    </li>
+                </ul>
+            </article>
+        </div>
+    </section>
+
+    <div id="videosContaier">
+        <ul class="fisherVideos">
+            <li class="fisherVideos__item fisherVideos__item--1"></li>
+            <li class="fisherVideos__item fisherVideos__item--2"></li>
+            <li class="fisherVideos__item fisherVideos__item--3"></li>
+            <li class="fisherVideos__item fisherVideos__item--4"></li>
+        </ul>
+        <div class="videoHover">
+            <div class="videoHoverClose">Закрыть</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

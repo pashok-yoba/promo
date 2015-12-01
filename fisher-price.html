@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTf-8">
+    <meta name="viewport" content="width=device-width, scale=1.0">
+    <title></title>
+</head>
+<body>
+<style type="text/css">
+    #eski-root .wrap {
+        padding:0!important;
+    }
+    #prm_fisher .text-mobile {
+        display: none;
+    }
+    #prm_fisher .logo-mobile {
+        display: none;
+    }
+    #prm_fisher{
+        background:url(http://ozon.ru/graphics/action/14128_fisher/fon.jpg) center 0 no-repeat;
+        /* margin-top:-20px;    */
+    }
+    #prm_fisher .bContent{
+        width:1000px;
+        margin:0 auto;
+        padding:792px 0 0 0;
+    }
+    #prm_fisher .bContent>a{
+        display:inline-block;
+        cursor:pointer;
+        margin:0 9px 18px 0;
+        width:240px;
+        height:82px;
+        background-image:url(http://ozon.ru/graphics/action/14128_fisher/sprite.png);
+        background-repeat:no-repeat;
+    }
+    #prm_fisher .bContent .eDep1{
+        background-position:0px 0px;
+    }
+    #prm_fisher .bContent .eDep2{
+        background-position:-242px 0px;
+    }
+    #prm_fisher .bContent .eDep3{
+        background-position:-486px 0px;
+    }
+    #prm_fisher .bContent .eDep4{
+        background-position:-726px 0px;
+        margin:0 0 18px 0;
+    }
+    #prm_fisher .bContent .eDep5{
+        background-position:0px -84px;
+        margin:0 9px 5px 0;
+    }
+    #prm_fisher .bContent .eDep6{
+        background-position:-242px -84px;
+        margin:0 9px 5px 0;
+    }
+    #prm_fisher .bContent .eDep7{
+        background-position:-486px -84px;
+        margin:0 9px 5px 0;
+    }
+    #prm_fisher .bContent .eDep8{
+        background-position:-726px -84px;
+        margin:0 0 5px 0;
+    }
+    .product-block {padding: 0px !important; margin: 0px !important;}
+    .details-global #PageContainer .pageContent, .hr{background-color: transparent !important;}
+    /* общие */
+    @media only screen and (max-width: 768px) {
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #prm_fisher .bContent {
+            width: 100%;
+            padding: 0;
+        }
+        .eDep1 {
+            background-color: #d8d53d;
+        }
+        .eDep2 {
+            background-color: #ff3332;
+        }
+        .eDep3 {
+            background-color: #98cc33;
+        }
+        .eDep4 {
+            background-color: #ff6600;
+        }
+        .eDep5 {
+            background-color: #83b226;
+        }
+        .eDep6 {
+            background-color: #ff9800;
+        }
+        .eDep7 {
+            background-color: #66ccff;
+        }
+
+        .eDep8 {
+            background-color: #ffcd01;
+        }
+        #prm_fisher .items:after {
+            content: ' ';
+            display: inline-block;
+            height: 100%;
+            width:0;
+            vertical-align: middle;
+        }
+        #prm_fisher .text-mobile {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+    }
+    /* density 1.0 */
+    @media only screen and  (max-width: 479px) {
+
+        .mobile #prm_fisher{
+            min-width: 320px;
+        }
+        .mobile .prm-fisher-back {
+            min-width: 320px;
+            background-image: url(http://ozon.ru/graphics/action/150323-fisher/fon2.png);
+            background-size: 100% auto;
+            padding-top: 10px;
+            box-sizing: border-box;
+            height: 160px;
+            background-position: top center;
+        }
+        .mobile #prm_fisher .logo-mobile {
+            display: block;
+            width: 170px;
+            height: 57px;
+            background-image: url(http://ozon.ru/graphics/action/150323-fisher/logo-fisher2.png);
+            background-size: 100% auto;
+            margin: 0 auto;
+        }
+        .mobile #prm_fisher .bContent {
+            top: 160px;
+            min-width: 320px;
+            overflow: hidden;
+        }
+        .mobile #prm_fisher .items {
+            box-sizing: border-box;
+            border: 1px solid white;
+            width: 50%!important;
+            margin: 0!important;
+            padding: 0 0 0 1.125%!important;
+            float: left;
+            height: 44px!important;
+            background-image: none!important;
+        }
+
+    }
+    @media only screen and  (min-width: 480px) and (max-width: 768px) {
+        .mobile #prm_fisher{
+            min-width: 480px;
+            box-sizing: border-box;
+        }
+        .mobile #prm-outer .logo-mobile {
+            display: block;
+            width: 210px;
+            height: 73px;
+            background-image: url(http://ozon.ru/graphics/action/150323-fisher/logo-fisher2.png);
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            margin: 0 auto;
+        }
+        .mobile #prm-outer .bContent {
+            min-width: 480px;
+            overflow: hidden;
+
+        }
+        .mobile #prm-outer .items {
+            box-sizing: border-box;
+            border: 1px solid white;
+            width: 50%!important;
+            margin: 0!important;
+            padding: 0 0 0 11.25%!important;
+            float: left;
+            height: 44px!important;
+            background-image: none!important;
+        }
+        .mobile .prm-fisher-back {
+            background-image: url(http://ozon.ru/graphics/action/150323-fisher/fon2.png);
+            padding-top: 95px;
+            background-size: 100% auto;
+            min-width: 480px;
+            box-sizing: border-box;
+            height: 174px;
+            background-position: center center;
+        }
+    }
+</style>
+<div id="prm-outer">
+    <div id="prm_fisher">
+        <div class="prm-fisher-back">
+            <div class="logo-mobile"> </div>
+        </div>
+        <div class="bContent">
+            <a href="/brand/19383855/?group=toy&catalog=1163837&seria=30740498#detf" class="eDep1 items"><img src="http://ozon.ru/graphics/action/150323-fisher/text1.png" class="text-mobile"/></a>
+            <a href="/brand/19383855/?group=toy&catalog=1163837&seria=3982570#detf" class="eDep2 items"><img src="http://ozon.ru/graphics/action/150323-fisher/text2.png" class="text-mobile"/></a>
+            <a href="/brand/19383855/?group=toy&catalog=1163837&seria=30740296#detf" class="eDep3 items"><img src="http://ozon.ru/graphics/action/150323-fisher/text3.png" class="text-mobile"/></a>
+            <a href="/brand/19383855/?group=toy&catalog=1163837&seria=30740505#detf" class="eDep4 items"><img src="http://ozon.ru/graphics/action/150323-fisher/text4.png" class="text-mobile"/></a>
+            <a href="/brand/19383855/?group=toy&catalog=1163837&seria=30740666#detf" class="eDep5 items"><img src="http://ozon.ru/graphics/action/150323-fisher/text5.png" class="text-mobile"/></a>
+            <a href="/brand/19383855/?group=toy&catalog=1163837&seria=30740495#detf" class="eDep6 items"><img src="http://ozon.ru/graphics/action/150323-fisher/text6.png" class="text-mobile"/></a>
+            <a href="/brand/19383855/?group=toy&catalog=1163837&seria=30740501#detf" class="eDep7 items"><img src="http://ozon.ru/graphics/action/150323-fisher/text7.png" class="text-mobile"/></a>
+            <a href="/brand/19383855/?group=toy&catalog=1163837&seria=30740502#detf" class="eDep8 items"><img src="http://ozon.ru/graphics/action/150323-fisher/text8.png" class="text-mobile"/></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html class="mobile">
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+<style type="text/css">
+    *{padding: 0; margin: 0}
+    #prm {padding: 0; font-family: Arial; margin: 0 auto; background: url("http://ozon.ru/graphics/action/150605-liq/bg.gif");}
+    #prm *{padding: 0; margin: 0}
+    #prm .prmContent{}
+    #prm .prmContent .prmBlock{width: 25%; float: left;}
+    #prm .prmContent .prmBlock.prmBig{width: 25%;}
+    #prm .prmContent .prmBlock .prmImg{margin: 5px; height: 240px; background-position: center top; background-repeat: no-repeat; position: relative; display: block; text-decoration: none; color: black;}
+    #prm .prmContent .prmBlock .prmImg:hover{opacity: 0.9;}
+    #prm .prmContent .prmBlock .prmImg .prmText{color: black; font-size: 18px; position: absolute; left: 18px; top: 18px; z-index: 2;}
+    #prm .prmContent .prmBlock .prmImg .prmText .prmTitle{font-size: 18px; background-color: #FFF; border: 1px solid #F3F3F8; padding: 7px 15px; border-radius: 15px;}
+    #prm .prmContent .prmBlock.prmSale{width: 50%; transition: 2s;}
+    #prm .prmContent .prmBlock.prmSale .prmImg{transition: 2s; background-image: url('http://ozon.ru/graphics/action/150605-liq/sale.jpg');}
+    #prm .prmContent .prmBlock.prmSale.prmImg2 .prmImg{background-image: url('http://ozon.ru/graphics/action/150605-liq/sale2.jpg');}
+    #prm .prmContent .prmBlock.prmHD{width: 50%;}
+    #prm .prmContent .prmBlock.prmSport{width: 50%;}
+    @media only screen and (min-width: 1300px) {
+        #prm .prmContent{padding: 0 40px 0 40px;}
+        #prm .prmContent .prmBlock.prmBig{width: 40%;}
+        #prm .prmContent .prmBlock{width: 20%; min-width: 240px;}
+        #prm .prmContent .prmBlock.prmSale{width: 40%;}
+        #prm .prmContent .prmBlock.prmBeauty{width: 40%;}
+        #prm .prmContent .prmBlock.prmHD{width: 40%;}
+        #prm .prmContent .prmBlock.prmSport{width: 40%;}
+    }
+    @media only screen and (min-width: 1560px) {
+        #prm .prmContent{padding: 0 50px 0 50px;}
+        #prm .prmContent .prmBlock.prmBig{width: 33.2%;}
+        #prm .prmContent .prmBlock{width: 16.6%; min-width: 240px;}
+        #prm .prmContent .prmBlock.prmSale{width: 33.2%;}
+        #prm .prmContent .prmBlock.prmBeauty{width: 16.6%;}
+        #prm .prmContent .prmBlock.prmHD{width: 33.2%;}
+        #prm .prmContent .prmBlock.prmSport{width: 33.2%;}
+    }
+    @media only screen and (max-width: 768px) {
+        #prm .prmContent .prmBlock.prmSale .prmImg {
+            transition: none;
+        }
+        #prm {
+            min-width: 320px;
+            background-image: none;
+        }
+        #eski-root .wrap {padding: 0;}
+    }
+    @media only screen and (max-width: 500px) {
+        #prm .prmSale {
+            width: 100%!important;
+        }
+        #prm .prmContent .prmBlock.prmBig {
+            width: 100%;
+        }
+        #prm .prmContent .prmBlock {
+            width: 50%;
+        }
+        #prm .prmContent .prmBlock .prmImg {
+            margin: 2px;
+            height: 140px;
+            background-position: center center;
+            background-size: auto 100%;
+            position: relative;
+        }
+        .prmBeauty {
+            width: 60%!important;
+        }
+        .prmHD {
+            width: 40%!important;
+        }
+        .prmMobile-tv {
+            width: 55%!important;
+        }
+        .prmmobile-hobby {
+            width:45%!important;
+        }
+        .prmmobile-dvd {
+            width: 44%!important;
+        }
+        .prmmobile-clothers {
+            width: 56%!important;
+        }
+        #prm .prmContent .prmBlock .prmImg .prmText {
+            left: 2%;
+            max-width: 96%;
+
+        }
+        #prm .prmContent .prmBlock .prmImg .prmText .prmTitle {
+            background-color: rgba(255,255,255,0.7)!important;
+            border: 0;
+        }
+    }
+    @media only screen and (min-width: 421px) and (max-width: 500px) {
+        #prm .prmContent .prmBlock .prmImg {
+            height: 180px;
+        }
+        #prm .prmContent .prmBlock .prmImg {
+            margin: 4px;
+        }
+    }
+        @media only screen and (min-width: 501px) and (max-width: 768px) {
+            #prm .prmContent .prmBlock .prmImg .prmText .prmTitle {
+                background-color: rgba(255,255,255,0.7)!important;
+                border: 0;
+            }
+            #prm .prmContent .prmBlock.prmSale {
+                width: 100%;
+            }
+            #prm .prmContent .prmBlock.prmSale .prmImg {
+                background-size: 100% auto;
+                background-color: #ff4338;
+            }
+            #prm .prmContent .prmBlock.prmBig {
+                width: 50%;
+            }
+            #prm .prmContent .prmBlock {
+                width: 50%;
+            }
+            #prm .prmContent .prmBlock .prmImg {
+                margin: 5px;
+                height: 180px;
+                background-position: center center;
+                position: relative;
+            }
+            .prmBeauty {
+                width: 50%!important;
+            }
+            .prmHD {
+                width: 50%!important;
+            }
+            .prmMobile-tv {
+                width: 50%!important;
+            }
+            .prmmobile-hobby {
+                width:50%!important;
+            }
+            .prmmobile-dvd {
+                width: 50%!important;
+            }
+            .prmmobile-clothers {
+                width: 50%!important;
+            }
+            #prm .prmContent .prmBlock .prmImg .prmText {
+                left: 2%;
+                max-width: 96%;
+
+            }
+        }
+</style>
+<script type="text/javascript">
+    $( document ).ready(function() {
+        if ($('html').hasClass('mobile')){
+            $('.prmSale').prependTo($('.prmContent')).addClass('prmImg2');
+        }
+        else {
+            setInterval( function() {
+                $('.prmSale').toggleClass('prmImg2');
+            } , 5000);
+        }
+    });
+</script>
+<div id="prm" class="mAdaptiveBanner">
+    <div class="prmContent">
+        <div class="prmBlock prmBig">
+            <a href="/catalog/1132527/?discount=30-100" class="prmImg" style="background-image: url('http://ozon.ru/graphics/action/150605-liq/img1.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Книги</div>
+                </div>
+            </a>
+        </div>
+        <div class="prmBlock prmSale">
+            <div class="prmImg">
+
+            </div>
+        </div>
+        <a href="/catalog/1133722/?discount=20-100" class="prmBlock">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img2.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Бытовая техника</div>
+                </div>
+            </div>
+        </a>
+        <a href="/catalog/1132530/?discount=20-100" class="prmBlock">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img3.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Электроника</div>
+                </div>
+            </div>
+        </a>
+        <a href="/catalog/1158309/?discount=25-100" class="prmBlock prmBeauty">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img4.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Красота и здоровье</div>
+                </div>
+            </div>
+        </a>
+        <a href="/catalog/1145470/?discount=30-100" class="prmBlock prmHD">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img5.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Дом, сад, зоотовары</div>
+                </div>
+            </div>
+        </a>
+        <a href="/catalog/1145489/?discount=30-100" class="prmBlock prmSport">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img6.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Спорт и отдых</div>
+                </div>
+            </div>
+        </a>
+        <a href="/context/childsport_catalog/?discount=30-100" class="prmBlock">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img7.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Детский спорт</div>
+                </div>
+                <div class="prmBg" style="background-color: #aa4d9d;"></div>
+            </div>
+        </a>
+        <a href="/catalog/1159728/?discount=30-100" class="prmBlock prmBig">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img8.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Игрушки</div>
+                </div>
+            </div>
+        </a>
+        <a href="/catalog/1168837/?discount=30-100" class="prmBlock prmMobile-tv">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img9.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Творчество</div>
+                </div>
+            </div>
+        </a>
+        <a href="/catalog/1148004/?discount=30-100" class="prmBlock prmBig  prmmobile-hobby">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img10.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Хобби для детей</div>
+                </div>
+            </div>
+        </a>
+        <a href="/catalog/1160574/?discount=30-100&sort=bests" class="prmBlock">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img11.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Канцелярские товары</div>
+                </div>
+            </div>
+        </a>
+        <a href="/catalog/1132532/?discount=30-100" class="prmBlock">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img12.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Игры и софт</div>
+                </div>
+            </div>
+        </a>
+        <a href="/catalog/1132528/?discount=30-100" class="prmBlock prmmobile-dvd">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img13.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">DVD и Blu-ray</div>
+                </div>
+            </div>
+        </a>
+        <a href="/catalog/1153308/?discount=30-100" class="prmBlock prmBig prmmobile-clothers">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img14.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Одежда</div>
+                </div>
+            </div>
+        </a>
+        <a href="/catalog/1134293/?discount=30-100" class="prmBlock">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img15.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Обувь</div>
+                </div>
+            </div>
+        </a>
+        <a href="/context/catalog/id/1171905/?store=1" class="prmBlock">
+            <div class="prmImg" style="background-image: url('http://ozon.ru//graphics/action/150605-liq/img16.jpg');">
+                <div class="prmText">
+                    <div class="prmTitle">Антиквариат и винтаж</div>
+                </div>
+            </div>
+        </a>
+        <div style="clear: both"></div>
+    </div>
+</div>
+</body>
+</html>

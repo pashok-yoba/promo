@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8"/>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<script type="text/javascript" src="http://www.ozon.ru/graphics/action/150729-eksmo/slider.js"></script>
+<style>
+    #prm-banner{z-index:1;
+        width:100%!important;
+        height:100%!important;
+        overflow:hidden!important;
+        position:relative!important;
+        /*  box-shadow:5px 10px 50px 1px rgba(2,14,52,.4);*/
+        box-sizing: border-box!important
+    }
+    #prm-banner .banner-slide{top:0;left:0;width:100%;height:100%;background:#fff;position:absolute;}
+    #prm-banner .banner-main-container{
+        height:100%!important;
+        overflow:hidden;
+        position:relative;
+    }
+    #prm-banner .banner-nav-bul{
+        top:-31px;
+        width:100%!important;
+        height:14px!important;
+        position:relative!important;
+        text-align:right!important;
+        margin:0 auto!important;
+        padding-right: 41px;
+        box-sizing: border-box!important;
+    }
+
+    #prm-banner .banner-nav-bul span{
+        top:0!important;
+        width:8px!important;
+        height:8px!important;
+        z-index:1000!important;
+        cursor:pointer!important;
+        position:relative!important;
+        vertical-align:top!important;
+        display:inline-block!important;
+        border-radius: 4px!important;
+        background-color: #ecb2be!important;
+        margin:0 3px!important;
+    }
+    #prm-banner .banner-nav-bul span:hover,#prm-banner .banner-nav-bul span.banner-active{
+        background-color: #d2416c!important
+    }
+
+    #prm .prm-categories .prm-item{width:175px;color:#c4d3ed;font-size:14px;margin-top:31px;margin-left:15px;line-height:normal;vertical-align:top;display:inline-block;text-decoration:none;-webkit-transition:all .3s ease;-moz-transition:all .3s ease;-ms-transition:all .3s ease;-o-transition:all .3s ease;transition:all .3s ease;}#prm .prm-categories .prm-item-img{width:175px;height:175px;font-size:0;line-height:0;margin-bottom:12px;}#prm .prm-categories .prm-item-name{font-weight:700;text-transform:uppercase;}#prm .prm-categories .prm-item:hover{color:#fff;}#prm:after,#prm .prm-header:after,#prm .prm-categories .prm-wrap:after{clear:both;content:"";display:block;}#prm-banner .banner-item {width:100%;height:100%;;display:block;}
+
+
+    #eski-root #prm-banner .banner-main-container {
+        padding: 0!important;
+    }
+    #eski-root #prm-banner {
+        margin: 0!important;
+    }
+    #eski-root #prm-banner {
+        padding-bottom: 0!important;
+    }
+    #eski-root #prm-banner .banner-nav-bul span::before {
+        background-color: transparent;
+    }
+    #eski-root #prm-banner .banner-nav-bul span.banner-active::before {
+        background-color: transparent;
+    }
+</style>
+<style>
+#eski-root .wrap {
+    padding: 0;
+}
+.pageCenterNoLeft {
+    padding: 0;
+
+}
+.pageContent .PageModule {
+    margin: 0;
+}
+#PageContent {
+    padding: 0;
+}
+.pageCenterNoLeft div.pageContent .PageModule {
+    margin: 0;
+}
+#eksmo * {
+    margin: 0;
+    padding: 0;
+}
+#eksmo {
+    width: 960px;
+    margin: 0 auto;
+    font-family: Verdana, Arial, sans-serif;
+}
+#eksmo .eksmoLine1 {
+    overflow: hidden;
+}
+#eksmo .eksmoBlock {
+    width: 190px;
+    box-sizing: border-box;
+    margin: 1px;
+    height: 190px;
+    background-color: #c50c46;
+    display: block;
+    float: left;
+    position: relative;
+}
+#eksmo .eksmoLogo  {
+    background-color: white;
+}
+#eksmo .logoImage {
+    position: absolute;
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/logo.jpg);
+    width: 140px;
+    height: 73px;
+    top: 50px;
+    left: 27px;
+}
+#eksmo .NewImage {
+    position: absolute;
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/new.jpg);
+    width: 130px;
+    height: 138px;
+    top: 0;
+    right: 0;
+}
+#eksmo .StockImage {
+    position: absolute;
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/present.jpg);
+    width: 111px;
+    height: 159px;
+    top: 0;
+    right: 0;
+}
+#eksmo .BeforeImage {
+    position: absolute;
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/ok.jpg);
+    width: 96px;
+    height: 124px;
+    bottom: 0;
+    right: 0;
+}
+#eksmo .ReadImage {
+    position: absolute;
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/question.jpg);
+    width: 80px;
+    height: 143px;
+    bottom: 0;
+    right: 0;
+}
+#eksmo .BestImage {
+    position: absolute;
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/vin.jpg);
+    width: 159px;
+    height: 187px;
+    bottom: 0;
+    right: 0;
+}
+#eksmo .TopImage {
+    position: absolute;
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/kub.jpg);
+    width: 84px;
+    height: 150px;
+    bottom: 0;
+    right: 0;
+}
+
+#eksmo .eksmoText {
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+    color: white;
+    display: inline-block;
+    box-sizing: border-box;
+    line-height: 18px;;
+
+}
+#eksmo .eksmoText--small {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: normal;
+}
+#eksmo .eksmoText--1 {
+    padding-left: 42px;
+}
+#eksmo .eksmoText--2 {
+    text-align: center;
+}
+#eksmo .eksmoText--3 {
+    padding-left: 20px;
+}
+#eksmo .eksmoText--4 {
+    padding-left: 38px;
+    line-height: 1.3em;
+}
+#eksmo .eksmoLine2 {
+    overflow: hidden;
+}
+#eksmo .eksmoSlider{
+    width: 574px;
+    height: 190px;
+    margin: 1px;
+    float: left;
+}
+
+
+#eksmo .eksmoLine3 {
+    overflow: hidden;
+}
+#eksmo .eksmoAuthors {
+    width: 382px;
+    margin: 1px;
+    height: 190px;
+    float: left;
+    position: relative;
+}
+#eksmo .eksmoText--5 {
+    color: #c60c46;
+    font-weight: bold;
+    font-size: 18px;
+    top: 17px;
+    position: absolute;
+    z-index: 3;
+    padding-left: 20px;
+
+}
+#eksmo .Arrow {
+    position: absolute;
+    width: 23px;
+    height: 30px;
+    top: 79px;
+    cursor: pointer;
+    z-index: 5
+}
+#eksmo .Arrow--left {
+    left: 11px;
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/arrow_left.png);
+}
+#eksmo .Arrow--right {
+    right: 11px;
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/arrow_right.png);
+}
+#eksmo .eksmoListAuthor {
+    width: 381px;
+    height: 100%;
+    overflow: hidden;
+    list-style-type: none;
+    position: relative;
+}
+
+#eksmo .eksmoListAuthor__item {
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    background-color: #ffffff;
+    display: none;
+}
+#eksmo .authorItem__Name {
+    position: absolute;
+    font-size: 15px;
+    line-height: 17px;
+    display: inline-block;
+    top: 76px;
+    text-transform: uppercase;
+    left: 51px;
+    width: 120px;
+    color: #747474;
+    white-space: normal;
+    text-decoration: none;
+}
+#eksmo .authorItem__img {
+    position: absolute;
+    top:0;
+    right: 0;
+    height: 100%;
+    width: 192px;
+}
+#eksmo .authorItem__img--1 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/author-1.jpg);
+}
+#eksmo .authorItem__img--2 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/author-2.jpg);
+}
+#eksmo .authorItem__img--3 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/author-3.jpg);
+}
+#eksmo .authorItem__img--4 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/author-4.jpg);
+}
+#eksmo .authorItem__img--5 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/author-5.jpg);
+}
+#eksmo .authorItem__img--6 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/author-6.jpg);
+}
+#eksmo .authorItem__img--7 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/author-7.jpg);
+}
+#eksmo .authorItem__img--8 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/author-8.jpg);
+}
+#eksmo .authorItem__img--9 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/author-9.jpg);
+}
+#eksmo .authorItem__img--10 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/author-10.jpg);
+}
+#eksmo .authorItem__img--11 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/author-11.jpg);
+}
+#eksmo .authorItem__img--12 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/author-12.jpg);
+}
+
+
+
+
+
+
+#eksmo .eksmoSeries {
+    width: 574px;
+    margin: 1px;
+    height: 190px;
+    float: left;
+    position: relative;
+}
+#eksmo .eksmoListSeries {
+    width: 476px;
+    height: 100%;
+    overflow: hidden;
+    list-style-type: none;
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 40px;
+    margin: 0 auto;
+    white-space: nowrap;
+}
+#eksmo .SeriesItem {
+    display: inline-block;
+    margin-right:  30px;
+}
+#eksmo .seriesItem__img {
+    display: block;
+    width: 93px;
+    height: 131px;
+}
+#eksmo .SeriesItem__img--1 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-1.jpg);
+}
+#eksmo .SeriesItem__img--2 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-2.jpg);
+}
+#eksmo .SeriesItem__img--3 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-3.jpg);
+}
+#eksmo .SeriesItem__img--4 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-4.jpg);
+}
+#eksmo .SeriesItem__img--5 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-5.jpg);
+}
+#eksmo .SeriesItem__img--6 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-6.jpg);
+}
+#eksmo .SeriesItem__img--7 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-7.jpg);
+}
+#eksmo .SeriesItem__img--8 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-8.jpg);
+}
+#eksmo .SeriesItem__img--9 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-9.jpg);
+}
+#eksmo .SeriesItem__img--10 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-10.jpg);
+}
+#eksmo .SeriesItem__img--11 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-11.jpg);
+}
+#eksmo .SeriesItem__img--12 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-12.jpg);
+}
+#eksmo .SeriesItem__img--13 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-13.jpg);
+}
+#eksmo .SeriesItem__img--14 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-14.jpg);
+}
+#eksmo .SeriesItem__img--15 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-15.jpg);
+}
+#eksmo .SeriesItem__img--16 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-16.jpg);
+}
+#eksmo .SeriesItem__img--17 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-17.jpg);
+}
+#eksmo .SeriesItem__img--18 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-18.jpg);
+}
+#eksmo .SeriesItem__img--19 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-19.jpg);
+}
+#eksmo .SeriesItem__img--20 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/book-20.jpg);
+}
+#eksmo .activeItem {
+    display: block;
+}
+
+
+.bannerImage {
+    width: 574px;
+    height: 100%;
+    background-size: cover;
+}
+.bannerImage--1 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/150731-banner-1-574x189.jpg);
+}
+.bannerImage--2 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/150731-banner-2-574x189.jpg);
+}
+.bannerImage--3 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/150731-banner-3-574x189.jpg);
+}
+.bannerImage--4 {
+    background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/150731-banner-4-574x189.jpg);
+}
+@media only screen and (min-width: 1346px) {
+    #eksmo {
+        width: 1346px;
+    }
+    #eksmo .eksmoSeries {
+        width: 384px;
+        overflow: hidden;
+    }
+    #eksmo .SeriesItem {
+        margin-right: 14px;
+    }
+    #eksmo .eksmoListSeries {
+        width: 300px;
+    }
+    .eksmo-outer {
+        background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/pattern.png);
+        background-repeat: repeat;
+        box-sizing: border-box;
+    }
+    #eksmo {
+        background-color: #ffffff;
+    }
+    #eksmo .eksmoAuthors {
+        width: 384px;
+    }
+    #eksmo .eksmoListAuthor {
+        width: 100%;
+    }
+    #eksmo .authorItem__img {
+        width: 195px;
+        background-size: 100% 100%;
+        height: 192px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    #eksmo {
+        min-width: 320px;
+        width: auto;
+        max-width: 768px;
+        overflow: hidden;
+        height: 430px;
+    }
+    #eksmo .eksmoLine1, #eksmo .eksmoLine2, #eksmo .eksmoLine3 {
+        height: 16.27906976744186%;
+    }
+    #eksmo .eksmoBlock {
+        height: 100%;
+        width: 33.33%;
+        box-sizing: border-box;
+        border: 1px solid white;
+        margin: 0;
+    }
+    #eksmo .logoImage {
+        width: 66.0377358490566%;
+        height: 51.42857142857143%;
+        background-size: cover;
+        top: 25%;
+        left: 50%;
+        margin-left: -33%;
+    }
+    #eksmo .eksmoSlider {
+        height: 100%;
+        width: 66.66%;
+        margin: 0;
+        box-sizing: border-box;
+        border: 1px solid white;
+    }
+    #eksmo .BestImage {
+        background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/mobile-1.jpg);
+        width: 65.09433962264151%;
+        height: 100%;
+        bottom: 0;
+        right:0;
+        background-size: cover;
+    }
+    #eksmo .NewImage {
+        background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/mobile-2.jpg);
+        width: 52.83018867924528%;
+        height: 92.64705882352941%;
+        top: 0;
+        right:0;
+        background-size: cover;
+    }
+    #eksmo .ReadImage {
+        background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/mobile-3.jpg);
+        width: 31.13207547169811%;
+        height: 95.58823529411765%;
+        top: 0;
+        right:0;
+        background-size: cover;
+    }
+    #eksmo .StockImage {
+        background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/mobile-4.jpg);
+        width: 43.39622641509434%;
+        height: 100%;
+        top: 0;
+        right:0;
+        background-size: cover;
+    }
+    #eksmo .BeforeImage {
+        background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/mobile-5.jpg);
+        width: 42.45283018867925%;
+        height: 72.05882352941176%;
+        bottom: 0;
+        right:0;
+        background-size: cover;
+    }
+    #eksmo .TopImage {
+        background-image: url(http://www.ozon.ru/graphics/action/150729-eksmo/mobile-6.jpg);
+        width: 31.13207547169811%;
+        height: 100%;
+        bottom: 0;
+        right:0;
+        background-size: cover;
+    }
+    #eksmo .eksmoText {
+        top: 31%;
+        font-size: 10px;
+        line-height: 12px;
+    }
+    #eksmo .eksmoText--small {
+        font-size: 7px;
+    }
+    #eksmo .eksmoText--3 {
+        padding-left: 13%;
+    }
+    #prm-banner .banner-nav-bul {
+        top: -13px!important;
+        padding-right: 7px!important;
+    }
+    #eksmo .eksmoAuthors {
+        width: 100%;
+        height: 24.65116279069767%;
+        margin: 0;
+        border: 1px solid white;
+        box-sizing: border-box;
+    }
+    #eksmo .authorItem__img {
+        background-size: cover;
+        right: 1px;
+    }
+    #eksmo .eksmoListAuthor {
+        width: 100%;
+    }
+    #eksmo .authorItem__img {
+        width: 33.33%;
+    }
+    #eksmo .Arrow {
+        top: 38%;
+    }
+    #eksmo .authorItem__Name {
+        top: 39%;
+    }
+    #eksmo .eksmoText--5 {
+        top: 4%;
+    }
+    #eksmo .eksmoSeries {
+        width: 100%;
+        height: 24.65116279069767%;
+    }
+    #eksmo .eksmoListSeries {
+        width: 100%;
+        padding-top: 6%;
+        overflow-x: scroll;
+    }
+    #eksmo .SeriesItem {
+        height: 100%;
+        width: 20%;
+    }
+    #eksmo .seriesItem__img {
+        height: 100%;
+        background-size: cover;
+        width: 100%
+    }
+    #eksmo .seriaArrow {
+        display: none;
+    }
+    #eksmo .eksmoText--6 {
+        padding-top:0;
+    }
+    #eksmo .eksmoText--1 {
+        padding-left: 20%;
+    }
+    #eksmo .eksmoText--4 {
+        padding-left: 16%;
+    }
+    #eksmo .bannerImage {
+        width: 100%;
+        height: 100%;
+    }
+
+}
+</style>
+<div class="eksmo-outer">
+    <div id="eksmo">
+        <div class="eksmoLine1">
+            <div class="eksmoBlock eksmoLogo">
+                <div class="logoImage"></div>
+            </div>
+            <a href="/brand/857671/?new=1#detf" class="eksmoBlock eksmoNew">
+                <div class="NewImage"></div>
+                <p class="eksmoText eksmoText--1">Новинки
+                    <span class="eksmoText--small">уже в продаже</span></p>
+            </a>
+            <a href="/context/catalog/id/1119413/" class="eksmoBlock eksmoStock">
+                <div class="StockImage"></div>
+                <p class="eksmoText eksmoText--2">Акции</p>
+            </a>
+            <a href="/brand/857671/?anons=1#detf" class="eksmoBlock eksmoBefore">
+                <div class="BeforeImage"></div>
+                <p class="eksmoText eksmoText--3">Предзаказы
+                    <span class="eksmoText--small">закажите сейчас</span></p>
+            </a>
+            <a href="/context/catalog/id/1174204/" class="eksmoBlock eksmoRead">
+                <div class="ReadImage"></div>
+                <p class="eksmoText eksmoText--4">Что почитать?</p>
+            </a>
+        </div>
+        <div class="eksmoLine2">
+            <a href="/brand/857671/?bests=1#detf" class="eksmoBlock eksmoBest">
+                <div class="BestImage"></div>
+                <p class="eksmoText eksmoText--3">Бестселлеры
+                    <span class="eksmoText--small">лучшее из лучшего</span></p>
+            </a>
+            <div class="eksmoSlider">
+                <div id="prm-banner">
+                    <div class="banner-main-container"><!--[banner-slide]-->
+                        <div class="banner-slide">
+                            <a class="banner-item" href="http://www.ozon.ru/context/detail/id/32872126/">
+                                <div class="bannerImage bannerImage--1"></div>
+                            </a><!--[banner-item]-->
+                        </div><!--[banner-slide]-->
+                        <div class="banner-slide">
+                            <a class="banner-item" href="http://www.ozon.ru/context/detail/id/32605262/">
+                                <div class="bannerImage bannerImage--2"></div>
+                            </a><!--[banner-item]-->
+                        </div><!--[banner-slide]-->
+                        <div class="banner-slide">
+                            <a class="banner-item" href="http://www.ozon.ru/context/detail/id/29862245/">
+                                <div class="bannerImage bannerImage--3"></div>
+                            </a><!--[banner-item]-->
+                        </div><!--[banner-slide]-->
+                        <div class="banner-slide">
+                            <a class="banner-item" href="http://www.ozon.ru/context/detail/id/33173307/">
+                                <div class="bannerImage bannerImage--4"></div>
+                            </a><!--[banner-item]-->
+                        </div><!--[banner-slide]-->
+                    </div><!--[banner-main-container]-->
+                    <div id="prm-arrow-left"></div>
+                    <div id="prm-arrow-right"></div>
+                    <div class="banner-nav-bul"></div>
+                </div><!--[prm-banner]-->
+            </div>
+            <a href="/context/catalog/id/1174205/" class="eksmoBlock eksmoTop">
+                <div class="TopImage"></div>
+                <p class="eksmoText eksmoText--3">Топ 10
+                    <span class="eksmoText--small">по версии ЭКСМО</span></p>
+            </a>
+        </div>
+        <div class="eksmoLine3">
+            <div class="eksmoAuthors">
+                <p class="eksmoText eksmoText--5">Наши авторы</p>
+                <div class="Arrow AuthorArrow Arrow--left AuthorArrow--left"></div>
+                <div class="Arrow AuthorArrow Arrow--right AuthorArrow--right"></div>
+                <ul class="eksmoListAuthor">
+                    <li class="eksmoListAuthor__item authorItem activeItem">
+                        <a href="/person/1146808/" class="authorItem__Name">Александра Маринина</a>
+                        <a href="/person/1146808/" class="authorItem__img authorItem__img--1"></a>
+                    </li>
+                    <li class="eksmoListAuthor__item authorItem">
+                        <a href="/person/2313131/" class="authorItem__Name">Владимир Соловьев</a>
+                        <a href="/person/2313131/" class="authorItem__img authorItem__img--2"></a>
+                    </li>
+                    <li class="eksmoListAuthor__item authorItem">
+                        <a href="/person/1614855/" class="authorItem__Name">Диана Чемберлен</a>
+                        <a href="/person/1614855/" class="authorItem__img authorItem__img--3"></a>
+                    </li>
+                    <li class="eksmoListAuthor__item authorItem">
+                        <a href="person/256753/" class="authorItem__Name">Дина Рубина</a>
+                        <a href="person/256753/" class="authorItem__img authorItem__img--4"></a>
+                    </li>
+                    <li class="eksmoListAuthor__item authorItem">
+                        <a href="/person/24046741/" class="authorItem__Name">Александр Мясников</a>
+                        <a href="/person/24046741/" class="authorItem__img authorItem__img--5"></a>
+                    </li>
+                    <li class="eksmoListAuthor__item authorItem">
+                        <a href="/person/19463101/" class="authorItem__Name">Ник Вуйчич</a>
+                        <a href="/person/19463101/" class="authorItem__img authorItem__img--6"></a>
+                    </li>
+                    <!-- <li class="eksmoListAuthor__item authorItem">
+                         <a href="" class="authorItem__Name">Александра Маринина</a>
+                         <a href="" class="authorItem__img authorItem__img--7"></a>
+                     </li> -->
+                    <li class="eksmoListAuthor__item authorItem">
+                        <a href="/person/4853436/" class="authorItem__Name">Вероника Белоцерковская</a>
+                        <a href="/person/4853436/" class="authorItem__img authorItem__img--8"></a>
+                    </li>
+                    <li class="eksmoListAuthor__item authorItem">
+                        <a href="/person/6305173/" class="authorItem__Name">Пьер Дюкан</a>
+                        <a href="/person/6305173/" class="authorItem__img authorItem__img--9"></a>
+                    </li>
+                    <li class="eksmoListAuthor__item authorItem">
+                        <a href="/person/29612894/" class="authorItem__Name">Сара Джио</a>
+                        <a href="/person/29612894/" class="authorItem__img authorItem__img--10"></a>
+                    </li>
+                    <li class="eksmoListAuthor__item authorItem">
+                        <a href="/person/356756/" class="authorItem__Name">Татьяна Устинова</a>
+                        <a href="/person/356756/" class="authorItem__img authorItem__img--11"></a>
+                    </li>
+                    <li class="eksmoListAuthor__item authorItem">
+                        <a href="/person/1395362/" class="authorItem__Name">Юлия Высоцкая</a>
+                        <a href="/person/1395362/" class="authorItem__img authorItem__img--12"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="eksmoSeries">
+                <p class="eksmoText eksmoText--5 eksmoText--6">Серии</p>
+                <div class="Arrow Arrow--left seriaArrow seriaArrow--left"></div>
+                <div class="Arrow Arrow--right seriaArrow seriaArrow--right"></div>
+                <ul class="eksmoListSeries" data-shift="0">
+                    <li class="eksmoListSeries__item SeriesItem">
+                        <a href="/context/detail/id/7361549/" class="seriesItem__img SeriesItem__img--1"></a>
+                    </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/224746/" class="seriesItem__img SeriesItem__img--2"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/2488422/" class="seriesItem__img SeriesItem__img--3"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/3089941/?group=div_book" class="seriesItem__img SeriesItem__img--4"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/30180619/" class="seriesItem__img SeriesItem__img--5"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/7297891/" class="seriesItem__img SeriesItem__img--6"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/2612782/" class="seriesItem__img SeriesItem__img--7"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/1212310/" class="seriesItem__img SeriesItem__img--8"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/4777405/" class="seriesItem__img SeriesItem__img--9"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/19442330/?group=div_book" class="seriesItem__img SeriesItem__img--10"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/5420731/?group=div_book" class="seriesItem__img SeriesItem__img--11"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/5774814/" class="seriesItem__img SeriesItem__img--12"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/22429472/" class="seriesItem__img SeriesItem__img--13"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/32610958/?group=div_book" class="seriesItem__img SeriesItem__img--14"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/32572612/" class="seriesItem__img SeriesItem__img--15"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/3549266/" class="seriesItem__img SeriesItem__img--16"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/229632/" class="seriesItem__img SeriesItem__img--17"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/7279014/" class="seriesItem__img SeriesItem__img--18"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/30398040/" class="seriesItem__img SeriesItem__img--19"></a>
+                </li><!--
+                --><li class="eksmoListSeries__item SeriesItem">
+                    <a href="/context/detail/id/4742760/" class="seriesItem__img SeriesItem__img--20"></a>
+                </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    var intervalAuthor;
+    function author($this, $elements) {
+        var elementsLength = $elements.length;
+        var $activeElement = $('.activeItem');
+        var index  = $elements.index($activeElement);
+        if ( $this.hasClass('AuthorArrow') ) {
+            if ( $this.hasClass('AuthorArrow--right')) {
+                if ( index < elementsLength-1 ) {
+                    index++
+                }
+                else {
+                    index = 0;
+                }
+            }
+            if ( $this.hasClass('AuthorArrow--left')) {
+                if ( index > 0 ) {
+                    index--
+                }
+                else {
+                    index = elementsLength-1;
+                }
+            }
+            clearInterval(intervalAuthor);
+            intervalAuthor = setInterval(function(){
+                author($('.eksmoListAuthor'), $('.eksmoListAuthor__item'));
+            }, 15000);
+        }
+        if ( $this.hasClass('eksmoListAuthor') ) {
+            if ( index < elementsLength-1 ) {
+                index++
+            }
+            else {
+                index = 0;
+            }
+        }
+        $activeElement.fadeOut(800, function(){
+            $(this).removeClass('activeItem');
+        })
+        $elements.eq(index).fadeIn(800, function(){
+            $(this).addClass('activeItem');
+        })
+    }
+    function seria($this, $elements) {
+        var elemLength = $elements.length;
+        var number;
+        var shift = $elements.parent().attr('data-shift');
+        if ( $(window).width() > 1345 ) {
+            number = 3;
+        }
+        else {
+            number = 4;
+        }
+        if ( $this.hasClass('seriaArrow--right') && (Math.abs(shift) < elemLength-number ) ){
+            if ( (Math.abs(shift) + number) < elemLength ) {
+                shift = shift - number;
+            }
+            else {
+                console.log('ss');
+                shift = shift - (elemLength - Math.abs(shift));
+            }
+
+        }
+        if ( $this.hasClass('seriaArrow--left') && (shift != 0 ) ){
+            shift = parseInt(shift) + number;
+        }
+        var shiftPx = shift * ($elements.outerWidth() + parseInt($elements.css('margin-right').split('px')[0]));
+        $elements.parent().attr('data-shift', shift);
+        $elements.eq(0).stop(true, true).animate({'margin-left': shiftPx + 'px'}, 500);
+    }
+    function resizeEksmo() {
+        if ( $(window).width() > 1345 ) {
+            $('.eksmoLine1').append($('.eksmoNew'));
+            $('.eksmoLine1').append($('.eksmoStock'));
+            $('.eksmoLine1').append($('.eksmoBefore'));
+            $('.eksmoLine1').append($('.eksmoAuthors'));
+            $('.eksmoLine1').append($('.eksmoRead'));
+
+            $('.eksmoLine2').append($('.eksmoBest'));
+            $('.eksmoLine2').append($('.eksmoSlider'));
+            $('.eksmoLine2').append($('.eksmoTop'));
+            $('.eksmoLine2').append($('.eksmoSeries'));
+
+            $('.eksmoText').removeAttr('style');
+            $('.eksmoText--small').removeAttr('style');
+        }
+        if ( ( 769 < $(window).width() ) &&  ($(window).width() < 1344 ) ) {
+            $('.eksmoLine1').append($('.eksmoNew'));
+            $('.eksmoLine1').append($('.eksmoStock'));
+            $('.eksmoLine1').append($('.eksmoBefore'));
+            $('.eksmoLine1').append($('.eksmoRead'));
+
+            $('.eksmoLine2').append($('.eksmoBest'));
+            $('.eksmoLine2').append($('.eksmoSlider'));
+            $('.eksmoLine2').append($('.eksmoTop'));
+
+            $('.eksmoLine3').append($('.eksmoAuthors'));
+            $('.eksmoLine3').append($('.eksmoSeries'));
+
+            $('.eksmoText').removeAttr('style');
+            $('.eksmoText--small').removeAttr('style');
+        }
+        if ( $(window).width() < 768 ) {
+            $('.eksmoLine1').append($('.eksmoSlider'));
+
+            $('.eksmoLine2').append($('.eksmoBest'));
+            $('.eksmoLine2').append($('.eksmoNew'));
+            $('.eksmoLine2').append($('.eksmoRead'));
+
+            $('.eksmoLine3').append($('.eksmoStock'));
+            $('.eksmoLine3').append($('.eksmoBefore'));
+            $('.eksmoLine3').append($('.eksmoTop'));
+
+            /*   $('.eksmoLogo').after($('.eksmoSlider'));
+             $('.eksmoBest').after($('.eksmoNew'));
+             $('.eksmoNew').after($('.eksmoRead'));*/
+
+
+            /*   $('.eksmoTop').prependTo('.eksmoLine3');
+             $('.eksmoBefore').prependTo('.eksmoLine3');
+             $('.eksmoStock').prependTo($('.eksmoLine3'));*/
+
+            $('.eksmoAuthors').appendTo($('#eksmo'));
+            $('.eksmoSeries').appendTo($('#eksmo'));
+
+            var height = $('#eksmo').width() * 1.34375;
+            var fontSize = $('#eksmo').width() * 0.03125;
+            var lineH =  $('#eksmo').width() * 0.0375;
+            var fontSizesMALL = $('#eksmo').width() * 0.021875;
+            $('.eksmoText').css({'font-size': fontSize+'px',  'line-height': lineH+'px'});
+            $('.eksmoText--small').css({'font-size': fontSizesMALL+'px'});
+            $('#eksmo').height(height);
+        }
+
+
+    }
+    $(function(){
+        intervalAuthor = setInterval(function(){
+            author($('.eksmoListAuthor'), $('.eksmoListAuthor__item'));
+        }, 5000);
+
+        var xPosBegin, xPosEnd;
+        $('.eksmoAuthors').on('touchstart', function(e){
+            xPosBegin = e.originalEvent.touches[0].pageX;
+        });
+        $('.eksmoAuthors').on('touchmove', function(e){
+            xPosEnd =  e.originalEvent.touches[0].pageX;
+
+        });
+        $('.eksmoAuthors').on('touchend', function(e){
+            if ( xPosEnd > xPosBegin ) {
+                author($('.AuthorArrow--left'), $('.eksmoListAuthor__item'));
+            }
+            if ( xPosEnd < xPosBegin) {
+                author($('.AuthorArrow--right'), $('.eksmoListAuthor__item'));
+            }
+        });
+        $('.AuthorArrow').on('click', function(){
+            author($(this), $('.eksmoListAuthor__item'));
+        });
+        $('.seriaArrow').on('click', function(){
+            seria($(this), $('.eksmoListSeries__item'));
+        });
+        resizeEksmo();
+        $(window).on('resize', function(){
+            console.log('dd');
+            resizeEksmo();
+        });
+
+        var slideCount = $('#prm-banner .banner-slide').length;
+        for (var i = 0; i < slideCount; i++) {
+            var margin = slideCount * 10 + 20 * i;
+            $('<span/>').appendTo('#prm-banner .banner-nav-bul');
+        };
+        var b = new mpSliderBI();
+    });
+</script>
+</body>
+</html>

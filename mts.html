@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <title></title>
+</head>
+<body>
+<style>
+/* общие стили */
+* {
+    padding: 0;
+    margin: 0;
+}
+#mts {
+    min-width: 320px;
+}
+#eski-root .wrap {padding: 0;}
+#PageContent {
+    padding: 0;
+}
+.pageCenterNoLeft div.pageContent .PageModule {
+    margin: 0;
+}
+#mts .mts-slide-link {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+/* мобильные */
+@media only screen and (max-width: 768px) {
+    #mts .mts-header {
+        height: 39px;
+        background-color: #e3001b;
+        position: relative;
+    }
+    #mts .mts-header-logo {
+        height: 39px;
+        width: 72px;
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/150629-mts-logo-mobile.jpg');
+        position: absolute;
+        background-size: 100% 100%;
+        top:0;
+        left: 3.4375%;
+    }
+    #mts .mts-slider-container {
+        padding: 25px 0;
+        position: relative;
+    }
+    #mts .mts-slides {
+        margin: 0 auto;
+        width: 300px;
+        height: 122px;
+        background-size: cover;
+        display: none;
+    }
+    #mts .mts-slides-hover {
+        display: block!important;
+    }
+    /* слайды */
+    #mts #mts-slide-1 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/slide-mts-mobile.jpg');
+        display: block;
+    }
+    #mts #mts-slide-2 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/slide-mts-mobile.jpg');
+    }
+    #mts #mts-slide-3 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/slide-mts-mobile.jpg');
+    }
+    /* ---------------------*/
+    #mts .mts-circles-container {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 10px;
+    }
+    #mts .mts-circles {
+        width: 8px;
+        height: 8px;
+        background: none;
+        border-radius: 4px;
+        margin: 0 1px;
+        display: inline-block;
+        border: 1px solid #d1d1d1;
+        box-sizing: border-box;
+    }
+    #mts .mts-circle-hover {
+        background-color: #e3001b;;
+    }
+    #mts .mats-menu-items {
+        height: 54px;
+        background-color: #e3001b;
+        border-bottom: 1px solid white;
+        display: block;
+        padding-left: 3.4375%;
+        position: relative;
+        box-sizing: border-box;
+        text-decoration: none;
+    }
+    #mts .mats-menu-items-hover {
+        height: 54px;
+        background-color: white;
+        border-bottom: 1px solid #f9cdd0;
+        border-top: 1px solid #f9cdd0;
+        display: block;
+        padding-left: 3.4375%;
+        position: relative;
+    }
+    #mts .mats-menu-items:after {
+        content: ' ';
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        width: 0;
+    }
+    #mts .menu-logos {
+        display: inline-block;
+        background-size: cover;
+        vertical-align: middle;
+    }
+    #mts .menu-name {
+        display: inline-block;
+        position: absolute;
+        top: 19px;
+        left: 20.3125%;
+        background-size: cover;
+    }
+    #mts .menu-arrow {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #mts .logo-1 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/item-1-logo-mobile.jpg');
+        width: 47px;
+        height: 40px;
+    }
+    #mts .logo-1-hover {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/item-1-logo-mobile-hover.jpg');
+        width: 48px;
+        height: 40px;
+    }
+    #mts .logo-2 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/item-2-logo-mobile.jpg');
+        width: 23px;
+        height: 37px;
+    }
+    #mts .logo-3 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/item-3-logo-mobile.jpg');
+        width: 38px;
+        height: 42px;
+    }
+    #mts .logo-4 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/item-4-logo-mobile.jpg');
+        width: 14px;
+        height: 43px;
+    }
+    #mts .mts-name-1 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/item-1-name-mobile.jpg');
+        width: 222px;
+        height: 21px;
+    }
+    #mts .mts-name-1-hover {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/item-1-name-mobile-hover.jpg');
+        width: 221px;
+        height: 15px;
+    }
+    #mts .mts-name-2 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/item-2-name-mobile.jpg');
+        width: 109px;
+        height: 19px;
+    }
+    #mts .mts-name-3 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/item-3-name-mobile.jpg');
+        width: 73px;
+        height: 21px;
+    }
+    #mts .mts-name-4 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/item-4-name-mobile.jpg');
+        width: 75px;
+        height: 21px;
+    }
+    #mts .menu-arrow {
+        position: absolute;
+        right: 3.4375%;
+        width: 0;
+        height: 0;
+        border: 8px solid transparent;
+        border-bottom: 12px solid white;
+        background-size: cover;
+        top: 14px;
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -webkit-transform-origin: 50% 68%;
+        transition: transform 0.5s;
+        -webkit-transition: all 0.3s;
+    }
+    #mts .menu-arrow-hover {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        border-bottom-color: red;
+    }
+
+    #mts .detail-text {
+        font-family: Droid Sans, Arial, sans-serif;
+        color: #586173;
+        font-size: 12px;
+        line-height: 1.3em;
+        width: 88.125%;
+        margin: 0 auto;
+        padding-top: 16px;
+    }
+    #mts .text-bold {
+        font-weight: bold;
+        display: block;
+        padding-bottom: 5px;
+    }
+    #mts .mts-detail-imgs {
+        margin: 13px auto 0;
+        background-size: cover;
+    }
+    #mts .mts-detail-img-1 {
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/image-mobile-1.jpg);
+        width: 156px;
+        height: 118px;
+    }
+    #mts .mts-detail-img-2 {
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/image-mobile-2.jpg);
+        width: 153px;
+        height: 124px;
+    }
+    #mts .mts-detail-img-3 {
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/image-mobile-3.jpg);
+        width: 141px;
+        height: 81px;
+    }
+    #mts .detail-list {
+        font-family: Droid Sans, Arial, sans-serif;
+        color: #586173;
+        font-size: 12px;
+        width: 88.125%;
+        margin: 0 auto;
+        padding-top: 28px;
+        line-height: 1.3em;
+        list-style-type: disc;
+    }
+    #mts .mts-connect {
+        width: 112px;
+        height: 112px;
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/desk-img-4.jpg);
+        background-size: cover;
+        display: block;
+        margin: 35px auto 0;
+    }
+    #mts .item-detail {
+        display: none;
+        padding-bottom: 47px;
+    }
+    #mts .mts-header-menu {
+        display: none;
+    }
+    #mts .detail-logo {
+        display: none;
+    }
+    #mts .mts-slides-container {
+        width: 100%;
+        height: 122px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+}
+@media only screen and (min-width: 769px) {
+    #mts .item-detail {
+        display: none;
+        width: 880px;
+        margin: 0 auto;
+    }
+    #mts .mts-header {
+        background-color: #e3001b;
+    }
+    #mts .mts-header-inner {
+        width: 960px;
+        margin: auto;
+        height: 46px;
+        position: relative;
+    }
+    #mts .mts-header-logo {
+        width: 157px;
+        height: 77px;
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/mts-logo1.jpg);
+        position: absolute;
+        left: 40px;
+    }
+    #mts .mts-header-menu {
+        position: absolute;
+        top: 9px;
+        right: -38px;
+        list-style-type: none;
+        margin: 0;
+    }
+    #mts .mts-header-menu_item {
+        display: inline-block;
+        padding-right: 20px;
+    }
+    #mts .header-menu_item_link {
+        display: block;
+        height: 19px;
+    }
+    #mts .item_link-1 {
+        width: 99px;
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/desk-item-11.jpg);
+        background-size: cover;
+    }
+    #mts .item_link-2{
+        width: 141px;
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/desk-item-21.jpg);
+        background-size: cover;
+    }
+    #mts .item_link-3{
+        width: 69px;
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/desk-item-41.jpg);
+        background-size: cover;
+    }
+    #mts .item_link-4{
+        width: 71px;
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/desk-item-41.jpg);
+        background-size: cover;
+    }
+    #mts .item_link-5{
+        width: 210px;
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/desk-item-51.jpg);
+        background-size: cover;
+        cursor: pointer;
+    }
+    #mts .mts-slider-container {
+        padding: 55px 0;
+        position: relative;
+    }
+    #mts .mts-slides {
+        margin: 0 auto;
+        width: 880px;
+        height: 361px;
+        background-size: cover;
+        display: none;
+        cursor: pointer
+    }
+    #mts .mts-slides-hover {
+        display: block!important;
+    }
+    /* слайды */
+    #mts .mts-slides-container {
+        width: 880px;
+        height: 361px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    #mts #mts-slide-1 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/desk-slide1.jpg');
+        display: block;
+    }
+    #mts #mts-slide-2 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/desk-slide1.jpg');
+    }
+    #mts #mts-slide-3 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/desk-slide1.jpg');
+    }
+    /* ---------------------*/
+    #mts .mts-circles-container {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        bottom: 10px;
+    }
+    #mts .mts-circles {
+        width: 16px;
+        height: 16px;
+        background: none;
+        border-radius: 8px;
+        margin: 0 3px;
+        display: inline-block;
+        border: 1px solid #d1d1d1;
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+    #mts .mts-circle-hover {
+        background-color: #e3001b;
+    }
+    #mts .mts-menu {
+        width: 880px;
+        background-color: #e3001b;
+        margin: 0 auto;
+    }
+    #mts .mts-menu {
+        width: 880px;
+        background-color: #e3001b;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 0 30px;
+    }
+    #mts .mats-menu-items {
+        display: inline-block;
+        cursor: pointer;
+        height: 83px;
+    }
+    #mts .mts-detail-outer {
+        display: inline-block;
+    }
+    #mts #item-mts-1 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/desk-menu-11.jpg');
+        width: 211px;
+        margin-right: 70px;
+    }
+    #mts #item-mts-2 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/desk-menu-21.jpg');
+        width: 155px;
+        margin-right: 52px;
+    }
+    #mts #item-mts-3 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/desk-menu-31.jpg');
+        width: 126px;
+        margin-right: 50px;
+    }
+    #mts #item-mts-4 {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/desk-menu-41.jpg');
+        width: 111px;
+    }
+    #mts .detail-logo {
+        background-image: url('http://ozon.ru/graphics/action/150629-mts/internet1.jpg');
+        width: 460px;
+        height: 140px;
+        margin: 50px auto 60px;;
+    }
+    #mts .detail-text {
+        font-family: Arial, sans-serif;
+        color: #586173;
+        font-size: 18px;
+        line-height: 1.3em;
+        margin: 0 auto;
+        padding-top: 16px;
+    }
+    #mts .text-1 {
+        float: left;
+        width: 408px;
+        padding-left: 68px;
+    }
+    #mts .text-bold {
+        font-size: 24px;
+        display: block;
+        padding-bottom: 15px;
+    }
+    #mts .mts-detail-imgs {
+        background-size: cover;
+    }
+    #mts .mts-detail-img-1 {
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/image-mobile-11.jpg);
+        width: 301px;
+        height: 233px;
+        margin-left: 514px;
+    }
+    #mts .mts-detail-img-2 {
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/image-mobile-21.jpg);
+        width: 296px;
+        height: 223px;
+        margin-left: 45px;
+        margin-top: 20px;
+    }
+    #mts .column-right {
+        float: right;
+        width: 438px;
+    }
+
+    #mts .detail-list {
+        font-family: Arial, sans-serif;
+        color: #586173;
+        font-size: 18px;
+        margin: 0 auto;
+        padding-top: 28px;
+        line-height: 1.3em;
+        float: right;
+        list-style-type: disc;
+    }
+    #mts .detail-row-2 {
+        margin-top: 44px;
+    }
+    #mts .mts-detail-img-3 {
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/image-mobile-31.jpg);
+        width: 274px;
+        height: 123px;
+        margin-left: 531px;
+        margin-top: 42px;
+    }
+    #mts .detail-row {
+        overflow: hidden;
+    }
+
+    #mts .text-3 {
+        width: 393px;
+        margin-left:68px;
+        float: left;
+    }
+    #mts .mts-connect {
+        width: 150px;
+        height: 136px;
+        background-image: url(http://ozon.ru/graphics/action/150629-mts/buy.jpg);
+        display: block;
+        margin: 123px auto 50px;
+    }
+}
+
+</style>
+<script>
+    /*slider */
+    var i = 0;
+    var touchStart, touchEnd;
+    function Slider(slider) {
+        var item = slider.find('.mts-slides');
+        item.fadeOut(500);
+        $('.mts-circles').removeClass('mts-circle-hover');
+        setTimeout(function(){
+            item.eq(i).fadeIn(500);
+            $('.mts-circles').eq(i).addClass('mts-circle-hover');
+
+        }, 500);
+        if( i < ( item.length - 1 ) ){
+            i++
+        }
+        else {
+            i = 0;
+        }
+    }
+    function touchSlide(slider) {
+        var item = slider.find('.mts-slides');
+        item.fadeOut(500);
+        $('.mts-circles').removeClass('mts-circle-hover');
+        setTimeout(function(){
+            item.eq(i).fadeIn(500);
+            $('.mts-circles').eq(i).addClass('mts-circle-hover');
+
+        }, 500);
+    }
+
+
+    $(function(){
+        var interval = setInterval(function(){
+            Slider($('.mts-slider'));
+        }, 10000);
+
+        $('.mts-circles').on('click', function(){
+            var number = $(this).index();
+            i = number;
+            $('.mts-slides').fadeOut(500);
+            $('.mts-circles').removeClass('mts-circle-hover');
+            setTimeout(function(){
+                $('.mts-slides').eq(number).fadeIn(500);
+                $('.mts-circles').eq(number).addClass('mts-circle-hover');
+            }, 500);
+            clearInterval(interval);
+            interval = setInterval(function(){
+                Slider($('.mts-slider'));
+            }, 10000);
+        })
+
+        $('#item-mts-1').add('.item_link-5').on('click', function(){
+            var itemDetail = $('.item-detail');
+            console.log(itemDetail. css('display'));
+            if ( itemDetail. css('display') == 'block'){
+                if ( $(document).width() > 769 ){
+                    $('.item-detail').slideUp(0);
+                }
+                else{
+                    $('.item-detail').slideUp(500);
+                }
+                $('.menu-arrow').removeClass('menu-arrow-hover');
+                $('#item-mts-1').removeClass('mats-menu-items-hover');
+                $('.logo-1').removeClass('logo-1-hover');
+                $('.mts-name-1').removeClass('mts-name-1-hover');
+                if ( $(document).width() > 769 ) {
+                    $('.mats-menu-items').css({'display': 'inline-block'});
+                    $('.mts-slider-container').css({'display': 'block'});
+                    $('.mts-menu').css({'background-color': '#e3001b'});
+                }
+            }
+            else {
+                $('.item-detail').slideDown('500');
+                $('.menu-arrow').addClass('menu-arrow-hover');
+                $('#item-mts-1').addClass('mats-menu-items-hover');
+                $('.logo-1').addClass('logo-1-hover');
+                $('.mts-name-1').addClass('mts-name-1-hover');
+                if ( $(document).width() > 769 ) {
+                    $('.mats-menu-items').css({'display': 'none'});
+                    $('.mts-slider-container').css({'display': 'none'});
+                    $('.mts-menu').css({'background-color': 'white'});
+                }
+            }
+        })
+        $('.mts-slides-container').on('touchstart', function(e){
+            touchStart = e.originalEvent.touches[0].pageX;
+        });
+        $('.mts-slides-container').on('touchmove', function(e){
+            touchEnd = e.originalEvent.touches[0].pageX;
+        });
+        $('.mts-slides-container').on('touchend', function(e){
+            if ( touchEnd < touchStart ) {
+                if (i < ($('.mts-slides').length - 1)) {
+                    ++i;
+                    touchSlide($('.mts-slider'));
+                }
+                else {
+                    i = 0;
+                    touchSlide($('.mts-slider'));
+                }
+
+            }
+            if ( touchEnd > touchStart ) {
+                if ( i > 0 ) {
+                    --i;
+                    touchSlide($('.mts-slider'));
+                }
+                else {
+                    i = ($('.mts-slides').length - 1);
+                    touchSlide($('.mts-slider'));
+                }
+            }
+            clearInterval(interval);
+            interval = setInterval(function(){
+                Slider($('.mts-slider'));
+            }, 10000);
+        })
+
+    })
+
+</script>
+<div id="mts" class="mAdaptiveBanner">
+    <div class="mts-header">
+        <div class="mts-header-inner">
+            <div class="mts-header-logo"></div>
+            <ul class="mts-header-menu">
+                <li class="mts-header-menu_item"><a class="header-menu_item_link item_link-5"></a></li>
+                <li class="mts-header-menu_item"><a href="http://www.ozon.ru/brand/1567420/?group=div_tech&catalog=1168060#detf" class="header-menu_item_link item_link-1"></a></li>
+                <li class="mts-header-menu_item"><a href="http://www.ozon.ru/brand/1567420/?group=div_tech&catalog=1174831#detf" class="header-menu_item_link item_link-2"></a></li>
+                <li class="mts-header-menu_item"><a href="http://www.ozon.ru/brand/1567420/?group=div_tech&catalog=1177173#detf" class="header-menu_item_link item_link-3"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="mts-slider-container">
+        <div class="mts-slider">
+            <div class="mts-slides-container">
+                <div class="mts-slides" id="mts-slide-1"><a class="mts-slide-link" href="http://www.ozon.ru/context/detail/id/31456683/"></a></div>
+                <div class="mts-slides" id="mts-slide-2"><a class="mts-slide-link" href="http://www.ozon.ru/context/detail/id/31456683/"></a></div>
+
+            </div>
+            <div class="mts-circles-container">
+                <div class="mts-circles mts-circle-hover" id="mts-circle-1"></div>
+                <div class="mts-circles" id="mts-circle-2"></div>
+
+            </div>
+        </div>
+    </div>
+    <div class="mts-menu">
+        <div class="mts-detail-outer">
+            <div class="mats-menu-items" id="item-mts-1">
+                <div class="menu-logos logo-1"></div>
+                <div class="menu-name mts-name-1"></div>
+                <div class="menu-arrow"></div>
+            </div>
+
+        </div>
+        <div class="item-detail">
+            <div class="detail-logo"></div>
+            <div class="detail-row">
+                <p class="detail-text text-1">
+                    <span class="text-bold">Домашний интернет 100 Мбит/с</span>
+                    Услуга «Домашний Интернет» предоставляется по технологии FTTB (Fiber To the Building — оптика до дома). Данная технология предполагает передачу данных
+                    через высокоскоростные оптоволоконные линии связи. Благодаря FTTB вы получаете выделенный интернет-канал, который не требует использования телефонной линии и модема.
+                </p>
+                <div class="mts-detail-imgs mts-detail-img-1"></div>
+            </div>
+            <div class="detail-row detail-row-2">
+                <div class="column-right">
+                    <p class="detail-text text-2">
+                        <span class="text-bold">Цифровое ТВ</span>
+                        Мир кино и путешествий, спорт и наука, мода и музыка, новости и политика, все для детей
+                        и тематические каналы — все это и многое другое на экранах ваших телевизоров в любое время.
+                    </p>
+                    <ul class="detail-list">
+                        <li>более 180 цифровых ТВ каналов,включая 30 HD;</li>
+                        <li>управление с пульта вашего телевизора;;</li>
+                        <li>поддержка Full HD;</li>
+                        <li>программа передач на экране вашего телевизора.</li>
+                    </ul>
+                </div>
+                <div class="mts-detail-imgs mts-detail-img-2"></div>
+            </div>
+            <div class="detail-row detail-row-2">
+                <p class="detail-text text-3">
+                    <span class="text-bold">Надежная сеть</span>
+                    Цифровое МТС ТВ — это отдельный кабель, благодаря чему изображение не рассыплется на кубики, картинка не исчезнет в непогоду. А скорость Домашнего Интернета не станет
+                    едленнее, если одновременно смотреть и Домашнее Цифровое ТВ и работать в Домашнем Интернете от МТС.
+                </p>
+                <div class="mts-detail-imgs mts-detail-img-3"></div>
+                <a href="http://www.mts.ru/chkcnnframe/" target="_blank" class="mts-connect"></a>
+            </div>
+        </div>
+        <a href="http://www.ozon.ru/brand/1567420/?group=div_tech&catalog=1168060#detf" class="mats-menu-items" id="item-mts-2">
+            <div class="menu-logos logo-2"></div>
+            <div class="menu-name mts-name-2"></div>
+        </a>
+        <a href="http://www.ozon.ru/brand/1567420/?group=div_tech&catalog=1174831#detf" class="mats-menu-items" id="item-mts-3">
+            <div class="menu-logos logo-3"></div>
+            <div class="menu-name mts-name-3"></div>
+        </a>
+        <a href="http://www.ozon.ru/brand/1567420/?group=div_tech&catalog=1177173#detf" class="mats-menu-items" id="item-mts-4">
+            <div class="menu-logos logo-4"></div>
+            <div class="menu-name mts-name-4"></div>
+        </a>
+    </div>
+</div>
+</body>
+</html>

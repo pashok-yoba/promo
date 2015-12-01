@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<script>
+    $(function(){
+        function hoverItems(content){
+            var $this = content;
+            var $category_list = $('.categories_list');
+            var $category_item = $this.find('.categories_list');
+            if ($category_item.css('display') == 'block') {
+               $category_list.slideUp(300);
+               $('.text_menu__trigl').removeClass('active_categoty');
+            }
+            else {
+                $category_list.slideUp(300);
+                $('.text_menu__trigl').removeClass('active_categoty');
+                $this.find('.text_menu__trigl').addClass('active_categoty');
+                $category_item.slideDown(300);
+            }
+
+        }
+
+        $('.main_category__items').click(function(){
+            hoverItems($(this));
+        });
+        $('.categories_list').click(function(){
+            event.stopPropagation();
+            window.event.cancelBubble = true;
+        })
+    })
+
+</script>
+<style type="text/css">
+#prm.rmWrapper {
+    min-width: 960px;
+    min-height: 524px;
+    margin: 0;
+    background: #fff url('http://www.ozon.ru/graphics/action/140902_raima/bg.jpg') center top no-repeat;
+    font: 14px/18px Arial, Verdana, Tahoma, sans-serif;
+}
+#prm .rmHeader {
+    margin: 0 auto;
+    width: 1024px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    height: 100px;
+    background-color: #d2092d;
+}
+#prm .rmLogo {
+    background: #fff url('http://www.ozon.ru/graphics/action/140902_raima/logo.gif') 0 0 no-repeat;
+    width: 226px;
+    height: 56px;
+    overflow: hidden;
+    margin-top: 23px;
+    float: left;
+}
+
+
+#prm .rmTab li {
+    float: left;
+    padding: 0;
+    margin: 0 0 0 8px;
+    text-align: center;
+    width: 133px;
+    height: 32px;
+    background-color: #e47f90;
+    background-image: none;
+    color: #ffffff;
+    font: bold 15px/31px Arial, Tahoma, Verdana, sans-serif;
+    cursor: pointer;
+}
+
+#prm .rmTab li:first-child {
+    cursor: auto;
+    margin: 0 3px 0 0;
+    background: none;
+    width: auto;
+    font: normal 18px/31px Arial, Tahoma, Verdana, sans-serif;
+}
+
+#prm .rmContent {
+    margin: 0 auto;
+    width: 1004px;
+    padding: 0 10px 0 10px;
+    background-color: #ffffff;
+    border-bottom: 4px solid #d2092d;
+    min-height: 420px;
+}
+
+#prm .rmTabsHeader {
+   /* width: 918px;*/
+    margin: 0 auto;
+    padding-top: 10px;
+}
+#prm .rmTabsHeader ul {
+    list-style-type: none;
+    float: left;
+    margin: 0;
+    padding: 0;
+}
+#prm .rmTabsHeader ul li {
+    float: left;
+    background: none;
+    padding: 0;
+    margin: 0 0 0 10px;
+}
+#prm .rmTabsImages {
+    display: block;
+    width: 159px;
+    width: 159px;
+    height: 159px;
+}
+#prm .rmTabsHeader ul li:first-child {
+    margin-left: 0;
+}
+
+
+#prm.rmWrapper .rmTabsWrapper {
+    margin: 0 auto;
+}
+
+#prm .rmTabsItems > ul {
+    float: left;
+    list-style-type: none;
+    width: 222px;
+    border-bottom: 4px solid #d1d1d1;
+    margin: 0;
+    padding: 0;
+}
+#prm .rmTabsItems > ul > li {
+    position: relative;
+    cursor: pointer;
+    height: 31px;
+    border-top: 1px solid #d1d1d1;
+    color: #636363;
+    padding: 0 10px;
+    font: bold 15px/31px Arial, Tahoma, Verdana, sans-serif;
+    background: none;
+    margin: 0;
+}
+#prm .rmTabsItems > ul > li:first-child {
+    border-top: 1px solid #fff;
+}
+#prm .rmTabsItems > ul > li a {
+    display: block;
+    height: 31px;
+    color: #636363;
+    font: normal 15px/31px Arial, Tahoma, Verdana, sans-serif;
+    text-decoration: none;
+}
+#prm .rmTabsItems > ul > li a:hover {
+    color: #d2092d;
+}
+
+#prm .rmListInner li {
+    height: auto !important;
+    line-height: 24px !important;
+    cursor: auto !important;
+    margin: 0;
+    background: none;
+}
+#prm.rmWrapper .rmListInner li a {
+    height: auto !important;
+    line-height: 24px !important;
+    display: inline-block !important;
+}
+#prm.rmWrapper .rmListInner li a:hover {
+    text-decoration: underline !important;
+}
+
+#prm .clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+
+}
+#prm.rmWrapper .clearfix { display: inline-block; }
+* html #prm.rmWrapper .clearfix { height: 1%; }
+#prm.rmWrapper .clearfix { display: block; }
+.product-block {padding: 0px !important; margin: 0px !important;}
+.details-global #PageContainer .pageContent, .hr{background-color: transparent !important;}
+.bBrandzoneCustomBrandName {display: none !important;}
+.pageCenter.mSingleColumn .bFacetSelectedTags { display: none !important; }
+
+#prm .categories_list {
+    float: none!important;
+    border-bottom: 4px solid #d1d1d1;
+}
+
+#prm .categories_list__items {
+    position: relative;
+    cursor: pointer;
+    height: 31px;
+    border-top: 1px solid #d1d1d1;
+    color: #636363;
+    padding: 0 5px!important;
+    font: bold 15px/31px Arial, Tahoma, Verdana, sans-serif;
+    background: none;
+    margin: 0!important;
+    float: none!important;
+    vertical-align: middle;
+}
+#prm .item__link {
+    display: block;
+    height: 31px;
+    color: #636363;
+    font: normal 14px/31px Arial, Tahoma, Verdana, sans-serif;
+    text-decoration: none;
+}
+#prm .item__link:hover {
+    color: #d2092d;
+}
+ * {
+    padding: 0;
+    margin: 0;
+}
+#prm .mobile_menu {
+    display: none;
+ }
+#eski-root .wrap {
+    padding: 0!important
+}
+@media only screen and (max-width: 1024px){
+    #prm .categories_list {
+        border-bottom: 0;
+        margin-top:-4px!important;
+    }
+
+    #prm {
+        min-width: 320px!important;
+        background: none!important;
+        min-height: 0!important;
+        max-width: 768px;
+    }
+    #prm .rmTabsImages {
+        display: none!important;
+    }
+    #prm .rmHeader {
+        background-color: #d2092d!important;
+        height:50px!important;
+        width: 100%!important;
+        position: relative;
+        padding: 0!important;
+    }
+    #prm .rmLogo {
+        background: url(http://www.ozon.ru/graphics/action/140902_raima/logo-reima.png)!important;
+        width: 100px!important;
+        height: 25px!important;
+        background-size: 100% 100%!important;
+        background-repeat: no-repeat;
+        float: none!important;
+        position: absolute!important;
+        top: 12px;
+        left: 25px;
+        margin: 0!important;
+    }
+    #prm .rmTabsWrapper, .rmTabsHeader, .rmContent {
+        width: 100%!important;
+    }
+    #prm .rmContent {
+        min-height: 0!important;
+        border-bottom: none!important;
+        padding: 0;
+    }
+    #prm .mobile_menu {
+        display: block;
+        height: 60px;
+        width: 100%;
+        border-bottom: 4px solid white;
+        position: relative;
+        box-sizing: content-box;
+    }
+    #prm .mobile_menu--none {
+        background-color: #b0b6be;
+    }
+
+    #prm .mobile_menu--one {
+        background-color: #58b7e6;
+    }
+    #prm .mobile_menu--two {
+        background-color: #fb7cb1;
+    }
+    #prm .mobile_menu--tree {
+        background-color: #4a4a4f;
+    }
+    #prm .mobile_menu--four {
+        background-color: #eccc5e;
+        height: 67px;
+    }
+    #prm .mobile_menu--five {
+        background-color: #aa4d9d;
+    }
+
+    #prm .main_category {
+        float: none!important;
+    }
+    #prm .main_category__items {
+        float: none!important;
+        margin: 0!important;
+    }
+    #prm .mobile_menu__text {
+        font-family: Droid Sans, Arial, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+        color: white;
+        padding-left: 25px;
+        display: inline-block;
+        vertical-align: middle;
+        width: 175px;
+        box-sizing: content-box;
+    }
+    #prm .text_menu__trigl {
+        displaY: inline-block;
+        border: 5px solid transparent;
+        border-bottom: 12px solid white;
+        margin-left: 14px;
+        transition: all 0.300s ease-out ;
+        -webkit-transition: all 0.300s ease-out ;
+        -webkit-transform-origin: 50% 68%;
+        transition: all 0.300s ease-out ;
+        transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+
+    }
+    #prm .mobile_menu__logo {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    #prm .mobile_menu__logo--one {
+        background: url(http://www.ozon.ru/graphics/action/140902_raima/image-one-320x480.png);
+        height: 60px;
+        width: 103px;
+        margin-right: 15px;
+    }
+    #prm .mobile_menu__logo--two {
+        background: url(http://www.ozon.ru/graphics/action/140902_raima/image-two2-320x480.png);
+        height: 60px;
+        width: 152px;
+    }
+    #prm .mobile_menu__logo--tree {
+        background: url(http://www.ozon.ru/graphics/action/140902_raima/image-tree-320x480.png);
+        height: 60px;
+        width: 124px;
+    }
+    #prm .mobile_menu__logo--four {
+        background: url(http://www.ozon.ru/graphics/action/140902_raima/image-four1-320x480.png);
+        height: 67px;
+        width: 195px;
+    }
+    #prm .categories_list {
+        display: none;
+    }
+
+    #prm .mobile_menu:after {
+        content: ' ';
+        height: 100%;
+        width: 0;
+        display: inline-block;
+        vertical-align: middle;
+    }
+    #prm .helper {
+        display: inline-block;
+        vertical-align: middle;
+        height: 100%;
+        width: 0px;
+    }
+    #prm .active_categoty {
+        transform: rotate(0);
+        -webkit-transform: rotate(0);
+    }
+    #prm . active-border-none {
+        border-bottom: none;
+    }
+    #prm .categories_list__items:after {
+        display:inline-block;
+        vertical-align: middle;
+        height: 100%;
+        content: ' ';
+    }
+
+
+}
+@media only screen and (min-width: 480px) and (max-width: 1024px){
+    #prm .mobile_menu__text {
+        width: auto;
+    }
+    #prm .item__link {
+        text-align: center;
+    }
+}
+
+</style>
+<div id="prm" class="rmWrapper">
+    <div class="rmHeader">
+        <div class="rmLogo"></div>
+    </div>
+
+    <div class="rmContent ">
+        <div class="rmTabsWrapper clearfix">
+            <div class="rmTabsHeader clearfix">
+                <ul class="main_category">
+                    <li class="main_category__items">
+                        <img class="rmTabsImages" src="//static.ozone.ru/graphics/action/140902_raima/150408-img-1.jpg" alt=""/>
+                        <div class="mobile_menu mobile_menu--none">
+                            <div class="mobile_menu__text text_menu">ЛЕТНЯЯ ОДЕЖДА<div class="text_menu__trigl"></div></div>
+                            <div class="helper"></div>
+                           <!-- <div class="mobile_menu__logo mobile_menu__logo--one"></div> -->
+                        </div>
+                        <ul class="categories_list">
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing_child&type=38720,39175&catalog=1153307#detf">одежда для пляжа</a></li>
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing_child&type=37283,38703&catalog=1153307#detf">футболки и платья</a></li>
+                        </ul>
+                    </li>
+                    <li class="main_category__items">
+                        <img class="rmTabsImages" src="http://www.ozon.ru/graphics/action/140902_raima/150408-img-2.jpg" alt=""/>
+                        <div class="mobile_menu mobile_menu--one">
+                            <div class="mobile_menu__text text_menu">ВЕРХНЯЯ ОДЕЖДА<div class="text_menu__trigl"></div></div>
+                            <div class="helper"></div>
+                            <div class="mobile_menu__logo mobile_menu__logo--one"></div>
+                        </div>
+                        <ul class="categories_list">
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing_child&catalog=1153465#detf">комбинезоны</a></li>
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing&catalog=1167020#detf">комплекты</a></li>
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing&catalog=1153463#detf">куртки</a></li>
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing&catalog=1153453#detf">брюки</a></li>
+                        </ul>
+                    </li>
+                    <li class="main_category__items">
+                        <img class="rmTabsImages" src="http://www.ozon.ru/graphics/action/140902_raima/150408-img-3.jpg"alt=""/>
+                        <div class="mobile_menu mobile_menu--two">
+                            <div class="mobile_menu__text text_menu">ПРОМЕЖУТОЧНОЕ БЕЛЬЕ <div class="text_menu__trigl"></div></div>
+                            <div class="mobile_menu__logo mobile_menu__logo--two"></div>
+                        </div>
+                        <ul class="categories_list">
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing&catalog=1165442&material=30147#detf">промежуточное белье</a></li>
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing&catalog=1153486#detf">нижнее белье</a></li>
+                        </ul>
+                    </li>
+                    <li class="main_category__items">
+                        <img class="rmTabsImages" src="http://www.ozon.ru/graphics/action/140902_raima/150408-img-4.jpg" alt=""/>
+                        <div class="mobile_menu mobile_menu--tree">
+                            <div class="mobile_menu__text text_menu">АКСЕССУАРЫ<div class="text_menu__trigl"></div></div>
+                            <div class="mobile_menu__logo mobile_menu__logo--tree"></div>
+                        </div>
+                        <ul class="categories_list">
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing&catalog=1159238#detf">перчатки, варежки</a></li>
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing&catalog=1159239#detf">варежки</a></li>
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing&catalog=1159233#detf">шапки/шлемы</a></li>
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing&catalog=1159237#detf">шарфы</a></li>
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing_child&catalog=1153466#detf">носки</a></li>
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing&catalog=1165535&brand=20279292#detf">пинетки</a></li>
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing&catalog=1165539#detf">конверты</a></li>
+                        </ul>
+                    </li>
+                    <li class="main_category__items">
+                        <img class="rmTabsImages" src="http://www.ozon.ru/graphics/action/140902_raima/150408-img-5.jpg" alt=""/>
+                        <div class="mobile_menu mobile_menu--four">
+                            <div class="mobile_menu__text text_menu">ОБУВЬ<div class="text_menu__trigl"></div></div>
+                            <div class="mobile_menu__logo mobile_menu__logo--four"></div>
+                        </div>
+                        <ul class="categories_list">
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=shoes&type=38758%2c38757%2c31978#detf">сапоги</a></li>
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=shoes&type=31961#detf">ботинки</a></li>
+                        </ul>
+                    </li>
+                    <li class="main_category__items">
+                        <img class="rmTabsImages" src="http://www.ozon.ru/graphics/action/140902_raima/150408-img-6.jpg" alt=""/>
+                        <div class="mobile_menu mobile_menu--five">
+                            <div class="mobile_menu__text text_menu">НОВОРОЖДЕННЫМ<div class="text_menu__trigl"></div></div>
+                           <!-- <div class="mobile_menu__logo mobile_menu__logo--four"></div> -->
+                        </div>
+                        <ul class="categories_list">
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing_newborn#detf">одежда</a></li>
+                            <li class="categories_list__items item"><a class="item__link" href="http://www.ozon.ru/brand/20279292/?group=clothing&catalog=1165539#detf">конверты</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+         </div>
+    </div>
+</div>
+</body>
+</html>

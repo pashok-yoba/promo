@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<style>
+.pageCenterNoLeft {
+    padding: 0;
+
+}
+.pageContent .PageModule {
+    margin: 0;
+}
+#PageContent {
+    padding: 0;
+}
+.pageCenterNoLeft div.pageContent .PageModule {
+    margin: 0;
+}
+#bosch * {
+    margin: 0;
+    padding: 0;
+}
+#bosch {
+    width: 865px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+#bosch .boschMenuContainer {
+    overflow: hidden;
+}
+#bosch .boschLogo {
+    height: 55px;
+    width: 159px;
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/bosh-logo.jpg);
+    float: left;
+}
+#bosch .boschMenu {
+    float: right;
+    overflow: hidden;
+    list-style-type: none;
+    height: 55px;
+}
+#bosch .boschMenuItem {
+    float: right;
+    padding-left: 30px;
+    height: 100%;
+}
+#bosch .boschMenuItem:after {
+    content: ' ';
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+}
+#bosch .boschMenuItem__ok {
+    width: 28px;
+    height: 29px;
+    display: inline-block;
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/bosh-ok.jpg);
+    margin-right: 8px;
+    vertical-align: middle;
+}
+#bosch .boschMenuItem__link {
+    color: #707070;
+    font-size: 14px;
+    display: inline-block;
+    vertical-align: middle;
+}
+#bosch .boschName {
+    width: 632px;
+    height: 81px;
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/text-1.jpg);
+    background-repeat: no-repeat;
+    margin: 17px auto 0;
+}
+#bosch .boschDetail {
+    width: 739px;
+    height: 56px;
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/text-2.jpg);
+    margin: 20px auto 0;
+}
+#bosch .boschSlider {
+    list-style-type: none;
+    position: relative;
+    height: 640px;
+}
+#bosch .boschItemLogo {
+    height: 274px;
+    margin-top: 25px;
+    display: block;
+}
+#bosch .boschItemLogo--1 {
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/slide-1.jpg);
+}
+#bosch .boschItemLogo--2 {
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/slide-2.jpg);
+}
+#bosch .boschItemMiddle {
+    overflow: hidden;
+    padding-top: 55px;
+    padding-right: 23px;
+}
+#bosch .boschAbout {
+    padding-left: 40px;
+    float: left;
+    width: 432px;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+}
+#bosch .boschAbout__img {
+    width: 102px;
+    height: 210px;
+}
+#bosch .boschAbout__img--1 {
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/item-1-img.jpg);
+}
+#bosch .boschAbout__img--2 {
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/item-2-img.jpg);
+}
+#bosch .boschAbout__name {
+    font-weight: bold;
+    font-size: 20px;
+    color: #00523c;
+    width: 230px;
+    top: 11px;
+    left: 156px;
+    position: absolute;
+    display: block;
+}
+#bosch .boschAbout__bubble {
+    width: 104px;
+    height: 104px;
+    position: absolute;
+    left: 156px;
+    top: 78px;
+    background-repeat: no-repeat;
+}
+#bosch .boschAbout__bubble--1 {
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/item-1-bubble.jpg);
+}
+#bosch .boschAbout__bubble--2 {
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/item-2-bubble.jpg);
+}
+#bosch .boschVideo {
+    float: right;
+    width: 384px;
+    height: 209px;
+    cursor: pointer;
+}
+#bosch .boschVideo--1 {
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/item-1-video.jpg);
+}
+#bosch .boschVideo--2 {
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/item-2-video.jpg);
+}
+#bosch .boschItemList {
+    list-style-position: inside;
+    list-style-type: disc;
+    font-size: 14px;
+    line-height: 36px;
+    padding-top: 23px;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+}
+
+#bosch .boschSlider__bubbles {
+    position: absolute;
+    width: 50px;
+    left: 50%;
+    overflow: hidden;
+    top: 476px;
+    margin-left: -25px;
+}
+#bosch .bosch-bubbles {
+    background-image: url('http://ozon.ru/graphics/action/150714-bosch/bubbles.jpg');
+    background-position: 0 0;
+    width: 14px;
+    height:14px;
+    cursor: pointer;
+}
+#bosch .bosch-bubble-active {
+    background-position: 0 -14px;
+}
+#bosch .bosch-bubble1 {
+    float: left;
+}
+#bosch .bosch-bubble2 {
+    float: right;
+}
+#bosch .boschWrapper {
+    position: relative;
+}
+#bosch .boschSlider--top {
+    height: auto;
+    width:1730px;
+    overflow: hidden;
+}
+#bosch .BoschSlider__itemTop {
+    float: left;
+    width: 865px;
+}
+
+#bosch .BoschSlider__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#bosch .boschSliderContainer {
+    overflow: hidden;
+}
+
+
+#boschApp {
+    margin-top: 30px;
+    padding-top: 34px;
+    background-color: #f6f5f3;
+    border-top: 1px solid #d1d1d1;
+}
+#boschApp .boschApp__name {
+    text-align: center;
+    color: #00523c;
+    font-size: 36px;
+}
+#boschApp .boschFooter {
+    margin: 0 auto;
+    width: 865px;;
+    margin-top: 30px;
+    height: 85px;
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/footer.jpg);
+}
+#boschApp .boschFooterText {
+    height: 100px;
+    position: relative;
+    width: 880px;
+    margin: 0 auto;
+    list-style-type: none;
+    box-sizing: border-box;
+}
+#boschApp .boschFoorerText__item {
+    position: absolute;
+    top: 14px;
+    font-size: 13px;
+    color: #00523c;
+    text-align: center;
+    line-height: 1.3em;
+}
+#boschApp .boschFoorerText__item--1 {
+    width: 160px;
+    left: 0;
+}
+#boschApp  .boschFoorerText__item--2 {
+    width: 90px;
+    left: 212px;
+}
+#boschApp .boschFoorerText__item--3 {
+    width: 160px;
+    left: 375px;
+}
+#boschApp  .boschFoorerText__item--4 {
+    width: 90px;
+    left: 586px;
+}
+#boschApp .boschFoorerText__item--5 {
+    width: 120px;
+    right: 0px;
+}
+#bosch-outer {
+    position: relative;
+}
+#bosch-outer .boschVideoHover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    display: none;
+}
+#bosch-outer .boschVideoHover:after {
+    content: ' ';
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    vertical-align: middle;
+}
+#bosch-outer .videoContainer {
+    display: inline-block;
+    vertical-align: middle;
+}
+#bosch-outer .videoClose {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 33px;
+    height: 33px;
+    background-image :url(http://ozon.ru/graphics/action/150714-bosch/close.jpg);
+    cursor: pointer;
+}
+</style>
+<script>
+    $(function(){
+        var key = true;
+        function slideBosch() {
+            var slide = $('.boschSlider--top');
+            $('.BoschSlider__item').fadeToggle(1000);
+            $('.bosch-bubbles').toggleClass('bosch-bubble-active');
+            if (key == true){
+                slide.animate({'margin-left': '-865px'}, 1000);
+                key = false;
+            }
+            else {
+                slide.animate({'margin-left': '0'}, 1000);
+                key = true;
+            }
+        }
+        var time = setInterval(function(){
+            slideBosch();
+        }, 30000);
+        $('.bosch-bubbles').on('click', function(){
+            if (!($(this).hasClass('bosch-bubble-active'))){
+                slideBosch();
+                clearInterval(time);
+                time = setInterval(function(){
+                    slideBosch();
+                }, 30000);
+            }
+        });
+        var video1 = $('<iframe class="play-video" width="840" height="472" src="https://www.youtube.com/embed/Pw7CD6bGQIQ" frameborder="0" allowfullscreen></iframe>');
+        var video2 = $('<iframe class="play-video" width="840" height="472" src="https://www.youtube.com/embed/orijCOZfE-8" frameborder="0" allowfullscreen></iframe>');
+        $('.boschVideo').on('click', function(){
+            if ( $(this).hasClass('boschVideo--1') ){
+                console.log('1');
+                $('.videoContainer').append(video1);
+            }
+            else {
+                console.log('2');
+                $('.videoContainer').append(video2);
+            }
+            $('.boschVideoHover').fadeIn(0);
+        });
+        $('.videoContainer').on('click', function(e){
+            e.preventDefault();
+            e.stopPropagation();
+            event.cancelBubble = true;
+            event.stopPropagation();
+        });
+        $('.boschVideoHover').on('click', function(){
+            $('.play-video').remove();
+            $(this).fadeOut(0);
+        })
+    })
+</script>
+<div id="bosch-outer">
+    <div id="bosch">
+        <div class="boschMenuContainer">
+            <div class="boschLogo"></div>
+            <ul class="boschMenu">
+                <li class="boschMenuItem"><div class="boschMenuItem__ok"></div><span  class="boschMenuItem__link">128 лет на рынке</span></li>
+                <li class="boschMenuItem"><div class="boschMenuItem__ok"></div><span  class="boschMenuItem__link">Более 5000 патентов каждый год</span ></li>
+                <li class="boschMenuItem"><div class="boschMenuItem__ok"></div><span  class="boschMenuItem__link">Немецкое качество</span ></li>
+            </ul>
+        </div>
+        <div class="boschWrapper">
+            <div class="boschName"></div>
+            <div class="boschDetail"></div>
+            <div class="boschSliderContainer">
+                <ul class="boschSlider boschSlider--top">
+                    <li class="BoschSlider__itemTop">
+                        <a href="/context/detail/id/32611165/" class="boschItemLogo boschItemLogo--2"></a>
+                    </li>
+                    <li class="BoschSlider__itemTop">
+                        <a href="/context/detail/id/32611166/" class="boschItemLogo boschItemLogo--1"></a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="boschSlider">
+                <li class="BoschSlider__item">
+                    <div class="boschItemMiddle">
+                        <a class="boschAbout" href="/context/detail/id/32611165/">
+                            <div class="boschAbout__img boschAbout__img--1"></div>
+                            <span class="boschAbout__name">Цифровой лазерный дальномер PLR 30 C</span>
+                            <div class="boschAbout__bubble boschAbout__bubble--1"></div>
+                        </a>
+                        <div class="boschVideo boschVideo--1"></div>
+                    </div>
+                    <ol class="boschItemList">
+                        <li class="boschItemList__item">Диапазон измерений от 0,05 до 30, 00 м. С точностью до 2 мм</li>
+                        <li class="boschItemList__item">Удобное протоколирование результатов измерения посредством Bluetooth с приложением Bosch PLR measure&go</li>
+                        <li class="boschItemList__item">Простое определение длины, площади и объема благодаря встроенным функциям измерения</li>
+                        <li class="boschItemList__item">Сложение и вычитание результатов измерения</li>
+                        <li class="boschItemList__item">Измерение от передней и задней кромки</li>
+                    </ol>
+                </li>
+                <li class="BoschSlider__item" style="display: none;">
+                    <div class="boschItemMiddle">
+                        <a class="boschAbout" href="/context/detail/id/32611166/">
+                            <div class="boschAbout__img boschAbout__img--2"></div>
+                            <div class="boschAbout__bubble boschAbout__bubble--2"></div>
+                            <div class="boschAbout__name">Цифровой лазерный дальномер PLR 50 C</div>
+                        </a>
+                        <div class="boschVideo boschVideo--2"></div>
+                    </div>
+                    <ol class="boschItemList">
+                        <li class="boschItemList__item">Диапазон измерений от 0,05 до 50, 00 м. С точностью до 2 мм</li>
+                        <li class="boschItemList__item">Удобное протоколирование результатов измерения посредством Bluetooth с приложением Bosch PLR measure&go</li>
+                        <li class="boschItemList__item">Интуитивно понятное управление с сенсорным экраном и высококачественным цветным дисплеем</li>
+                        <li class="boschItemList__item">Простое определение длины, площади и объема благодаря встроенным функциям измерения</li>
+                        <li class="boschItemList__item">Косвенное измерение длины и высоты посредством всего одного измерения</li>
+                        <li class="boschItemList__item">Встроенный датчик наклона обеспечивает высокоточное измерение наклонов и нивелирование объектов</li>
+                        <li class="boschItemList__item">3 опорных точки для измерения: передняя кромка, задняя кромка, упорная плита</li>
+                        <li class="boschItemList__item">Автоматическое сложение и вычитание значений длины, площади и объема</li>
+                        <li class="boschItemList__item">Автоматическое сохранение результатов последних 10 измерений</li>
+                    </ol>
+                </li>
+            </ul>
+            <div class="boschSlider__bubbles">
+                <div class="bosch-bubbles bosch-bubble1 bosch-bubble-active"></div>
+                <div class="bosch-bubbles bosch-bubble2"></div>
+            </div>
+        </div>
+    </div>
+    <div id="boschApp">
+        <div class="boschApp__name">Как использовать лазерный дальномер<br /> с приложением Bosch PLR measure&go</div>
+        <div class="boschFooter"></div>
+        <ul class="boschFooterText">
+            <li class="boschFoorerText__item boschFoorerText__item--1">Соедините ваш смартфон и дальномерс помощью Bluetooth</li>
+            <li class="boschFoorerText__item boschFoorerText__item--2">Сделайте фотографию объекта</li>
+            <li class="boschFoorerText__item boschFoorerText__item--3">На фотографии обозначьте место, которое вы измеряете</li>
+            <li class="boschFoorerText__item boschFoorerText__item--4">Измерьте расстояние</li>
+            <li class="boschFoorerText__item boschFoorerText__item--5">Размер будет автоматически нанесен на фото</li>
+        </ul>
+    </div>
+    <div class="boschVideoHover">
+        <div class="videoClose"></div>
+        <div class="videoContainer">
+        </div>
+    </div>
+</div>
+</body>
+</html>

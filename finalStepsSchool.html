@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<style>
+* {
+    padding: 0;
+    margin: 0;
+}
+.pageCenterNoLeft {
+    padding: 0;
+
+}
+.pageContent .PageModule {
+    margin: 0;
+}
+#PageContent {
+    padding: 0;
+}
+.pageCenterNoLeft div.pageContent .PageModule {
+    margin: 0;
+}
+#prm * {
+    padding: 0;
+    margin: 0;
+}
+#prm {
+    font-family: Arial, sans-serif;
+    background: url("//static1.ozone.ru/graphics/action/150715-school/150709-all/bg-2.jpg");
+    padding-bottom: 40px;
+    min-height: 500px;
+}
+#prm .prmNav {
+    background-color: #fb4540;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    z-index: 2;
+}
+#prm .prmPunkts {
+    width: 960px;
+    margin: 0 auto;
+}
+#prm .prmPunkt {
+    height: 63px;
+    padding-left: 65px;
+    width: 135px;
+    box-sizing: border-box;
+    float: left;
+    color: white;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: bold;
+    display: table;
+    cursor: pointer;
+    text-decoration: none;
+    background-position: 15px center;
+    background-repeat: no-repeat;
+}
+#prm .prmPunkt span {
+    vertical-align: middle;
+    display: table-cell;
+}
+#prm .SchoolWrapper {
+    width: 1000px;
+    background-color: white;
+    margin: 0 auto;
+    padding-top: 5px;
+    position: relative;
+}
+#prm .schoolBanner {
+    background-color: #ffd346;
+    height: 102px;
+    position: relative;
+}
+#prm .schoolBannerLogo {
+    background-image: url("//static1.ozone.ru/graphics/action/150901-steps/classBuy.jpg");
+    width: 656px;
+    height: 65px;
+    position: absolute;
+    left: 50%;
+    margin-left: -328px;
+    bottom: 0;
+}
+#prm .schoolerich {
+    background-image: url("//static1.ozone.ru/graphics/action/150901-steps/erich.jpg");
+    width: 960px;
+    height: 80px;
+    margin: 0 auto;
+}
+#prm .schoolDesk {
+    background-image: url("//static1.ozone.ru/graphics/action/150901-steps/querstion.jpg");
+    width: 840px;
+    height: 338px;
+    margin: 34px auto 0;
+}
+#prm .SchoolText {
+    width: 508px;
+    box-sizing: border-box;
+    padding-left: 48px;
+    margin: 35px auto 0;
+    font-size: 24px;
+    color: #616161;
+    line-height: 40px;
+}
+#prm .SchoolTextLink {
+    color: #616161;
+}
+#prm .SchoolText--margin {
+    padding-bottom: 20px;
+    padding-top: 40px;
+}
+#prm .SchoolText--big {
+    font-size: 48px;
+    color: #54c61c;
+    display: inline-block;
+}
+#prm .SchoolText--small {
+    font-size: 18px;
+}
+#prm .schoolButton {
+    width: 277px;
+    height: 68px;
+    background-image: url("//static1.ozone.ru/graphics/action/150901-steps/start.jpg");
+    cursor: pointer
+}
+#prm .schoolButton:hover {
+    opacity: 0.8;
+}
+#prm .schoolContainer {
+    width: 508px;
+    box-sizing: border-box;
+    padding-left: 48px;
+    padding-top: 32px;
+    margin: 0 auto;
+}
+#prm .steps {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    top: 0;
+    left: 0;
+    padding-top: 149px;
+    box-sizing: border-box;
+}
+#prm .schoolQuestion {
+    font-size: 64px;
+    text-align: center;
+}
+#prm .schoolButtonHover {
+    font-size: 32px;
+    width: 220px;
+    height: 68px;
+    display: inline-block;
+    line-height: 32px;
+    cursor: pointer;
+}
+#prm .schoolButtonHover:hover {
+    background-color: #85bf00;
+}
+#prm .schoolButtonHover:after {
+    content: ' ';
+    vertical-align: middle;
+    height: 100%;
+    width: 0;
+    display: inline-block;
+}
+#prm .schoolButtonHover--1 {
+    background-color: #00b9f2;
+    margin-right: 93px;
+
+}
+#prm .schoolButtonHover--2 {
+    background-color: #00b9f2;
+
+}
+#prm .schoolButtonText {
+    display: inline-block;
+    vertical-align: middle;
+    color: white;
+}
+#prm .stepsContainer {
+    text-align: center;
+    padding-top: 80px;
+}
+#prm .schoolTimer {
+    font-size: 30px;
+    text-align: center;
+}
+#prm .schoolWinner {
+    width: 627px;
+    height: 130px;
+    display: inline-block;
+    background-image: url(//static1.ozone.ru/graphics/action/150901-steps/100_ballov.png);
+}
+#prm .steps--winner {
+    text-align: center;
+    padding-top: 70px;
+}
+#prm .stepsContainerWinner {
+    padding-top: 56px;
+    width: 627px;
+    display: inline-block;
+    text-align: left;
+    font-size: 24px;
+    line-height: 1.3em;
+}
+#prm .textWinner {
+    padding-top: 10px;
+}
+#prm .textWinner--red {
+    color: #ff4338;
+}
+#prm .textWinner--bold {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 35px;
+    color: #ff4338;
+}
+#prm .steps--looser {
+    text-align: center;
+    padding-top: 70px;
+}
+#prm .schoolLooser {
+    width: 582px;
+    height: 211px;
+    display: inline-block;
+    background-image: url(//static1.ozone.ru/graphics/action/150901-steps/looser.png);
+}
+#prm .schoolLooserButton {
+    display: inline-block;
+    width: 296px;
+    height: 31px;
+    background-image: url(//static1.ozone.ru/graphics/action/150901-steps/buttonLooser.png);
+    margin-top: 40px;
+}
+#prm .steps {
+    display: none;
+}
+#prm .steps--timeEnd {
+    text-align: center;
+}
+#prm .endText {
+    color: #ff4338;
+    font-size: 77px;
+    font-weight: bold;
+}
+#prm .steps--double {
+    text-align: center;
+    background-color: white;
+}
+#prm .prmMail {
+    display: none;
+    width: 650px;
+    height: 585px;
+    padding: 235px 45px 25px 30px;
+    background: url("//static.ozone.ru/graphics/action/150715-school/150709-all/mailT.png") center 75px no-repeat #FFF;
+    top: 15px;
+    left: 50%;
+    margin-left: -358px;
+    position: absolute;
+    z-index: 2;
+}
+#prm .prmMail .prmCross {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: url("//static.ozone.ru/graphics/action/150715-school/150709-all/cross.png") center center no-repeat;
+    cursor: pointer;
+    height: 38px;
+    width: 38px;
+}
+#prm .prmMailText {
+    font-family: Arial;
+    font-size: 14px;
+    line-height: 17px;
+}
+#prm .prmMailQ {
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+#prm .prmMailTextText {
+    padding-bottom: 40px;
+}
+#prm .prmMail .prmMailTo {
+    display: block;
+    height: 24px;
+    width: 200px;
+    background: url("//static.ozone.ru/graphics/action/150715-school/150709-all/mailto.png") center center no-repeat;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+#prm .prmPopupBg {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: url("//static.ozone.ru/graphics/action/150715-school/150709-all/black.png");
+    z-index: 1;
+    top: 0;
+    left: 0;
+}
+#prm .prmShow {
+    display: block;
+}
+</style>
+<div id="prm" class="no-mobile">
+    <div class="prmContainer">
+        <div class="prmNav">
+            <div class="prmPunkts">
+                <a href="/context/detail/id/33200315/" class="prmPunkt prmPunkt-1" style="background-image: url('//static.ozone.ru/graphics/action/150715-school/150709-all/icon-1.png');" ><span>Выбрать товар</span></a>
+                <a href="/context/school-stationery/" class="prmPunkt prmActive prmPunkt-2" style="background-image: url('//static1.ozone.ru/graphics/action/150901-steps/icon-2.png');"><span>Покупки на весь класс</span></a>
+                <a href="/context/detail/id/33200264/" class="prmPunkt prmPunkt-3" style="background-image: url('//static1.ozone.ru/graphics/action/150715-school/150709-all/icon-3.png');"><span>Учебники и рабочие материалы</span></a>
+                <a class="prmPunkt prmObr prmPunkt-4" style="background-image: url('//static1.ozone.ru/graphics/action/150715-school/150709-all/icon-5.png');"><span>Обратная связь</span></a>
+                <a href="/context/detail/id/33200303/" class="prmPunkt prmMob" style="background-image: url('//static1.ozone.ru/graphics/action/150715-school/150709-all/icon-4.png');"><span>Полезные советы</span></a>
+                <a href="//static.ozone.ru/graphics/action/150715-school/Ozon-Catalog-Jul15-4Site.pdf" class="prmPunkt prmMob" style="background-image: url('//static2.ozone.ru/graphics/action/150715-school/150709-all/icon-6.png'); background-position: 25px center;"><span>Скачать каталог</span></a>
+                <a href="/context/detail/id/33806795/" class="prmPunkt prmMob" style="background-image: url('//static1.ozone.ru/graphics/action/150901-steps/desk-menu.png'); background-position: 25px center;"><span>К доске!</span></a>
+                <div style="clear: both;"></div>
+            </div>
+        </div>
+        <div class="schoolBanner">
+            <div class="schoolBannerLogo"></div>
+        </div>
+        <div class="SchoolWrapper">
+            <div class="schoolerich"></div>
+            <div class="schoolDesk"></div>
+            <p class="SchoolText">
+                Выходите к доске, ответьте правильно на <span class="SchoolText--big">5 вопросов,</span> <br/>и мы с удовольствием начислим вам 100 баллов
+            </p>
+            <p class="SchoolText SchoolText--small">
+                Строгий учитель отводит на каждый ответ всего <span class="SchoolText--big">5 секунд!</span>
+            </p>
+            <p class="SchoolText SchoolText--small" style="line-height: 22px;">
+                100 баллов начисляются первым 100 клиентам, правильно ответившим на вопросы
+            </p>
+            <div class="schoolContainer">
+                <div class="schoolButton"></div>
+            </div>
+            <p class="SchoolText SchoolText--small SchoolText--margin">
+                <a href="/context/detail/id/33811524/" class="SchoolTextLink">Полные условия акции</a>
+            </p>
+            <div class="steps" data-step="0">
+                <p class="schoolQuestion"> Учат в школе...</p>
+                <div class="stepsContainer">
+                    <div class="schoolButtonHover schoolButtonHover--1"><span class="schoolButtonText">малышей обижать</span></div>
+                    <div class="schoolButtonHover schoolButtonHover--2"><span class="schoolButtonText">вычитать и умножать</span></div>
+                </div>
+                <p class="schoolTimer">5</p>
+            </div>
+            <div class="steps" data-step="1">
+                <p class="schoolQuestion"> 2+2*2=</p>
+                <div class="stepsContainer">
+                    <div class="schoolButtonHover schoolButtonHover--1"><span class="schoolButtonText">6</span></div>
+                    <div class="schoolButtonHover schoolButtonHover--2"><span class="schoolButtonText">8</span></div>
+                </div>
+                <p class="schoolTimer">5</p>
+            </div>
+            <div class="steps" data-step="2">
+                <p class="schoolQuestion"> Биссектриса – это...</p>
+                <div class="stepsContainer">
+                    <div class="schoolButtonHover schoolButtonHover--1"><span class="schoolButtonText">актриса</span></div>
+                    <div class="schoolButtonHover schoolButtonHover--2"><span class="schoolButtonText">крыса</span></div>
+                </div>
+                <p class="schoolTimer">5</p>
+            </div>
+            <div class="steps" data-step="3">
+                <p class="schoolQuestion"> Архимед воскликнул: </p>
+                <div class="stepsContainer">
+                    <div class="schoolButtonHover schoolButtonHover--1"><span class="schoolButtonText">Эврика! </span></div>
+                    <div class="schoolButtonHover schoolButtonHover--2"><span class="schoolButtonText">Тёпленькая пошла!</span></div>
+                </div>
+                <p class="schoolTimer">5</p>
+            </div>
+            <div class="steps" data-step="4">
+                <p class="schoolQuestion"> Как правильно: </p>
+                <div class="stepsContainer">
+                    <div class="schoolButtonHover schoolButtonHover--1"><span class="schoolButtonText">винегрет</span></div>
+                    <div class="schoolButtonHover schoolButtonHover--2"><span class="schoolButtonText">венигрет</span></div>
+                </div>
+                <p class="schoolTimer">5</p>
+            </div>
+            <div class="steps steps--winner">
+                <div class="schoolWinner"> </div>
+                <div class="stepsContainerWinner">
+                    <p class="textWinner">Отправьте письмо на <span class="textWinner--red">konkurs2015@ozon.ru</span></p>
+                    <p class="textWinner">Тема письма<span class="textWinner--red">«Конкурс OZON.ru», </span></p>
+                    <p class="textWinner">текст:<span class="textWinner--red">«100 баллов в дневничок»</span>.</p>
+                    <p class="textWinner">До 9 сентября на ваш счет будет начислено 100 баллов</p>
+                    <p class="textWinner textWinner--bold">Поздравляем!</p>
+                </div>
+            </div>
+            <div class="steps steps--looser">
+                <div class="schoolLooser"> </div>
+                <div>
+                    <a href="/context/detail/id/33200315/" class="schoolLooserButton"></a>
+                </div>
+            </div>
+            <div class="steps steps--timeEnd">
+                <p class="endText">Время вышло</p>
+                <div>
+                    <a href="/context/detail/id/33200315/" class="schoolLooserButton"></a>
+                </div>
+            </div>
+        </div>
+        <div class="prmPopupBg"></div>
+        <div class="prmMail">
+            <div class="prmCross prmShow"></div>
+            <div class="prmMailT"></div>
+            <div class="prmMailText">
+                <div class="prmMailQ"><div class="prmFloat">Вопрос №1.&nbsp;</div><div class="prmFloat">Как быстро найти необходимый учебник?</div><div style="clear: both;"></div></div>
+                <div class="prmMailTextText"><b>Ответ:</b> В разделе "Школа" Вы можете выбрать необходимый класс и предмет. Нажмите на название предмета,
+                    и Вы увидите все учебники, которые есть по данному запросу. Затем в левой стороне экрана, после возможности выбора по доступности / цене / рейтингу издания, нажмите на "Дополнительные критерии".
+                    Перед Вами появилась возможность подобрать учебник по Автору, Издательству, Серии, Году выхода
+                    и многому другому. Просто нажимаете на удобный для Вас параметр, и выбираете из представленных вариантов! </div>
+                <div class="prmMailQ"><div class="prmFloat">Вопрос №2.&nbsp;</div><div class="prmFloat">Мне необходимо оформить заказ на несколько штук одного<br>наименования, как это сделать?</div><div style="clear: both;"></div></div>
+                <div class="prmMailTextText"><b>Ответ:</b> Положите необходимый Вам товар в корзину. Перейдите в корзину для оформления заказа. Нажмите на цифру "1" в графе "количество" и поставьте необходимое значение. Можно ввести цифру, или воспользоваться кнопками "+" и "-"  </div>
+                <div class="prmMailQ"><div class="prmFloat">Вопрос №3.&nbsp;</div><div class="prmFloat">Я хочу оформить заказ на несколько штук одного наименования,<br>но у меня в корзине нет возможности изменить количество</div><div style="clear: both;"></div></div>
+                <div class="prmMailTextText"><b>Ответ:</b> Если у Вас не получается поменять необходимое количество товара одного наименования в корзине, это означает, что у поставщика (издательства) в данный момент нет этого товара в необходимом Вам количестве.<br><br>
+                    Оставьте заявку с темой сообщения «Школа 2015». В теме письма укажите, пожалуйста, все известные Вам данные: автор, полное название, класс, издательство, тип учебного издания (т.е. учебник, рабочая тетрадь и т.п.), необходимое количество товара
+                </div>
+            </div>
+            <a class="prmMailTo" href="mailto:school@ozon.ru" onclick="var x=&quot;.tl(&quot;;s_objectID=&quot;mailto:school@ozon.ru_1&quot;;return this.s_oc?this.s_oc(e):true"></a>
+        </div>
+    </div>
+    <div class="steps steps--double">
+        <p class="endText">Вы уже проходили тест</p>
+        <div>
+            <a href="/context/detail/id/33200315/" class="schoolLooserButton"></a>
+        </div>
+    </div>
+</div>
+<script>
+    var flag = true;
+    var time = timer(document.getElementsByClassName('steps')[0]);
+    var interval;
+
+    function addListenerAll(nameClass, nameFunction) {
+        var all = document.getElementsByClassName(nameClass);
+        for (var i = 0; i < all.length; i++) {
+            all[i].addEventListener('click',nameFunction);
+        }
+    }
+    function allNone(querySelector) {
+        var all = document.querySelectorAll(querySelector);
+        for ( var i = 0; i < all.length; i++ ) {
+            all[i].style.display = 'none';
+        }
+    }
+    function wright() {
+        var numberStep = + this.parentElement.parentElement.getAttribute('data-step');
+        var clases = this.getAttribute('class').split(' ');
+
+        if ( numberStep == 0 ) {
+            if ( clases.indexOf('schoolButtonHover--1') != -1 ) {
+                flag = false
+            }
+        }
+        if ( numberStep == 1 ) {
+            if ( clases.indexOf('schoolButtonHover--2') != -1 ) {
+                flag = false
+            }
+        }
+        if ( numberStep == 2 ) {
+            if ( clases.indexOf('schoolButtonHover--1') != -1 ) {
+                flag = false
+            }
+        }
+        if ( numberStep == 3 ) {
+            if ( clases.indexOf('schoolButtonHover--2') != -1 ) {
+                flag = false
+            }
+        }
+        if ( numberStep == 4 ) {
+            if ( clases.indexOf('schoolButtonHover--2') != -1 ) {
+                flag = false
+            }
+        }
+        if ( numberStep < 4) {
+            numberStep++;
+            allNone('[data-step]');
+            var newElement = document.querySelector('[data-step="'+ numberStep + '"]');
+            newElement.style.display = 'block';
+            clearInterval(interval);
+            interval  = setInterval(timer(newElement), 1000);
+        }
+        else {
+            clearInterval(interval);
+            if (flag) {
+                document.getElementsByClassName('steps--winner')[0].style.display = 'block'
+            }
+            else {
+                document.getElementsByClassName('steps--looser')[0].style.display = 'block'
+            }
+        }
+        if (!flag) {
+            clearInterval(interval);
+            document.getElementsByClassName('steps--looser')[0].style.display = 'block'
+        }
+    }
+
+    function loser(){
+        document.getElementsByClassName('steps--timeEnd')[0].style.display = 'block';
+        clearInterval(interval);
+    }
+    function timer(step){
+        var time = 5;
+        return function(){
+            time--;
+            step.getElementsByClassName('schoolTimer')[0].innerHTML = time;
+            if ( time == 0 ) {
+                loser();
+            }
+        }
+    }
+    function getCookie(name) {
+        var matches = document.cookie.match(new RegExp(
+                "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
+        ));
+        return matches ? decodeURIComponent(matches[1]) : undefined;
+    }
+    window.addEventListener('DOMContentLoaded', function(){
+        if (getCookie('balls')) {
+            var double = document.getElementsByClassName('steps--double')[0];
+            var childElement = document.getElementsByClassName('prmContainer')[0]
+            double.style.display = 'block';
+            document.getElementById('prm').removeChild(childElement);
+            document.getElementById('prm').appendChild(double);
+        }
+        else {
+            addListenerAll('schoolButtonHover', wright);
+
+            document.getElementsByClassName('schoolButton')[0].addEventListener('click', function(){
+                document.getElementsByClassName('steps')[0].style.display = 'block';
+                $('html, body').animate({ scrollTop: $( document.getElementsByClassName('steps')[0]).offset().top }, 500);
+                var cookie_date = new Date ( 2015, 9, 31 ).toGMTString();
+                /*var cookie_date = new Date ( 0).toGMTString();*/
+                document.cookie = 'balls=true;expires=' + cookie_date;
+                interval  = setInterval(time, 1000);
+            });
+            $('.prmObr').click(function(){
+                $('.prmMail').addClass('prmShow');
+                $('.prmPopupBg').addClass('prmShow');
+                $('.prmMail .prmCross').addClass('prmShow');
+            });
+            $('.prmCross').click(function(){
+                $('.prmShow').removeClass('prmShow');
+            });
+        }
+    })
+</script>
+</body>
+</html>

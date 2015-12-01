@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://ozon.ru/graphics/action/150619-baby/TweenMax.min.js"></script>
+</head>
+<body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    #baby * {
+        margin: 0;
+        padding: 0;
+    }
+    #baby {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/baby-back.jpg);
+        background-repeat: repeat-x;
+        box-sizing: border-box;
+        padding-top: 30px;
+        overflow: hidden;
+        padding-bottom: 20px;
+    }
+    #baby .baby-inner {
+        width: 1062px;
+        margin: 0 auto;
+        border: 2px solid #5ec6cf;
+        padding: 30px;
+        box-sizing: border-box;
+        background-color: #ffffff;
+        padding-bottom: 20px;
+    }
+    #baby .baby-header {
+        position: relative;
+    }
+    #baby .baby-logo {
+        width: 189px;
+        height: 191px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/logo-1.jpg);
+    }
+    #baby .baby-girl {
+        position: absolute;
+        width: 165px;
+        height: 175px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/girl.jpg);
+        top: 7px;
+        left: 224px;
+    }
+    #baby .baby-welcome {
+        position: absolute;
+        width: 316px;
+        height: 181px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/welcome.jpg);
+        top: 7px;
+        left: 404px;
+    }
+
+    #baby .baby-flowers {
+        position: absolute;
+        width: 76px;
+        height: 105px;
+        /*background-image: url(http://ozon.ru/graphics/action/150619-baby/flowers.jpg);*/
+        top: 67px;
+        right: 173px;
+    }
+    #baby .flowers-header {
+        position: absolute;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/flower-inner.png);
+        width: 73px;
+        height: 104px;
+        top: 0;
+        left: 1px;
+        z-index: 2
+    }
+    #baby .flowers-land {
+        position: absolute;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/flower-land.png);
+        width: 73px;
+        height: 20px;
+        bottom: 0;
+        left: 1px;
+        z-index: 1;
+    }
+    #baby .baby-baloon {
+        position: absolute;
+        width: 234px;
+        height: 286px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/baloon.png);
+        top: -147px;
+        right: -7px;
+    }
+    #baby .baby-line {
+        position: absolute;
+        width: 82px;
+        height: 38px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/line.png);
+        top: 283px;
+        right: 11px;
+    }
+    #baby .girl-eye-1 {
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        background-color: #f4e9ce;
+        top:61px;
+        left: 62px;
+        display: none;
+    }
+    #baby .girl-eye-2 {
+        position: absolute;
+        width: 7px;
+        height: 7px;
+        background-color: #f4e9ce;
+        top:60px;
+        left: 113px;
+        display: none;
+    }
+    #baby .baby-menu {
+        padding-top: 15px;
+        position: relative;
+        z-index: 9;
+    }
+    #baby .baby-menu:after {
+        content: ' ';
+        width: 0;
+        height: 0;
+        clear: both;
+        display: block;
+    }
+    #baby .baby-items {
+        float:left;
+        cursor: pointer;
+        padding-bottom: 20px;
+        background-repeat: no-repeat;
+    }
+    #baby .item-1 {
+        width:89px;
+        height: 31px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item1.jpg);
+    }
+    #baby .item-2 {
+        width:124px;
+        height: 31px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item2.jpg);
+    }
+    #baby .item-3 {
+        width:79px;
+        height: 31px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item3.jpg);
+    }
+    #baby .item-4 {
+        width:111px;
+        height: 31px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item4.jpg);
+    }
+    #baby .item-5 {
+        width:86px;
+        height: 31px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item5.jpg);
+    }
+    #baby .item-6 {
+        width:45px;
+        height: 31px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item6.jpg);
+    }
+    #baby .item-7 {
+        width:147px;
+        height: 31px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item7.jpg);
+    }
+    #baby .item-8 {
+        width:86px;
+        height: 31px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item8.jpg);
+    }
+    #baby .item-between {
+        width:7px;
+        height: 31px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item-between.jpg);
+        margin: 0 11px;
+        float: left;
+    }
+    #baby .item-1:hover {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item1-h.jpg);
+    }
+    #baby .item-2:hover {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item2-h.jpg);
+    }
+    #baby .item-3:hover {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item3-h.jpg);
+    }
+    #baby .item-4:hover {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item4-h.jpg);
+    }
+    #baby .item-5:hover {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item5-h.jpg);
+    }
+    #baby .item-6:hover {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item6-h.jpg);
+    }
+    #baby .item-7:hover {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item7-h.jpg);
+    }
+    #baby .item-8:hover {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/item8-h.jpg);
+    }
+    #baby .baby-hovers {
+        width: 160px;
+        border: 1px solid #4db7c0;
+        border-radius: 30px;
+        box-sizing: border-box;
+        padding: 0 20px;
+        list-style-type: none;
+        position: absolute;
+        background-color: #ffffff;
+        top: 57px;
+        display: none;
+    }
+    #baby .baby-hover-1 {
+        left: -30px;
+    }
+    #baby .baby-hover-2 {
+        left: 98px;
+    }
+    #baby .baby-hover-3 {
+        left: 226px;
+    }
+    #baby .baby-hover-4 {
+        left: 352px;
+    }
+    #baby .baby-hover-6 {
+        left: 576px;
+    }
+    #baby .baby-hover-8 {
+        left: 844px;
+    }
+    #baby .baby-hovers:after {
+        content: ' ';
+        border: 12px solid transparent;
+        border-bottom: 12px solid #4db7c0;
+        position: absolute;
+        top: -24px;
+        left: 68px;
+        display: block;
+    }
+    #baby .baby-links {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 20px;
+        color: black;
+        text-decoration: none;
+    }
+    #baby .baby-links:hover {
+        text-decoration: underline;
+    }
+    #baby .baby-link-item {
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+    }
+    #baby .baby-link-item-border {
+        border-bottom: 1px solid #4db7c0;
+    }
+    #baby .baby-gallery {
+        width: 960px;
+        margin: 0 auto;
+        overflow: hidden;
+        position: relative;
+        z-index: 0;
+    }
+    #baby .baby-gallery-item {
+        width: 180px;
+        white-space: nowrap;
+        overflow: hidden;
+        float: left;
+        margin-right: 15px;
+    }
+    #baby .gallery-items {
+        width: 540px;
+        overflow: hidden;
+    }
+    #baby .gallety-item-5 {
+        margin: 0;
+        cursor: pointer;
+    }
+    #baby .gallery-items-5:hover {
+        opacity: 0.9;
+    }
+    #baby .gallery-item-top {
+        height: 375px;
+        float: left;
+        width: 180px;
+    }
+    #baby .gallery-video {
+        width: 180px;
+        height: 126px;
+        margin-top: 11px;
+        cursor: pointer;
+    }
+    #baby .gallery-video:hover {
+        opacity: 0.9
+    }
+
+
+    #baby .gallery-top-11 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/gallery-11.jpg);
+    }
+    #baby .gallery-top-12 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/galler-21.jpg);
+    }
+    #baby .gallery-top-13 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/gallery-31.jpg);
+    }
+
+    #baby .gallery-video-1 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/video-1.jpg);
+    }
+
+    #baby .gallery-top-21 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/gallery-12.jpg);
+    }
+    #baby .gallery-top-22 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/galler-22.jpg);
+    }
+    #baby .gallery-top-23 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/gallery-32.jpg);
+    }
+    #baby .gallery-video-2 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/video-2.jpg);
+    }
+
+    #baby .gallery-top-31 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/gallery-13.jpg);
+    }
+    #baby .gallery-top-32 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/galler-23.jpg);
+    }
+    #baby .gallery-top-33 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/gallery-33.jpg);
+    }
+    #baby .gallery-video-3 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/video-3.jpg);
+    }
+
+    #baby .gallery-top-41 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/gallery-15.jpg);
+    }
+    #baby .gallery-top-42 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/galler-24.jpg);
+    }
+    #baby .gallery-top-43 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/gallery-34.jpg);
+    }
+    #baby .gallery-video-4 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/video-4.jpg);
+    }
+
+    #baby .gallery-top-51 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/gallery-16.jpg);
+    }
+    #baby .gallery-top-52 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/galler-25.jpg);
+    }
+    #baby .gallery-top-53 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/gallery-35.jpg);
+    }
+    #baby .gallery-video-5 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/video-5.jpg);
+    }
+
+    #baby .baby-flags {
+        height: 33px;
+        margin-top: 11px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/flags.jpg);
+        background-repeat: no-repeat;
+    }
+
+/* hover item5 */
+    #baby .hover-item5 {
+        background-color: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        left: 0;
+        top: 0;
+        text-align: center;
+        display: none;
+        z-index: 10;
+    }
+    #baby .hover-item5:after {
+        display: inline-block;
+        content: ' ';
+        width: 0;
+        height: 100%;
+        vertical-align: middle;
+    }
+    #baby .item5-hover-center {
+        width: 1018px;
+        background-color: white;
+        padding: 40px;
+        box-sizing: border-box;
+        vertical-align: middle;
+        display: inline-block;
+        position: relative;
+    }
+    #baby .hover-item5-inner {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/hover-all.jpg);
+        width: 921px;
+        height: 714px;
+    }
+    #baby .hover-item5-close {
+        width: 10px;
+        height: 22px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/close.jpg);
+        top: 10px;
+        right: 10px;
+        position: absolute;
+        cursor: pointer;
+    }
+
+/* hover video */
+    #baby .hover-video {
+        background-color: rgba(0, 0, 0, 0.3);
+        position: absolute;
+        left: 0;
+        top: 0;
+        text-align: center;
+        display: none;
+        z-index: 10;
+    }
+    /*#baby .hover-video:after {
+        display: inline-block;
+        content: ' ';
+        width: 0;
+        height: 100%;
+        vertical-align: middle;
+    }*/
+    #baby .video-hover-center {
+        width: 1018px;
+        background-color: white;
+        padding: 40px;
+        box-sizing: border-box;
+        vertical-align: middle;
+        display: inline-block;
+        position: relative;
+        top: 40px
+    }
+    #baby .hover-video-inner {
+        width: 921px;
+        height: 714px;
+        position: relative;
+    }
+    #baby .hover-video-close {
+        width: 10px;
+        height: 22px;
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/close.jpg);
+        top: 10px;
+        right: 10px;
+        position: absolute;
+        cursor: pointer;
+    }
+    #baby .videos {
+        display: none;
+    }
+    #baby .video-main {
+        padding: 0;
+        width: 100%;
+        display: block;
+        position: absolute;
+        top:0;
+        left: 0;
+    }
+    #baby .pictureNone {
+        display: none!important;
+    }
+
+    #baby .videos-pictures {
+        position: relative;
+        top: 580px;
+        text-align: center;
+    }
+    #baby .video-picture {
+        width: 181px;
+        height: 126px;
+        display: inline-block;
+        margin-right: 15px;
+        cursor: pointer;
+    }
+    #baby .picture-1 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/video-1.jpg);
+    }
+    #baby .picture-2 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/video-2.jpg);
+    }
+    #baby .picture-3 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/video-3.jpg);
+    }
+    #baby .picture-4 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/video-4.jpg);
+    }
+    #baby .picture-5 {
+        background-image: url(http://ozon.ru/graphics/action/150619-baby/video-5.jpg);
+    }
+</style>
+<script>
+    $(function(){
+        var players = $('.videos');
+        var baloon = $('.baby-baloon');
+        var line = $('.baby-line');
+        var eyes = $('.girl-eyes');
+        var width = $(document).width();
+        var height  = $(document).height();
+
+        var tl = new TimelineMax({repeat: -1});
+        tl.fromTo(baloon, 1.3, {rotation: 2, ease: Power1.easeInOut}, {rotation: -1, ease: Power1.easeInOut});
+        tl.fromTo(line, 1.3, {rotation: 3, ease: Power2.easeInOut, transformOrigin:"top left"}, {rotation: -2, ease: Power2.easeInOut, transformOrigin:"top left"}, 0);
+        tl.fromTo(baloon, 1.3, {rotation: -1, ease: Power1.easeInOut}, {rotation: 2, ease: Power1.easeInOut});
+        tl.fromTo(line, 1.3, {rotation: -2, ease: Power2.easeInOut, transformOrigin:"top left"}, {rotation: 3, ease: Power2.easeInOut, transformOrigin:"top left"}, 1.3);
+        tl.play();
+
+        setInterval(function(){
+            eyes.css({'display': 'block'});
+            setTimeout(function(){
+                    eyes.css({'display': 'none'});
+                    setTimeout(function(){
+                            eyes.css({'display': 'block'});
+                            setTimeout(function(){
+                                        eyes.css({'display': 'none'})},
+                            200)}
+                    , 250);
+            }, 300);
+        }, 8000);
+        var headFlower = $('.flowers-header');
+
+        var tweenScale = new TimelineMax({repeat: -1});
+        tweenScale.to(headFlower, 4, {skewX: 10, ease: Power3.easeOut, transformOrigin:"bottom center"});
+        tweenScale.to(headFlower, 4, {skewX: 0, ease: Power3.easeOut, transformOrigin:"bottom center"}, 4);
+
+
+
+
+/* hover-top */
+        $('.baby-items').on('mouseenter', function(){
+            $(this).find('.baby-hovers').fadeIn(0.6);
+        });
+
+        $('.baby-items').on('mouseleave', function(){
+            $(this).find('.baby-hovers').fadeOut(0.6);
+        });
+
+/* hover-item5 */
+        $('.gallety-item-5').find('.gallery-item-top').on('click', function(){
+            $('.hover-item5').css({'width': width, 'height': height}).fadeIn(0.8);
+        });
+
+        $('.hover-item5-inner').on('click', function(event){
+            if(event.preventDefault) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            event.cancelBubble = true;
+        });
+
+        var closeItem5 = $('.hover-item5').add('.hover-item5-close');
+        closeItem5.on('click', function(){
+            $('.hover-item5').fadeOut(0.8);
+        });
+
+/* hover video */
+        $('.gallery-video').on('click', function(){
+            $('.video-picture').removeClass('pictureNone');
+            $('.videos').removeClass('video-main');
+            var name = $(this).attr('class').split(/\s/)[1];
+            name = name.split('video-')[1];
+            $('.video-'+name).addClass('video-main');
+            $('.picture-'+name).addClass('pictureNone');
+            $('.hover-video').css({'width': width, 'height': height}).fadeIn(0.8);
+        });
+
+        var closeVideo = $('.hover-video').add('.hover-video-close');
+        closeVideo.on('click', function(){
+            $('.hover-video').fadeOut(0.8);
+        });
+        $('.video-picture').on('click', function(event){
+            event.cancelBubble = true;
+            if(event.preventDefault) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            $('.video-picture').removeClass('pictureNone');
+            $('.videos').removeClass('video-main');
+            for (var i = 0; i < players.length; i++) {
+                var item = players.eq(i)
+                var src = item.attr('src');
+                item.attr('src', '');
+                item.attr('src', src);
+            }
+            var name = $(this).attr('class').split(/\s/)[1];
+            name = name.split('picture-')[1];
+            $('.video-'+name).addClass('video-main');
+            $('.picture-'+name).addClass('pictureNone');
+        });
+
+/* gallery-slide */
+        var x = 0;
+        setInterval(function(){
+            TweenMax.to('.gallery-items',0.8, {x: x*180});
+
+            if ( x == -2) {
+                x = 0;
+            }
+            else {
+                x--
+            }
+
+        }, 10000);
+    });
+
+</script>
+<div id="baby">
+    <div class="baby-inner">
+        <div class="baby-header">
+            <div class="baby-logo"></div>
+            <div class="baby-girl">
+                <div class="girl-eyes girl-eye-1"></div>
+                <div class="girl-eyes girl-eye-2"></div>
+            </div>
+            <div class="baby-welcome"></div>
+            <div class="baby-flowers">
+                <div class="flowers-header"></div>
+                <div class="flowers-land"></div>
+            </div>
+            <div class="baby-baloon">
+                <div class="baby-line"></div>
+            </div>
+        </div>
+        <div class="baby-menu">
+            <div class="baby-items item-1">
+                <ul class="baby-hovers baby-hover-1">
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childtransport&pramtype=46707&catalog=1159628#detf">Коляски для новорожденных</a></li>
+                    <li class="baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childtransport&pramtype=46708&catalog=1159628#detf">Прогулочные коляски</a></li>
+                </ul>
+            </div>
+            <div class="item-between"></div>
+            <div class="baby-items item-2">
+                <ul class="baby-hovers baby-hover-2">
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=safechild&agegroup=46714&catalog=1159625#detf">Группа 0+</a></li>
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=safechild&catalog=1147992&agegroup=59130#detf">Группа 0/I</a></li>
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=safechild&catalog=1147992&agegroup=59131#detf">Группа 0/I/II</a></li>
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=safechild&agegroup=59136&catalog=1159625#detf">Группа I/II</a></li>
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=safechild&catalog=1147992&agegroup=59134#detf">Группа I/II/III</a></li>
+                    <li class="baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=safechild&catalog=1147992&agegroup=59135#detf">Группа II/III</a></li>
+                </ul>
+            </div>
+            <div class="item-between"></div>
+            <div class="baby-items item-3">
+                <ul class="baby-hovers baby-hover-3">
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childfeeding&catalog=1159636#detf">Стульчики для кормления</a></li>
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=safechild&catalog=1159618#detf">Манежи-кроватки</a></li>
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childtransport&barrowtype=40830&catalog=1159631#detf">Шезлонги</a></li>
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childtransport&barrowtype=40836&catalog=1159629#detf">Ходунки</a></li>
+                    <li class="baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=toys&activegamesubtype=40842&catalog=1163827#detf">Кресло-качели</a></li>
+                </ul>
+            </div>
+            <div class="item-between"></div>
+            <div class="baby-items item-4">
+                <ul class="baby-hovers baby-hover-4">
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childfeeding&type=52750,59106,59107,37280#detf">Бутылочки и аксессуары</a></li>
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childfeeding&type=37279,55954,52786,37279#detf">Пустышки и аксессуары</a></li>
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childfeeding&catalog=1159648#detf">Поильники</a></li>
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childfeeding&type=52759,52942,52758#detf">Прорезыватели и ниблеры</a></li>
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childfeeding&type=55394,53703,55393,40982,56112#detf">Посуда</a></li>
+                    <li class="baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childfeeding&catalog=1175416#detf">Слюнявчики</a></li>
+                </ul>
+            </div>
+            <div class="item-between"></div>
+            <div class="baby-items item-5">
+                <ul class="baby-hovers baby-hover-5">
+                    <li class="baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=child-bathing#detf">Купание</a></li>
+                </ul>
+            </div>
+            <div class="item-between"></div>
+            <div class="baby-items item-6">
+                <ul class="baby-hovers baby-hover-6">
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childfeeding&catalog=1175130#detf">Предметы по уходу</a></li>
+                    <li class="baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childrens-room&type=40698#detf">Горшки и писсуары</a></li>
+                </ul>
+            </div>
+            <div class="item-between"></div>
+            <div class="baby-items item-7">
+                <ul class="baby-hovers baby-hover-7">
+                    <li class="baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=safechild&catalog=1159619#detf">Безопасность</a></li>
+                </ul>
+            </div>
+            <div class="item-between"></div>
+            <div class="baby-items item-8">
+                <ul class="baby-hovers baby-hover-8">
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=toy&type=42603,37245,40738,40758,40766,40767,53666#detf">Развивающие игрушки</a></li>
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=childtransport&type=37256#detf">Машинки-каталки</a></li>
+                    <li class="baby-link-item-border baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=toy&type=40763#detf">Игрушки для ванной</a></li>
+                    <li class="baby-link-item"><a class="baby-links" href="http://www.ozon.ru/brand/20065799/?group=toy&type=40763#detf">Текстильные игрушки</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="baby-gallery">
+            <div class="baby-gallery-item gallety-item-1">
+                <div class="gallery-items gallery-items-1">
+                    <div class="gallery-item-top gallery-top-11"></div>
+                    <div class="gallery-item-top gallery-top-12"></div>
+                    <div class="gallery-item-top gallery-top-13"></div>
+                </div>
+                <div class="gallery-video gallery-video-1"></div>
+            </div>
+            <div class="baby-gallery-item gallety-item-2">
+                <div class="gallery-items gallery-items-2">
+                    <div class="gallery-item-top gallery-top-21"></div>
+                    <div class="gallery-item-top gallery-top-22"></div>
+                    <div class="gallery-item-top gallery-top-23"></div>
+                </div>
+                <div class="gallery-video gallery-video-2"></div>
+            </div>
+            <div class="baby-gallery-item gallety-item-3">
+                <div class="gallery-items gallery-items-3">
+                    <div class="gallery-item-top gallery-top-31"></div>
+                    <div class="gallery-item-top gallery-top-32"></div>
+                    <div class="gallery-item-top gallery-top-33"></div>
+                </div>
+                <div class="gallery-video gallery-video-3"></div>
+            </div>
+            <div class="baby-gallery-item gallety-item-4">
+                <div class="gallery-items gallery-items-4">
+                    <div class="gallery-item-top gallery-top-41"></div>
+                    <div class="gallery-item-top gallery-top-42"></div>
+                    <div class="gallery-item-top gallery-top-43"></div>
+                </div>
+                <div class="gallery-video gallery-video-4"></div>
+            </div>
+            <div class="baby-gallery-item gallety-item-5">
+                <div class="gallery-items gallery-items-5">
+                    <div class="gallery-item-top gallery-top-51"></div>
+                    <div class="gallery-item-top gallery-top-52"></div>
+                    <div class="gallery-item-top gallery-top-53"></div>
+                </div>
+                <div class="gallery-video gallery-video-5"></div>
+            </div>
+        </div>
+        <div class="baby-flags"></div>
+    </div>
+    <div class="hover-item5">
+        <div class="item5-hover-center">
+            <div class="hover-item5-close"></div>
+            <div class="hover-item5-inner">
+            </div>
+        </div>
+    </div>
+    <div class="hover-video">
+        <div class="video-hover-center">
+            <div class="hover-video-close"></div>
+            <div class="hover-video-inner">
+                <iframe id="video-0" class="videos video-1" width="100%" height="550"  src="https://www.youtube.com/embed/V03O1R1xmkM?enablejsapi=1&version=3" frameborder="0" allowfullscreen></iframe>
+                <iframe id="video-1" class="videos video-2" width="100%" height="550" src="https://www.youtube.com/embed/5PTPFA6OpZY?enablejsapi=1&version=3" frameborder="0" allowfullscreen></iframe>
+                <iframe id="video-2" class="videos video-3" width="100%" height="550" src="https://www.youtube.com/embed/RWw1eao6gJ0?enablejsapi=1&version=3" frameborder="0" allowfullscreen></iframe>
+                <iframe id="video-3" class="videos video-4" width="100%" height="550" src="https://www.youtube.com/embed/vJVw8ynZ36o?enablejsapi=1&version=3" frameborder="0" allowfullscreen></iframe>
+                <iframe id="video-4" class="videos video-5" width="100%" height="550" src="https://www.youtube.com/embed/zKmXaGR2CLk?enablejsapi=1&version=3" frameborder="0" allowfullscreen></iframe>
+                <div class="videos-pictures">
+                    <div class="video-picture picture-1"></div>
+                    <div class="video-picture picture-2"></div>
+                    <div class="video-picture picture-3"></div>
+                    <div class="video-picture picture-4"></div>
+                    <div class="video-picture picture-5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

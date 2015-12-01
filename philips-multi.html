@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script src="js/jquery-2.0.0.js"></script>
+    <script src="js/mask.js"></script>
+</head>
+<body>
+<style>
+    #philips * {
+        margin: 0;
+        padding: 0;
+    }
+    #philips {
+        width: 960px;
+        margin: 0 auto;
+        font-family: Arial, sans-serif;
+    }
+    #philips .philipsHeader__back {
+        height:  488px;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/150727-philips-1.jpg);
+    }
+    #philips .philipsHeader-text {
+        font-size:  18px;
+        line-height: 1.3em;
+        padding: 20px 15px 20px 15px;
+    }
+    #philips .philipsVideo {
+        background-color: #e9eaf3;
+        overflow: hidden;
+        padding-bottom: 28px;
+    }
+    #philips .videoColumn {
+        float: left;
+        width: 50%;
+    }
+    #philips .videoName {
+        font-weight: bold;
+        font-size: 25px;
+        line-height: 28px;
+        padding: 20px 0 20px 15px;
+    }
+    #philips .videoFrame--right {
+        padding-left: 25px;
+    }
+    #philips .videoName--right {
+        padding-left: 35px;
+    }
+    #philips .philipsSecret {
+        padding-top: 45px;
+    }
+    #philips .philipsSecretName {
+        width: 769px;
+        height: 45px;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/secret.jpg);
+        margin: 0 auto;
+    }
+    #philips .philipsList {
+        list-style-type: none;
+        overflow: hidden;
+        padding-top: 30px;
+    }
+    #philips .philipsList__item {
+        width: 49%;
+        display: inline-block;
+        vertical-align: top;
+        margin-bottom: 25px;
+    }
+    #philips .philipsItem__image {
+        display: inline-block;
+    }
+    #philips .philipsItem__name {
+        text-transform: uppercase;
+        font-size: 16px;
+        line-height: 1.3em;
+        margin-bottom: 8px;
+    }
+    #philips .philipsItem__detail {
+        font-size: 14px;
+        line-height: 1.3em;
+    }
+    #philips .philipsItem__image--1 {
+        width: 102px;
+        height: 101px;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/philips-11.jpg);
+    }
+    #philips .philipsItem__image--2 {
+        width: 107px;
+        height: 101px;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/philips-12.jpg);
+    }
+    #philips .philipsItem__image--3 {
+        width: 104px;
+        height: 103px;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/philips-21.jpg);
+    }
+    #philips .philipsItem__image--4 {
+        width: 107px;
+        height: 102px;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/philips-22.jpg);
+    }
+    #philips .philipsItem__image--5 {
+        width: 95px;
+        height: 102px;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/philips-31.jpg);
+    }
+    #philips .philipsItem__image--6 {
+        width: 110px;
+        height: 102px;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/philips-32.jpg);
+    }
+    #philips .philipsItem__image--7 {
+        width: 99px;
+        height: 104px;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/philips-41.jpg);
+    }
+    #philips .philipsItem__image--8 {
+        width: 107px;
+        height: 104px;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/philips-42.jpg);
+    }
+    #philips .philipsText {
+        width: 342px;
+        display: inline-block;
+        padding-left: 10px;
+        vertical-align: top;
+    }
+    #philips .philipsIpad {
+        height: 287px;
+        position: relative;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/back-4.jpg);
+    }
+    #philips .philipsIpad__text {
+        position: absolute;
+        width: 385px;
+        font-size:  21px;
+        color: white;
+        line-height: 1.3em;
+        left: 505px;
+        top: 51px
+    }
+    #philips .philipsMulti {
+        overflow: hidden;
+        padding-top: 30px;
+    }
+    #philips .philipsColumn {
+        float: left;
+        width: 50%;
+        text-align: center;
+    }
+    #philips .philipsMulti__image {
+        display: inline-block;
+        height: 299px;
+    }
+    #philips .philipsMulti__image--left {
+        width: 227px;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/philips-item1.jpg);
+    }
+    #philips .philipsMulti__image--right {
+        width: 242px;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/philips-item2.jpg);
+    }
+    #philips .philipsMulti__name {
+        font-weight: bold;
+        font-size: 19px;
+        padding: 15px 0;
+    }
+    #philips .philipsMultiList {
+        padding-left: 135px;
+        text-align: left;
+        list-style-type: disc;
+    }
+    #philips .philipsMulti__item {
+        font-size: 16px;
+        margin-bottom: 5px;;
+    }
+    #philips .philipsMulti__buy {
+        display: block;
+        width: 117px;
+        height: 37px;
+        background-image: url(http://www.ozon.ru/graphics/action/150727-philips-multi/philips-buy.jpg);
+        margin-left: 135px;
+    }
+</style>
+<script>
+    $(function(){
+        $('.MaterialSection').eq(($('.MaterialSection').length-1)).css({'display': 'none'});
+        var price = [];
+        price[1] = $('.iteminfo[js_itemid="28601361"]').attr('js_price');
+        price[0] = $('.iteminfo[js_itemid="28601360"]').attr('js_price');
+        for ( var i = 0; i < price.length; i++ ) {
+            $('.philips-price').eq(i).text(price[i]);
+        }
+    });
+</script>
+<div id="philips">
+    <div class="philipsHeader">
+        <div class="philipsHeader__back"></div>
+        <p class="philipsHeader-text">Инновационная разработка компании Philips. Прибор идеальный для жарки и гриля, запекания и приготовления выпечки с аппетитной хрустящей корочкой! Уникальная комбинация быстро циркулирующего воздуха
+            и встроенного нагревательного элемента позволяет поджарить аппетитные закуски, курицу, мясо, рыбу, морепродукты и овощи практически без масла!</p>
+    </div>
+    <div class="philipsVideo">
+        <div class="videoColumn">
+            <p class="videoName">Посмотрите, на что способна мультипечь Philips</p>
+            <div class="videoFrame">
+                <iframe width="455" height="255" src="https://www.youtube.com/embed/2tCAEXnK2vg" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="videoColumn">
+            <p class="videoName videoName--right">Посмотрите, чем отличается мультипечь от мультиварки</p>
+            <div class="videoFrame videoFrame--right">
+                <iframe width="455" height="255" src="https://www.youtube.com/embed/2tCAEXnK2vg" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="philipsSecret">
+        <div class="philipsSecretName"></div>
+        <ul class="philipsList">
+            <li class="philipsList__item philipsItem">
+                <div class="philipsItem__image philipsItem__image--1"></div>
+                <div class="philipsText">
+                    <p class="philipsItem__name">Технология интенсивной циркуляции горячего воздуха</p>
+                    <p class="philipsItem__detail">Быстрое приготовление, как при жарке, только без масла благодаря потокам горячего воздуха. Куриные крылышки барбекю будут готовы всего за 12 минут.</p>
+                </div>
+            </li>
+            <li class="philipsList__item philipsItem">
+                <div class="philipsItem__image philipsItem__image--2"></div>
+                <div class="philipsText">
+                    <p class="philipsItem__name">Уникальный дизайн</p>
+                    <p class="philipsItem__detail">Элемент, перенаправляющий потоки и позволяющий готовить без переворачивания ингридиентов и помешивания.</p>
+                </div>
+            </li>
+
+            <li class="philipsList__item philipsItem">
+                <div class="philipsItem__image philipsItem__image--3"></div>
+                <div class="philipsText">
+                    <p class="philipsItem__name">Эффект гриля</p>
+                    <p class="philipsItem__detail">Позволяет легко добиться золотой хрустящей корочки. Всегда идеальный стейк той степени прожарки, что вы любите.</p>
+                </div>
+            </li>
+            <li class="philipsList__item philipsItem">
+                <div class="philipsItem__image philipsItem__image--4"></div>
+                <div class="philipsText">
+                    <p class="philipsItem__name">Оптимальный баланс нагрева и температуры</p>
+                    <p class="philipsItem__detail">Хрустящая корочка снаружи и равномерное приготовление внутри. Ваши кексы получатся необыкновенно воздушными.</p>
+                </div>
+            </li>
+
+            <li class="philipsList__item philipsItem">
+                <div class="philipsItem__image philipsItem__image--5"></div>
+                <div class="philipsText">
+                    <p class="philipsItem__name">Используется минимальное количество масла</p>
+                    <p class="philipsItem__detail">Позволяет легко добиться золотой хрустящей корочки. Всегда идеальный стейк той степени прожарки, что вы любите.</p>
+                </div>
+            </li>
+            <li class="philipsList__item philipsItem">
+                <div class="philipsItem__image philipsItem__image--6"></div>
+                <div class="philipsText">
+                    <p class="philipsItem__name">Выбор времени и температуры</p>
+                    <p class="philipsItem__detail">Встроенный таймер на цифровом сенсорном экране позволяет установить длительность приготовления до 60 минут. Функция автоматического отключения снабжена сигналом о
+                        готовности блюд. Регулятор нагрева позволяет предварительно задать оптимальную температуру для приготовления пищи до 200 градусов.</p>
+                </div>
+            </li>
+
+            <li class="philipsList__item philipsItem">
+                <div class="philipsItem__image philipsItem__image--7"></div>
+                <div class="philipsText">
+                    <p class="philipsItem__name">Меньше неприятных запахов и простота очистки</p>
+                    <p class="philipsItem__detail">Съемный контейнер с антипригарным покрытием и корзину для продуктов можно мыть в посудомоечной машине. Благодаря встроенному воздушному фильтру при использовании мультипечи Philips образуется меньше неприятных запахов, чем во время обычной жарки.</p>
+                </div>
+            </li>
+            <li class="philipsList__item philipsItem">
+                <div class="philipsItem__image philipsItem__image--8"></div>
+                <div class="philipsText">
+                    <p class="philipsItem__name">Аксессуары</p>
+                    <p class="philipsItem__detail">Вы можете расширить число блюд для приготовления в мультипечи, приобретя дополнительные аксессуары: сковороду для гриля, форму для выпечки и решетку для шашлычкоы (доступна только в модели HD9235).</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="philipsIpad">
+        <p class="philipsIpad__text">Установите бесплатное приложение с рецептами для мультипечи на ваши iPhone и iPad. <br/>В приложении вы найдете более 200 рецептов блюд для мультипечи из различных стран мира! </p>
+    </div>
+    <div class="philipsMulti">
+        <div class="philipsColumn">
+            <div class="philipsMulti__image philipsMulti__image--left"></div>
+            <p class="philipsMulti__name">Мультипечь Philips HD9235</p>
+            <ul class="philipsMultiList">
+                <li class="philipsMulti__item"> Цвет: черный</li>
+                <li class="philipsMulti__item"> Объем: 3 л</li>
+                <li class="philipsMulti__item"> Длина шнура: 0,8 м</li>
+                <li class="philipsMulti__item"> Термоизолированный корпус</li>
+                <li class="philipsMulti__item"> Внутренняя емкость с антипригарным покрытием</li>
+                <li class="philipsMulti__item"> Решетка для шашлычков   и гриля в комплекте</li>
+                <li class="philipsMulti__item"><span class="philips-price"></span></li>
+            </ul>
+        </div>
+        <div class="philipsColumn">
+            <div class="philipsMulti__image philipsMulti__image--right"></div>
+            <p class="philipsMulti__name">Мультипечь Philips HD9235</p>
+            <ul class="philipsMultiList">
+                <li class="philipsMulti__item"> Цвет: белый</li>
+                <li class="philipsMulti__item"> Объем: 3 л</li>
+                <li class="philipsMulti__item"> Длина шнура: 0,8 м</li>
+                <li class="philipsMulti__item"> Термоизолированный корпус</li>
+                <li class="philipsMulti__item"> Внутренняя емкость с антипригарным покрытием</li>
+                <li class="philipsMulti__item"><span class="philips-price"></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="philipsMulti">
+        <div class="philipsColumn">
+            <a href="/context/detail/id/28601361/" class="philipsMulti__buy"></a>
+        </div>
+        <div class="philipsColumn">
+            <a href="/context/detail/id/28601360/" class="philipsMulti__buy"></a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

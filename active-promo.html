@@ -1,0 +1,1193 @@
+<!DOCTYPE html>
+<html class="mobile">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<style type="text/css">
+    @media only screen and (min-width: 768px) {
+        #prm {padding: 0; margin: 0; background-repeat: no-repeat; background-position: center top; padding-top: 40px; min-height: 900px; font-family: Arial; position: relative;   transition: 0.25s;}
+        #prm *{padding: 0; margin: 0}
+        #prm .prmCl{clear: both;}
+        #prm.prm1{background-image: url("http://ozon.ru/graphics/action/150505-otdih/bg1.jpg");}
+        #prm.prm2{background-image: url("http://ozon.ru/graphics/action/150505-otdih/bg2.jpg");}
+        #prm.prm3{background-image: url("http://ozon.ru/graphics/action/150505-otdih/bg3.jpg");}
+        #prm .prmContent{width: 960px; margin: 0 auto;}
+        #prm .prmContent .prmTitle{height: 125px; background: url("http://ozon.ru/graphics/action/150505-otdih/title.png") left top no-repeat;}
+        #prm .prmContent .prmMenu{padding-top: 40px; padding-bottom: 30px;}
+        #prm .prmContent .prmMenu .prmPunkt{background-image: url("http://ozon.ru/graphics/action/150505-otdih/punkts.png"); display: block; background-repeat: no-repeat; float: left; margin-right: 30px; height: 57px; cursor: pointer;}
+        #prm .prmContent .prmMenu .prmPunkt.prmPunkt1{width: 164px; background-position: 0 -115px;}
+        #prm .prmContent .prmMenu .prmPunkt.prmPunkt1:hover{background-position: -187px -115px;}
+        #prm .prmContent .prmMenu .prmPunkt.prmPunkt1.prmActive{background-position: -187px -115px;}
+        #prm .prmContent .prmMenu .prmPunkt.prmPunkt2{width: 185px; background-position: 0 0;}
+        #prm .prmContent .prmMenu .prmPunkt.prmPunkt2:hover{background-position: -186px 0;}
+        #prm .prmContent .prmMenu .prmPunkt.prmPunkt2.prmActive{background-position: -186px 0;}
+        #prm .prmContent .prmMenu .prmPunkt.prmPunkt3{width: 152px; background-position: 0 -57px;}
+        #prm .prmContent .prmMenu .prmPunkt.prmPunkt3:hover{background-position: -188px -57px;}
+        #prm .prmContent .prmMenu .prmPunkt.prmPunkt3.prmActive{background-position: -188px -57px;}
+        #prm .prmBlocks{display: none;}
+        #prm .prmBlocks.prmActive{display: block;}
+        #prm .prmBlocks .prmBlock{float: left; height: 184px; width: 184px; margin-right: 10px; margin-bottom: 10px; position: relative; cursor: pointer;}
+        #prm .prmBlocks .prmBlock.prmLast{margin-right: 0px;}
+        #prm .prmBlocks .prmBlock.prmHidShow{z-index: 5;}
+        #prm .prmBlocks .prmBlock.prmHidShow .prmImg{width: 215px;}
+        #prm .prmBlocks .prmBlock.prmHidShow .prmHidden{display: block;}
+        #prm .prmBlocks .prmBlock .prmImg{width: 184px;height: 184px; background-position: left top; background-repeat: no-repeat; position: absolute; top: 0; left: 0; z-index: 3;}
+        #prm .prmBlocks .prmBlock.prmLeft .prmImg{background-position: right top;}
+        #prm .prmBlocks .prmBlock.prmLeft.prmHidShow .prmImg{left: -31px;}
+        #prm .prmBlocks .prmBlock.prmLeft.prmHidShow .prmImg .prmName{margin-left: 44px;}
+        #prm .prmBlocks .prmBlock .prmImg .prmName{margin: 13px 0 0 13px; padding: 8px 15px; font-size: 16px; line-height: 18px; color: #a93636; border-radius: 15px;
+            background-color: white; display: inline-block; zoom: 1; *display: inline;}
+        #prm .prmBlocks .prmBlock .prmHidden{background-color: #82bdff; height: 380px; position: absolute; top: 0; z-index: 2; display: none; left: 194px; width: 572px;}
+        #prm .prmBlocks .prmBlock.prmLeft .prmHidden{left: -582px;}
+        #prm .prmBlocks .prmBlock .prmHidden .prmLine{height: 1px; background-color: white; margin-bottom: 10px;}
+        #prm .prmBlocks .prmBlock .prmHidden .prmCat{padding: 20px 10px 0 80px; width: 175px; background-position: 30px 20px; background-repeat: no-repeat;}
+        #prm .prmBlocks .prmBlock .prmHidden .prmCat .prmLink{text-decoration: none; color: white; font-size: 18px; display: inline-block; zoom: 1; *display: inline;
+            background: url("http://ozon.ru/graphics/action/150505-otdih/point.png") left 8px no-repeat; padding-right: 15px; margin-bottom: 13px; padding-left: 13px;}
+        #prm .prmBlocks .prmBlock .prmHidden .prmCat .prmLink:hover{text-decoration: underline;}
+        #prm .prmHidden .prmCross{position: absolute; top: 0; right: 0; cursor: pointer; height: 30px; width: 30px; background: url("prmBlock") center center no-repeat;}
+        #prm .prmBlocks .prmBlock .prmHidden .prmSt{float: left; width: 265px;}
+
+        #prm .prmBlocks .prmBlock .prmHidden.prmRight1{width: 378px; left: 194px;}
+        #prm .prmBlocks .prmBlock .prmHidden.prmRight2{width: 572px; left: 194px;}
+        #prm .prmBlocks .prmBlock .prmHidden.prmLeft1{width: 378px; left: -388px;}
+        #prm .prmBlocks .prmBlock .prmHidden.prmLeft2{width: 572px; left: -582px;}
+        #prm .prmBlocks .prmBlock .prmHidden.prmBot{bottom: 0; top: auto;}
+
+        #prm .prmBlocks .prmSsilka{display: block; position: absolute; top: 75px; right: 0; width: 140px; height: 177px; background: url("http://ozon.ru/graphics/action/150505-otdih/ssilka.png") center center no-repeat;}
+        #prm .prmImg11 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/1_1.png');
+        }
+        #prm .prmImg12 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/1_2.png');
+        }
+        #prm .prmImg13 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/1_3.png');
+        }
+        #prm .prmImg14 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/1_4.png');
+        }
+        #prm .prmImg15 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/1_5.png');
+        }
+        #prm .prmImg16 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/1_6.png');
+        }
+        #prm .prmImg17 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/1_7.png');
+        }
+        #prm .prmImg18 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/1_8.png');
+        }
+        #prm .prmImg19 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/3_10.png');
+        }
+
+        #prm .prmImg21 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/2_1.png');
+        }
+        #prm .prmImg22{
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/2_2.png');
+        }
+        #prm .prmImg23 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/2_3.png');
+        }
+        #prm .prmImg24 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/2_4.png');
+        }
+        #prm .prmImg25 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/2_5.png');
+        }
+        #prm .prmImg26 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/2_6.png');
+        }
+        #prm .prmImg27 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/2_7.png');
+        }
+        #prm .prmImg28 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/2_8.png');
+        }
+        #prm .prmImg29 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/2_9.png');
+        }
+        #prm .prmImg210 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/2_10.png');
+        }
+
+        #prm .prmImg31 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/3_1.png');
+        }
+        #prm .prmImg32 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/3_2.png');
+        }
+        #prm .prmImg33 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/3_3.png');
+        }
+        #prm .prmImg34 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/3_4.png');
+        }
+        #prm .prmImg35 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/3_5.png');
+        }
+        #prm .prmImg36 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/3_6.png');
+        }
+        #prm .prmImg37 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/3_7.png');
+        }
+        #prm .prmImg38 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/3_8.png');
+        }
+        #prm .prmImg39 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/3_9.png');
+        }
+
+    }
+    @media only screen and (min-width: 320px) and (max-width: 768px) {
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #prm {
+            min-width: 320px;
+            max-width: 768px;
+            background-color: #82bdff;
+            font-family: Droid Sans, Arial sans-serif;
+        }
+        #prm:after {
+            content: ' ';
+            position: absolute;
+            top:0;
+            width: 100%;
+            height: 95px;
+            background-size: auto 100%;
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/back-13.jpg');
+            background-position: top right;
+            background-repeat: no-repeat;
+        }
+
+        #prm .prmTitle {
+            margin: 0 auto;
+            width: 320px;
+            height: 95px;
+            background-size: cover;
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/logo-1.png');
+            position: relative;
+            z-index: 2;
+        }
+        #prm .prmMenu {
+            margin: 0 auto;
+            width: 90.15625%;
+            background-color: #3a9cd8;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        #prm .prmMenu:after {
+            content: ' ';
+            height: 0;
+            width: 0;
+            display: block;
+            clear: both;
+        }
+        #prm .prmPunkt {
+            height: 30px;
+            width: 33.3333%;
+            float: left;
+        }
+        #prm .prmBlocks {
+            width: 90.15625%;
+            margin: 0 auto;
+        }
+        #prm .prmBlock {
+            height: 55px;
+            border-bottom: 4px solid #82bdff;
+            background-color: #b7f0ff;
+            position: relative;
+        }
+
+        #prm .prmName {
+            display: inline-block;
+            white-space: nowrap;
+            position: absolute;
+            left: -143px;
+            top: 15px;
+        }
+        #prm .prmName-2 {
+            top: 8px;
+        }
+
+        #prm .prmHidden {
+            display: none;
+            position: absolute;
+            width: 100%;
+            top: 59px;
+        }
+        #prm .prmImg {
+            position: absolute;
+            right: 41px;
+            top: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            width: 87px;
+            background-position-y: -1px;
+        }
+        #prm .prmSt {
+            padding-left: 20px;
+            padding-top: 15px;
+        }
+        #prm .prmCat {
+            background-repeat: no-repeat;
+            padding-left: 67px;
+            padding-bottom: 24px;
+        }
+        #prm .prmLink {
+            font-size: 18px;
+            color: white;
+            line-height: 1.3em;
+            font-family: Droid Sans, Arial sans-serif;
+            text-decoration: none;
+        }
+        #prm .prmImg11 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item31.jpg');
+        }
+        #prm .prmImg12 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item32.jpg');
+        }
+        #prm .prmImg13 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item33.jpg');
+        }
+        #prm .prmImg14 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item34.jpg');
+        }
+        #prm .prmImg15 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item35.jpg');
+        }
+        #prm .prmImg16 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item36.jpg');
+        }
+        #prm .prmImg17 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item37.jpg');
+        }
+        #prm .prmImg18 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item38.jpg');
+        }
+        #prm .prmImg19 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item39.jpg');
+        }
+
+        #prm .prmImg21 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item21.jpg');
+        }
+        #prm .prmImg22 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item22.jpg');
+        }
+        #prm .prmImg23 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item23.jpg');
+        }
+        #prm .prmImg24 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item24.jpg');
+        }
+        #prm .prmImg25 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item25.jpg');
+        }
+        #prm .prmImg26 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item26.jpg');
+        }
+        #prm .prmImg27 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item27.jpg');
+        }
+        #prm .prmImg28 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item28.jpg');
+        }
+        #prm .prmImg29 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item29.jpg');
+        }
+        #prm .prmImg210 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item210.jpg');
+        }
+
+        #prm .prmImg31 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item11.jpg');
+        }
+        #prm .prmImg32 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item12.jpg');
+        }
+        #prm .prmImg33 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item13.jpg');
+        }
+        #prm .prmImg34 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item14.jpg');
+        }
+        #prm .prmImg35 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item15.jpg');
+        }
+        #prm .prmImg36 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item16.jpg');
+        }
+        #prm .prmImg37 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item17.jpg');
+        }
+        #prm .prmImg38 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item18.jpg');
+        }
+        #prm .prmImg39 {
+            background-image: url('http://ozon.ru/graphics/action/150505-otdih/mobile/item39.jpg');
+        }
+        #prm .prmImg:after {
+            width:0;
+            height:0;
+            content: ' ';
+            border: 9px solid transparent;
+            border-bottom: 12px solid white;
+            transition: all 0.300s ease-out;
+            -webkit-transition: all 0.300s ease-out;
+            -webkit-transform-origin: 50% 68%;
+            transition: all 0.300s ease-out;
+            transform: rotate(180deg);
+            -webkit-transform: rotate(180deg);
+            position: absolute;
+            right: -20px;
+            top: 14px;
+        }
+        #prm .imageActive:after {
+            transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+        }
+        #prm .prm1, #prm .prm2, #prm .prm3 {
+            display: none;
+        }
+        #prm .prmActive {
+            display: block;
+        }
+        #prm .prmActiveMenu {
+            background-color: white;
+        }
+        #prm .prmPunkt {
+            text-decoration: none;
+            text-align: center;
+            position: relative;
+        }
+        #prm .prmActiveMenu:after {
+            content: ' ';
+            width: 0;
+            height: 0;
+            display: block;
+            position: absolute;
+            top: 30px;
+            border: 10px solid transparent;
+            border-top: 10px solid white;
+            left: 50%;
+            margin-left: -5px;
+        }
+        #prm .prmActiveMenu:before {
+            color: #3a9cd8!important;
+        }
+        #prm .prmPunkt1:before {
+            content: 'В поездке';
+            font-size: 14px;
+            color: white;
+            line-height: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #prm .prmPunkt1 {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+        #prm .prmPunkt3 {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        #prm .prmPunkt2:before {
+            content: 'На природе';
+            font-size: 14px;
+            color: white;
+            line-height: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #prm .prmPunkt3:before {
+            content: 'В городе';
+            font-size: 14px;
+            color: white;
+            line-height: 30px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    }
+</style>
+
+<script type="text/javascript">
+    /* mobile */
+    $(function(){
+        if ($('html').hasClass('mobile')) {
+            var left = - ( $('.prmBlocks').width() -288 + 143 );
+            $('.prmName').css({'left': left+'px'});
+            $(window).on('resize', function(){
+                console.log('d');
+                left = - ( $('.prmBlocks').width() -288 + 143 );
+                $('.prmName').css({'left': left+'px'});
+            });
+            $('.prmBlock').on('click', function(){
+                if ( $(this).find('.prmHidden').css('display') == 'block') {
+                    $('.prmImg').removeClass('imageActive');
+                    $('.prmHidden').css({'display': 'none'});
+                    $('.prmBlock').animate({'margin-bottom': '0'}, 300);
+                }
+                else {
+                    $('.prmImg').removeClass('imageActive');
+                    $('.prmHidden').css({'display': 'none'});
+                    $('.prmBlock').animate({'margin-bottom': '0'}, 300, function(){
+                    });
+                    $(this).find('.prmImg').addClass('imageActive');
+                    $(this).find('.prmHidden').css({'display': 'block'});
+                    var height = ($(this).find('.prmHidden').height());
+                    $(this).animate({'margin-bottom': height+'px'}, 300);
+                }
+            })
+        }
+    })
+    $( document ).ready(function() {
+        var Blocks = $('.prmBlock');
+        $('.prmPunkt').click(function(){
+            $('.prmPunkt').removeClass('prmActiveMenu');
+            var $this = $(this);
+            $this.addClass('prmActiveMenu');
+            var blockid = $this.attr('blockid');
+            $('#prm').removeClass();
+            $('.prmActive').removeClass('prmActive');
+            $('#prm').addClass(blockid);
+            $this.addClass('prmActive');
+            $('.'+blockid).addClass('prmActive');
+        });
+        $('.prmImg').click(function(){
+            var parent = $(this).parent();
+            if(!parent.hasClass('prmHidShow')){
+                Blocks.removeClass('prmHidShow');
+                parent.addClass('prmHidShow');
+            }else{
+                parent.removeClass('prmHidShow');
+            }
+        });
+        $('.prmCross').click(function(){
+            $(this).parent().parent().removeClass('prmHidShow');
+        });
+
+        $(function(){
+            var loc = window.location.hash.replace("#","");
+            if (loc == "") {loc = "0"};
+            var pun = $($('.prmPunkt')[loc]);
+            var block = pun.attr('blockid');
+            $('.prmActive').removeClass('prmActive');
+            pun.addClass('prmActive');
+            $('.'+block).addClass('prmActive');
+        });
+    });
+</script>
+<div id="prm" class="prm1 mAdaptiveBanner">
+<div class="prmContent">
+<div class="prmTitle"></div>
+<div class="prmMenu">
+    <a href="#0" class="prmPunkt prmPunkt1 prmActive prmActiveMenu" blockid="prm1"></a>
+    <a href="#1" class="prmPunkt prmPunkt2" blockid="prm2"></a>
+    <a href="#2" class="prmPunkt prmPunkt3" blockid="prm3"></a>
+    <div class="prmCl"></div>
+</div>
+<div class="prmBlocks prm1 prmActive">
+<div class="prmBlock">
+    <div class="prmImg prmImg11">
+        <div class="prmName">На пляж</div>
+    </div>
+    <div class="prmHidden prmRight1">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/kup.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1153309/?typeapparel=1153432&store=1" class="prmLink">Купальники</a><br/>
+                <a href="/catalog/1153310/?typeapparel=1153486&store=1" class="prmLink">Плавки</a><br/>
+                <a href="/catalog/1165442/?typeapparel=1153432&store=1" class="prmLink">Детские купальники</a><br/>
+                <a href="/catalog/1165442/?typeapparel=1153486&store=1" class="prmLink">Детские плавки</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/tapki.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159232/?typeapparel=1159234&season=31829&store=1" class="prmLink">Шляпы и панамы</a><br/>
+                <a href="/catalog/1159370/?type=40043&store=1" class="prmLink">Солнцезащитные очки</a><br/>
+                <a href="/catalog/1134293/?styles=1133907&store=1" class="prmLink">Сланцы</a><br/>
+                <a href="/catalog/1159207/?bagsubtype=39929&store=1" class="prmLink">Пляжные сумки</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg12">
+        <div class="prmName">Средства ухода</div>
+    </div>
+    <div class="prmHidden prmRight2">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/sun.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1158881/?destination=46499&store=1&ageo=33939" class="prmLink">Защита от солнца</a><br/>
+                <a href="/catalog/1158881/?effect=39461&store=1&ageo=33939&sort=bests" class="prmLink">Автозагар</a><br/>
+                <a href="/catalog/1158881/?destination=46497&store=1&ageo=33939" class="prmLink">Для загара</a><br/>
+                <a href="/catalog/1158881/?destination=46498&store=1&ageo=33939" class="prmLink">После загара</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/epil.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1133741/?store=1" class="prmLink">Эпиляторы</a><br/>
+                <a href="/catalog/1133723/?type=33116&store=1" class="prmLink">Электробритвы</a><br/>
+                <a href="/catalog/1158898/?destination=37485&store=1&sort=bests" class="prmLink">Депиляция</a><br/>
+                <a href="/catalog/1158898/?destination=37483,37484&store=1&sort=bests" class="prmLink">Бритьё</a>
+            </div>
+        </div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/hair.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1133739/?store=1" class="prmLink">Фены</a><br/>
+                <a href="/catalog/1133736/?store=1&sort=bests" class="prmLink">Укладка</a><br/>
+                <a href="/catalog/1158886/?usingeffect=39671&store=1&ageo=33939" class="prmLink">Защита цвета для волос</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg13">
+        <div class="prmName">Одежда и обувь</div>
+    </div>
+    <div class="prmHidden prmRight1">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/platice.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1153309/?season=31829&store=1" class="prmLink">Женская одежда</a><br/>
+                <a href="/catalog/1153310/?season=31829&store=1" class="prmLink">Мужская одежда</a><br/>
+                <a href="/catalog/1165442/?season=31829&store=1" class="prmLink">Детская одежда</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/tufli.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1134293/?style=1133904" class="prmLink">Летняя обувь</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock prmLeft">
+    <div class="prmImg prmImg14">
+        <div class="prmName">Для поездки</div>
+    </div>
+    <div class="prmHidden prmLeft1">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/bag.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1176980/?store=1" class="prmLink">Чемоданы и дорожные сумки</a><br/>
+                <a href="/catalog/1164057/?store=1" class="prmLink">Рюкзаки</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/plane.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1173320/?store=1" class="prmLink">Защита багажа</a><br/>
+                <a href="/catalog/1159205/?type=55752&store=1" class="prmLink">Конверт для путешествий</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock prmLeft prmLast">
+    <div class="prmImg prmImg15">
+        <div class="prmName">Детям</div>
+    </div>
+    <div class="prmHidden prmLeft2">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/sovok.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1163827/?activegamesubtype=40843,40839,44283&store=1&sort=bests" class="prmLink">Подвижные игры на море</a><br/>
+                <a href="/catalog/1163837/?toyssubtype=40736?store=1" class="prmLink">Для игр с песком</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/water.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1176321/?store=1" class="prmLink">Круги, матрацы</a><br/>
+                <a href="/catalog/1177014/?store=1" class="prmLink">Детские бассейны</a><br/>
+                <a href="/catalog/1163832/?toyssubtype=44913&store=1" class="prmLink">Водяные пистолеты</a>
+            </div>
+        </div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/kubik.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1163828/?store=1" class="prmLink">Настольные игры</a><br/>
+                <a href="/catalog/1137665/?mediatype=1147731&store=1&sort=bests" class="prmLink">Книжки-игрушки в дорогу</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg16">
+        <div class="prmName prmName-2">Полезная<br />информация</div>
+    </div>
+    <div class="prmHidden prmRight1 prmBot">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/map.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1139221/?mediatype=1147731&store=1&sort=bests" class="prmLink">Путеводители</a><br/>
+                <a href="/catalog/1139224/?mediatype=1147731&store=1&sort=bests" class="prmLink">Карты</a><br/>
+                <a href="/catalog/1139151/?store=1&sort=bests" class="prmLink">Словари</a><br/>
+                <a href="/catalog/1133644/?store=1" class="prmLink">Программы о путешествиях</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg17">
+        <div class="prmName prmName-2">Спортивный<br />отдых</div>
+    </div>
+    <div class="prmHidden prmRight1 prmBot">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/water.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159259/?typesport=1159346?store=1" class="prmLink">Дайвинг</a><br/>
+                <a href="/catalog/1159259/?typesport=1159357?store=1" class="prmLink">Плавание</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/rocket.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159284/?typesport=1159345&purpose=52140?store=1" class="prmLink">Волейбол</a><br/>
+                <a href="/catalog/1159285/?typesport=1159339?store=1" class="prmLink">Бадминтон</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/photo.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1133752/?type=51669&store=1" class="prmLink">Экшн-камеры</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg18">
+        <div class="prmName">Электроника</div>
+    </div>
+    <div class="prmHidden prmRight1 prmBot">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/ipod.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1133751/?store=1" class="prmLink">Фотоаппараты</a><br/>
+                <a href="/catalog/1133752/?type=51668&store=1" class="prmLink">Видеокамеры</a><br/>
+                <a href="/catalog/1133818/?store=1" class="prmLink">Планшеты</a><br/>
+                <a href="/catalog/1133765/?type=56594&store=1" class="prmLink">Портативное аудио</a><br/>
+                <a href="/catalog/1133771/?store=1" class="prmLink">Плееры</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/ushi.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1133859/?store=1" class="prmLink">Наушники</a><br/>
+                <a href="/catalog/1160831/?store=1" class="prmLink">Карты памяти</a><br/>
+                <a href="/catalog/1172547/?store=1" class="prmLink">Внешние аккумуляторы</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock prmLeft prmLast">
+    <div class="prmImg prmImg19">
+        <div class="prmName prmName-2">Развлечения<br />в поездку</div>
+    </div>
+    <div class="prmHidden prmLeft1 prmBot">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/kubik.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1140879/?bests=1&store=1,0&sort=bests" class="prmLink">Книжные бестселлеры</a><br/>
+                <a href="/catalog/1139606/?store=1&sort=bests" class="prmLink">Кроссворды. Головоломки. Ребусы.</a><br/>
+                <a href="/catalog/1163828/?boardgamesubtype=44983&sort=bests" class="prmLink">Игральные карты</a><br/>
+                <a href="/catalog/1163828/?brand=20074013,27825487,27468202,27155035,24897576,8788252,7573864&sort=bests" class="prmLink">Настольные игры</a><br/>
+                <a href="/catalog/1159711/?brand=24290957,19671689,18832252&store=1" class="prmLink">Головоломки</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmCl"></div>
+</div>
+<div class="prmBlocks prm2">
+<a href="/context/detail/id/32110548/" class="prmSsilka"></a>
+<div class="prmBlock">
+    <div class="prmImg prmImg21">
+        <div class="prmName">На пикник</div>
+    </div>
+    <div class="prmHidden prmRight2">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/barb.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159320/?store=1" class="prmLink">Грили, мангалы</a><br/>
+                <a href="/catalog/1159320/?store=1" class="prmLink">Решетки, шампуры</a><br/>
+                <a href="/catalog/1176945/?store=1" class="prmLink">Походная мебель</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/meat.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159322/?store=1" class="prmLink">Термосумки</a><br/>
+                <a href="/catalog/1159318/?store=1" class="prmLink">Походная посуда</a><br/>
+                <a href="/catalog/1139632/?mediatype=1147731&store=1&sort=bests" class="prmLink">Блюда для пикника</a>
+            </div>
+        </div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/kubik.png');">
+                <a href="/catalog/1159259/?typesport=1159347?store=1" class="prmLink">Дартс</a><br/>
+                <a href="/catalog/1159293/?typesport=1159354" class="prmLink">Пневматика и страйкбол</a><br/>
+                <a href="/catalog/1163828/?brand=24897576,19893573,29483565,19447338,7573864,27468202,27468215,27155035,25079338,25164251,27489444,18096134,24765558&boardgamesubtype=42838,44983,40782,44812,44816,44817,40785&store=1&sort=bests" class="prmLink">Настольные игры</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg22">
+        <div class="prmName">В поход</div>
+    </div>
+    <div class="prmHidden prmRight1">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/palatka.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159326/?store=1" class="prmLink">Палатки, тенты</a><br/>
+                <a href="/catalog/1164056/?store=1" class="prmLink">Туристические рюкзаки</a><br/>
+                <a href="/catalog/1159327/?store=1" class="prmLink">Спальные мешки</a><br/>
+                <a href="/catalog/1159316/?store=1" class="prmLink">Походная мебель</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/binokq.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159318/?type=40459,40615&store=1" class="prmLink">Термосы и термокружки</a><br/>
+                <a href="/catalog/1159328/?type=40515,40637" class="prmLink">Мультитулы и ножи</a><br/>
+                <a href="/catalog/1133759/?store=1" class="prmLink">Бинокли</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg23">
+        <div class="prmName">На рыбалку</div>
+    </div>
+    <div class="prmHidden prmRight1">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/fish.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159331/?brand=26352277,18443310,31595675,26667980,26352276,19709324,19700132&store=1" class="prmLink">Лодки</a><br/>
+                <a href="/catalog/1159332/?type=42783,40451,40452,42663,40447,56779,40449,41415,40450,56802?store=1" class="prmLink">Оснастка</a><br/>
+                <a href="/catalog/1159334/?type=40445,42756&store=1" class="prmLink">Спиннинги и удилища</a><br/>
+                <a href="/catalog/1159332/?type=40444,41413,42663,41412,41414?store=1" class="prmLink">Приманки</a><br/>
+                <a href="/catalog/1163095/?store=1" class="prmLink">Эхолоты</a><br/>
+                <a href="/catalog/1159335/?store=1" class="prmLink">Ящики для снастей</a><br/>
+                <a href="/catalog/1139177/?mediatype=1147731&store=1&sort=bests" class="prmLink">Книги о рыбалке</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock prmLeft">
+    <div class="prmImg prmImg24">
+        <div class="prmName">На речку</div>
+    </div>
+    <div class="prmHidden prmleft2">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/kup.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1153309/?typeapparel=1153432&store=1" class="prmLink">Купальники</a><br/>
+                <a href="/catalog/1153310/?typeapparel=1153486&store=1" class="prmLink">Плавки</a><br/>
+                <a href="/catalog/1165442/?typeapparel=1153432&store=1" class="prmLink">Детские купальники</a><br/>
+                <a href="/catalog/1165442/?typeapparel=1153486&store=1" class="prmLink">Детские плавки</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/tapki.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159232/?typeapparel=1159234&season=31829&store=1" class="prmLink">Шляпы и панамы</a><br/>
+                <a href="/catalog/1134293/?styles=1133907&store=1" class="prmLink">Сланцы</a><br/>
+                <a href="/catalog/1159370/?type=40043&store=1" class="prmLink">Солнцезащитные очки</a><br/>
+                <a href="/catalog/1159207/?bagsubtype=39929&store=1" class="prmLink">Пляжные сумки</a>
+            </div>
+        </div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/nota.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1142887/?store=1" class="prmLink">Музыка для отдыха</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock prmLeft prmLast">
+    <div class="prmImg prmImg25">
+        <div class="prmName prmName-2">Полезная<br />информация</div>
+    </div>
+    <div class="prmHidden prmLeft1">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/map.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1139250/?russianlanguage=1&store=1&sort=bests" class="prmLink">Путеводители по России</a><br/>
+                <a href="/catalog/1139225/?publicationperiod=1147727&russianlanguage=1&store=1&sort=bests" class="prmLink">Автодороги России</a><br/>
+                <a href="/catalog/1133644/?seria=21032462,21033482,6046191&store=1" class="prmLink">Программы о путешествиях по России</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg26">
+        <div class="prmName">Отдых на авто</div>
+    </div>
+    <div class="prmHidden prmRight2 prmBot">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/child.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159623/?safesubtype=37268&store=1" class="prmLink">Детские автокресла</a><br/>
+                <a href="/catalog/1147070/?store=1" class="prmLink">Автокружки, термосы, холодильники</a><br/>
+                <a href="/catalog/1133814/?store=1" class="prmLink">Электроника для авто</a><br/>
+                <a href="/catalog/1147072/?store=1" class="prmLink">Автоаксессуары</a><br/>
+                <a href="/catalog/1146626/?store=1" class="prmLink">Инструменты для авто</a>
+            </div>
+        </div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/kubik.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1163828/?purposegames=44863" class="prmLink">Игры в дорогу</a><br/>
+                <a href="/catalog/1139225/?publicationperiod=1147727&russianlanguage=1&store=1&sort=bests" class="prmLink">Автодороги России</a><br/>
+                <a href="/catalog/1132529/?media=31560,29941,31216,29805,29618,26661&store=1" class="prmLink">Музыка в формате MP3</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg27">
+        <div class="prmName">Детям</div>
+    </div>
+    <div class="prmHidden prmRight2 prmBot">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/bicecle.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1176385/?store=1" class="prmLink">Скейтборды, самокаты, роликовые коньки</a><br/>
+                <a href="/catalog/1177168/?store=1" class="prmLink">Велосипеды</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/rocket.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1177014/?store=1" class="prmLink">Детские бассейны</a><br/>
+                <a href="/catalog/1163827/?activegamesubtype=40843,40839,43007,44283,40840&store=1&sort=bests" class="prmLink">Игры на открытом воздухе</a><br/>
+                <a href="/catalog/1163836/&store=1" class="prmLink">Радиоуправляемые игрушки</a>
+            </div>
+        </div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/kubik.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1163828/?store=1" class="prmLink">Настольные игры</a><br/>
+                <a href="/catalog/1137665/?mediatype=1147731&store=1&sort=bests" class="prmLink">Книжки-игрушки</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg28">
+        <div class="prmName">Электроника</div>
+    </div>
+    <div class="prmHidden prmRight1 prmBot">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/ipod.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1133751/?store=1" class="prmLink">Фотоаппараты</a><br/>
+                <a href="/catalog/1133752/?type=51668&store=1" class="prmLink">Видеокамеры</a><br/>
+                <a href="/catalog/1133818/?store=1" class="prmLink">Планшеты</a><br/>
+                <a href="/catalog/1133771/?store=1" class="prmLink">Плееры</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/ushi.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1133765/?type=56594&store=1" class="prmLink">Портативное аудио</a><br/>
+                <a href="/catalog/1133859/?store=1" class="prmLink">Наушники</a><br/>
+                <a href="/catalog/1172547/?store=1" class="prmLink">Внешние аккумуляторы</a><br/>
+                <a href="/catalog/1160831/?store=1" class="prmLink">Карты памяти</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock prmLeft">
+    <div class="prmImg prmImg29">
+        <div class="prmName prmName-2">Прогулки с<br />животными</div>
+    </div>
+    <div class="prmHidden prmLeft1 prmBot">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/cat.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1133751/?store=1" class="prmLink">Аксессуары для прогулки</a><br/>
+                <a href="/catalog/1133752/?type=51668&store=1" class="prmLink">Транспортировка</a><br/>
+                <a href="/catalog/1163828/?purposegames=44863" class="prmLink">Игрушки</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock prmLeft prmLast">
+    <div class="prmImg prmImg210">
+        <div class="prmName prmName-2">Средства ухода<br />и защита</div>
+    </div>
+    <div class="prmHidden prmLeft1 prmBot">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/comar.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1151425/?store=1" class="prmLink">Защита от насекомых</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/sun.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1158881/?destination=46499&store=1&ageo=33939" class="prmLink">Защита от солнца</a><br/>
+                <a href="/catalog/1158881/?effect=39461&store=1&ageo=33939&sort=bests" class="prmLink">Автозагар</a><br/>
+                <a href="/catalog/1158881/?destination=46497&store=1&ageo=33939" class="prmLink">Для загара</a><br/>
+                <a href="/catalog/1158881/?destination=46498&store=1&ageo=33939" class="prmLink">После загара</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/epil.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1158898/?destination=37485&store=1&sort=bests" class="prmLink">Депиляция</a><br/>
+                <a href="/catalog/1158898/?destination=37483,37484&store=1&sort=bests" class="prmLink">Бритьё</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmCl"></div>
+</div>
+<div class="prmBlocks prm3">
+<div class="prmBlock">
+    <div class="prmImg prmImg31">
+        <div class="prmName">На пляж</div>
+    </div>
+    <div class="prmHidden prmRight2">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/kup.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1153309/?typeapparel=1153432&store=1" class="prmLink">Купальники</a><br/>
+                <a href="/catalog/1153310/?typeapparel=1153486&store=1" class="prmLink">Плавки</a><br/>
+                <a href="/catalog/1165442/?typeapparel=1153432&store=1" class="prmLink">Детские купальники</a><br/>
+                <a href="/catalog/1165442/?typeapparel=1153486&store=1" class="prmLink">Детские плавки</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/tapki.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159232/?typeapparel=1159234&season=31829&store=1" class="prmLink">Шляпы и панамы</a><br/>
+                <a href="/catalog/1159370/?type=40043&store=1" class="prmLink">Солнцезащитные очки</a><br/>
+                <a href="/catalog/1134293/?styles=1133907&store=1" class="prmLink">Сланцы</a><br/>
+                <a href="/catalog/1159207/?bagsubtype=39929&store=1" class="prmLink">Пляжные сумки</a>
+            </div>
+        </div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/nota.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1143685/?media=26659,26661&store=1" class="prmLink">Музыка для отдыха</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg32">
+        <div class="prmName">Спортивные игры</div>
+    </div>
+    <div class="prmHidden prmRight1">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/rocket.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159259/?typesport=1159361&store=1" class="prmLink">Теннис</a><br/>
+                <a href="/catalog/1159259/?typesport=1159353&store=1" class="prmLink">Настольный тенис</a><br/>
+                <a href="/catalog/1159259/?typesport=1159365&store=1" class="prmLink">Футбол</a><br/>
+                <a href="/catalog/1159285/?typesport=1159339&store=1" class="prmLink">Бадминтон</a><br/>
+                <a href="/catalog/1159284/?type=37697&purpose=52140&store=1" class="prmLink">Спортивные мячи</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg33">
+        <div class="prmName">Детям</div>
+    </div>
+    <div class="prmHidden prmRight2">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/bicecle.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1176385/?store=1" class="prmLink">Скейтборды, самокаты, роликовые коньки</a><br/>
+                <a href="/catalog/1177168/?store=1" class="prmLink">Велосипеды</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/ball.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1163836/&store=1" class="prmLink">Радиоуправляемые игрушки</a><br/>
+                <a href="/catalog/1159267/?agesport=40353,40352&store=1" class="prmLink">Спортивный инвентарь</a>
+            </div>
+        </div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/sovok.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1147995/?store=1" class="prmLink">Детский транспорт</a><br/>
+                <a href="/catalog/1163837/?toyssubtype=40737,40736&sort=bests" class="prmLink">Игрушки для малышей</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock prmLeft">
+    <div class="prmImg prmImg34">
+        <div class="prmName prmName-2">Прогулки с<br />животными</div>
+    </div>
+    <div class="prmHidden prmLeft1">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/cat.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1174281/?store=1" class="prmLink">Аксессуары для прогулки</a><br/>
+                <a href="/catalog/1174256/?store=1" class="prmLink">Транспортировка</a><br/>
+                <a href="/catalog/1174261/?store=1" class="prmLink">Игрушки</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock prmLeft prmLast">
+    <div class="prmImg prmImg35">
+        <div class="prmName">Активный отдых</div>
+    </div>
+    <div class="prmHidden prmLeft1">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/bicecle.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159288/?agesport=40354&store=1" class="prmLink">Велосипеды</a><br/>
+                <a href="/catalog/1176385/?store=1" class="prmLink">Скейтборды, самокаты, роликовые коньки</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/gantelia.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1159259/?typesport=1159364&store=1" class="prmLink">Инвентарь для фитнеса</a><br/>
+                <a href="/catalog/1159283/?store=1" class="prmLink">Тренажеры</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/clock.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1175900/?store=1" class="prmLink">Спортивные часы</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg36">
+        <div class="prmName prmName-2">Средства ухода<br />и защита</div>
+    </div>
+    <div class="prmHidden prmRight2 prmBot">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/comar.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1151425/?store=1" class="prmLink">Защита от насекомых</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/sun.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1158881/?destination=46499&store=1&ageo=33939" class="prmLink">Защита от солнца</a><br/>
+                <a href="/catalog/1158881/?effect=39461&store=1&ageo=33939&sort=bests" class="prmLink">Автозагар</a><br/>
+                <a href="/catalog/1158881/?destination=46497&store=1&ageo=33939" class="prmLink">Для загара</a><br/>
+                <a href="/catalog/1158881/?destination=46498&store=1&ageo=33939" class="prmLink">После загара</a>
+            </div>
+        </div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/epil.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1133741/?store=1" class="prmLink">Эпиляторы</a><br/>
+                <a href="/catalog/1133723/?type=33116&store=1" class="prmLink">Электробритвы</a><br/>
+                <a href="/catalog/1158898/?destination=37485&store=1&sort=bests" class="prmLink">Депиляция</a><br/>
+                <a href="/catalog/1158898/?destination=37483,37484&store=1&sort=bests" class="prmLink">Бритьё</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/hair.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1133736/?store=1&sort=bests" class="prmLink">Укладка</a><br/>
+                <a href="/catalog/1158886/?usingeffect=39671&store=1&ageo=33939" class="prmLink">Защита цвета для волос</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg37">
+        <div class="prmName">Электроника</div>
+    </div>
+    <div class="prmHidden prmRight1 prmBot">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/ipod.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1133751/?store=1" class="prmLink">Фотоаппараты</a><br/>
+                <a href="/catalog/1133765/?type=56594&store=1" class="prmLink">Портативное аудио</a><br/>
+                <a href="/catalog/1133771/?store=1" class="prmLink">Плееры</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/ushi.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1133859/?store=1" class="prmLink">Наушники</a><br/>
+                <a href="/catalog/1160831/?store=1" class="prmLink">Карты памяти</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock">
+    <div class="prmImg prmImg38">
+        <div class="prmName">Одежда и обувь</div>
+    </div>
+    <div class="prmHidden prmRight1 prmBot">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/platice.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1153309/?season=31829&store=1" class="prmLink">Женская одежда</a><br/>
+                <a href="/catalog/1153310/?season=31829&store=1" class="prmLink">Мужская одежда</a><br/>
+                <a href="/catalog/1165442/?season=31829&store=1" class="prmLink">Детская одежда</a>
+            </div>
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/tufli.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1134293/?styles=1133904" class="prmLink">Обувь для города</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+<div class="prmBlock prmLeft">
+    <div class="prmImg prmImg39">
+        <div class="prmName prmName-2">Полезная<br />информацияи</div>
+    </div>
+    <div class="prmHidden prmLeft1 prmBot">
+        <div class="prmCross"></div>
+        <div class="prmSt">
+            <div class="prmCat" style="background-image: url('http://ozon.ru/graphics/action/150505-otdih/map.png');">
+                <div class="prmLine"></div>
+                <a href="/catalog/1139222/?mediatype=1147731&russianlanguage=1&store=1" class="prmLink">Москва и подмосковье. Путеводители</a><br/>
+                <a href="/catalog/1139219/?mediatype=1147731&russianlanguage=1&store=1" class="prmLink">Санкт-Петербург и окрестности. Путеводители, карты</a>
+            </div>
+        </div>
+        <div class="prmCl"></div>
+    </div>
+</div>
+
+<div class="prmCl"></div>
+</div>
+</div>
+</div>
+</body>
+</html>

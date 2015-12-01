@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <title></title>
+</head>
+<body>
+<style>
+    #eski-root .wrap {padding: 0;}
+    #listSeries {
+        display: none;
+    }
+@media only screen and (min-width: 769px) {
+    #prm {padding: 0px; margin: 0 auto; max-width: 1225px; min-width: 1000px; font-family: Arial; font-size: 14px;}
+    #prm *{padding: 0px; margin: 0px}
+    #prm .prm-left{width: 74%; float: left; padding-bottom: 25px;}
+    #prm .prm-right{width: 26%; float: right;}
+    #prm .prm-left .prm-title{background-image: url(http://www.ozon.ru/graphics/action/130528-cosmotheca/130626-cosmotheca-logo.png); background-repeat: no-repeat; background-position: left bottom; height: 114px;
+        padding-top: 100px;}
+    #prm .prm-nav .prm-nav-item:hover{opacity: 0.8;}
+    #prm .prm-nav {
+        padding: 0;
+        margin: 35px 0 0 0;
+        width: 100%;
+    }
+
+    #prm .prm-nav .prm-nav-item {
+        list-style-type: none;
+        margin: 0;
+        width: 19%;
+        padding-right: 1%;
+        display: block;
+        float: left;
+    }
+
+    #prm .prm-nav .prm-nav-link {
+        font-size: 14px;
+        color: #ffffff;
+        color: rgba(255, 255, 255, 0.95);
+        color: white;
+        display: block;
+        text-decoration: none;
+        text-align: center;
+        padding: 3px 0 5px 0;
+        white-space: nowrap;
+        overflow: hidden;
+        border: 1px solid #191919;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        -ms-border-radius: 3px;
+        -o-border-radius: 3px;
+        border-radius: 3px;
+        background: #242424;
+        -webkit-box-shadow: 1px 1px 1px 0 #bebebe;
+        -moz-box-shadow: 1px 1px 1px 0 #bebebe;
+        box-shadow: 1px 1px 1px 0 #bebebe;
+    }
+    #prm .prm-shadow{background-image: url(http://www.ozon.ru/graphics/action/130528-cosmotheca/130626-shadow.jpg); background-repeat: no-repeat; background-position: center top; height: 21px; margin-bottom: 10px;}
+    #prm .prm-spisok{}
+    #prm .prm-spisok ul{float: left; width: 28%;}
+    #prm .prm-spisok .prm-spisok-item {
+        list-style-type: none;
+        margin-top: 0.09em;
+        background: transparent url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAECAYAAABGM/VAAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RTYzOTkzMjBBNDM2MTFFMjg0QzdENzUxODYyRTUzMjEiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RTYzOTkzMjFBNDM2MTFFMjg0QzdENzUxODYyRTUzMjEiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpFNjM5OTMxRUE0MzYxMUUyODRDN0Q3NTE4NjJFNTMyMSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpFNjM5OTMxRkE0MzYxMUUyODRDN0Q3NTE4NjJFNTMyMSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pt9/ByYAAAAlSURBVHjaYmBgYHAB4ndA/B+IdzNAwV2oAAyHMjHgABjaAQIMAMzYCgqQM4MGAAAAAElFTkSuQmCC') no-repeat 0 10px;
+    }
+    #prm .prm-spisok .prm-spisok-link {
+        font-size: 14px;
+        color: #000000;
+        text-decoration: none;
+        margin: 0 0 0 12px;
+        line-height: 22px;
+    }
+    #prm .prm-spisok .prm-spisok-link:hover{text-decoration: underline;}
+    .product-block {padding: 0px !important; margin: 0px !important;}
+    .details-global #PageContainer .pageContent, .hr{background-color: transparent !important;}
+}
+@media only screen and (max-width: 768px) {
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    #prm {
+        min-width: 320px;
+        font-family: Droid Sans, Arial, sans-serif;
+    }
+    #prm .prm-right {
+        display: none;
+    }
+    #prm .prm-title {
+        margin: 0 auto 15px;
+        height: 82px;
+        width: 320px;
+        background-image: url(http://www.ozon.ru/graphics/action/130528-cosmotheca/cosm-back-11.jpg);
+    }
+    #prm .prm-nav {
+        list-style-type: none;
+        padding: 0;
+    }
+    #prm .prm-nav-item {
+        height: 34px;
+        background-color: black;
+        border-bottom: 2px solid white;
+        line-height: 27px;;
+        padding: 0 20px 0 20px;
+    }
+    #prm .prm-nav-link {
+        color: white;
+        text-decoration: none;
+        font-size: 15px;
+    }
+    #prm .prm-shadow {
+        width: 93.75%;
+        height: 43px;
+        line-height: 43px;
+        border: 1px solid black;
+        border-radius: 5px;
+        margin: 5px auto 5px;
+        position: relative;
+        box-sizing: border-box;
+    }
+    #prm .prm-shadow:hover {
+        opacity: 0.9;
+    }
+    #prm .prm-shadow:before {
+        content: 'все линейки';
+        padding-left: 13px;
+        font-size: 17px;
+        text-transform: uppercase;
+    }
+    #prm .prm-arrow {
+        content: ' ';
+        width: 28px;
+        height: 28px;
+        background-image: url(http://www.ozon.ru/graphics/action/130528-cosmotheca/cosm-arrow.png);
+        display: block;
+        position: absolute;
+        top: 7px;
+        right: 7px;
+        -moz-transition: transform 0.5s;
+        -webkit-transition: transform 0.5s;
+        -o-transition: transform 0.5s;
+        -ms-transition: transform 0.5s;
+        transition: transform 0.5s;
+
+    }
+    #prm .prm-arrow-active {
+        -moz-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+
+    }
+    #prm .prm-spisok{
+        width: 93.75%;
+        margin: 0 auto 0;
+        border: 1px solid black;
+        border-radius: 5px;
+        box-sizing: border-box;
+        display: none;
+    }
+    #prm  .prm-brands {
+        list-style-type: disc;
+        list-style-position:  inside;
+        padding-left: 15px;
+        width: 100%!important;
+    }
+    #prm .prm-spisok-item {
+        height: 30px;
+        line-height: 30px;;
+    }
+    #prm .prm-spisok-link {
+        font-size: 15px;
+        color: black;
+        text-decoration: none;;
+        display: block;
+        position: relative;
+    }
+    #prm .prm-spisok-link:after {
+        width: 12px;
+        height: 18px;
+        background-image: url(http://www.ozon.ru/graphics/action/130528-cosmotheca/cosm-arrow-2.png);
+        content: ' ';
+        display: block;
+        position: absolute;
+        right: 25px;
+        top: 9px;
+    }
+}
+
+</style>
+<script>
+    $(function(){
+        if ( $(document).width() < 769 ){
+            $('.prm-shadow').on('click', function(){
+                $('.prm-arrow').toggleClass('prm-arrow-active');
+                $('.prm-spisok').slideToggle(500);
+            })
+        }
+    })
+</script>
+<div id="prm" class="mAdaptiveBanner">
+<div class="prm-left">
+    <div class="prm-title"></div>
+    <div class="prm-nav">
+        <ul class="prm-nav">
+            <li class="prm-nav-item">
+                <a href="/brand/20924994/?group=div_beauty&catalog=1158883&areause=37463,37464,37461#detf" class="prm-nav-link">Лицо</a>
+            </li>
+            <li class="prm-nav-item">
+                <a href="/brand/20924994/?group=div_beauty&catalog=1158883&areause=41069,37465,37466#detf" class="prm-nav-link">Тело</a>
+            </li>
+            <li class="prm-nav-item">
+                <a href="/brand/20924994/?group=div_beauty&catalog=1158884#detf" class="prm-nav-link">Волосы</a>
+            </li>
+            <li class="prm-nav-item">
+                <a href="/brand/20924994/?group=div_beauty&catalog=1158316#detf" class="prm-nav-link">Парфюмерия</a>
+            </li>
+            <li class="prm-nav-item">
+                <a href="/context/catalog/id/1163179/" class="prm-nav-link">Аксессуары</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="prm-right"><img src="http://www.ozon.ru/graphics/action/130528-cosmotheca/130626-cosmotheca-model-2.jpg"></div>
+<div style="clear: both"></div>
+<div class="prm-shadow"><div class="prm-arrow"></div></div>
+<div class="prm-spisok">
+    <ul class="prm-brands">
+        <li class="prm-spisok-item">
+            <a href="/brand/20217861/?&group=div_beauty#detf" class="prm-spisok-link">1752</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/19966808/?&group=div_beauty#detf" class="prm-spisok-link">A'kin</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/23887918/" class="prm-spisok-link">Absolution</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/18556838/?&group=div_beauty#detf" class="prm-spisok-link">Acca Kappa</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/20103999/?group=div_beauty" class="prm-spisok-link">Amala</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/19966826/" class="prm-spisok-link">Atelier Flou</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/23072357/" class="prm-spisok-link">Bakel</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/19966837/?&group=div_beauty#detf" class="prm-spisok-link">Clark's Botanicals</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/20322527/?group=div_beauty" class="prm-spisok-link">Coola Suncare</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/20104267/" class="prm-spisok-link">Cor</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/21724515/" class="prm-spisok-link">Cosmetics 27</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/22780982/" class="prm-spisok-link">David Mallett</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/20104304/" class="prm-spisok-link">eco.kid</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/23072734/" class="prm-spisok-link">Ego Facto</a>
+        </li>
+    </ul>
+    <ul class="prm-brands">
+
+
+        <li class="prm-spisok-item">
+            <a href="/brand/18571149/?&group=div_beauty#detf" class="prm-spisok-link">Erbario Toscano</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/24925496/" class="prm-spisok-link">Frais</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/20104478/?group=div_beauty" class="prm-spisok-link">Gianna Rose Atelier</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/29945869/" class="prm-spisok-link">Grasse Au Parfum</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/32009443/?group=div_beauty" class="prm-spisok-link">Grown Alchemist</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/context/detail/id/19966870/" class="prm-spisok-link">Humiecki and Graef</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/23072828/" class="prm-spisok-link">Iroisie</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/context/detail/id/18565538/?group=div_beauty" class="prm-spisok-link">Japonesque</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/32558102/?group=div_beauty" class="prm-spisok-link">J.F. Schwarzlose Berlin</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/27575904/" class="prm-spisok-link">Karali</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/21200094/?group=div_beauty" class="prm-spisok-link">Karora</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/23888039/" class="prm-spisok-link">La Blue Bottle</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/20104515/?group=div_beauty" class="prm-spisok-link">Landoll</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/29044915/" class="prm-spisok-link">Les Liquides Imaginaires</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/21202244/?group=div_beauty" class="prm-spisok-link">Less is more</a>
+        </li>
+    </ul>
+    <ul class="prm-brands">
+
+        <li class="prm-spisok-item">
+            <a href="/brand/23072882/" class="prm-spisok-link">Lollia</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/context/detail/id/19966880/?&group=div_beauty#detf" class="prm-spisok-link">Malin+Goetz</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/31429723/?group=div_beauty" class="prm-spisok-link">Marvis</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/32558921/?group=div_beauty" class="prm-spisok-link">MiN NEW YORK</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/23072997/" class="prm-spisok-link">Olfactive Studio</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/26462273/" class="prm-spisok-link">Oliver& Co</a>
+        </li>
+        <!--li class="prm-spisok-item">
+          <a href="/brand/20924994/?&group=div_beauty#detf" class="prm-spisok-link">Murchison-Hume</a>
+        </li-->
+        <li class="prm-spisok-item">
+            <a href="/context/detail/id/20104544/" class="prm-spisok-link">Panpuri</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/20104566/" class="prm-spisok-link">Patyka</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/23073023/" class="prm-spisok-link">Philab</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/27379373/" class="prm-spisok-link">Pozzo di Borgo</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/21467711/" class="prm-spisok-link">Prive</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/31423339/?group=div_beauty" class="prm-spisok-link">Proraso</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/29756060/" class="prm-spisok-link">Rallet</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/context/detail/id/20108048/?group=div_beauty" class="prm-spisok-link">Renoma</a>
+        </li>
+    </ul>
+    <ul class="prm-brands" style="width: 16%;">
+
+        <li class="prm-spisok-item">
+            <a href="/context/detail/id/19966890/?group=div_beauty" class="prm-spisok-link">Sjal</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/23073028/" class="prm-spisok-link">Sepai</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/18571135/" class="prm-spisok-link">Sachajuan</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/22780983/" class="prm-spisok-link">Sentifique</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/20104649/" class="prm-spisok-link">Stem Organics</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/31181746/" class="prm-spisok-link">The Laundress</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/23778355/" class="prm-spisok-link">Tokyo Milk</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/28894832/" class="prm-spisok-link">Une Nuit A Bali</a>
+        </li>
+        <!-- li class="prm-spisok-item">
+          <a href="/context/detail/id/20104688/?group=div_beauty" class="prm-spisok-link">Urban Tribe</a>
+        </li -->
+        <li class="prm-spisok-item">
+            <a href="/brand/30978491/" class="prm-spisok-link">Valobra</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/29901245/" class="prm-spisok-link">WienerBlut</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/brand/23073119/" class="prm-spisok-link">Yumaki</a>
+        </li>
+        <li class="prm-spisok-item">
+            <a href="/context/detail/id/20104699/?group=div_beauty" class="prm-spisok-link">Zoya</a>
+        </li>
+
+
+    </ul>
+    <div style="clear:both"></div>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+<script>
+    $(function(){
+        $('.promo-header-video').on('click', function(){
+            $('.promo-video').fadeIn(150);
+        });
+        $('.promo-close').on('click', function(){
+            $('.promo-video').fadeOut(150);
+            $('.video-frame').remove();
+            $('<iframe class="video-frame" width="857" height="482" src="https://www.youtube.com/embed/iQC19HVZCqY" frameborder="0" allowfullscreen></iframe>').appendTo($('.promo-video'));
+        });
+    })
+</script>
+<style>
+    #promo {
+        background-color: black;
+    }
+   * {
+       margin: 0;
+       padding: 0;
+   }
+   #promo .promo-header {
+       background-color: #040404;
+       position: relative;
+   }
+    #promo .promo-header-inner {
+        height: 663px;
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/background-header.jpg);
+        width: 1265px;
+        margin: 0 auto;
+        position: relative;
+    }
+    #promo .promo-back {
+        position: absolute;
+        width: 50%;
+        left: 50%;
+        height: 663px;
+        background-color: black;
+    }
+    #promo .promo-header-video {
+        position: absolute;
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/video.jpg);
+        width: 290px;
+        height: 184px;
+        cursor: pointer;
+        top: 413px;
+        right: 300px;
+    }
+    #promo .video-play {
+        position: absolute;
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/play.png);
+        top: 50px;
+        left: 113px;
+        width: 51px;
+        height: 51px;
+    }
+   #promo .video-play:hover {
+       background-image: url(http://ozon.ru/graphics/action/150618-ottenki/play-hover.png);
+
+   }
+    #promo .promo-products {
+        background-color: #383e41;
+    }
+    #promo .promo-products-inner {
+        height: 173px;
+        margin: 0 auto;
+        width: 960px;
+    }
+    #promo .products-1 {
+        width: 470px;
+        display: inline-block;
+        position: relative;
+        height: 100%;
+        margin-right: 15px;
+    }
+    #promo .product-1_image {
+        width: 123px;
+        height: 193px;
+        position: absolute;
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/ot-1.png);
+        top: -28px;
+        left: 22px;
+    }
+    #promo .product-1_name {
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        position: absolute;
+        top: 37px;
+        left: 164px;
+        color: white;
+    }
+    #promo .product-1_buy {
+        position: absolute;
+        width: 96px;
+        height: 35px;
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/buy-black.jpg);
+        top: 100px;
+        left: 164px;
+
+    }
+   #promo .product-1_buy:hover {
+       opacity: 0.8;
+   }
+
+   #promo .products-2 {
+       width: 470px;
+       display: inline-block;
+       position: relative;
+       height: 100%;
+   }
+   #promo .product-2_image {
+       width: 126px;
+       height: 193px;
+       position: absolute;
+       background-image: url(http://ozon.ru/graphics/action/150618-ottenki/ot-2.png);
+       top: -28px;
+       left: 22px;
+   }
+   #promo .product-2_name {
+       font-family: Arial, sans-serif;
+       font-size: 18px;
+       position: absolute;
+       top: 37px;
+       left: 164px;
+       color: #ff4338;
+   }
+   #promo .product-2_buy {
+       position: absolute;
+       width: 96px;
+       height: 35px;
+       background-image: url(http://ozon.ru/graphics/action/150618-ottenki/buy-red.jpg);
+       top: 100px;
+       left: 164px;
+
+   }
+   #promo .product-2_buy:hover {
+       opacity: 0.8;
+   }
+    #promo .promo-categories{
+        width: 1265px;
+        height: 626px;
+        margin: 0 auto;
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/back-footer.jpg);
+    }
+    #promo .promo-categories-name {
+        font-family: Arial, sans-serif;
+        font-size: 30px;
+        color: white;
+        text-align: center;
+        padding: 30px 0 30px 0;
+    }
+    #promo .promo-items-block {
+        width: 960px;
+        margin: 0 auto;
+        vertical-align: top;
+        text-align: justify;
+    }
+    #promo .promo-item {
+        display: inline-block;
+        position: relative;
+        height: 225px;
+        vertical-align: top;
+        margin-bottom: 25px;
+    }
+    #promo .item_links {
+        list-style-type: none;
+        background: none;
+        position: relative;
+        padding: 15px;
+    }
+    #promo .item_image {
+        width: 310px;
+        height: 120px;
+    }
+    #promo .item_grey {
+        position: absolute;
+        top: 120px;
+        width: 100%;
+        height: 115px;
+        background-color: #3d4447;
+        opacity: 0.7;
+    }
+    #promo .item_links_name {
+        color: white;
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        text-decoration: none;
+    }
+    #promo .item_links_name:hover {
+        text-decoration: underline;
+    }
+    #promo .item_link {
+        padding-bottom: 3px;
+    }
+    #promo .item_image-1 {
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/item-1.jpg);
+    }
+    #promo .item_image-2 {
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/item-2.jpg);
+    }
+    #promo .item_image-3 {
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/item-3.jpg);
+    }
+    #promo .item_image-4 {
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/item-4.jpg);
+    }
+    #promo .item_image-5 {
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/item-5.jpg);
+    }
+    #promo .item_image-6 {
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/item-6.jpg);
+    }
+    #promo .promo-items-block:after {
+        display: inline-block;
+        width: 100%;
+        content: ' ';
+        height: 0;
+    }
+    #promo .promo-video {
+        position: absolute;
+        width: 100%;
+        background-color: rgba(0,0,0, 0.5);
+        height: 936px;
+        top: 0;
+        left: 0;
+        text-align: center;
+        display: none;
+    }
+    #promo .video-frame {
+        display: inline-block;
+        padding-top: 61px;
+    }
+    #promo .promo-close {
+        position: absolute;
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/close.png);
+        top:30px;
+        right: 30px;
+        width: 21px;
+        height: 21px;
+    }
+    #promo .promo-close:hover {
+        background-image: url(http://ozon.ru/graphics/action/150618-ottenki/close-hover.png);
+    }
+</style>
+<div id="promo">
+    <div class="promo-header">
+        <div class="promo-back"></div>
+        <div class="promo-header-inner">
+            <div class="promo-header-video">
+                <div class="video-play"></div>
+            </div>
+        </div>
+    </div>
+    <div class="promo-products">
+        <div class="promo-products-inner">
+            <div class="products-1">
+                <a href="" class="product-1_image"></a>
+                <p class="product-1_name">Пятьдесят оттенков серого<br/> (DVD)</p>
+                <a href="" class="product-1_buy"></a>
+            </div>
+
+            <div class="products-2">
+                <a href="" class="product-2_image"></a>
+                <p class="product-2_name">Пятьдесят оттенков серого<br/> (Blu-ray)</p>
+                <a href="" class="product-2_buy"></a>
+            </div>
+        </div>
+    </div>
+    <div class="promo-categories">
+        <p class="promo-categories-name">Разбудите страсть</p>
+        <div class="promo-items-block">
+            <div class="promo-item">
+                <div class="item_image item_image-1"></div>
+                <div class="item_grey"></div>
+                <ul class="item_links ">
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1133167/">Романтические мелодрамы</a></li>
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1133179/">Романтические драмы</a></li>
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1132813/">Фильмы 18+</a></li>
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1142543/">Романтические мелодии</a></li>
+                </ul>
+            </div>
+
+            <div class="promo-item">
+                <div class="item_image item_image-2"></div>
+                <div class="item_grey"></div>
+                <ul class="item_links ">
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1141650/?mediatype=1147731&store=1&sort=bests&cid=dm64965&bid=1265074269">Эротическая поэзия и проза</a></li>
+                </ul>
+            </div>
+
+            <div class="promo-item">
+                <div class="item_image item_image-3"></div>
+                <div class="item_grey"></div>
+                <ul class="item_links ">
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1158316/?sex=32939&ageo=33939&sort=bests">Женская парфюмерия</a></li>
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1158316/?sex=32938&ageo=33939">Мужская парфюмерия</a></li>
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1158316/?sex=32941">Унисекс </a></li>
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1158882/">Ароматерапия и свечи </a></li>
+                </ul>
+            </div>
+
+            <div class="promo-item">
+                <div class="item_image item_image-4"></div>
+                <div class="item_grey"></div>
+                <ul class="item_links ">
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1158892/?areause=37461&colortone=27945&ageo=33939">Помада</a></li>
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1158888/?areause=37464&type=39607&ageo=33939">Тени</a></li>
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1158892/?type=37535&ageo=33939">Тушь для ресниц </a></li>
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1158892/?type=39605&ageo=33939">Подводка для глаз</a></li>
+                </ul>
+            </div>
+
+            <div class="promo-item">
+                <div class="item_image item_image-5"></div>
+                <div class="item_grey"></div>
+                <ul class="item_links ">
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1153309/?typeapparel=1153473&brand=32106681,31277787,30003628,18075636">Нижнее белье </a></li>
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1153309/?typeapparel=1153431&type=39159">Чулки</a></li>
+                </ul>
+            </div>
+
+            <div class="promo-item">
+                <div class="item_image item_image-6"></div>
+                <div class="item_grey"></div>
+                <ul class="item_links ">
+                    <li class="item_link"><a class="item_links_name" href="http://www.ozon.ru/catalog/1165476/">Презервативы и лубриканты</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="promo-video">
+        <iframe class="video-frame" width="857" height="482" src="https://www.youtube.com/embed/iQC19HVZCqY" frameborder="0" allowfullscreen></iframe>
+        <div class="promo-close"></div>
+    </div>
+</div>
+</body>
+</html>

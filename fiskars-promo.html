@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<meta charset="UTF-8">
+<head>
+    <title></title>
+    <style>
+    #fiskas * {
+            margin: 0;
+            padding: 0;
+        }
+    #fiskas  .fiskas-logos-top {
+            background-color: white;
+            width:100%
+        }
+    #fiskas    .logos-inner {
+            background-image: url(http://ozon.ru/graphics/subscribe/pl/150427-fiskas-top-2.jpg);
+            width: 960px;
+            height: 85px;
+            margin: 0 auto;
+        }
+    #fiskas    .green-top-outer {
+            background-image: url(http://ozon.ru/graphics/subscribe/pl/150424-back-1.jpg);
+            background-repeat: repeat-x;
+            height: 335px;
+        }
+    #fiskas    .green-top {
+            margin: 0 auto;
+            width: 1272px;
+            background-image: url(http://ozon.ru/graphics/subscribe/pl/150424-back-4.jpg);
+            background-repeat: no-repeat;
+            height: 100%;
+        }
+    #fiskas    .green-top_inner {
+            position: relative;
+            width: 960px;
+            margin: 0 auto;
+            height: 100%;
+        }
+    #fiskas    .green-sale-50 {
+            background-image: url(http://ozon.ru/graphics/subscribe/pl/150427-fiskas-sale50.png);
+            background-repeat: no-repeat;
+            width: 253px;
+            height: 251px;
+            position: absolute;
+            top: 44px;
+            left: 30px;
+            display: none;
+        }
+    #fiskas    .green-text {
+            background-image: url(http://ozon.ru/graphics/subscribe/pl/150427-fiskas-text.png);
+            background-repeat: no-repeat;
+            width: 533px;
+            height: 131px;
+            position: absolute;
+            top: 35px;
+            left: 322px;
+            display: none;
+        }
+    #fiskas    .green-ax {
+            background-image: url(http://ozon.ru/graphics/subscribe/pl/150427fiskas-ax.png);
+            background-repeat: no-repeat;
+            width: 485px;
+            height: 133px;
+            position: absolute;
+            top: 179px;
+            left: 350px;
+            transform: rotate(35deg);
+            transform-origin: right bottom;
+            transition: transform 0.15s ease-out;
+            display: none;
+        }
+    #fiskas    .green-rotate {
+            transform: rotate(1deg);
+        }
+    #fiskas    .green-footer {
+            background-image: url(http://ozon.ru/graphics/subscribe/pl/150427-fiskas-back-2.png);
+            background-repeat: repeat;
+        }
+    #fiskas    .green-footer_inner {
+            width: 960px;
+            margin: 0 auto;
+            position: relative;
+            height: 420px;
+            padding: 0 30px 0 30px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    #fiskas    .friskas-step {
+            text-align: center;
+            position: absolute;
+        }
+    #fiskas    .friskas-step:after {
+            display: inline-block;
+            height: 100%;
+            content: ' ';
+            width: 0;
+            vertical-align: middle;
+        }
+    #fiskas     .friskas-step-img {
+            width: 0;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    #fiskas    .friskas-step-1 {
+            width: 125px;
+            height: 127px;
+            top: 0;
+            left: 0;
+        }
+    #fiskas   .friskas-step-2 {
+            width: 124px;
+            height: 128px;
+            top: 0;
+            left: 300px;
+        }
+    #fiskas    .friskas-step-3 {
+            width: 123px;
+            height: 128px;
+            top: 0;
+            right: 0;
+        }
+    #fiskas    .fiskas-steps {
+            width: 724px;
+            margin: 0 auto;
+            position: relative;
+            height:146px;
+        }
+    #fiskas    .fiskas-footer-text {
+            width: 900px;
+        }
+    #fiskas    .fiskas-text-item {
+            float: left;
+            width: 298px;
+            text-align: center;
+            box-sizing: border-box;
+            padding: 0 10px 0 10px;
+        }
+    #fiskas    .item-name {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+            color: #ffda00;
+            padding: 15px 0 20px 0;
+        }
+    #fiskas   .item-text {
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            color: white;
+        }
+    #fiskas    .friskas-arrow {
+            background-image: url(http://ozon.ru/graphics/subscribe/pl/150427-fiskas-arrow.png);
+            background-repeat: no-repeat;
+            width: 176px;
+            height: 21px;
+            position: absolute;
+            display: none;
+
+        }
+    #fiskas    .friskas-arrow-1 {
+            top: 55px;
+            left: 124px;
+        }
+    #fiskas     .friskas-arrow-2 {
+            top: 55px;
+            left: 424px;
+        }
+    #fiskas    .fiskas-link {
+            display: inline-block;
+            padding-top: 25px;
+            text-decoration: none;
+        }
+    #fiskas    .fiskas-link-image {
+            border: none;
+        }
+    #fiskas    .friskas-condition {
+            text-decoration: underline;
+            font-family: Arial, sans-serif;
+            font-size: 15px;
+            color: white;
+            position: absolute;
+            bottom: 30px;
+            right: 20px;
+        }
+    #fiskas    .friskas-condition-image {
+            display: inline-block;
+            vertical-align: middle;
+            padding-left: 10px;
+            border: none;
+        }
+    #fiskas    .friskas-condition {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    #fiskas    .friskas-goods {
+            width: 900px;
+            margin: 0 auto;
+        }
+    #fiskas    .goods-name {
+            color: #f18033;
+            font-size: 36px;
+            font-family: Arial, sans-serif;
+            padding: 35px 0 20px 0;
+            text-align:  center;
+        }
+    #fiskas    .cat-image {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    #fiskas    .friskas-cat-text {
+        display: inline-block;
+        font-family: Arial, sans-serif;
+        font-size: 24px;
+        padding: 0 0 0 15px;
+    }
+    #fiskas     .friskas-item-img {
+        border: none;
+    }
+    #fiskas     .friskas-links {
+        vertical-align: top;
+        text-align: center;
+    }
+    #fiskas     .friskas-item-link {
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        color: #0083ca;
+        text-decoration: none;
+    }
+    #fiskas      .all-cat-items {
+        margin-bottom: 50px;
+    }
+    </style>
+    <script>
+        $(function(){
+            $('.green-sale-50').fadeIn(500, function(){
+                $('.green-ax').fadeIn(300, function(){
+                    $('.green-ax').addClass('green-rotate');
+                    $('.green-text').fadeIn(500, function(){
+                        $('.friskas-step-1-img').animate({'width': '125px'}, 400);
+                        $('.friskas-step-2-img').animate({'width': '124px'}, 400);
+                        $('.friskas-step-3-img').animate({'width': '123px'}, 400);
+                        $('.friskas-arrow').fadeIn(400);
+                    });
+                })
+            });
+
+        })
+    </script>
+</head>
+
+<body>
+<div id="fiskas">
+    <div class="fiskas-logos-top">
+        <div class="logos-inner"></div>
+    </div>
+    <div class="green-top-outer">
+        <div class="green-top">
+            <div class="green-top_inner">
+                <div class="green-sale-50"></div>
+                <div class="green-text"></div>
+                <div class="green-ax"></div>
+            </div>
+        </div>
+    </div>
+    <div class="green-footer">
+        <div class="green-footer_inner">
+            <div class="fiskas-steps">
+                <div class=" friskas-step friskas-step-1">
+                    <img  class="friskas-step-img friskas-step-1-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-step-1.png">
+                </div>
+                <div class=" friskas-step friskas-step-2">
+                    <img  class="friskas-step-img friskas-step-2-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-step-2.png">
+                </div>
+                <div class=" friskas-step friskas-step-3">
+                    <img  class="friskas-step-img friskas-step-3-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-step-3.png">
+                </div>
+                <div class="friskas-arrow friskas-arrow-1"></div>
+                <div class="friskas-arrow friskas-arrow-2"></div>
+            </div>
+            <div class="fiskas-footer-text">
+                <div class="fiskas-text-item">
+                    <p class="item-name">
+                        Заправляйтесь на BP
+                    </p>
+                    <p class="item-text">
+                        Каждые полные 400 рублей, потраченные на топливо, равняются 1 акционной наклейке
+                    </p>
+                </div>
+                <div class="fiskas-text-item">
+                    <p class="item-name">
+                        Собирайте наклейки
+                    </p>
+                    <p class="item-text">
+                        Вклеивайте их в буклет и обменивайте на заправках BP на секретные промокоды
+                    </p>
+                </div>
+                <div class="fiskas-text-item">
+                    <p class="item-name">
+                        Получите 50% скидку на инструменты Fiskars
+                    </p>
+                    <p class="item-text">
+                        <a href="https://www.ozon.ru/context/mycode/" style="color: white">Активируйте</a> промокод для получения скидки и выбирайте товар по лучшим ценам!
+                    </p>
+                </div>
+            </div>
+            <a href="#" class="fiskas-link"><img class="fiskas-link-image" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-active.png" /></a>
+            <a href="" class="friskas-condition">*<span>Полные условия акции</span><img class="friskas-condition-image" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-trigl.png" /></a>
+        </div>
+    </div>
+    <div class="friskas-goods">
+        <p class="goods-name">Товары со скидкой по промокоду</p>
+        <div class="friskas-cat">
+            <p class="cat-name"><img class="cat-image" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-cat-11.png"><span class="friskas-cat-text">1 категория товаров (6 наклеек)</span></p>
+        </div>
+        <table class="all-cat-items">
+            <tr>
+                <td>
+                    <a href="/context/detail/id/27224629/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-item-1.jpg" /></a>
+                </td>
+                <td>
+                    <a href="/context/detail/id/25421746/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskasitem-2.jpg" /></a>
+                </td>
+                <td>
+                    <a href="/context/detail/id/4709128/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskasitem-3.jpg" /></a>
+                </td>
+                <td>
+                    <a href="/context/detail/id/25421803/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-item-4.jpg" /></a>
+                </td>
+                <td>
+                    <a href="/context/detail/id/4709152/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-item-5.jpg" /></a>
+                </td>
+                <td>
+                    <a href="/context/detail/id/29484885/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-item-6.jpg" /></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/27224629/"><span style="text-decoration: underline">Лопата штыковая укороченная Fiskars «Solid»</span><br />
+                        <span style="text-decoration: line-through; color:#808285">715 Р</span> <span style="color: #00a651; font-size: 18px">358 Р</span>
+                    </a>
+                </td>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/25421746/"><span style="text-decoration: underline">Лопата штыковая Fiskars</span><br />
+                        <span style="text-decoration: line-through; color:#808285">867 Р</span> <span style="color: #00a651; font-size: 18px">434 Р</span>
+                    </a>
+                </td>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/4709128/"><span style="text-decoration: underline">Нож универсальный
+    «Fiskars Quality»</span><br />
+                        <span style="text-decoration: line-through; color:#808285">774 Р </span> <span style="color: #00a651; font-size: 18px">387 Р</span>
+                    </a>
+                </td>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/25421803/"><span style="text-decoration: underline">Точилка
+    универсальная
+    Fiskars «Xsharp»
+    для топоров и ножей</span><br />
+                        <span style="text-decoration: line-through; color:#808285">1040 Р</span> <span style="color: #00a651; font-size: 18px">520 Р</span>
+                    </a>
+                </td>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/4709152/"><span style="text-decoration: underline">Ножницы «Fiskars
+    Functional Form»
+    общего назначения</span><br />
+                        <span style="text-decoration: line-through; color:#808285">1126 Р</span> <span style="color: #00a651; font-size: 18px">563 Р</span>
+                    </a>
+                </td>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/29484885/"><span style="text-decoration: underline">Ножницы «Fiskars
+    Functional Form»
+    общего назначения</span><br />
+                        <span style="text-decoration: line-through; color:#808285">1386 Р</span> <span style="color: #00a651; font-size: 18px">693 Р</span>
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <div class="friskas-cat">
+            <p class="cat-name"><img class="cat-image" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-cat-2.png"><span class="friskas-cat-text">2 категория товаров (12 наклеек)</span></p>
+        </div>
+        <table class="all-cat-items">
+            <tr>
+                <td>
+                    <a href="/context/detail/id/25421757/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskasitem-7.jpg" /></a>
+                </td>
+                <td>
+                    <a href="/context/detail/id/25421753/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskasitem-8.jpg" /></a>
+                </td>
+                <td>
+                    <a href="/context/detail/id/25421798/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskasitem-9.jpg" /></a>
+                </td>
+                <td>
+                    <a href="/context/detail/id/25421815/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskasitem-10.jpg" /></a>
+                </td>
+                <td>
+                    <a href="/context/detail/id/31691716/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskasitem-11.jpg" /></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/25421757/"><span style="text-decoration: underline">Метла универсальная
+    садовая Fiskars
+    «Solid»</span><br />
+                        <span style="text-decoration: line-through; color:#808285">1720 Р</span> <span style="color: #00a651; font-size: 18px">860 Р</span>
+                    </a>
+                </td>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/25421753/"><span style="text-decoration: underline">Грабли для листьев
+    большие Fiskars</span><br />
+                        <span style="text-decoration: line-through; color:#808285">1883 Р </span> <span style="color: #00a651; font-size: 18px">942 Р</span>
+                    </a>
+                </td>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/25421798/"><span style="text-decoration: underline">Секатор плоскостной
+    Fiskars «SmartFit»</span><br />
+                        <span style="text-decoration: line-through; color:#808285">1454 Р</span> <span style="color: #00a651; font-size: 18px">727 Р</span>
+                    </a>
+                </td>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/25421815/"><span style="text-decoration: underline">Пила складная
+    Fiskars Xtract,
+    мелкий зуб</span><br />
+                        <span style="text-decoration: line-through; color:#808285">1770 Р</span> <span style="color: #00a651; font-size: 18px">885 Р</span>
+                    </a>
+                </td>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/31691716/"><span style="text-decoration: underline">Набор повара
+    (2 ножа) FF</span><br />
+                        <span style="text-decoration: line-through; color:#808285">2398 Р </span> <span style="color: #00a651; font-size: 18px">1199 Р</span>
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <div class="friskas-cat">
+            <p class="cat-name"><img class="cat-image" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-cat-33.jpg"><span class="friskas-cat-text">3 категория товаров (18 наклеек)</span></p>
+        </div>
+        <table>
+            <tr>
+                <td>
+                    <a href="/context/detail/id/31691715/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-item-12.jpg" /></a>
+                </td>
+                <td>
+                    <a href="/context/detail/id/27533181/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-item-13.jpg" /></a>
+                </td>
+                <td>
+                    <a href="/context/detail/id/4709110/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-item-14.jpg" /></a>
+                </td>
+                <td>
+                    <a href="/context/detail/id/26306118/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-item-15.jpg" /></a>
+                </td>
+                <td>
+                    <a href="/context/detail/id/25421806/"><img class="friskas-item-img" src="http://ozon.ru/graphics/subscribe/pl/150427-fiskas-item-16.jpg" /></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/31691715/"><span style="text-decoration: underline">Сучкорез
+    плоскостной Fiskars,
+    с загнутыми лезвиями</span><br />
+                        <span style="text-decoration: line-through; color:#808285">2664 Р </span> <span style="color: #00a651; font-size: 18px">1332 Р</span>
+                    </a>
+                </td>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/27533181/"><span style="text-decoration: underline">Секач для сучьев
+    Fiskars WoodXpert
+    XA3</span><br />
+                        <span style="text-decoration: line-through; color:#808285">3605 Р</span> <span style="color: #00a651; font-size: 18px">1802 Р</span>
+                    </a>
+                </td>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/4709110/"><span style="text-decoration: underline">Секатор «Fiskars
+    Quality» с силовым
+    приводом</span><br />
+                        <span style="text-decoration: line-through; color:#808285">2653 Р</span> <span style="color: #00a651; font-size: 18px">1326 Р</span>
+                    </a>
+                </td>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/26306118/"><span style="text-decoration: underline">Топор-колун
+    Fiskars X17</span><br />
+                        <span style="text-decoration: line-through; color:#808285">5062 Р</span> <span style="color: #00a651; font-size: 18px">2531 Р</span>
+                    </a>
+                </td>
+                <td class="friskas-links">
+                    <a class="friskas-item-link" href="/context/detail/id/25421806/"><span style="text-decoration: underline">Топор туристический
+    Fiskars X7</span><br />
+                        <span style="text-decoration: line-through; color:#808285">3426 Р</span> <span style="color: #00a651; font-size: 18px">1713 Р</span>
+                    </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+</head>
+<body>
+<style>
+    .pageCenterNoLeft {
+        padding: 0;
+
+    }
+    .pageContent .PageModule {
+        margin: 0;
+    }
+    #PageContent {
+        padding: 0;
+    }
+    .pageCenterNoLeft div.pageContent .PageModule {
+        margin: 0;
+    }
+   #drawing * {
+        padding: 0;
+        margin: 0;
+    }
+   #drawing {
+       width: 100%;
+       overflow: hidden;
+   }
+    #drawing .drawing-top {
+        width: 100%;
+        overflow: hidden;
+        background-position: center;
+        height: 471px;
+        cursor: url(http://www.ozon.ru/graphics/action/150713-drawing/brush_1.png), pointer;
+    }
+    #drawing .drawing-inner {
+        width: 1186px;
+        height: 471px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/back-png.png);
+        margin: 0 auto;
+        position: relative;
+    }
+    #drawing .drawingMap {
+        width: 100%;
+        height: 100%;
+        border:none;
+    }
+    #drawing .headerItem {
+        position: absolute;
+        z-index: -1;
+        display: none;
+    }
+    #drawing .headerItem--1 {
+        width: 113px;
+        height: 65px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-1.png);
+        top: 0;
+        left: 192px;
+    }
+    #drawing .headerItem--2 {
+        width: 164px;
+        height: 160px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-21.png);
+        top: 18px;
+        left: 95px;
+    }
+    #drawing .headerItem--3 {
+        width: 30px;
+        height: 51px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-3.png);
+        top: 75px;
+        left: 258px;
+    }
+    #drawing .headerItem--4 {
+        width: 39px;
+        height: 37px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-4.png);
+        top: 145px;
+        left: 88px;
+    }
+    #drawing .headerItem--5 {
+        width: 130px;
+        height: 123px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-5.png);
+        top: 163px;
+        left: 170px;
+    }
+    #drawing .headerItem--6 {
+        width: 73px;
+        height: 81px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-6.png);
+        top: 167px;
+        left: 320px;
+    }
+    #drawing .headerItem--7 {
+        width: 39px;
+        height: 42px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-7.png);
+        top: 188px;
+        left: 68px;
+    }
+    #drawing .headerItem--8 {
+        width: 155px;
+        height: 89px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-8.png);
+        top: 267px;
+        left: 223px;
+    }
+    #drawing .headerItem--9 {
+        width: 45px;
+        height: 40px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-9.png);
+        top: 287px;
+        left: 199px;
+    }
+    #drawing .headerItem--10 {
+        width: 53px;
+        height: 52px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-10.png);
+        top: 302px;
+        left: 96px;
+    }
+    #drawing .headerItem--11 {
+        width: 40px;
+        height: 45px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-11.png);
+        top: 334px;
+        left: 132px;
+    }
+    #drawing .headerItem--12 {
+        width: 115px;
+        height: 65px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-12.png);
+        top: 0;
+        right: 203px;
+    }
+    #drawing .headerItem--13 {
+        width: 165px;
+        height: 159px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-13.png);
+        top: 18px;
+        right: 113px;
+    }
+    #drawing .headerItem--14 {
+        width: 35px;
+        height: 50px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-14.png);
+        top: 78px;
+        right: 270px;
+    }
+    #drawing .headerItem--15 {
+        width: 99px;
+        height: 102px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-15.png);
+        top: 104px;
+        right: 273px;
+    }
+    #drawing .headerItem--16 {
+        width: 72px;
+        height: 81px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-16.png);
+        top: 170px;
+        right: 333px;
+    }
+    #drawing .headerItem--17 {
+        width: 129px;
+        height: 125px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-17.png);
+        top: 161px;
+        right: 187px;
+    }
+    #drawing .headerItem--18 {
+        width: 45px;
+        height: 40px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-18.png);
+        top: 133px;
+        right: 221px;
+    }
+    #drawing .headerItem--19 {
+        width: 108px;
+        height: 101px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-19.png);
+        top: 257px;
+        right: 444px;
+    }
+    #drawing .headerItem--20 {
+        width: 51px;
+        height: 54px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-20.png);
+        top: 300px;
+        right: 114px;
+    }
+    #drawing .headerItem--21 {
+        width: 40px;
+        height: 44px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/item-22.png);
+        top: 335px;
+        right: 153px;
+    }
+    #drawing .drawing-bottom {
+        padding-top: 30px;
+        cursor: url(http://www.ozon.ru/graphics/action/150713-drawing/brush_1.png), pointer;
+    }
+    #drawing .drawing-inner-bottom {
+        width: 1185px;
+        height: 448px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/drawing-back-2.png);
+        margin: 0 auto;
+        position: relative;
+    }
+
+    #drawing .BottomItem {
+        position: absolute;
+        z-index: -1;
+        display: none;
+    }
+    #drawing .BottomItem--1 {
+        width: 179px;
+        height: 205px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/bottom-1.png);
+        top: 153px;
+        left: 475px;
+    }
+    #drawing .BottomItem--2 {
+        width: 122px;
+        height: 132px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/bottom-2.png);
+        top: 55px;
+        left: 868px;
+    }
+    #drawing .BottomItem--3 {
+        width: 74px;
+        height: 78px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/bottom-3.png);
+        top: 291px;
+        left: 778px;
+    }
+    #drawing .BottomItem--4 {
+        width: 132px;
+        height: 126px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/bottom-4.png);
+        top: 279px;
+        left: 168px;
+    }
+    #drawing .BottomItem--5 {
+        width: 121px;
+        height: 131px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/bottom-5.png);
+        top: 54px;
+        left: 180px;
+    }
+    #drawing .BottomItem--6 {
+        width: 165px;
+        height: 162px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/bottom-6.png);
+        top: 135px;
+        left: 95px;
+    }
+    #drawing .BottomItem--7 {
+        width: 164px;
+        height: 163px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/bottom-7.png);
+        top: 136px;
+        left: 907px;
+    }
+    #drawing .BottomItem--8 {
+        width: 74px;
+        height: 80px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/bottom-8.png);
+        top: 285px;
+        left: 314px;
+    }
+    #drawing .BottomItem--9 {
+        width: 134px;
+        height: 132px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/bottom-9.png);
+        top: 280px;
+        left: 868px;
+    }
+    #drawing .BottomItem--10 {
+        width: 131px;
+        height: 126px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/bottom-10.png);
+        top: 126px;
+        left: 312px;
+    }
+    #drawing .BottomItem--11 {
+        width: 48px;
+        height: 42px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/bottom-11.png);
+        top: 250px;
+        left: 203px;
+    }
+    #drawing .BottomItem--12 {
+        width: 101px;
+        height: 127px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/bottom-12.png);
+        top: 254px;
+        left: 709px;
+    }
+    #drawing .BottomItem--13 {
+        width: 129px;
+        height: 134px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/bottom-13.png);
+        top: 126px;
+        left: 729px;
+    }
+    #drawing .headerLogo {
+        width: 417px;
+        height: 318px;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/buble-1.png);
+        top: 0;
+        left: 386px;
+        position: absolute;
+    }
+    #drawing .drawing-middle-outer {
+        height: 91px;
+        background-color: #aa4d9d;
+        position: relative;
+        top: -55px;
+    }
+    #drawing .drawing-middle {
+        height: 121px;
+        width: 960px;
+        position: relative;
+        margin: 0 auto;
+        top: -30px;
+    }
+    #drawing .link {
+        float: left;
+        width: 320px;
+        height: 100%;
+        text-align: center;
+    }
+    #drawing .linkImage {
+        display: inline-block;
+        height: 163px;
+    }
+    #drawing .textImage {
+        display: inline-block;
+        height: 29px;
+    }
+    #drawing .linkImage--1 {
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/book-11.png);
+        width: 211px
+    }
+    #drawing .linkImage--2 {
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/book-21.png);
+        width: 254px
+    }
+    #drawing .linkImage--3 {
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/book-31.png);
+        width: 195px
+    }
+    #drawing .textImage--1 {
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/text-1.png);
+        width: 180px
+    }
+    #drawing .textImage--2 {
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/text-2.png);
+        width: 254px
+    }
+    #drawing .textImage--3 {
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/text-3.png);
+        width: 306px
+    }
+    #drawing .drawingTopLeft {
+        position: absolute;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/back-left-1.jpg);
+        height: 471px;
+        width: 722px;
+        top: 0;
+        left: -667px;
+        z-index: -1
+    }
+    #drawing .drawingTopRight {
+        position: absolute;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/back-right-1.jpg);
+        height: 471px;
+        width: 715px;
+        top: 0;
+        right: -660px;
+        z-index: -1
+    }
+    #drawing .drawingBottomLeft {
+        position: absolute;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/back-left-2.jpg);
+        height: 450px;
+        width: 722px;
+        top: 0;
+        left: -667px;
+        z-index: -1
+    }
+    #drawing .drawingBottomRight {
+        position: absolute;
+        background-image: url(http://www.ozon.ru/graphics/action/150713-drawing/back-right-2.jpg);
+        height: 450px;
+        width: 715px;
+        top: 0;
+        right: -660px;
+        z-index: -1
+    }
+</style>
+<script>
+    $(function(){
+        $('.headerFigure').on('mouseover', function(){
+            var nameToElement = $(this).attr('data-name');
+            $('.headerItem--'+nameToElement).fadeIn(20);
+        });
+        $('.bottomFigure').on('mouseover', function(){
+            var nameToElement = $(this).attr('data-name');
+            $('.BottomItem--'+nameToElement).fadeIn(20);
+        });
+
+    })
+</script>
+<div id="drawing">
+    <div class="drawing-top">
+        <div class="drawing-inner">
+            <div class="drawingTopLeft"></div>
+            <div class="drawingTopRight"></div>
+            <div class="headerLogo"></div>
+            <img src="http://www.ozon.ru/graphics/action/150713-drawing/empty.png" class="drawingMap" usemap="#header-map">
+            <div class="headerItem headerItem--1"></div>
+            <div class="headerItem headerItem--2"></div>
+            <div class="headerItem headerItem--3"></div>
+            <div class="headerItem headerItem--4"></div>
+            <div class="headerItem headerItem--5"></div>
+            <div class="headerItem headerItem--6"></div>
+            <div class="headerItem headerItem--7"></div>
+            <div class="headerItem headerItem--8"></div>
+            <div class="headerItem headerItem--9"></div>
+            <div class="headerItem headerItem--10"></div>
+            <div class="headerItem headerItem--11"></div>
+
+            <div class="headerItem headerItem--12"></div>
+            <div class="headerItem headerItem--13"></div>
+            <div class="headerItem headerItem--14"></div>
+            <div class="headerItem headerItem--15"></div>
+            <div class="headerItem headerItem--16"></div>
+            <div class="headerItem headerItem--17"></div>
+            <div class="headerItem headerItem--18"></div>
+            <div class="headerItem headerItem--19"></div>
+            <div class="headerItem headerItem--20"></div>
+            <div class="headerItem headerItem--21"></div>
+       </div>
+    </div>
+    <a name="flagBottom"></a>
+    <div class="drawing-middle-outer">
+        <div class="drawing-middle">
+            <div class="link link--1">
+                <a href="#flagBottom" class="linkImage linkImage--1"></a>
+                <a href="#flagBottom" class="textImage textImage--1"></a>
+            </div>
+            <div class="link link--1">
+                <a href="/context/coloring-drawing/#flagBottom" class="linkImage linkImage--2"></a>
+                <a href="/context/coloring-drawing/#flagBottom" class="textImage textImage--2"></a>
+            </div>
+            <div class="link link--1">
+                <a href="/context/coloring-painting/#flagBottom" class="linkImage linkImage--3"></a>
+                <a href="/context/coloring-painting/#flagBottom" class="textImage textImage--3"></a>
+            </div>
+        </div>
+    </div>
+    <div class="drawing-bottom">
+        <div class="drawing-inner-bottom">
+            <div class="drawingBottomLeft"></div>
+            <div class="drawingBottomRight"></div>
+            <img src="http://www.ozon.ru/graphics/action/150713-drawing/empty.png" class="drawingMap" usemap="#Map">
+            <div class="BottomItem BottomItem--1"></div>
+            <div class="BottomItem BottomItem--2"></div>
+            <div class="BottomItem BottomItem--3"></div>
+            <div class="BottomItem BottomItem--4"></div>
+            <div class="BottomItem BottomItem--5"></div>
+            <div class="BottomItem BottomItem--6"></div>
+            <div class="BottomItem BottomItem--7"></div>
+            <div class="BottomItem BottomItem--8"></div>
+            <div class="BottomItem BottomItem--9"></div>
+            <div class="BottomItem BottomItem--10"></div>
+            <div class="BottomItem BottomItem--11"></div>
+            <div class="BottomItem BottomItem--12"></div>
+            <div class="BottomItem BottomItem--13"></div>
+        </div>
+    </div>
+</div>
+<map name="header-map">
+    <area shape="poly" class="headerFigure" data-name="1" coords="187, 0, 207, 6, 192, 33, 208, 63, 239, 46, 261, 60, 285, 42, 272, 14, 294, 10, 302, 0" />
+    <area shape="poly" class="headerFigure" data-name="2" coords="100, 75, 133, 67, 166, 81, 158, 53, 163, 20, 195, 46, 199, 77, 198, 80, 224, 64, 256, 52, 248, 88, 217, 105, 252, 112, 263 133, 223, 138, 198, 122, 211, 152, 200, 182, 176, 161, 175, 136, 128, 170, 129, 137, 160, 110, 127, 104" />
+    <area shape="poly" class="headerFigure" data-name="3" coords="259, 109, 262, 103, 256, 96, 263, 85, 275, 79, 287, 79, 288, 110, 277, 119, 274, 127, 258, 114" />
+    <area shape="poly" class="headerFigure" data-name="4" coords="106, 148, 118, 151, 123, 159, 123, 172, 110, 181, 91 ,173, 93, 158" />
+    <area shape="poly" class="headerFigure" data-name="5" coords="200, 165, 223, 167, 231, 184, 250, 164, 268, 171, 273, 189, 263, 203, 283, 200, 299, 212, 288, 235, 271, 239, 282, 264, 262, 277, 240, 260, 231, 276, 212, 283, 196, 269, 203, 240, 185, 240, 171, 218, 182, 202, 197, 200, 190, 179 " />
+    <area shape="poly" class="headerFigure" data-name="6" coords="359, 169, 379, 182, 391, 200, 390, 221, 381, 240, 361, 249, 323, 216, 317, 197, 326, 183" />
+    <area shape="poly" class="headerFigure" data-name="7" coords="91, 191, 104, 205, 97, 226, 76, 221, 76, 203" />
+    <area shape="poly" class="headerFigure" data-name="8" coords="241, 267, 271, 276, 294, 285, 303, 294, 324, 295, 338, 288, 357, 271, 377, 289, 380, 312, 343, 345, 316, 352, 268, 337, 244, 318, 230, 297, 228, 283" />
+    <area shape="poly" class="headerFigure" data-name="9" coords="220, 286, 228, 291, 236, 303, 238, 306, 229, 323, 217, 327, 201, 313, 201, 292"/>
+    <area shape="poly" class="headerFigure" data-name="10" coords="131, 301, 142, 308, 150, 331, 147, 336, 128, 355, 101, 348, 98, 331, 106, 327, 97, 313, 108, 305 "/>
+    <area shape="poly" class="headerFigure" data-name="11" coords="149, 336, 165, 338, 173, 356, 171, 366, 152, 380, 144, 370, 145, 365, 134, 353"/>
+
+
+    <area shape="poly" class="headerFigure" data-name="12" coords="869, 0, 881, 12, 896, 15, 886, 39, 889, 52, 912, 61, 932, 45, 950, 64, 976, 50, 976, 27, 965, 7, 982, 0" />
+    <area shape="poly" class="headerFigure" data-name="13" coords="1007, 18, 1012, 53, 1002, 82, 1034, 67, 1073, 74, 1045, 105, 1020, 113,1033, 123, 1041, 136, 1045, 175, 1006, 150, 985, 182, 959, 163, 959, 136, 914, 139, 908, 124, 920, 111, 945, 104, 928, 96, 914, 71, 913, 50, 947, 61, 970, 79, 975, 50" />
+    <area shape="poly" class="headerFigure" data-name="14" coords="880, 77, 897, 78, 908, 86, 913, 95, 911, 107, 908, 120, 896, 129, 884, 109, 881, 78" />
+    <area shape="poly" class="headerFigure" data-name="15" coords="832, 109, 865, 112, 900, 108, 913, 115, 912, 130, 906, 115, 891, 115, 892, 177, 905, 203, 871, 200, 863, 185, 870, 182, 830, 175, 820, 157, 824, 119" />
+    <area shape="poly" class="headerFigure" data-name="18" coords="940, 139, 951, 137, 959, 144, 958, 163, 942, 172, 922, 164, 927, 145, 936, 138" />
+    <area shape="poly" class="headerFigure" data-name="16" coords="812, 170, 843, 189, 853, 200, 843, 217, 816, 244, 803, 249, 787, 238,  780, 220, 782, 196, 791, 181 " />
+    <area shape="poly" class="headerFigure" data-name="17" coords="918, 162, 929, 170, 937, 184, 947, 165, 964, 162, 973, 166, 981, 173, 979, 188, 968, 201, 985, 200, 999, 210, 999, 225, 983, 240, 967, 239, 977, 261, 958, 287, 936, 277, 932, 260, 905, 280, 887, 262, 897, 240, 885, 235, 871, 221, 873, 203, 901, 201, 898, 175, 919, 164" />
+    <area shape="poly" class="headerFigure" data-name="19" coords="710, 260, 740, 270, 717, 312, 692, 333, 673, 335, 686, 341, 678, 358, 648, 357, 637, 340, 641, 307, 700, 264" />
+    <area shape="poly" class="headerFigure" data-name="20" coords="1041, 302, 1050, 309, 1061, 305, 1073, 314, 1067, 329, 1072, 339, 1066, 350,  1041, 355, 1036, 347, 1021, 333, 1022, 326, 1030, 307" />
+    <area shape="poly" class="headerFigure" data-name="21" coords="1023, 337, 1035, 352, 1034, 362, 1020, 377,  1012, 373, 998, 365, 997, 354, 1006, 338,   " />
+
+</map>
+
+<map name="Map" id="Map">
+    <area shape="poly" class="bottomFigure" data-name="5" coords="194,136,195,138,194,157,193,165,210,180,219,181,236,172,241,161,243,168,254,179,269,175,282,168,285,154,280,140,271,133,276,130,291,130,302,121,303,115,300,96,290,92,277,88,271,93,271,90,273,79,269,67,259,55,245,53,236,55,230,64,227,74,226,79,226,88,223,92,215,85,206,80,196,80,190,84,183,93,180,99,180,107,188,119,200,121,208,127,203,125,196,125,190,130,192,139,196,144" />
+    <area shape="poly" class="bottomFigure" data-name="6" coords="167,258,140,280,129,290,122,282,121,269,127,260,131,256,137,250,143,243,150,237,160,233,157,225,140,225,116,218,106,208,100,197,100,193,106,188,123,187,136,187,149,187,163,191,167,195,166,193,163,179,162,171,162,162,162,153,162,145,162,140,171,143,180,155,185,164,188,165,192,173,195,180,195,187,196,195,204,196,212,191,218,186,236,179,241,176,247,175,256,182,255,190,249,197,247,204,246,210,235,215,226,218,214,219,205,221,213,226,227,225,236,227,244,230,258,236,262,242,263,248,253,253,241,255,225,255,216,255,209,250,199,246,196,242,203,253,205,260,207,265,210,274,211,281,204,282,197,283,196,287,188,288,192,299" />
+    <area shape="poly" class="bottomFigure" data-name="4" coords="218,285,226,291,231,300,239,297,244,290,253,283,268,288,274,296,274,304,269,312,263,321,269,320,287,320,296,324,299,333,293,343,288,354,278,360,261,355,273,364,281,377,276,389,268,396,255,396,243,385,236,372,235,388,228,398,211,402,200,393,197,376,202,364,210,357,213,353,196,354,186,357,173,345,171,335,176,325,190,320,203,320,211,322,201,318,191,306,191,294,198,286,213,283,212,284" />
+    <area shape="poly" class="bottomFigure" data-name="10" coords="359,234,351,225,341,214,330,205,324,191,325,179,336,169,347,166,366,163,377,166,390,168,411,167,415,164,424,160,427,167,416,176,409,179,400,179,399,182,412,182,429,185,437,187,433,192,426,196,415,197,405,197,413,201,423,207,437,220,443,228,440,231,429,233,408,230,400,219,387,211,399,229,401,236,403,244,403,249,397,252,390,248,384,241,378,232,376,225,377,242,373,250,372,256,364,255,363,245,360,236" />
+    <area shape="poly" class="bottomFigure" data-name="11" coords="232,291,240,287,244,281,246,275,241,265,229,258,222,257,213,259,207,263,213,271,215,279,224,285,230,292" />
+    <area shape="poly" class="bottomFigure" data-name="1" coords="640,261,651,257,653,250,653,239,653,228,643,221,634,223,617,229,603,232,591,237,587,235,605,222,614,218,628,212,630,205,628,192,622,184,617,179,609,172,594,173,589,183,587,190,583,203,576,211,572,217,566,222,566,211,567,197,570,180,568,155,553,155,544,161,518,161,518,166,520,178,530,195,533,207,536,218,532,219,519,206,515,193,503,184,491,184,485,194,484,205,481,213,480,219,486,232,516,248,500,245,484,240,470,241,470,254,481,273,486,288,491,297,497,302,517,296,521,287,533,279,516,299,512,312,505,320,504,330,514,344,524,354,536,358,549,355,557,348,561,332,559,322,558,337,561,353,576,355,592,354,609,346,607,332,585,306,578,291,586,295,598,309,606,315,614,319,628,324,639,316,648,306,653,295,641,286,621,276,609,269,633,269,647,267,648,262"/>
+    <area shape="poly" class="bottomFigure" data-name="2" coords="901,138,891,139,875,124,872,115,873,104,877,98,892,96,901,98,906,99,899,82,906,69,919,60,941,65,945,74,945,87,945,96,965,85,979,85,988,88,994,101,995,111,991,118,978,127,961,128,972,141,983,152,981,161,975,169,969,178,956,184,942,181,933,166,931,159,924,169,918,179,906,182,894,180,887,170,886,159,886,150,890,142,892,137"/>
+    <area shape="poly" class="bottomFigure" data-name="13" coords="852,188,850,181,846,175,841,166,830,157,824,151,824,142,820,132,815,131,804,126,792,119,789,138,793,152,802,164,805,170,795,172,782,172,769,173,752,168,746,165,757,179,765,181,770,183,757,187,741,187,735,192,739,198,749,201,760,204,745,211,733,218,731,227,733,235,749,238,758,236,766,228,770,224,769,242,766,249,772,251,782,243,796,235,795,229,792,247,797,254,801,263,806,253,811,246,812,238,815,245,816,247,824,245,828,237,836,232,838,224,848,229,852,232,859,225,861,212,852,197,854,192" />
+    <area shape="poly" class="bottomFigure" data-name="12" coords="786,354,779,356,770,359,760,363,756,351,759,340,767,331,772,326,772,323,761,321,752,324,741,325,727,325,732,320,720,320,715,313,721,306,730,303,733,303,721,299,718,290,717,285,717,278,731,278,742,281,743,270,745,265,755,254,765,257,768,258,777,273,784,280,789,288,789,277,791,262,793,259,799,264,805,266,806,277,806,287,804,290,803,301,795,302,786,308,784,316,779,327,778,338,785,347,786,351,786,354"  />
+    <area shape="poly" class="bottomFigure" data-name="3" coords="830,348,827,353,819,364,814,368,802,368,795,367,792,359,786,357,786,350,782,339,785,332,785,326,787,316,792,310,796,306,801,302,810,297,816,296,826,301,832,306,840,308,850,312,854,319,856,326,854,332,844,338,833,349,822,357" />
+    <area shape="poly" class="bottomFigure" data-name="9" coords="962,357,968,369,971,376,975,386,972,397,961,404,949,405,939,401,932,392,931,380,928,386,915,395,907,395,894,390,889,375,895,367,905,360,907,357,892,357,882,356,875,348,873,341,873,331,879,324,887,318,902,319,904,320,902,304,909,290,927,286,932,287,938,298,939,308,949,293,957,287,968,287,974,287,982,292,984,299,982,308,973,316,967,322,972,323,979,323,989,326,993,330,996,338,995,351,987,361,976,361,966,362,960,357" />
+    <area shape="poly" class="bottomFigure" data-name="8" coords="357,364,366,364,371,362,380,355,386,351,385,344,392,339,392,331,388,323,388,315,379,306,379,296,367,293,354,288,342,297,337,300,331,298,320,311,314,319,314,327" />
+    <area shape="poly" class="bottomFigure" data-name="7" coords="1009,151,1011,164,1008,183,1001,202,1024,193,1035,191,1050,194,1071,194,1071,199,1063,210,1054,220,1043,227,1031,230,1014,232,1013,235,1028,244,1033,252,1042,269,1043,277,1044,289,1044,296,1028,286,1013,277,1001,267,995,254,999,270,993,283,993,291,988,293,978,290,969,284,960,283,957,276,963,260,970,246,963,251,944,259,935,259,927,258,915,253,911,248,910,238,916,233,931,231,952,231,962,229,955,225,933,220,921,209,916,199,912,187,912,184,917,178,923,177,940,189,952,193,954,188,967,196,973,202,976,206,973,188,975,176,984,164,992,151,1002,145,1010,141,1011,148,1010,150" />
+</map>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://ozon.ru/graphics/action/150619-baby/TweenMax.min.js"></script>
+</head>
+<body>
+<style>
+    #train {
+        overflow: hidden;
+        width: auto;
+    }
+    #train .trainMain {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/backTrain.png);
+        width: 529px;
+        height: 177px;
+        position: relative;
+        left: -600px;
+    }
+
+    #train .trainMain__rabbitGlass {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background-color: #85c140;
+        display: none;
+    }
+    #train .trainMain__rabbitGlass--1 {
+        top: 94px;
+        right: 102px
+    }
+    #train .trainMain__rabbitGlass--2 {
+        top: 92px;
+        right: 83px
+    }
+    #train .trainMain__animals--pig {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/pig.png);
+        width: 42px;
+        height: 39px;
+        position: absolute;
+        top: 81px;
+        left: 119px;
+    }
+    #train .trainMain__animals--monkey {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/monkey.png);
+        width: 65px;
+        height: 45px;
+        position: absolute;
+        top: 72px;
+        left: 203px;
+    }
+    #train .trainMain__animals--bear {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/bear.png);
+        width: 45px;
+        height: 41px;
+        position: absolute;
+        top: 72px;
+        left: 305px;
+    }
+    #train .trainMain__animals--bubbles {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/bubbles-1.png);
+        background-size: contain;
+        width: 83px;
+        height: 115px;
+        position: absolute;
+        top: 4px;
+        left: 67px;
+    }
+    #train .trainMain__wheels {
+        position: absolute;
+        background-repeat: no-repeat;
+        width: 21px;
+        height: 20px;
+        bottom: 1px;
+    }
+    #train .trainMain__wheels--1 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/wheel-1.png);
+        left: 29px;
+    }
+    #train .trainMain__wheels--2 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/wheel-2.png);
+        left: 80px;
+    }
+    #train .trainMain__wheels--3 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/wheel-1.png);
+        left: 130px;
+    }
+    #train .trainMain__wheels--4 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/wheel-2.png);
+        left: 168px;
+    }
+    #train .trainMain__wheels--5 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/wheel-1.png);
+        left: 221px;
+    }
+    #train .trainMain__wheels--6 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/wheel-2.png);
+        left: 263px;
+    }
+    #train .trainMain__wheels--7 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/wheel-1.png);
+        left: 315px;
+    }
+    #train .trainMain__wheels--8 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/wheel-2.png);
+        left: 355px;
+    }
+    #train .trainMain__wheels--9 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/wheel-1.png);
+        left: 470px;
+    }
+    #train .trainMain__wheels--10 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/wheel-2.png);
+        left: 493px;
+    }
+    #train .trainMain__wheels--big {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/wheel-big.png);
+        width: 30px;
+        height: 31px;
+        top: 147px;
+        left: 411px;
+        position: absolute;
+    }
+</style>
+<script>
+    function Animation(speedRotation, time){
+        var eyes = document.getElementsByClassName('trainMain__rabbitGlass');
+        var wheels = document.getElementsByClassName('trainMain__wheels');
+        var bigWheels = document.getElementsByClassName('trainMain__wheels--big');
+        var animals = document.getElementsByClassName('trainMain__animals');
+        var bubbles= document.getElementsByClassName('trainMain__animals--bubbles');
+
+        var tweensRabbit = new TimelineMax({paused: true, delay:0.5, repeat:-1, repeatDelay:3});
+        tweensRabbit.to(eyes, 0, {'display': 'block'});
+        tweensRabbit.to(eyes, 0, {'display': 'none'}, '+=0.2');
+        tweensRabbit.to(eyes, 0, {'display': 'block'}, 0.5);
+        tweensRabbit.to(eyes, 0, {'display': 'none'}, '+=0.15');
+
+        var tweenRotate = new TimelineMax({paused: true});
+        var tweenBigRotate = new TimelineMax({paused: true});
+        var tweenAnimals = new TimelineMax({paused: true, repeat: -1});
+        var tweenBubble = new TimelineMax({paused: true, repeat: -1});
+
+        tweenRotate.staggerTo(wheels, speedRotation, {rotation: '360deg', ease: Power0.easeNone, repeat: -1}, 0.05);
+        tweenBigRotate.staggerTo(bigWheels, 1.3*speedRotation, {rotation: '360deg', ease: Power0.easeNone, repeat: -1}, 0.2);
+
+        tweenAnimals.to(animals, 1, {rotation: '-15deg', transformOrigin: 'center bottom', ease: Power1.easeOut });
+        tweenAnimals.to(animals, 2, {rotation: '20deg', transformOrigin: 'center bottom', ease: Power1.easeOut });
+        tweenAnimals.to(animals, 0.5, {rotation: '0', transformOrigin: 'center bottom', ease: Power0.easeNone});
+
+        TweenMax.to(bubbles, 0, {rotation: '-15deg', transformOrigin: 'center bottom', ease: Power1.easeOut });
+        tweenBubble.to(bubbles, 1.0, {rotation: '-20deg', transformOrigin: 'center bottom', ease: Power0.easeNone});
+        tweenBubble.to(bubbles, 1.5, {rotation: '-10deg', transformOrigin: 'center bottom', ease: Power0.easeNone});
+        tweenBubble.to(bubbles, 0.8, {rotation: '-15deg', transformOrigin: 'center bottom', ease: Power0.easeNone});
+
+        tweensRabbit.play();
+        tweenRotate.play();
+        tweenBigRotate.play();
+        tweenAnimals.play();
+        tweenBubble.play();
+        var left = window.innerWidth + 600;
+        TweenMax.to(document.getElementsByClassName('trainMain'), time, {left: left, repeat: -1, repeatDelay: 5});
+
+    }
+
+
+
+
+
+    window.addEventListener('load', function(){
+        Animation(1.3, 40)
+
+    })
+</script>
+<div id="train">
+    <div class="trainMain">
+        <div class="trainMain__animals trainMain__animals--monkey"></div>
+        <div class="trainMain__animals trainMain__animals--bear"></div>
+        <div class="trainMain__animals trainMain__animals--pig"></div>
+        <div class="trainMain__animals--bubbles"></div>
+        <div class="trainMain__animalstrainMain__bubbles"></div>
+        <div class="trainMain__wheels trainMain__wheels--1"></div>
+        <div class="trainMain__wheels trainMain__wheels--2"></div>
+        <div class="trainMain__wheels trainMain__wheels--3"></div>
+        <div class="trainMain__wheels trainMain__wheels--4"></div>
+        <div class="trainMain__wheels trainMain__wheels--5"></div>
+        <div class="trainMain__wheels trainMain__wheels--6"></div>
+        <div class="trainMain__wheels trainMain__wheels--7"></div>
+        <div class="trainMain__wheels trainMain__wheels--8"></div>
+        <div class="trainMain__wheels trainMain__wheels--9"></div>
+        <div class="trainMain__wheels trainMain__wheels--10"></div>
+        <div class="trainMain__wheels--big"></div>
+        <div class="trainMain__rabbitGlass trainMain__rabbitGlass--1"></div>
+        <div class="trainMain__rabbitGlass trainMain__rabbitGlass--2"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script src="http://ozon.ru/graphics/action/150619-baby/TweenMax.min.js"></script>
+</head>
+<body>
+<style>
+    .pageCenterNoLeft {
+        padding: 0;
+
+    }
+    .pageContent .PageModule {
+        margin: 0;
+    }
+    #PageContent {
+        padding: 0;
+    }
+    .pageCenterNoLeft div.pageContent .PageModule {
+        margin: 0;
+    }
+    #eski-root .wrap {
+        padding: 0;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    #eksmoBook * {
+        padding: 0;
+        margin: 0;
+    }
+    #eksmoBook {
+        font-family: Arial, sans-serif;
+    }
+    #eksmoBook .eksmoTop {
+        background-image: url(http://www.ozon.ru/graphics/action/150820-eksmoBooks/back-1.jpg);
+        background-position: center;
+        background-repeat: repeat-x;
+    }
+    #eksmoBook .eksmoTopInner {
+        height: 220px;
+        width: 960px;
+        margin: 0 auto;
+        position: relative;
+    }
+    #eksmoBook .eksmoName {
+        position: absolute;
+        width: 789px;
+        height: 103px;
+        background-image: url(http://www.ozon.ru/graphics/action/150820-eksmoBooks/text.png);
+        background-repeat: no-repeat;
+        top: 51px;
+        left: 82px;
+    }
+    #eksmoBook .eksmoLogo {
+        position: absolute;
+        width: 91px;
+        height: 47px;
+        background-image: url(http://www.ozon.ru/graphics/action/150820-eksmoBooks/logo.png);
+        background-repeat: no-repeat;
+        top: 16px;
+        left: 18px;
+    }
+    #eksmoBook .eksmoMiddle {
+        background-color: white;
+        padding-top: 40px;
+    }
+    #eksmoBook .eksmoMiddleInner {
+        width: 960px;
+        margin: 0 auto;
+    }
+    #eksmoBook .eksmoListBooks {
+        list-style-type: none;
+    }
+    #eksmoBook .eksmoListBooks:after {
+        content: ' ';
+        width: 0;
+        height:0;
+        clear: both;
+        display: block;
+    }
+    #eksmoBook .eksmoListBooks__items {
+        float: left;
+        margin-bottom: 40px;
+    }
+    #eksmoBook .eksmoBook {
+        width: 310px;
+        height: 210px;
+        background-repeat: no-repeat;
+        white-space: nowrap;
+        position: relative;
+        z-index: 4;
+    }
+    #eksmoBook .eksmoBook:after {
+        content: ' ';
+        display: inline-block;
+        width: 0;
+        height: 100%;
+        vertical-align: middle;
+    }
+    #eksmoBook .eksmoBook--middle {
+        margin: 0 15px;
+    }
+    #eksmoBook .eksmoBook--1 {
+        background-image: url(http://www.ozon.ru/graphics/action/150820-eksmoBooks/item1.jpg)
+    }
+    #eksmoBook .eksmoBook--2 {
+        background-image: url(http://www.ozon.ru/graphics/action/150820-eksmoBooks/item2.jpg)
+    }
+    #eksmoBook .eksmoBook--3 {
+        background-image: url(http://www.ozon.ru/graphics/action/150820-eksmoBooks/item3.jpg)
+    }
+    #eksmoBook .eksmoBook--4 {
+        background-image: url(http://www.ozon.ru/graphics/action/150820-eksmoBooks/item4.jpg)
+    }
+    #eksmoBook .eksmoBook--5 {
+        background-image: url(http://www.ozon.ru/graphics/action/150820-eksmoBooks/item5.jpg)
+    }
+    #eksmoBook .eksmoBook--6 {
+       z-index: 2;
+       text-align: center;
+    }
+
+/*------------button  -------------------------*/
+    #eksmoBook  .heroesProduct__link {
+        width: 208px;
+        height: 47px;
+        box-sizing: border-box;
+        display: inline-block;
+        font-size: 24px;
+        color: white;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        background-color: #00b9f2;
+        text-decoration: none;
+        margin: 12px 12px;
+        position: relative;
+        z-index: 3;
+    }
+    #eksmoBook .heroesProduct__link:hover {
+        background-color: #0083ca;
+    }
+    #eksmoBook .heroesProduct__link:before {
+        vertical-align: middle;
+        width: 0;
+        content: ' ';
+        color: white;
+        display: inline-block;
+        height: 100%;
+    }
+    #eksmoBook .heroesProduct__link:after {
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+        content: ' ';
+        border: 7px solid transparent;
+        border-left: 7px solid #ffffff;
+        display: inline-block;
+    }
+/*----------------------------------------------*/
+    #eksmoBook .eksmoTown {
+        background-image: url(http://www.ozon.ru/graphics/action/150820-eksmoBooks/town.jpg);
+        width: 588px;
+        height: 175px;
+        bottom: -40px;
+        position: absolute;
+        left: -171px;
+    }
+    #eksmoBook .eksmoBook__name {
+        height: 70px;
+        display: inline-block;
+        width: 100%;
+        vertical-align: middle;
+        text-align: center;
+        font-size:  24px;
+        color: #ffffff;
+        box-sizing: border-box;
+        white-space: normal;
+    }
+    #eksmoBook .eksmoBook__name:after {
+        content: ' ';
+        display: inline-block;
+        width: 0;
+        height: 100%;
+        vertical-align: middle;
+    }
+    #eksmoBook .eksmoBookText {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 20px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    #eksmoBook .eksmoBook__name--1 {
+        background-color: rgba(170, 77, 157, 0.7);
+    }
+    #eksmoBook .eksmoBook__name--2 {
+        background-color: rgba(109, 51, 8, 0.7);
+    }
+    #eksmoBook .eksmoBook__name--3 {
+        background-color: rgba(4, 121, 117, 0.7);
+    }
+    #eksmoBook .eksmoBook__name--4 {
+        background-color: rgba(64, 72, 132, 0.7);
+    }
+    #eksmoBook .eksmoBook__name--5 {
+        background-color: rgba(193, 29, 19, 0.7);
+    }
+
+    #eksmoBook .eksmoBottom {
+        background-image: url(http://www.ozon.ru/graphics/action/150820-eksmoBooks/back-2.jpg);
+        background-position: center;
+        background-repeat: repeat-x;
+    }
+    #eksmoBook .eksmoBottomInner {
+        width: 960px;
+        margin: 0 auto;
+        height: 220px;
+        overflow: hidden;
+    }
+    #eksmoBook .eksmoBottomBookDetail {
+        width: 50%;
+        float: left;
+        height: 220px;
+        position: relative;
+    }
+    #eksmoBook .eksmoBottomBookDetail__image {
+        position: absolute;
+        top: 55px;
+        left: 0;
+        display: block;
+    }
+    #eksmoBook .eksmoBottomBookDetail__image--1 {
+        background-image: url(http://www.ozon.ru/graphics/action/150820-eksmoBooks/book-11.png);
+        width: 169px;
+        height: 185px;
+    }
+    #eksmoBook .eksmoBottomBookDetail__image--2 {
+        background-image: url(http://www.ozon.ru/graphics/action/150820-eksmoBooks/book-2.png);
+        width: 171px;
+        height: 185px;
+    }
+
+    #eksmoBook .eksmoBottomBookDetail__name {
+        font-size: 18px;
+        color: #ffffff;
+        width: 223px;
+        position: absolute;
+        left: 184px;
+        top: 55px;
+    }
+
+    #eksmoBook .eksmoTextBig {
+        display: block;
+        padding-bottom: 8px;
+        font-size: 24px;
+    }
+
+    #eksmoBook .eksmoBottomBookDetail__button {
+        position: absolute;
+        text-align: center;
+        left: 179px;
+        top: 155px;
+        width:115px;
+        height: 40px;
+        text-align: center;
+    }
+    #eksmoBook .eksmoBottomBookDetail__button:after {
+        vertical-align: middle;
+        width: 0;
+        content: ' ';
+        color: white;
+        display: inline-block;
+        height: 100%;
+    }
+
+    /*------------- button buy -------------------*/
+    #eksmoBook .eksmoButton {
+        display: inline-block;
+        text-decoration: none;
+        width: 105px;
+        height: 35px;
+        box-sizing: border-box;
+        border: 2px solid #ffffff;
+        font-size: 18px;
+        color: white;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        vertical-align: middle;
+
+    }
+    #eksmoBook .eksmoButton:before {
+        vertical-align: middle;
+        width: 0;
+        content: ' ';
+        color: white;
+        display: inline-block;
+        height: 100%;
+    }
+    #eksmoBook .eksmoButton:after {
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+        content: ' ';
+        border: 5px solid transparent;
+        border-left: 5px solid #ffffff;
+        display: inline-block;
+    }
+    /*--------------------------------------- */
+/* animation class */
+    #eksmoBook .eksmoBottomBookDetail__image-active {
+        top: 35px;
+    }
+    #eksmoBook .eksmoButton-active {
+        width: 115px;
+        height: 40px;
+    }
+    #eksmoBook .eksmoBook__name-active {
+        height: 100%;
+    }
+</style>
+<script>
+    function addListener(object, event, functionListener) {
+        for (var i = 0; i < object.length; i++){
+            object[i].addEventListener(event, functionListener);
+        }
+    }
+    function BooksMoveIn(){
+        TweenMax.to(this, 0.3, {className: '+=eksmoBottomBookDetail__image-active',
+                                ease: Back.easeOut.config(2.5), y: 0}) ;
+    }
+    function BooksMoveOut(){
+        TweenMax.to(this, 0.3, {className: '-=eksmoBottomBookDetail__image-active'}) ;
+    }
+    function ButtonIn() {
+        TweenMax.to(this, 0.25, {className: '+=eksmoButton-active',
+                                ease: Power3.easeIn});
+    }
+    function ButtonOut() {
+        TweenMax.to(this, 0.25, {className: '-=eksmoButton-active',
+                                ease: Power3.easeIn});
+    }
+    function itemIn() {
+
+                 TweenMax.to(this.parentElement, 0.3, {className: '+=eksmoBook__name-active'})
+    }
+    function itemOut() {
+
+            TweenMax.to(this.parentElement, 0.3, {className: '-=eksmoBook__name-active'});
+    }
+    window.addEventListener('DOMContentLoaded', function(){
+        addListener(document.getElementsByClassName('eksmoBottomBookDetail__image'), 'mouseover', BooksMoveIn);
+        addListener(document.getElementsByClassName('eksmoBottomBookDetail__image'), 'mouseout', BooksMoveOut);
+
+        addListener(document.getElementsByClassName('eksmoButton'), 'mouseover', ButtonIn);
+        addListener(document.getElementsByClassName('eksmoButton'), 'mouseout', ButtonOut);
+
+        addListener(document.getElementsByClassName('eksmoBookText'), 'mouseover', itemIn);
+        addListener(document.getElementsByClassName('eksmoBookText'), 'mouseout', itemOut);
+
+    })
+</script>
+<div id="eksmoBook">
+    <div class="eksmoTop">
+        <div class="eksmoTopInner">
+            <div class="eksmoName"></div>
+            <div class="eksmoLogo"></div>
+        </div>
+    </div>
+    <div class="eksmoMiddle">
+        <div class="eksmoMiddleInner">
+            <ul class="eksmoListBooks">
+                <li class="eksmoListBooks__items eksmoBook eksmoBook--1">
+                    <a href="/context/catalog/id/1179169/?sort=bests" class="eksmoBook__name eksmoBook__name--1"><span class="eksmoBookText">Для творческой личности</span></a>
+                </li>
+                <li class="eksmoListBooks__items eksmoBook eksmoBook--2 eksmoBook--middle">
+                    <a href="/context/catalog/id/1179170/?sort=bests" class="eksmoBook__name eksmoBook__name--2"><span class="eksmoBookText">Для деловых людей</span></a>
+                </li>
+                <li class="eksmoListBooks__items eksmoBook eksmoBook--3">
+                    <a href="/context/catalog/id/1179171/?sort=bests" class="eksmoBook__name eksmoBook__name--3"><span class="eksmoBookText">Для путешествий</span></a>
+                </li>
+                <li class="eksmoListBooks__items eksmoBook eksmoBook--4">
+                    <a href="/context/catalog/id/1179172/?sort=bests" class="eksmoBook__name eksmoBook__name--4"><span class="eksmoBookText">В оригинальном оформлении</span></a>
+                </li>
+                <li class="eksmoListBooks__items eksmoBook eksmoBook--5 eksmoBook--middle">
+                    <a href="/context/catalog/id/1179173/?sort=bests" class="eksmoBook__name eksmoBook__name--5"><span class="eksmoBookText">Полезные блокноты</span></a>
+                </li>
+                <li class="eksmoListBooks__items eksmoBook eksmoBook--6">
+                    <a href="#" class="heroesProduct__link">
+                        Все блокноты
+                    </a>
+                    <div class="eksmoTown"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="eksmoBottom">
+        <div class="eksmoBottomInner">
+            <div class="eksmoBottomBookDetail">
+                <a href="/context/detail/id/26995782/" class="eksmoBottomBookDetail__image eksmoBottomBookDetail__image--1"></a>
+                <div class="eksmoBottomBookDetail__name"><span class="eksmoTextBig">Люби!</span>
+                    Блокнот для творческого человека</div>
+                <div class="eksmoBottomBookDetail__button">
+                    <a class="eksmoButton" href="/context/detail/id/26995782/">
+                        Купить
+                    </a>
+                </div>
+            </div>
+            <div class="eksmoBottomBookDetail">
+                <a href="/context/detail/id/33211682/" class="eksmoBottomBookDetail__image eksmoBottomBookDetail__image--2"></a>
+                <div class="eksmoBottomBookDetail__name"><span class="eksmoTextBig">Уничтожь меня!</span>
+                    Уникальный блокнот для творческих людей</div>
+                <div class="eksmoBottomBookDetail__button">
+                    <a class="eksmoButton" href="/context/detail/id/33211682/">
+                        Купить
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

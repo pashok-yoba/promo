@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://ozon.ru/graphics/action/150619-baby/TweenMax.min.js"></script>
+</head>
+<body>
+<style>
+    #juice {
+        margin-top: -20px;
+    }
+    #juice * {
+        padding: 0;
+        margin: 0;
+    }
+    #juice .juiceHeader {
+        height: 441px;
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/background.jpg);
+        width: 960px;
+        margin: 0 auto;
+    }
+    #juice .juiceDetail {
+        width: 960px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 15px 15px 35px 15px;
+        position: relative;
+    }
+    #juice .juiceDetail__name {
+        width: 267px;
+        height: 27px;
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/name.jpg);
+    }
+    #juice .juiceDetail__text {
+        width: 675px;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.3em;
+    }
+    #juice .juiceButton {
+        width: 211px;
+        height: 37px;
+        line-height: 37px;
+        color: #ffffff;
+        background-color: #0083ca;
+        display: block;
+        position: absolute;
+        right: 15px;
+        top: 52px;
+        text-decoration: none;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+    }
+    #juice .juiceButton:hover {
+        background-color: #008fdd;
+    }
+    #juice .juiceVideo {
+        width: 960px;
+        margin: 0 auto;
+    }
+    #juice .juiceList {
+        list-style-type: none;
+        overflow: hidden;
+        width: 960px;
+        margin: 0 auto;
+        padding-top: 40px;
+    }
+    #juice .juiceList__item {
+        float: left;
+    }
+    #juice .juiceItem {
+        width: 50%;
+        padding-bottom: 30px;
+    }
+    #juice .juiceItem__img {
+        width: 96px;
+        float: left;
+        background-repeat: no-repeat;
+        height: 100px;
+    }
+    #juice .juiceItem__img--1 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-1.jpg);
+    }
+    #juice .juiceItem__img--2 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-2.jpg);
+    }
+    #juice .juiceItem__img--3 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-3.jpg);
+    }
+    #juice .juiceItem__img--4 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-4.jpg);
+    }
+    #juice .juiceItem__img--5 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-5.jpg);
+    }
+    #juice .juiceItem__img--6 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-6.jpg);
+    }
+    #juice .juiceItem__img--7 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-7.jpg);
+    }
+    #juice .juiceItem__img--8 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-8.jpg);
+    }
+    #juice .juiceItem__img--9 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-9.jpg);
+    }
+    #juice .juiceItem__img--10 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-10.jpg);
+    }
+    #juice .juiceItem__img--11 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-11.jpg);
+    }
+    #juice .juiceItem__img--12 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-12.jpg);
+    }
+    #juice .juiceItem__img--13 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-13.jpg);
+    }
+    #juice .juiceItem__img--14 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/icon-14.jpg);
+    }
+    #juice .juiceItem__name {
+        margin-left: 113px;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+        line-height: 1.3em;
+    }
+    #juice .juiceItem__detail {
+        margin-left: 113px;
+        font-family: Arial, sans-serif;
+        padding-top: 20px;
+        font-size: 13px;
+        line-height: 1.3em;
+    }
+    #juice .juiceTextSmall {
+        font-size: 10px;
+        display: block;
+    }
+    #juice .juiceTableContainer {
+        width: 960px;
+        box-sizing: border-box;
+        border: 1px solid #959595;
+        margin: 0 auto;
+        position: relative;
+        padding-bottom: 97px;
+        overflow: hidden;
+    }
+    #juice .juiceTable__name {
+        width: 252px;
+        height: 34px;
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/juce.jpg);
+        line-height: 34px;
+        color: #ffffff;
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0 auto;
+    }
+    #juice .juiceTable {
+        width: 856px;
+        margin: 0 auto;
+        margin-top: 21px;
+    }
+    #juice .juiceTable__column {
+        box-sizing: border-box;
+        padding-right: 499px;
+        font-family: Arial, sans-serif;
+        font-size: 13px;
+        height: 25px;
+        padding-left: 10px;
+    }
+    #juice .juiceTable__column--name {
+        height: 125px;
+        vertical-align: middle;
+        font-weight: bold;
+    }
+    #juice .juiceTable__row--grey {
+        background-color: #f6f5f3
+    }
+    #juice .juiceTable--items {
+        width: 481px;
+    }
+    #juice .juiceTable--items .juiceTable__column {
+        padding: 0;
+        width: 25%;
+        text-align: center;
+    }
+    #juice .juiceTable--itemsTwo .juiceTable__column {
+        width: 50%;
+    }
+    #juice .juiceTable--itemsThree .juiceTable__column {
+        width: 33.333%;
+    }
+    #juice .juiceTable__items {
+        position: absolute;
+        top: 31px;
+        right: -481px;
+        opacity: 0;
+
+    }
+    #juice .juiceTable__image {
+        display: inline-block;
+        height: 125px;
+    }
+    #juice .juiceTable__image--1 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/product-11.jpg);
+        width: 62px;
+    }
+    #juice .juiceTable__image--2 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/product-12.jpg);
+        width: 93px;
+    }
+    #juice .juiceTable__image--3 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/product-13.jpg);
+        width: 58px;
+    }
+    #juice .juiceTable__image--4 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/product-14.jpg);
+        width: 59px;
+    }
+    #juice .juiceTable__image--5 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/product-21.jpg);
+        width: 87px;
+    }
+    #juice .juiceTable__image--6 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/product-22.jpg);
+        width: 62px;
+    }
+    #juice .juiceTable__image--7 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/product-22.jpg);
+        width: 62px;
+    }
+    #juice .juiceTable__image--8 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/product-32.jpg);
+        width: 76px;
+    }
+    #juice .juiceTable__image--9 {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/product-33.jpg);
+        width: 72px;
+    }
+    #juice .juiceTable__arrow {
+        position: absolute;
+        width: 48px;
+        height: 90px;
+        background-repeat: no-repeat;
+        top: 60px;
+        cursor: pointer;
+    }
+    #juice .juiceTable__arrow--left {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/left.jpg);
+        left: 2px;
+    }
+    #juice .juiceTable__arrow--left:hover {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/left-hover.jpg);
+    }
+    #juice .juiceTable__arrow--right{
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/right.jpg);
+        right: 2px;
+    }
+    #juice .juiceTable__arrow--right:hover {
+        background-image: url(http://www.ozon.ru/graphics/action/150918-juice/right-hover.jpg);
+    }
+    #juice .juiceTable__column--price {
+        height: auto;
+        padding-top: 18px!important;
+    }
+    #juice .juiceTable__price {
+        font-weight: bold;
+        font-size: 16px;
+        color: #ff4338;
+    }
+    #juice .juiceBuy {
+        text-decoration: none;
+        display: inline-block;
+        width: 96px;
+        height: 28px;
+        background-color: #0083ca;
+        line-height: 28px;
+        color: #ffffff;
+        font-family: Arial, sans-serif;
+        font-size: 16px;
+    }
+    #juice .juiceBuy:hover {
+        background-color: #0e9dea;
+    }
+    #juice .juiceTable__items--active {
+        opacity: 1;
+        right: 52px;
+
+    }
+    .juiceLoader {
+        visibility: hidden;
+        background: url(http://www.ozon.ru/graphics/action/150918-juice/left-hover.jpg), url(http://www.ozon.ru/graphics/action/150918-juice/right-hover.jpg);
+    }
+    .bRub {
+        color: #ff4338;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    .detail_leftcell {
+        width:auto!important
+    }
+</style>
+<div id="juice">
+    <div class="juiceHeader"></div>
+    <div class="juiceDetail">
+        <div class="juiceDetail__name"></div>
+        <p class="juiceDetail__text">Готовить полезный и вкусный свежевыжатый сок дома легко! Благодаря инновационной системе очистки QuickClean можно получить максимум
+            сока и очистить соковыжималку всего за 1 минуту! Компактный размер позволяет разместить такую соковыжималку даже на небольшой кухне, а широкий ассортимент — выбрать модель на любой вкус.
+        </p>
+        <a class="juiceButton" href="">Выбрать соковыжималку</a>
+    </div>
+    <div class="juiceVideo">
+        <iframe width="960" height="540" src="https://www.youtube.com/embed/ES1ZRl7XabY" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <ul class="juiceList">
+        <li class="juiceList__item juiceItem">
+            <div class="juiceItem__img juiceItem__img--1"></div>
+            <p class="juiceItem__name">Система QuickClean: очистка соковыжималки всего за 1 минуту!</p>
+            <p class="juiceItem__detail">Уникальное преимущество всех соковыжималок Philips - инновационная система быстрой очистки QuickClean. Она включает в себя перевернутую сетку и встроенный контейнер для жмыха, позволяющие мыть соковыжималку всего за 1 минуту!
+                Благодаря микрополировке, уникальная перевернутая сетка имеет гладкую поверхность. За счет этого волокна овощей и фруктов не застревают в сетке, и ее можно
+                легко и быстро очистить мягкой губкой даже под холодной водой.При приготовлении сока весь жмых собирается в одном месте
+                - специальном встроенном контейнере. Благодаря круглой форме и гладкой поверхности  без углов и щелей удалять жмых и мыть контейнер стало гораздо проще!
+            </p>
+        </li>
+        <li class="juiceList__item juiceItem">
+            <div class="juiceItem__img juiceItem__img--2"></div>
+            <p class="juiceItem__name">Уникальная система предварительной очистки PreClean: выжимайте яблочный сок сразу после свекольного!</p>
+            <p class="juiceItem__detail">Обновленные соковыжималки Philips серии Avance* отличаются уникальной функцией предварительной очистки PreClean. Новая конструкция толкателя позволяет предварительно очистить прибор, просто залив туда воду и включив 2 скорость соковыжималки. Благодаря небольшим отверстиям в дне толкателя, вода постепенно попадает на сетку и крышку соковыжималки, тем самым очищая их от волокон фруктов, ягод и овощей. Теперь сок из различных плодов не будет смешиваться, если вы этого не захотите! Выжимайте яблочный сок сразу после свекольного, ананасовый - после морковного - дайте волю фантазии и наслаждайтесь разнообразными свежевыжатыми соками каждый день!
+                <span class="juiceTextSmall">*модели HR1871/70, HR1870/70, HR1869/70 и HR1869/80.!</span>
+            </p>
+        </li>
+        <li class="juiceList__item juiceItem">
+            <div class="juiceItem__img juiceItem__img--3"></div>
+            <p class="juiceItem__name">Надежный мощный мотор для мягких и твердых фруктов, овощей и ягод</p>
+            <p class="juiceItem__detail">Мощный мотор 1000 Вт* позволяет легко и быстро выжимать сок даже из самых твердых овощей и фруктов. А также перерабатывать большое количество плодов за один прием.
+                А благодаря специальным присоскам на дне, соковыжималка очень устойчива даже при высокой мощности и обработке твердых фруктов и овощей.
+                * мощность самой технологичной соковыжималки Philips HR1871. Мощность остальных моделей варьируется от 500 Вт до 900 Вт в зависимости от размера приборов и серии.
+            </p>
+        </li>
+        <li class="juiceList__item juiceItem" style="margin-bottom:40px">
+            <div class="juiceItem__img juiceItem__img--4"></div>
+            <p class="juiceItem__name">До 2,5 л сока за один прием!</p>
+            <p class="juiceItem__detail">Благодаря инновационной системе приготовления сока с технологией QuickClean соковыжималки Philips позволяют получить до 2,5 л сока за один прием без необходимости очищать контейнер для жмыха. Объем получения сока зависит от размера соковыжималки. Например, с помощью моделей Philips HR1871, HR1870, HR1869 можно приготовить до 2,5 л сока, с помощью моделей HR1864 и HR1863  - до 2 л сока, моделей HR1837, HR1836, HR1832 - до 1,5 л сока за один прием.
+            </p>
+        </li>
+        <li class="juiceList__item juiceItem">
+            <div class="juiceItem__img juiceItem__img--5"></div>
+            <p class="juiceItem__name">Не нужно предварительно нарезать фрукты и овощи!</p>
+            <p class="juiceItem__detail">Благодаря широкой (до 80 мм) камере подачи плодов, нет необходимости предварительно нарезать яблоки, свеклу и другие крупные фрукты и овощи. Вы можете также готовить сок из целого пучка сельдеря или нескольких морковок, огурцов и других овощей или фруктов одновременно.
+            </p>
+        </li>
+        <li class="juiceList__item juiceItem">
+            <div class="juiceItem__img juiceItem__img--6"></div>
+            <p class="juiceItem__name">Оптимальная скорость для приготовления свежего сока!</p>
+            <p class="juiceItem__detail">Модели соковыжималок Philips серии Viva* имеют универсальную скорость, подходящую для приготовления сока из любых фруктов, овощей и ягод. Более премиальные модели серии Avance** позволяют подобрать необходимую скорость для мягких и твердых плодов (скорость 1 и 2, соответственно).
+                <span class="juiceTextSmall">* HR1864, HR1863, HR1837, HR1836, HR1832**, HR1871, HR1870, HR1869</span>
+            </p>
+        </li>
+        <li class="juiceList__item juiceItem">
+            <div class="juiceItem__img juiceItem__img--7"></div>
+            <p class="juiceItem__name">Приготовление сока из цитрусовых</p>
+            <p class="juiceItem__detail">В комплект соковыжималок HR1870 и HR1874 входит специальная насадка для приготовления сока из апельсинов, грейпфрутов и других цитрусовых. Выжимайте до 2 л цитрусового сока за один прием!
+            </p>
+        </li>
+        <li class="juiceList__item juiceItem">
+            <div class="juiceItem__img juiceItem__img--8"></div>
+            <p class="juiceItem__name">Приготовление сока из ягод</p>
+            <p class="juiceItem__detail">В комплект соковыжималок HR1864 и HR1837 входит специальная насадка-поддон для удобного приготовления сока из ягод. Теперь ягоды не будут просыпаться мимо: благодаря поддону, они попадают непосредственно в камеру подачи.
+            </p>
+        </li>
+        <li class="juiceList__item juiceItem">
+            <div class="juiceItem__img juiceItem__img--9"></div>
+            <p class="juiceItem__name">Приготовление сока прямо в стакан!</p>
+            <p class="juiceItem__detail">В комплект соковыжималок Philips* входит специальный дополнительный носик, который позволяет выжимать сок непосредственно в стакан без разбрызгивания.
+                <span class="juiceTextSmall">*модели HR187X, HR1869, HR183X</span>
+            </p>
+        </li>
+        <li class="juiceList__item juiceItem">
+            <div class="juiceItem__img juiceItem__img--10"></div>
+            <p class="juiceItem__name">Функция "капля-стоп"</p>
+            <p class="juiceItem__detail">Соковыжималки Philips* оснащены специальной функцией "Капля-стоп". Приготовив сок, просто установите носик соковыжималки в определенную позицию, предотвращая попадание капель сока на стол.
+            </p>
+        </li>
+        <li class="juiceList__item juiceItem">
+            <div class="juiceItem__img juiceItem__img--11"></div>
+            <p class="juiceItem__name">Удобный стакан для приготовления сока</p>
+            <p class="juiceItem__detail">В комплект соковыжималок Philips входит удобный мерный стакан для приготовления сока. Размер и емкость стакана зависит от размера соковыжималок.
+            </p>
+        </li>
+        <li class="juiceList__item juiceItem">
+            <div class="juiceItem__img juiceItem__img--12"></div>
+            <p class="juiceItem__name">Легкая сборка и компактный размер</p>
+            <p class="juiceItem__detail">Cоковыжималки Philps отличаются продуманным дизайном. Благодаря встроенному контейнеру для жмыха и перевернутой сетке, их очень легко собирать и разбирать для очистки, а также они очень компактны, что позволяет разместить их даже на небольшой кухне.
+            </p>
+        </li>
+        <li class="juiceList__item juiceItem">
+            <div class="juiceItem__img juiceItem__img--13"></div>
+            <p class="juiceItem__name">Соковыжималки на любой вкус и объем</p>
+            <p class="juiceItem__detail">В ассортименте соковыжималок Philips представлены модели разного объема - в зависимости от размера вашей семьи, количества обрабатываемых плодов, частоты использования вы можете подобрать ту, которая подойдет именно вам. При этом все соковыжималки готовят сок быстро и моются всего за 1 минуту!
+            </p>
+        </li>
+        <li class="juiceList__item juiceItem">
+            <div class="juiceItem__img juiceItem__img--14"></div>
+            <p class="juiceItem__name">Можно мыть в посудомоечной машине</p>
+            <p class="juiceItem__detail">Все съемные части соковыжималок Philips можно мыть в посудомоечной машине.
+            </p>
+        </li>
+    </ul>
+    <div class="juiceTableContainer">
+        <p class="juiceTable__name">Сравнить соковыжималки</p>
+        <div class="juiceTable__arrow juiceTable__arrow--left"></div>
+        <div class="juiceTable__arrow juiceTable__arrow--right"></div>
+        <table  border="0" cellpadding="0" cellspacing="0" class="juiceTable">
+            <tr class="juiceTable__row juiceTable__row--name">
+                <td class="juiceTable__column juiceTable__column--name">
+                    Компактные соковыжималки, идеальные для приготовления небольших порций свежевыжатого сока каждый день
+                </td>
+            </tr>
+            <tr class="juiceTable__row">
+                <td class="juiceTable__column">
+                    Номер модели
+                </td>
+            </tr>
+            <tr class="juiceTable__row juiceTable__row--grey">
+                <td class="juiceTable__column">
+                    Технология очистки за 1 минуту QuickClean
+                </td>
+            </tr>
+            <tr class="juiceTable__row">
+                <td class="juiceTable__column">
+                    Технология предварительной очистки PreClean
+                </td>
+            </tr>
+            <tr class="juiceTable__row juiceTable__row--grey">
+                <td class="juiceTable__column">
+                    Мощность
+                </td>
+            </tr>
+            <tr class="juiceTable__row">
+                <td class="juiceTable__column">
+                    Производительность за один прием
+                </td>
+            </tr>
+            <tr class="juiceTable__row juiceTable__row--grey">
+                <td class="juiceTable__column">
+                    Количество скоростей
+                </td>
+            </tr>
+            <tr class="juiceTable__row">
+                <td class="juiceTable__column">
+                    Круглая камера подачи плодов
+                </td>
+            </tr>
+            <tr class="juiceTable__row juiceTable__row--grey">
+                <td class="juiceTable__column">
+                    Встроенный контейнер для жмыха
+                </td>
+            </tr>
+            <tr class="juiceTable__row">
+                <td class="juiceTable__column">
+                    Емкость контейнера для жмыха, л
+                </td>
+            </tr>
+            <tr class="juiceTable__row juiceTable__row--grey">
+                <td class="juiceTable__column">
+                    Емкость кувшина для сока, л
+                </td>
+            </tr>
+            <tr class="juiceTable__row">
+                <td class="juiceTable__column">
+                    Насадка-пресс для цитрусовых
+                </td>
+            </tr>
+            <tr class="juiceTable__row juiceTable__row--grey">
+                <td class="juiceTable__column">
+                    Насадка для приготовления сока из ягод
+                </td>
+            </tr>
+            <tr class="juiceTable__row">
+                <td class="juiceTable__column">
+                    Дополнительный носик для подачи сока прямо в стакан
+                </td>
+            </tr>
+            <tr class="juiceTable__row juiceTable__row--grey">
+                <td class="juiceTable__column">
+                    Система "капля-стоп"
+                </td>
+            </tr>
+            <tr class="juiceTable__row">
+                <td class="juiceTable__column">
+                    Легкая сборка прибора
+                </td>
+            </tr>
+            <tr class="juiceTable__row juiceTable__row--grey">
+                <td class="juiceTable__column">
+                    Ножки на присосках
+                </td>
+            </tr>
+            <tr class="juiceTable__row">
+                <td class="juiceTable__column">
+                    Материал корпуса
+                </td>
+            </tr>
+            <tr class="juiceTable__row juiceTable__row--grey">
+                <td class="juiceTable__column">
+                    Съемные части можно мыть в посудомоечной машине
+                </td>
+            </tr>
+        </table>
+        <!--<div class="juiceTable__items">
+            <table  border="0" cellpadding="0" cellspacing="0" class="juiceTable juiceTable--items juiceTable--itemsTwo">
+                <tr class="juiceTable__row juiceTable__row--name">
+                    <td class="juiceTable__column juiceTable__column--name">
+                        <div class="juiceTable__image juiceTable__image--5"></div>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--name">
+                        <div class="juiceTable__image juiceTable__image--6"></div>
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        HR1864/00
+                    </td>
+                    <td class="juiceTable__column">
+                        HR1863/00
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        700
+                    </td>
+                    <td class="juiceTable__column">
+                        700
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        До 2л
+                    </td>
+                    <td class="juiceTable__column">
+                        До 2л
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Универсальная
+                    </td>
+                    <td class="juiceTable__column">
+                        Универсальная
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да, XL
+                    </td>
+                    <td class="juiceTable__column">
+                        Да, XL
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        1,2л
+                    </td>
+                    <td class="juiceTable__column">
+                        1,2л
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        0,8л
+                    </td>
+                    <td class="juiceTable__column">
+                        0,8л
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                       Да
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                      -
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                    -
+                    </td>
+                    <td class="juiceTable__column">
+               -
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row ">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Металл/пластик
+                    </td>
+                    <td class="juiceTable__column">
+                        Металл/пластик
+                    </td>
+                </tr>
+                <tr class="juiceTable__row ">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <span class="juiceTable__price">24 500</span>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <span class="juiceTable__price">24 500</span>
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <a class="juiceBuy" href="">Подробнее</a>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <a class="juiceBuy" href="">Подробнее</a>
+                    </td>
+                </tr>
+            </table>
+        </div> -->
+
+        <div class="juiceTable__items juiceTable__items--active">
+            <table  border="0" cellpadding="0" cellspacing="0" class="juiceTable juiceTable--items juiceTable--items juiceTable--three">
+                <tr class="juiceTable__row juiceTable__row--name">
+                    <td class="juiceTable__column juiceTable__column--name">
+                        <div class="juiceTable__image juiceTable__image--7"></div>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--name">
+                        <div class="juiceTable__image juiceTable__image--8"></div>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--name">
+                        <div class="juiceTable__image juiceTable__image--9"></div>
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        HR1863/00
+                    </td>
+                    <td class="juiceTable__column">
+                        HR1836/00
+                    </td>
+                    <td class="juiceTable__column">
+                        HR1832/00
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        700
+                    </td>
+                    <td class="juiceTable__column">
+                        500
+                    </td>
+                    <td class="juiceTable__column">
+                        500
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        До 2,0л
+                    </td>
+                    <td class="juiceTable__column">
+                        До 1,5л
+                    </td>
+                    <td class="juiceTable__column">
+                        До 1,5л
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Универальная
+                    </td>
+                    <td class="juiceTable__column">
+                        Универальная
+                    </td>
+                    <td class="juiceTable__column">
+                        Универальная
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        1,2л
+                    </td>
+                    <td class="juiceTable__column">
+                        1л
+                    </td>
+                    <td class="juiceTable__column">
+                        1л
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        0,8л
+                    </td>
+                    <td class="juiceTable__column">
+                        0,5л
+                    </td>
+                    <td class="juiceTable__column">
+                        0,5л
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row ">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Металл/пластик
+                    </td>
+                    <td class="juiceTable__column">
+                        Металл/пластик
+                    </td>
+                    <td class="juiceTable__column">
+                        Пластик
+                    </td>
+                </tr>
+                <tr class="juiceTable__row ">
+                    <td class="juiceTable__column">
+                         Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <span class="juiceTable__price">24 500</span><span class="bRub">руб.</span>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <span class="juiceTable__price">24 500</span><span class="bRub">руб.</span>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <span class="juiceTable__price">24 500</span><span class="bRub">руб.</span>
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <a class="juiceBuy" href="/context/detail/id/21160847/">Подробнее</a>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <a class="juiceBuy" href="/context/detail/id/26326000/">Подробнее</a>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <a class="juiceBuy" href="/context/detail/id/26325988/">Подробнее</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div class="juiceTable__items">
+            <table  border="0" cellpadding="0" cellspacing="0" class="juiceTable juiceTable--items juiceTable--items">
+                <tr class="juiceTable__row juiceTable__row--name">
+                    <td class="juiceTable__column juiceTable__column--name">
+                        <div class="juiceTable__image juiceTable__image--1"></div>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--name">
+                        <div class="juiceTable__image juiceTable__image--2"></div>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--name">
+                        <div class="juiceTable__image juiceTable__image--3"></div>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--name">
+                        <div class="juiceTable__image juiceTable__image--4"></div>
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        HR1871/70
+                    </td>
+                    <td class="juiceTable__column">
+                        HR1870/70
+                    </td>
+                    <td class="juiceTable__column">
+                        HR1869/80
+                    </td>
+                    <td class="juiceTable__column">
+                        HR1869/70
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        1000
+                    </td>
+                    <td class="juiceTable__column">
+                        900
+                    </td>
+                    <td class="juiceTable__column">
+                        900
+                    </td>
+                    <td class="juiceTable__column">
+                        900
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        До 2,5л
+                    </td>
+                    <td class="juiceTable__column">
+                        До 2,5л
+                    </td>
+                    <td class="juiceTable__column">
+                        До 2,5л
+                    </td>
+                    <td class="juiceTable__column">
+                        До 2,5л
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        2
+                    </td>
+                    <td class="juiceTable__column">
+                        2
+                    </td>
+                    <td class="juiceTable__column">
+                        2
+                    </td>
+                    <td class="juiceTable__column">
+                        2
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        1,6л
+                    </td>
+                    <td class="juiceTable__column">
+                        1,6л
+                    </td>
+                    <td class="juiceTable__column">
+                        1,6л
+                    </td>
+                    <td class="juiceTable__column">
+                        1,6л
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        1,5л
+                    </td>
+                    <td class="juiceTable__column">
+                        1,5л
+                    </td>
+                    <td class="juiceTable__column">
+                        1,5л
+                    </td>
+                    <td class="juiceTable__column">
+                        1,5л
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                    <td class="juiceTable__column">
+                        -
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row ">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column">
+                        Металл/пластик
+                    </td>
+                    <td class="juiceTable__column">
+                        Пластик
+                    </td>
+                    <td class="juiceTable__column">
+                        Пластик
+                    </td>
+                    <td class="juiceTable__column">
+                        Пластик
+                    </td>
+                </tr>
+                <tr class="juiceTable__row ">
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                    <td class="juiceTable__column">
+                        Да
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <span class="juiceTable__price">24 500</span><span class="bRub">руб.</span>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <span class="juiceTable__price">24 500</span><span class="bRub">руб.</span>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <span class="juiceTable__price">24 500</span><span class="bRub">руб.</span>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <span class="juiceTable__price">24 500</span><span class="bRub">руб.</span>
+                    </td>
+                </tr>
+                <tr class="juiceTable__row">
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <a class="juiceBuy" href="/context/detail/id/7974666/">Подробнее</a>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <a class="juiceBuy" href="/context/detail/id/28927306/">Подробнее</a>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <a class="juiceBuy" href="/context/detail/id/28927314/">Подробнее</a>
+                    </td>
+                    <td class="juiceTable__column juiceTable__column--price">
+                        <a class="juiceBuy" href="/context/detail/id/28927313/">Подробнее</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script>
+   var  animation;
+    function leftMove() {
+        if (animation){
+           /* animation.seek(0.4);*/
+        }
+        var next;
+        var $activeElement = $('.juiceTable__items--active');
+        $activeElement.removeClass('juiceTable__items--active');
+        var index = $('.juiceTable__items').index($activeElement);
+        if (index == 0 ) {
+            next = $('.juiceTable__items').length - 1;
+        }
+        else {
+            next = index - 1;
+        }
+        animation = TweenMax.to($('.juiceTable__items').eq(next), 0.4, {className: '+=juiceTable__items--active', ease: Back.easeOut.config(1.3)})
+
+    }
+    function rightMove() {
+        if (animation){
+          /*  animation.seek(0.4);*/
+        }
+        var next;
+        var $activeElement = $('.juiceTable__items--active');
+        $activeElement.removeClass('juiceTable__items--active');
+        var index = $('.juiceTable__items').index($activeElement);
+        if (index == $('.juiceTable__items').length - 1 ) {
+            next = 0
+        }
+        else {
+            next = index + 1;
+        }
+        animation = TweenMax.to($('.juiceTable__items').eq(next), 0.4, {className: '+=juiceTable__items--active', ease: Back.easeOut.config(1.3)})
+    }
+    $(function(){
+        $('.juiceTable__arrow--left').on('click', leftMove);
+        $('.juiceTable__arrow--right').on('click', rightMove);
+    })
+</script>
+<script>
+    $(function(){
+        $('.MaterialSection').eq(($('.MaterialSection').length-1)).css({'display': 'none'});
+        var price = [];
+        price[0] = $('.iteminfo[js_itemid="21160847"]').attr('js_price');
+        price[1] = $('.iteminfo[js_itemid="26326000"]').attr('js_price');
+        price[2] = $('.iteminfo[js_itemid="26325988"]').attr('js_price');
+
+        price[3] = $('.iteminfo[js_itemid="7974666"]').attr('js_price');
+        price[4] = $('.iteminfo[js_itemid="28927306"]').attr('js_price');
+        price[5] = $('.iteminfo[js_itemid="28927314"]').attr('js_price');
+        price[6] = $('.iteminfo[js_itemid="28927313"]').attr('js_price');
+        for ( var i = 0; i < price.length; i++ ) {
+            $('.juiceTable__price').eq(i).text(price[i]);
+        }
+    });
+</script>
+<div class="juiceLoader"></div>
+</body>
+</html>

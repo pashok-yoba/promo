@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://ozon.ru/graphics/action/150619-baby/TweenMax.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+</head>
+<body>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    #bear {
+        position: relative;
+        max-width: 1940px;
+        min-width: 1280px;
+    }
+    #bear .mobile-back-2 {
+        height: 654px;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/bac-bear.png);
+        background-repeat: no-repeat;
+        text-align: center;
+        box-sizing: border-box;
+        position: relative;
+        z-index: 2;
+    }
+    #bear .back-wood {
+        height: 386px;
+        width: 100%;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/back-2.jpg);
+        background-position: center top;
+        background-repeat: no-repeat;
+        text-align: center;
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    #bear .bear-logo {
+        height: 736px;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/logo-1.png);
+        background-position: center center;
+        background-size: cover;
+        margin-top: -494px;
+        position: relative;
+        z-index: 3;
+    }
+    #bear .bear-magazine {
+        width: 890px;
+        height: 60px;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/magazine.png);
+        position: absolute;
+        left: 50%;
+        margin-left: -445px;
+        top: 48px;
+        z-index: 5;
+    }
+    #bear .bear-magazine__arrowLeft {
+        width: 11px;
+        height:61px;
+        position: absolute;
+        top: -6px;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/rope-left.png);
+        left: 50%;
+        margin-left: -399px;
+        z-index: 4;
+    }
+
+    #bear .bear-magazine__arrowRight {
+        width: 15px;
+        height:61px;
+        position: absolute;
+        top: -6px;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/rope-right.png);
+        left: 50%;
+        margin-left: 393px;
+        z-index: 4;
+    }
+    #bear .bear-menu {
+        width: 300px;
+        height: 542px;
+        position: absolute;
+        top: -4px;;
+        z-index: 10;
+        left: 50%;
+        margin-left: -721px;
+    }
+    #bear .bear-1-left {
+        width: 16px;
+        height: 133px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/1-left.png);
+        top: 0;
+        left: 33px;
+    }
+    #bear .bear-1-right {
+        width: 16px;
+        height: 133px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/1-right.png);
+        top: 0;
+        right: 45px;
+    }
+    #bear .bear-item-1 {
+        width: 299px;
+        height: 76px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/item-1.png);
+        top: 123px;
+        right: 0px;
+        transform: scale(0.9);
+        z-index: 11;
+    }
+    #bear .bear-2-left {
+        width: 11px;
+        height: 21px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/2-left.png);
+        top: 190px;
+        left: 41px;
+    }
+    #bear .bear-2-right {
+        width: 9px;
+        height: 18px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/2-right.png);
+        top: 190px;
+        right: 38px;
+    }
+    #bear .bear-item-2 {
+        width: 296px;
+        height: 74px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/item-2.png);
+        top: 200px;
+        right: 0;
+        transform: scale(0.9);
+        z-index: 11;
+    }
+    #bear .bear-3-left {
+        width: 10px;
+        height: 19px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/3-left.png);
+        top: 269px;
+        left: 47px;
+    }
+    #bear .bear-3-right {
+        width: 10px;
+        height: 24px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/3-right.png);
+        top: 266px;
+        right: 30px;
+    }
+    #bear .bear-item-3 {
+        width: 296px;
+        height: 74px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/item-3.png);
+        top: 281px;
+        right: 0;
+        transform: scale(0.9);
+        z-index: 11;
+    }
+    #bear .bear-4-left {
+        width: 9px;
+        height: 18px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/4-left.png);
+        top: 348px;
+        left: 47px;
+    }
+    #bear .bear-4-right {
+        width: 9px;
+        height: 23px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/4-right.png);
+        top: 346px;
+        right: 30px;
+    }
+    #bear .bear-item-4 {
+        width: 296px;
+        height: 75px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/item-4.png);
+        top: 359px;
+        right: 0;
+        transform: scale(0.9);
+        z-index: 11;
+    }
+    #bear .bear-5-left {
+        width: 10px;
+        height: 19px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/5-left.png);
+        top: 427px;
+        left: 47px;
+    }
+    #bear .bear-5-right {
+        width: 9px;
+        height: 24px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/5-right.png);
+        top: 425px;
+        right: 30px;
+    }
+    #bear .bear-item-5 {
+        width: 296px;
+        height: 75px;
+        position: absolute;
+        background-image:  url(http://mmedia.ozon.ru/graphics/action/150703-bear/item-5.png);
+        top: 437px;
+        right: 0;
+        transform: scale(0.9);
+        z-index: 11;
+    }
+</style>
+
+
+<script>
+    (function( $ ){
+        $.fn.Parallax = function(speed) {
+            var coordX = 0;
+            var move = 0;
+            var item = this;
+            var center;
+            var centerDisplay = $(window).width()/2;
+            var imageWidth;
+            var image_url = $(this).css('background-image'), image;
+
+            image_url = image_url.match(/^url\("?(.+?)"?\)$/);
+
+            if (image_url[1]) {
+                image_url = image_url[1];
+                image = new Image();
+
+                $(image).load(function () {
+                    imageWidth = image.width;
+                    center = imageWidth/2;
+                    $('body').mousemove(function(e){
+                        coordX= e.pageX;
+                        move = - Math.abs((center - centerDisplay)/2) + speed - coordX/$(document).width()*speed;
+                        item.css({'background-position-x': move + 'px'});
+                    });
+                });
+
+                image.src = image_url;
+            }
+        };
+    })( jQuery );
+    $(function(){
+        $('.mobile-back-2').Parallax(20);
+        $('.back-wood').Parallax(60);
+
+        var tl = new TimelineMax({paused: true});
+        var move = $(document).width()/2 - 50;
+        tl.to($('.bear-magazine'), 0.2, {left: move+'px', ease: Expo.easeOut});
+        tl.to($('.bear-magazine'), 1.8, {left: '50%', ease: Elastic.easeOut.config(1, 0.3)});
+        tl.to($('.bear-magazine__arrow'), 0.2, {transformOrigin:"left top", rotation: '30', ease: Expo.easeOut}, 0);
+        tl.to($('.bear-magazine__arrow'), 1.8, {transformOrigin:"left top", rotation: '0', ease: Elastic.easeOut.config(1, 0.3)}, 0.2);
+
+        $('.bear-magazine').on('mouseenter', function(){
+            tl.restart();
+        });
+        $('.bear-button'). on('mouseenter', function(){
+            TweenMax.to($(this), 0.8, {scale: '1.0', ease: Elastic.easeOut.config(1, 0.3)});
+        });
+        $('.bear-button'). on('mouseleave', function(){
+            TweenMax.to($(this), 0.3, {scale: '0.9', ease: Expo.easeOut});
+        })
+    });
+</script>
+<div id="bear">
+    <div class="mobile-back-2"></div>
+    <div class="back-wood"></div>
+    <div class="bear-logo"></div>
+    <div class="bear-magazine"></div>
+    <div class="bear-magazine__arrow bear-magazine__arrowLeft"></div>
+    <div class="bear-magazine__arrow bear-magazine__arrowRight"></div>
+    <div class="bear-menu">
+        <div class="bear-1-left"></div>
+        <div class="bear-1-right"></div>
+        <div class="bear-button bear-item-1"></div>
+        <div class="bear-2-left"></div>
+        <div class="bear-2-right"></div>
+        <div class="bear-button bear-item-2"></div>
+        <div class="bear-3-left"></div>
+        <div class="bear-3-right"></div>
+        <div class="bear-button bear-item-3"></div>
+        <div class="bear-4-left"></div>
+        <div class="bear-4-right"></div>
+        <div class="bear-button bear-item-4"></div>
+        <div class="bear-5-left"></div>
+        <div class="bear-5-right"></div>
+        <div class="bear-button bear-item-5"></div>
+    </div>
+</div>
+</body>
+</html>

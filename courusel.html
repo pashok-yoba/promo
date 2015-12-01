@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="http://ozon.ru/graphics/action/150619-baby/TweenMax.min.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+<style>
+    .courusel {
+        position: relative;
+        margin: 0 auto;
+    }
+    #container {
+        width: 90%;
+        overflow: hidden;
+        margin:  0 auto;
+    }
+    #listElements {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        overflow: hidden;
+    }
+    .elementsSport {
+        float: left;
+        padding: 0;
+        margin: 0;
+    }
+    .elementLink {
+        display: block;
+        width: 150px;
+        height: 150px;
+        background-size: cover;
+    }
+    .elementLinkText {
+        text-align: center;
+        display: block;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: #336891;
+        padding-top: 10px;
+        text-decoration: none;
+    }
+    .elementLink--1 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-1a.jpg);
+    }
+    .elementLink--2 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-2a.jpg);
+    }
+    .elementLink--3 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-3a.jpg);
+    }
+    .elementLink--4 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-4.jpg);
+    }
+    .elementLink--5 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-5.jpg);
+    }
+    .elementLink--6 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-6.jpg);
+    }
+    .elementLink--7 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-7a.jpg);
+    }
+    .elementLink--8 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-8a.jpg);
+    }
+    .elementLink--9 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-9.jpg);
+    }
+    .elementLink--10 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-10.jpg);
+    }
+    .elementLink--11 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-11.jpg);
+    }
+    .elementLink--12 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-12a.jpg);
+    }
+    .elementLink--13 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-13a.jpg);
+    }
+    .elementLink--14 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-14.jpg);
+    }
+    .elementLink--15 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-15.jpg);
+    }
+    .elementLink--16 {
+        background-image: url(http://www.ozon.ru/graphics/action/150901-sport/sport-16.jpg);
+    }
+
+    .arrowLeft {
+        width: 18px;
+        height: 26px;
+        position: absolute;
+        top: 50%;
+        margin-top: -13px;
+        left: 0;
+        background-position: -18px 0;
+        background-image: url(http://www.ozon.ru/graphics/subscribe/pl/left-right.png);
+        background-color: #468abd;
+        cursor: pointer;
+    }
+    .arrowLeft:hover {
+        opacity: 0.9
+    }
+    .arrowRight {
+        width: 18px;
+        height: 26px;
+        position: absolute;
+        top: 50%;
+        margin-top: -13px;
+        right: 0;
+        background-position: 0 0;
+        background-image: url(http://www.ozon.ru/graphics/subscribe/pl/left-right.png);
+        background-color: #468abd;
+        cursor: pointer;
+    }
+    .arrowRight:hover {
+        opacity: 0.9
+    }
+</style>
+<script>
+    function counter() {
+        var counter = 1;
+        return function() {
+           return counter++
+        }
+    }
+    var zalupa = counter();
+
+    function CoruselOz(container, elements) {
+        var widthCounteiner;
+        var widthElements;
+        var quantityElementsOnStage;
+        var marginElements ;
+        var movePercent ;
+        this.init = function() {
+            container.setAttribute('data-move', '0');
+            widthCounteiner = container.clientWidth;
+            widthElements = elements[0].clientWidth;
+            quantityElementsOnStage = Math.floor(widthCounteiner / widthElements);
+            marginElements = (widthCounteiner - widthElements * quantityElementsOnStage) / (2 * quantityElementsOnStage);
+            movePercent = Math.floor(elements.length / quantityElementsOnStage);
+            document.getElementById('listElements').style.marginLeft = '0';
+            this.changeMarginElements();
+            this.listwidth();
+        }
+        this.changeMarginElements = function() {
+            widthCounteiner = container.clientWidth;
+            marginElements = (widthCounteiner - widthElements * quantityElementsOnStage) / (2 * quantityElementsOnStage);
+            this.listwidth();
+            for (var i = 0; i< elements.length; i ++) {
+                elements[i].style.margin =  '0 ' + marginElements + 'px' ;
+            }
+        }
+        this.createArrow = function(nameClass) {
+            var element = document.createElement('div');
+            element.setAttribute('class', nameClass);
+            container.appendChild(element);
+            return element
+        }
+        this.listwidth = function() {
+            var widthList = elements.length * (widthElements + marginElements * 2) + 50;
+            document.getElementById('listElements').style.width = widthList + 'px';
+
+        }
+        this.rightMove = function() {
+            var move = +container.getAttribute('data-move');
+            if (Math.ceil(quantityElementsOnStage * (move +1)) == elements.length ) {
+                move = 0;
+            }
+            else {
+                if (move + 1 < movePercent) {
+                    move++
+                }
+                else {
+                    if (elements.length % quantityElementsOnStage == 0) {
+                        move = 0;
+                    }
+                    else {
+                        move += (elements.length % quantityElementsOnStage) / quantityElementsOnStage;
+                    }
+                }
+            }
+
+            container.setAttribute('data-move', move);
+            move *= -100;
+            TweenMax.to(document.getElementById('listElements'), 0.5, {'margin-left': move + '%'});
+        }
+        this.leftMove = function() {
+            var move = +container.getAttribute('data-move');
+            if (move == 0 ) {
+                move =  (elements.length - quantityElementsOnStage) / quantityElementsOnStage ;
+            }
+            else {
+                if (move - 1 > 0) {
+                    move--
+                }
+                else {
+                    if (elements.length % quantityElementsOnStage == 0) {
+                        move =  (elements.length - quantityElementsOnStage) / quantityElementsOnStage ;
+                    }
+                    else {
+                        move = 0;
+                    }
+                }
+            }
+
+            container.setAttribute('data-move', move);
+            move *= -100;
+            TweenMax.to(document.getElementById('listElements'), 0.5, {'margin-left': move + '%'});
+        }
+        this.resize = function() {
+
+            if (( 1 < marginElements ) && ( marginElements * 2 * quantityElementsOnStage < widthElements )) {
+                this.changeMarginElements();
+            }
+            else {
+                this.init();
+            }
+
+        }
+        this.init();
+        this.createArrow('arrowLeft');
+        this.createArrow('arrowRight').addEventListener('click', this.rightMove );
+        this.createArrow('arrowLeft').addEventListener('click', this.leftMove );
+    }
+    window.addEventListener('DOMContentLoaded', function(){
+        var sl = new CoruselOz(document.getElementById('container'), document.getElementsByClassName('elementsSport'));
+        window.addEventListener('resize', function(){
+            sl.resize();
+        });
+    })
+
+</script>
+<div class="courusel">
+    <div id="container">
+        <ul id="listElements">
+            <li class="elementsSport">
+                <a href="ontext/clothing_sport/" class="elementLink elementLink--1"></a>
+                <a href="ontext/clothing_sport/" class="elementLinkText">Спортивная одежда</a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1173919/" class="elementLink elementLink--2"></a>
+                <a href="/catalog/1173919/" class="elementLinkText">коврики</a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1159283/" class="elementLink elementLink--3"></a>
+                <a href="/catalog/1159283/" class="elementLinkText">тренажеры </a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1159284/" class="elementLink elementLink--4"></a>
+                <a href="/catalog/1159284/" class="elementLinkText">мячи </a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1179107/" class="elementLink elementLink--5"></a>
+                <a href="/catalog/1179107/" class="elementLinkText">чемоданы</a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1134293/?catalog_select=1134294%2c1134295&styles=1133914" class="elementLink elementLink--6"></a>
+                <a href="/catalog/1134293/?catalog_select=1134294%2c1134295&styles=1133914" class="elementLinkText">Спортивная обувь</a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1178641/" class="elementLink elementLink--7"></a>
+                <a href="/catalog/1178641/" class="elementLinkText">палатки</a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1159327/" class="elementLink elementLink--8"></a>
+                <a href="/catalog/1159327/" class="elementLinkText">Спальные мешки</a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1159328/" class="elementLink elementLink--9"></a>
+                <a href="/catalog/1159328/" class="elementLinkText">мультитулы</a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1146581/" class="elementLink elementLink--10"></a>
+                <a href="/catalog/1146581/" class="elementLinkText">фонари</a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1159318/?type=40459" class="elementLink elementLink--11"></a>
+                <a href="/catalog/1159318/?type=40459" class="elementLinkText">термосы</a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1176387/" class="elementLink elementLink--12"></a>
+                <a href="/catalog/1176387/" class="elementLinkText">самокаты</a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1176386/" class="elementLink elementLink--13"></a>
+                <a href="/catalog/1176386/" class="elementLinkText">ролики</a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1176388/" class="elementLink elementLink--14"></a>
+                <a href="/catalog/1176388/" class="elementLinkText">скейты</a>
+            </li>
+            <li class="elementsSport">
+                <a href="/catalog/1159288/" class="elementLink elementLink--15"></a>
+                <a href="/catalog/1159288/" class="elementLinkText">велосипеды</a>
+            </li>
+
+            <li class="elementsSport">
+                <a href="/catalog/1146580/" class="elementLink elementLink--16"></a>
+                <a href="/catalog/1146580/" class="elementLinkText">рюкзаки</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+</body>
+</html>

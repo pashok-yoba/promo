@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script src="http://ozon.ru/graphics/action/150619-baby/TweenMax.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<!--[if lt IE 9]>
+<script>
+    document.createElement('header');
+    document.createElement('nav');
+    document.createElement('section');
+    document.createElement('article');
+    document.createElement('aside');
+    document.createElement('footer');
+    document.createElement('hgroup');
+</script>
+<![endif]-->
+<script>
+    var tweenBlock1 = new TimelineMax({'paused': true});
+    function animateBlock1Enter(time){
+        var own = document.getElementsByClassName('menuLinks__own1')[0];
+        tweenBlock1.to(own, time, {ease: Power2.easeIn, 'bottom': '-280px'})
+                .to(own,0,{'left': 'auto', 'right': '0', 'background-image': 'url(http://www.ozon.ru/graphics/action/151007-train/own-12.png)'})
+                .to(own, time, {ease: Power2.easeOut, 'bottom': '0'});
+        tweenBlock1.play();
+    }
+    function animateBlock1Leave(time){
+        var own = document.getElementsByClassName('menuLinks__own1')[0];
+
+        tweenBlock1.to(own, time, {ease: Power2.easeIn, 'bottom': '-280px'})
+                .to(own,0,{'right': 'auto', 'left': '0', 'background-image': 'url(http://www.ozon.ru/graphics/action/151007-train/own-1.png)'})
+                .to(own, time, {ease: Power2.easeOut, 'bottom': '0'});
+        tweenBlock1.play();
+    }
+    var interval;
+    function animateown1() {
+        var element = $('.menuLinks__image--22');
+        var position;
+        function repeat(){
+            position = element.css('background-position-y').split('px')[0];
+            position= +position+1;
+            element.css('background-position-y', position + 'px');
+        }
+        interval = setInterval(repeat, 20);
+    }
+    function animateGirl() {
+        var tween = new TimelineMax({'paused': true});
+        tween.to($('.girl4__hand--1'), 0.15, {rotation: -32, 'left': '119px', transformOrigin:"left top"})
+                .to($('.girl4__hand--2'), 0.1, {rotation: 15, transformOrigin:"left bottom"})
+                .to($('.girl4__hand--2'), 0.1, {rotation: -15, transformOrigin:"left bottom"})
+                .to($('.girl4__hand--2'), 0.1, {rotation: 0, transformOrigin:"left bottom"});
+        tween.play();
+    }
+    var tweenRat = new TimelineMax({'paused': true});
+    function animateBlock5Enter(time){
+        var own = document.getElementsByClassName('menuLinks__image--5')[0];
+   /*     var tween = new TimelineMax({'paused': true});*/
+        tweenRat.to(own, time, {ease: Power2.easeIn, 'left': 'auto', 'right': '-152px'})
+                .to(own,0,{'left': '-152px', 'right': 'auto', 'background-image': 'url(http://www.ozon.ru/graphics/action/151007-train/rat2.png)', 'background-position': 'left center'})
+                .to($('.menuLinks__name--5'), time, {ease:  Back.easeIn.config(1), 'left': '41.950617%'})
+                .to(own, time, {ease: Power2.easeOut, 'left': '0'});
+
+        tweenRat.play();
+    }
+    function animateBlock5Leave(time){
+        var own = document.getElementsByClassName('menuLinks__image--5')[0];
+       /* var tween = new TimelineMax({'paused': true});*/
+        tweenRat.to(own, time, {ease: Power2.easeIn, 'left': '-152px'})
+                .to(own,0,{'left': 'auto', 'right': '-152px', 'background-image': 'url(http://www.ozon.ru/graphics/action/151007-train/rat.png)', 'background-position': 'right center'})
+                .to($('.menuLinks__name--5'), time, {ease:  Back.easeIn.config(1), 'left': '8.950617283950617%'})
+                .to(own, time, {ease: Power2.easeOut, 'right': '0'});
+
+        tweenRat.play();
+    }
+    function animateBlock6Enter() {
+        var tween = new TimelineMax({'paused': true});
+        tween.to($('.menuLinks__image--6'), 0.4, {'opacity': '1'})
+            .to($('.menuLinks__image--61'), 0.4, {'opacity': '1'}, 0);
+        tween.play();
+    }
+
+    function animateBlock6Leave() {
+        var tween  = new TimelineMax({'paused': true});
+        tween.to($('.menuLinks__image--6'), 0.2, {'opacity': '0'})
+                .to($('.menuLinks__image--61'), 0.2, {'opacity': '0'}, 0);
+        tween.play();
+    }
+    var tweenEyes;
+    function animateGirlWidthBook() {
+        tweenEyes = new TimelineMax({'paused': true, 'repeat': -1});
+        tweenEyes.to($('.girl8__eyes--1'), 0.6, {'left': 42, top: 48});
+        tweenEyes.to($('.girl8__eyes--2'), 0.6, {'left': 87, top: 45}, 0);
+        tweenEyes.to($('.girl8__eyes--1'), 0.8, {'left': 48, top: 45}, 0.6);
+        tweenEyes.to($('.girl8__eyes--2'), 0.8, {'left': 93, top: 42}, 0.6 );
+        tweenEyes.play();
+    }
+
+    window.addEventListener('DOMContentLoaded', function(){
+        var block1 = $('.listLinks__link--1');
+        var block2 = $('.listLinks__link--2');
+        var block3 = $('.listLinks__link--3');
+        var block4 = $('.listLinks__link--4');
+        var block5 = $('.listLinks__link--5');
+        var block6 = $('.listLinks__link--6');
+        var block8 = $('.listLinks__link--8');
+        block1.on('mouseenter', function(){
+            animateBlock1Enter(0.35);
+        });
+        block1.on('mouseleave', function(){
+            animateBlock1Leave(0.35);
+        });
+
+        block2.on('mouseenter',animateown1);
+        block2.on('mouseleave', function(){
+            clearInterval(interval);
+        });
+
+        block3.on('mouseenter', function(){
+            var elements = $('.menuLinks__image--31, .menuLinks__image--32');
+            TweenMax.to(elements, 0.3, {'opacity': '1'});
+        });
+        block3.on('mouseleave', function(){
+            var elements = $('.menuLinks__image--31, .menuLinks__image--32');
+            TweenMax.to(elements, 0.3, {'opacity': '0'});
+        });
+
+        block4.on('mouseenter', function(){
+            animateGirl()
+        });
+        block4.on('mouseleave', function(){
+            TweenMax.to($('.girl4__hand--1'), 0.15, {rotation: 0, 'left': '121px', transformOrigin:"left top"});
+        });
+
+        block5.on('mouseenter', function(){
+            animateBlock5Enter(0.25);
+        });
+        block5.on('mouseleave', function(){
+            animateBlock5Leave(0.25);
+        });
+
+        block6.on('mouseenter', animateBlock6Enter );
+        block6.on('mouseleave', animateBlock6Leave );
+
+        block8.on('mouseenter', animateGirlWidthBook );
+        block8.on('mouseleave', function() {
+            tweenEyes.seek(0);
+            tweenEyes.kill();
+        } );
+    })
+</script>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    #momChildren {
+        display: block;
+        min-width: 720px;
+        padding-top: 20px;
+        overflow: hidden;
+    }
+    #momChildren * {
+        padding: 0;
+        margin: 0;
+    }
+    #momChildren .listLinks {
+        /*width: 1019px;*/
+        max-width: 1920px;
+        margin: 0 auto;
+    }
+    #momChildren .listLinks__link {
+        display: block;
+        float: left;
+        background-size: cover;
+        margin-bottom: 21px;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+    }
+    #momChildren .listLinks__link--small {
+        height: 184px;
+    }
+    #momChildren .listLinks__link--1 {
+        height: 389px;
+        width: 65.65260058881256%;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/back-1.jpg);
+    }
+    #momChildren .listLinks__link--2 {
+        width: 31.79587831207066%;
+        background-color: #a769e7;
+        margin-left: 2.551521099116782%
+    }
+    #momChildren .listLinks__link--3 {
+        width: 31.79587831207066%;
+        background-color: #f0f19d;
+        margin-left: 2.551521099116782%;
+        margin-bottom: 21px;
+    }
+    #momChildren .listLinks__link--4 {
+        width: 31.79587831207066%;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/back-4.png);
+        margin-bottom: 21px;
+    }
+    #momChildren .listLinks__link--5 {
+        width: 31.79587831207066%;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/back-5.png);
+        margin-bottom: 21px;
+        margin-left: 2.30618253189401%;
+    }
+    #momChildren .listLinks__link--6 {
+        width: 31.79587831207066%;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/back-6.png);
+        margin-bottom: 21px;
+        margin-left: 2.30618253189401%;
+    }
+    #momChildren .listLinks__link--7 {
+        width: 18.64573110893032%;
+        background-color: #f779c0;
+        margin-bottom: 21px;
+        border: 1px solid #d1d1d1;
+    }
+    #momChildren .listLinks__link--8 {
+        width: 18.64573110893032%;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/back-8.png);
+        margin-bottom: 21px;
+        border: 1px solid #d1d1d1;
+        margin-left: 1.692836113837095%;
+    }
+    #momChildren .listLinks__link--9 {
+        width: 18.64573110893032%;
+        background-color: #ab4a9c;
+        margin-bottom: 21px;
+        border: 1px solid #d1d1d1;
+        margin-left: 1.692836113837095%;
+    }
+    #momChildren .listLinks__link--10 {
+        width: 18.64573110893032%;
+        margin-bottom: 21px;
+        border: 1px solid #d1d1d1;
+        margin-left: 1.692836113837095%;
+    }
+    #momChildren .listLinks__link--11 {
+        width: 18.64573110893032%;
+        margin-bottom: 21px;
+        border: 1px solid #d1d1d1;
+        margin-left: 1.692836113837095%;
+    }
+    #momChildren .menuLinks__name {
+        display: block;
+        position: absolute;
+        height: 100%;
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: 100% auto;
+        box-sizing: border-box;
+        z-index: 10
+    }
+    #momChildren .momImage {
+        display: inline-block;
+        background-repeat: no-repeat;
+        height: 100%;
+        background-position: center top;
+        background-size: 100% auto;
+    }
+    #momChildren .menuLinks__name--1 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/name-1.png);
+        width: 55.90433482810164%;
+        max-width: 374px;
+        left: 35.53223388305847%;
+        top: 23px;
+    }
+    #momChildren .menuLinks__name--2 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/name-2.png);
+        width: 39.50617283950617%;
+        max-width: 128px;
+        left: 56.79012345679012%;
+        top: 59px;
+    }
+    #momChildren .menuLinks__name--3 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/name-3.png);
+        width: 59.5679012345679%;
+        max-width: 193px;
+        left: 3.08641975308642%;
+        top: 75px;
+        z-index: 6;
+    }
+    #momChildren .menuLinks__name--4 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/name-4.png);
+        width: 26.23456790123457%;
+        max-width: 85px;
+        left: 61.7283950617284%;
+        top: 63px;
+    }
+    #momChildren .menuLinks__name--5 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/name-5.png);
+        width: 42.59259259259259%;
+        max-width: 138px;
+        left: 8.950617283950617%;
+        top: 75px;
+    }
+    #momChildren .menuLinks__name--6 {
+        height: 100%;
+        width: 100%;
+        padding-top: 12px;
+        text-align: center;
+    }
+    #momChildren .momImage--6 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/name-6.png);
+        width: 88.88888888888889%;
+        max-width: 288px;
+        z-index: 6;
+        position: relative;
+    }
+    #momChildren .menuLinks__name--7 {
+        height: 100%;
+        width: 100%;
+        padding-top: 11px;
+        text-align: center;
+    }
+    #momChildren .momImage--7 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/name-7.png);
+        width: 94.21052631578947%;
+        max-width: 179px;
+    }
+    #momChildren .menuLinks__name--8 {
+        height: 100%;
+        width: 100%;
+        padding-top: 11px;
+        text-align: center;
+    }
+    #momChildren .momImage--8 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/name-8.png);
+        width: 68.94736842105263%;
+        max-width: 131px;
+    }
+    #momChildren .menuLinks__name--9 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/name-9.png);
+        width: 66.79947368421053%;
+        max-width: 125px;
+        left: 5.263157894736842%;
+        top: 12px;
+    }
+    #momChildren .menuLinks__name--10 {
+        height: 100%;
+        width: 100%;
+        padding-top: 11px;
+        text-align: center;
+    }
+    #momChildren .momImage--10 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/name-10.png);
+        width: 89.47368421052632%;
+        max-width: 170px;
+    }
+    #momChildren .menuLinks__name--11 {
+        height: 100%;
+        width: 100%;
+        padding-top: 11px;
+        text-align: center;
+    }
+    #momChildren .momImage--11 {
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/name-11.png);
+        width: 61.05263157894737%;
+        max-width: 116px;
+    }
+
+    #momChildren .menuLinks__own1 {
+        width: 219px;
+        height: 280px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/own-1.png);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 5;
+    }
+    #momChildren .menuLinks__image {
+        position: absolute;
+        background-size: 100% auto;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+    }
+    #momChildren .menuLinks__image--1 {
+        max-width: 409px;
+        height: 193px;
+        width: 61.13602391629297%;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/books-1.png);
+        bottom: 4px;
+        right: 7.473841554559043%;
+    }
+    #momChildren .menuLinks__image--2 {
+        max-width: 173px;
+        height: 163px;
+        width: 53.39506172839506%;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/own-2.png);
+        left: 0;
+        top: 0;
+        background-position: center top;
+        z-index: 5;
+    }
+    #momChildren .menuLinks__image--21 {
+        height: 42px;
+        width: 39px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/star-1.png);
+        left: 0;
+        bottom: 0;
+    }
+    #momChildren .menuLinks__image--22 {
+        height: 100%;
+        width: 184px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/stars-2.png);
+        background-size: auto 100%;
+        background-position: right 0;
+        background-repeat: repeat-y;
+        right: 0;
+        bottom: 0;
+    }
+    #momChildren .menuLinks__image--3 {
+        height: 100%;
+        width: 162px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/bobr.png);
+        right: 0;
+        bottom: 0;
+        background-size: auto 100%;
+        background-position: right center;
+    }
+    #momChildren .menuLinks__image--31 {
+        height: 71px;
+        width: 105px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/tree1.png);
+        left: 0;
+        top: 0;
+        opacity: 0;
+    }
+    #momChildren .menuLinks__image--32 {
+        height: 44px;
+        width: 41px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/tree2.png);
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+    }
+
+    #momChildren .menuLinks__image--4 {
+        height: 170px;
+        width: 178px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/girl6.png);
+        left: 5px;
+        bottom: 0;
+    }
+
+    #momChildren .girl4__hand--1 {
+        position: absolute;
+        width: 28px;
+        height: 18px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/hand1.png);
+        top: 75px;
+        left: 121px;
+        display: block;
+    }
+    #momChildren .girl4__hand--2 {
+        bottom: -1px;
+        right: -8px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/hand2.png);
+        width: 9px;
+        height: 6px;
+        display: block;
+        position: absolute;
+
+    }
+
+
+    #momChildren .menuLinks__image--5 {
+        height: 100%;
+        width: 151px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/rat.png);
+        right: 0;
+        background-size: auto 100%;
+        background-position: right center;
+        bottom: 0;
+    }
+
+    #momChildren .menuLinks__image--6 {
+        height: 128px;
+        width: 97px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/tree-6.png);
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+    }
+    #momChildren .menuLinks__image--9 {
+        height: 80.43478260869565%;
+        width: 194px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/people9.png);
+        background-size: auto 100%;
+        background-position: right center;
+        right: 0;
+        bottom: 0;
+    }
+
+    #momChildren .menuLinks__imageContainer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    #momChildren .menuLinks__image {
+        display: inline-block;
+    }
+    #momChildren .menuLinks__imageContainer--6 {
+        height: 111px;
+    }
+    #momChildren .menuLinks__imageContainer--7 {
+        height: 98px;
+    }
+    #momChildren .menuLinks__imageContainer--8 {
+        height: 106px;
+    }
+    #momChildren .menuLinks__imageContainer--10 {
+        height: 102px;
+    }
+    #momChildren .menuLinks__imageContainer--11 {
+        height: 109px;
+    }
+
+    #momChildren .menuLinks__image--61{
+        height: 111px;
+        width: 279px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/horse.png);
+        position: relative;
+        opacity: 0;
+    }
+    #momChildren .menuLinks__image--7{
+        height: 98px;
+        width: 125px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/grrl7.png);
+        position: relative;
+    }
+    #momChildren .menuLinks__image--8{
+        height: 106px;
+        width: 152px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/girl-8.png);
+        position: relative;
+    }
+    #momChildren .menuLinks__image--10{
+        height: 102px;
+        width: 155px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/people10.png);
+        position: relative;
+    }
+    #momChildren .menuLinks__image--11{
+        height: 109px;
+        width: 156px;
+        background-image: url(http://www.ozon.ru/graphics/action/151007-train/people11.png);
+        position: relative;
+    }
+
+
+    #momChildren .girl8 {
+        position: relative;
+    }
+    #momChildren .girl8__eyes {
+        display: block;
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        border-radius: 2px;;
+        background-color: #000;
+    }
+    #momChildren .girl8__eyes--1 {
+        top: 47px;
+        left: 46px;
+    }
+    #momChildren .girl8__eyes--2 {
+        top: 44px;
+        left: 91px;
+    }
+
+
+    @media only screen and (min-width: 1604px) {
+        #momChildren .listLinks__link--1 {
+            width: 48.93928310168252%;
+        }
+        #momChildren .listLinks__link--2 {
+            width: 23.70153621068032%;
+            margin-left: 1.828822238478418%
+        }
+        #momChildren .listLinks__link--3 {
+            width: 23.70153621068032%;
+            margin-left: 1.8288222384784185%;
+        }
+        #momChildren .listLinks__link--4 {
+            width: 23.70153621068032%;
+            margin-left: 1.8288222384784185%;
+        }
+        #momChildren .listLinks__link--5 {
+            width: 23.70153621068032%;
+            margin-left: 1.8288222384784185%;
+        }
+        #momChildren .listLinks__link--6 {
+            width: 23.70153621068032%;
+            margin-left: 0;
+        }
+        #momChildren .listLinks__link--7 {
+            width: 13.89904901243599%;
+            margin-left: 1.360643745427945%;
+        }
+        #momChildren .listLinks__link--8 {
+            width: 13.89904901243599%;
+            margin-left: 1.360643745427945%;
+        }
+        #momChildren .listLinks__link--9 {
+            width: 13.89904901243599%;
+            margin-left: 1.360643745427945%;
+        }
+        #momChildren .listLinks__link--10 {
+            width: 13.89904901243599%;
+            margin-left: 1.360643745427945%;
+        }
+        #momChildren .listLinks__link--11 {
+            width: 13.89904901243599%;
+            margin-left: 1.360643745427945%;
+        }
+    }
+    @media only screen  and (max-width: 1255px) {
+        #momChildren .listLinks__link--1 {
+            height: 341px;;
+        }
+        #momChildren .listLinks__link--small {
+            height: 160px
+        }
+    }
+/* animation styles */
+    #momChildren .listLinks__link--11,
+    #momChildren .listLinks__link--10,
+    #momChildren .listLinks__link--9,
+    #momChildren .listLinks__link--8,
+    #momChildren .listLinks__link--7 {
+        transition: all 0.2s;
+    }
+    #momChildren .listLinks__link--11:hover,
+    #momChildren .listLinks__link--10:hover,
+    #momChildren .listLinks__link--9:hover,
+    #momChildren .listLinks__link--8:hover,
+    #momChildren .listLinks__link--7:hover {
+        opacity: 0.9;
+        border: 6px solid #d1d1d1
+    }
+    #momChildren .listLinks__link--11:hover {
+        background-color: #fef8ce;
+    }
+</style>
+<section id="momChildren" class="">
+    <div class="listLinks">
+        <a href="/catalog/1137436/?publicationperiod=1147727&newperiod=4&store=1,0&sort=new" class="listLinks__link listLinks__link--1 menuLinks">
+            <span class="menuLinks__name menuLinks__name--1"></span>
+            <span class="menuLinks__own1"></span>
+            <span class="menuLinks__image menuLinks__image--1"></span>
+        </a>
+        <a href="/catalog/1137819/?store=1,0&sort=bests" class="listLinks__link listLinks__link--small listLinks__link--2 menuLinks">
+            <span class="menuLinks__name menuLinks__name--2"></span>
+            <span class="menuLinks__image menuLinks__image--2"></span>
+            <span class="menuLinks__image menuLinks__image--21"></span>
+            <span class="menuLinks__image menuLinks__image--22"></span>
+        </a>
+        <a href="/catalog/1137702/?publicationperiod=1147727&store=1,0&sort=bests" class="listLinks__link listLinks__link--small listLinks__link--3 menuLinks">
+            <span class="menuLinks__name menuLinks__name--3"></span>
+            <span class="menuLinks__image menuLinks__image--3"></span>
+            <span class="menuLinks__image menuLinks__image--31"></span>
+            <span class="menuLinks__image menuLinks__image--32"></span>
+        </a>
+        <a href="/catalog/1137689/?store=1,0&sort=bests" class="listLinks__link listLinks__link--small listLinks__link--4 menuLinks">
+            <span class="menuLinks__name menuLinks__name--4"></span>
+            <span class="menuLinks__image menuLinks__image--4 girl4">
+                <span class="girl4__hand girl4__hand--1">
+                    <span class="girl4__eyes girl4__hand--2"></span>
+                </span>
+            </span>
+        </a>
+        <a href="/catalog/1137658/?store=1,0&sort=bests" class="listLinks__link listLinks__link--small listLinks__link--5 menuLinks">
+            <span class="menuLinks__name menuLinks__name--5"></span>
+            <span class="menuLinks__image menuLinks__image--5"></span>
+        </a>
+        <a href="/catalog/1137655/?store=1,0&sort=bests" class="listLinks__link listLinks__link--small listLinks__link--6 menuLinks">
+            <span class="menuLinks__name menuLinks__name--6">
+                <span class="momImage momImage--6"></span>
+                <span class="menuLinks__image menuLinks__image--6"></span>
+                <span class="menuLinks__imageContainer menuLinks__imageContainer--6">
+                    <span class="menuLinks__image menuLinks__image--61"></span>
+                </span>
+            </span>
+        </a>
+        <a href="/catalog/1137439/?store=1,0&sort=bests" class="listLinks__link listLinks__link--small listLinks__link--7 menuLinks">
+            <span class="menuLinks__name menuLinks__name--7">
+                <span class="momImage momImage--7"></span>
+            </span>
+            <span class="menuLinks__imageContainer menuLinks__imageContainer--7">
+                <span class="menuLinks__image menuLinks__image--7"></span>
+            </span>
+        </a>
+        <a href="/catalog/1137690/?store=1,0&sort=bests" class="listLinks__link listLinks__link--small listLinks__link--8 menuLinks">
+            <span class="menuLinks__name menuLinks__name--8">
+                <span class="momImage momImage--8"></span>
+            </span>
+            <span class="menuLinks__imageContainer menuLinks__imageContainer--8">
+                  <span class="menuLinks__image menuLinks__image--8 girl8">
+                      <span class="girl8__eyes girl8__eyes--1"></span>
+                      <span class="girl8__eyes girl8__eyes--2"></span>
+                  </span>
+            </span>
+        </a>
+        <a href="/catalog/1137440/?store=1,0&sort=bests" class="listLinks__link listLinks__link--small listLinks__link--9 menuLinks">
+            <span class="menuLinks__name menuLinks__name--9"></span>
+            <span class="menuLinks__image menuLinks__image--9"></span>
+        </a>
+        <a href="/catalog/1137441/?store=1,0&sort=bests" class="listLinks__link listLinks__link--small listLinks__link--10 menuLinks">
+            <span class="menuLinks__name menuLinks__name--10">
+                <span class="momImage momImage--10"></span>
+                <span class="menuLinks__imageContainer menuLinks__imageContainer--10">
+                    <span class="menuLinks__image menuLinks__image--10"></span>
+                </span>
+            </span>
+        </a>
+        <a href="/catalog/1137437/?store=1,0&sort=bests" class="listLinks__link listLinks__link--small listLinks__link--11 menuLinks">
+            <span class="menuLinks__name menuLinks__name--11">
+                <span class="momImage momImage--11"></span>
+                <span class="menuLinks__imageContainer menuLinks__imageContainer--11">
+                    <span class="menuLinks__image menuLinks__image--11"></span>
+                </span>
+            </span>
+        </a>
+    </div>
+</section>
+
+</body>
+</html>

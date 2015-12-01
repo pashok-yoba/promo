@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://ozon.ru/graphics/action/150619-baby/TweenMax.min.js"></script>
+</head>
+<body>
+
+<style>
+.pageCenterNoLeft {
+    padding: 0;
+
+}
+.pageContent .PageModule {
+    margin: 0;
+}
+#PageContent {
+    padding: 0;
+}
+.pageCenterNoLeft div.pageContent .PageModule {
+    margin: 0;
+}
+
+/*slider */
+#apple .heroesSlider {
+    position: relative;
+    height: 545px;
+    background-image: url(//static.ozone.ru/graphics/action/150921-apple/gradient1.png);
+    background-repeat: repeat-x;
+}
+#apple .heroesSlide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    display: block;
+}
+#apple .heroesSlideInner {
+    width: 990px;
+    height: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+    background-repeat: no-repeat;
+}
+#apple .heroesSlide__text {
+    height: 254px;
+    width: 475px;
+    box-sizing: border-box;
+    padding: 25px 35px;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 24px;
+    position: absolute;
+    top: 134px;
+}
+#apple .sliderTextBold{
+    font-size: 30px;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+#apple .heroesSlider__left {
+    top: 236px;
+    position: absolute;
+    background-image: url(//static.ozone.ru/graphics/action/150814-heroes/left.png);
+    width: 20px;
+    height: 48px;
+    left: 50%;
+    margin-left: -490px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    display: none;
+}
+#apple .heroesSlider__right {
+    top: 236px;
+    position: absolute;
+    background-image: url(//static.ozone.ru/graphics/action/150814-heroes/right.png);
+    width: 20px;
+    height: 48px;
+    right: 50%;
+    margin-right: -490px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    display: none;
+}
+#apple .heroesSlider__circles {
+    position: absolute;
+    bottom: 13px;
+    width: 100%;
+    text-align: center;
+}
+#apple .sliderPointer {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 3px solid #ffffff;;
+    margin: 0 12px;
+    border-radius: 7px;;
+    box-sizing: border-box;
+}
+#apple .sliderPointer-active {
+    background-color: #00b9f2;
+}
+
+#apple .heroesSlideInner--1 {
+    background-image: url(//static.ozone.ru/graphics/action/150921-apple/slide11.png);
+}
+
+#apple .heroesSlideInner--2 {
+    background-image: url(//static.ozone.ru/graphics/action/150921-apple/slide22.png);
+}
+
+#apple .heroesSlideInner--3 {
+    background-image: url(//static.ozone.ru/graphics/action/150921-apple/slide33.png);
+}
+
+#apple .activeSlide {
+    opacity: 1;
+}
+/* ----------------------- */
+    #apple * {
+        padding: 0;
+        margin: 0;
+    }
+    #apple {
+        position: relative;
+        font-family: Arial, sans-serif;
+        min-width: 1000px;
+        padding-top: 33px;
+    }
+    #apple .appleLogo {
+        width: 191px;
+        height: 53px;
+        background-image: url(//static.ozone.ru/graphics/action/150921-apple/apple.jpg);
+        position: absolute;
+        top: 15px;
+        left: 40px;
+        z-index: 5;
+    }
+    #apple .appleMenuContainer {
+        background-color: #f6f5f3;
+        padding-top: 10px;
+        padding-bottom: 25px;
+    }
+    #apple .appleMenu {
+        min-width: 1000px;
+        max-width: 1371px;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+    #apple .appleLink {
+        display: block;
+        width: 23.99708242159008%;
+        margin: 0 0.5014587892049599%;
+        box-sizing: border-box;
+        float: left;
+        height: 199px;
+        position: relative;
+        text-align: center;
+        padding-top: 18px;
+        background-color: #ffffff;
+        border: 1px solid #d1d1d1;
+    }
+    #apple .appleImage {
+        display: inline-block;
+        height: 173px;
+    }
+    #apple .appleImage--1 {
+        background-image: url(//static.ozone.ru/graphics/action/150921-apple/item1.jpg);
+        width: 213px;
+    }
+    #apple .appleImage--2 {
+        background-image: url(//static.ozone.ru/graphics/action/150921-apple/item2.jpg);
+        width: 90px;
+    }
+    #apple .appleImage--3 {
+        background-image: url(//static.ozone.ru/graphics/action/150921-apple/item3.jpg);
+        width: 176px;
+    }
+    #apple .appleImage--4 {
+        background-image: url(//static.ozone.ru/graphics/action/150921-apple/item4.jpg);
+        width: 202px;
+    }
+    #apple .appleLinkAll {
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        color: #336891;
+        display: inline-block;
+        padding-top: 25px;
+        margin: 0 0.5014587892049599%;
+        text-decoration: underline;
+    }
+#apple .appleLinkAll:hover {
+    text-decoration: none;
+}
+</style>
+<script>
+    function change(dataAttribute, dataAttributeDescription, thisElem){
+        var classes = thisElem.className.split(' ');
+        if (classes.indexOf('pointActive') == -1 ){
+            var all = thisElem.parentElement.children;
+            for (var i = 0; i < all.length; i++ ){
+                all[i].className = classes[0];
+            }
+            thisElem.className += ' pointActive';
+        }
+        var attrData = thisElem.getAttribute(dataAttribute);
+        var detailElement = document.querySelectorAll('['+dataAttributeDescription+'="'+attrData+'"]');
+        var allDetailElements = document.querySelectorAll('['+dataAttributeDescription+']');
+        var classDetail = detailElement[0].className.split(' ');
+        if (classDetail.indexOf('listBlock') == -1 ){
+            if (attrData == 1) {
+                TweenMax.to(document.getElementsByClassName('heroesDescriptionContainer'), 0.5, {className: '+=heroesDescriptionContainer--small'});
+            }
+            else {
+                TweenMax.to(document.getElementsByClassName('heroesDescriptionContainer'), 0.5, {className: '-=heroesDescriptionContainer--small'});
+            }
+            TweenMax.to(allDetailElements, 0.5, {className: '-=listBlock'});
+            TweenMax.to(detailElement, 0.5, {className: '+=listBlock'});
+        }
+
+    }
+    function changeBottom(){
+        var classes = this.className.split(' ');
+        if (classes.indexOf('activeDetail') == -1 ){
+            var dataAttribute = this.getAttribute('data-detail-number');
+            var allItemsDetail = document.querySelectorAll('[data-detail-bottom]');
+            var itemDetail = document.querySelector('[data-detail-bottom="'+dataAttribute+'"]');
+            if ( dataAttribute == 1 ){
+                TweenMax.to(document.getElementsByClassName('heroesArrow'), 0.3, {left: '222px'});
+            }
+            else {
+                TweenMax.to(document.getElementsByClassName('heroesArrow'), 0.3, {left: '702px'});
+            }
+            TweenMax.to(allItemsDetail, 0.5, {className: '-=activBottomDetail'});
+            TweenMax.to(itemDetail, 0.5, {className: "+=activBottomDetail"});
+
+        }
+    }
+    function Slider(){
+        var slides = document.getElementsByClassName('heroesSlide');
+        var dataNumber = document.getElementsByClassName('activeSlide')[0].getAttribute('data-slide');
+
+        function rightSlide(){
+            var dataNumber = document.getElementsByClassName('activeSlide')[0].getAttribute('data-slide');
+            var nextData = undefined;
+            if ( dataNumber < slides.length - 1 ) {
+                nextData = +dataNumber + 1;
+            }
+            else {
+                nextData = 0;
+            }
+            var points = document.getElementsByClassName('sliderPointer');
+            for(var i = 0; i < points.length; i++){
+                points[i].className = points[i].className.split(' ')[0];
+            }
+            document.querySelectorAll('[data-number="'+nextData+'"]')[0].className += ' sliderPointer-active';
+            TweenMax.to(document.getElementsByClassName('heroesSlide'), 0.5, {className: '-=activeSlide'});
+            TweenMax.to(document.querySelector('[data-slide="'+nextData+'"]'), 0.5, {className: '+=activeSlide'});
+        }
+
+        function leftSlide(){
+            var dataNumber = document.getElementsByClassName('activeSlide')[0].getAttribute('data-slide');
+            var nextData = undefined;
+            if ( dataNumber > 0 ) {
+                nextData = +dataNumber - 1;
+            }
+            else {
+                nextData = slides.length -1;
+            }
+            var points = document.getElementsByClassName('sliderPointer');
+            for(var i = 0; i < points.length; i++){
+                points[i].className = points[i].className.split(' ')[0];
+            }
+            document.querySelectorAll('[data-number="'+nextData+'"]')[0].className += ' sliderPointer-active';
+            TweenMax.to(document.getElementsByClassName('heroesSlide'), 0.5, {className: '-=activeSlide'});
+            TweenMax.to(document.querySelector('[data-slide="'+nextData+'"]'), 0.5, {className: '+=activeSlide'});
+        }
+
+        function changePoint() {
+            var number = this.getAttribute('data-number');
+            var all = this.parentElement.children;
+            for (var i = 0; i < all.length; i++){
+                all[i].className = all[i].className.split(' ')[0];
+            }
+            this.className = this.className += ' sliderPointer-active';
+            TweenMax.to(document.getElementsByClassName('heroesSlide'), 0.5, {className: '-=activeSlide'});
+            TweenMax.to(document.querySelector('[data-slide="'+number+'"]'), 0.5, {className: '+=activeSlide'});
+
+        }
+
+        document.getElementsByClassName('heroesSlider__right')[0].addEventListener('click', rightSlide);
+        document.getElementsByClassName('heroesSlider__left')[0].addEventListener('click', leftSlide);
+
+        for (var i = 0; i < slides.length; i++ ){
+            var elem = document.createElement('div');
+            elem.setAttribute('class', 'sliderPointer');
+            elem.setAttribute('data-number', ''+i);
+            document.getElementsByClassName('heroesSlider__circles')[0].appendChild(elem);
+            elem.addEventListener('click', changePoint);
+        }
+        document.querySelector('[data-number="'+dataNumber+'"]').className += ' sliderPointer-active';
+        setInterval(rightSlide, 10000);
+    }
+    window.addEventListener('DOMContentLoaded', function(){
+        Slider();
+        var videoYouTube = document.createElement('iframe');
+        videoYouTube.className = 'heroesVideoFrame';
+        videoYouTube.setAttribute('width', '889');
+        videoYouTube.setAttribute('height', '500');
+        videoYouTube.setAttribute('src', 'https://www.youtube.com/embed/_9XcbCL97gY');
+        videoYouTube.setAttribute('frameborder', '0');
+
+        document.getElementsByClassName('heroesCircle__button')[0].addEventListener('click', function(){
+            var video  = document.getElementsByClassName('heroesVideo')[0];
+            video.appendChild(videoYouTube);
+            var classNames = video.className;
+            video.className = classNames + ' ' + 'heroesVideoBlock';
+        });
+
+        document.getElementsByClassName('heroesVideo__close')[0].addEventListener('click', function(){
+            var video = document.getElementsByClassName('heroesVideo')[0];
+            var classNames = video.className.split(' ');
+            var indexClass = classNames.indexOf('heroesVideoBlock');
+            if ( indexClass != -1 ) {
+                classNames.splice(indexClass);
+                video.className = classNames;
+                video.removeChild(videoYouTube);
+            }
+        });
+
+        document.getElementsByClassName('heroesButton')[0].addEventListener('mouseover', function(){
+            TweenMax.to(this, 0.3, {className: "+=heroesButton-active" });
+        });
+        document.getElementsByClassName('heroesButton')[0].addEventListener('mouseout', function(){
+            TweenMax.to(this, 0.2, {className: "-=heroesButton-active" });
+        });
+
+
+        for (var i =0; i < document.getElementsByClassName('heroesMenu__point').length; i++){
+            document.getElementsByClassName('heroesMenu__point')[i].addEventListener('click' ,function(){
+                var thisPoint = this;
+                change('data-point-number', 'data-description-number', thisPoint);
+            });
+        }
+
+        for (var j =0; j < document.getElementsByClassName('heroesProduct__detail').length; j++){
+            document.getElementsByClassName('heroesProduct__detail')[j].addEventListener('click', changeBottom);
+        }
+    });
+</script>
+<div id="apple" class="no-mobile">
+    <div class="appleLogo"></div>
+    <div class="heroesSlider">
+        <div class="heroesSlide heroesSlide--1 activeSlide" data-slide="0">
+            <div class="heroesSlideInner heroesSlideInner--1"></div>
+        </div>
+
+        <div class="heroesSlide heroesSlide--2" data-slide="1">
+            <div class="heroesSlideInner heroesSlideInner--2"></div>
+        </div>
+
+        <div class="heroesSlide heroesSlide--3" data-slide="2">
+            <div class="heroesSlideInner heroesSlideInner--3"></div>
+        </div>
+        <div class="heroesSlider__left"></div>
+        <div class="heroesSlider__right"></div>
+        <div class="heroesSlider__circles"></div>
+    </div>
+    <div class="appleMenuContainer">
+        <div class="appleMenu">
+            <a class="appleLink" href="/catalog/1133681/?brand=26303000">
+                <div class="appleImage appleImage--1"></div>
+            </a>
+            <a class="appleLink" href="/catalog/1133676/?brand=26303000">
+                <div class="appleImage appleImage--2"></div>
+            </a>
+            <a class="appleLink" href="/catalog/1178973/?brand=26303000">
+                <div class="appleImage appleImage--3"></div>
+            </a>
+            <a class="appleLink" href="/catalog/1168486/?brand=26303000">
+                <div class="appleImage appleImage--4"></div>
+            </a>
+            <a class="appleLinkAll" href="">Посмотреть все аксессуары для продуктов Apple</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

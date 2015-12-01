@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width"/>
+</head>
+<body>
+<style>
+    /* стили, которые сбрасывают отступы в мобильнйо зоне и в десктопной */
+    .detail_leftcell  {
+        width: auto!important
+    }
+    .pageContent .PageModule {
+        margin: 0;
+    }
+    .pageCenterNoLeft div.pageContent .PageModule {
+        margin: 0;
+    }
+    #eski-root .wrap {
+        padding: 0;
+    }
+    /* --------------------------------------------------------------------- */
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    #conditionsContainer {
+        min-width: 1000px;
+        margin: 0 auto;
+        padding-bottom: 20px;;
+    }
+    /* стили десктопной версии */
+    #conditionsContainer * {
+        padding: 0;
+        margin: 0;
+    }
+    #conditionsContainer .conditionsBackContainer {
+        background-color: #8c6b5c;
+        display: block;
+    }
+    #conditionsContainer .conditionsBackCenter {
+        position: relative;
+        height: 300px;
+        width: 1000px;
+        margin: 0 auto;
+    }
+    #conditionsContainer .conditionsButton--1 {
+        position: absolute;
+        width: 122px;
+        height: 35px;
+        bottom: 23px;
+        left: 133px;
+        display: block;
+    }
+    #conditionsContainer .conditionsButton--2 {
+        position: absolute;
+        width: 132px;
+        height: 35px;
+        bottom: 23px;
+        right: 100px;
+        display: block;
+    }
+    /* ---------------------------------- */
+    /* стили шагов */
+    #conditionsContainer .conditionsStepsContainer {
+        width: 1000px;
+        margin: 0 auto;
+    }
+    #conditionsContainer .conditionsSteps {
+        overflow: hidden;
+    }
+    #conditionsContainer .conditionsStep {
+        width: 33.33%;
+        float: left;
+        box-sizing: border-box;
+        padding-left: 25px;
+        font-family: Arial, sans-serif;
+        font-size: 15px;;
+    }
+    #conditionsContainer .conditionBubble {
+        width: 35px;
+        height: 35px;
+        float: left;
+        background-repeat: no-repeat;
+    }
+
+    #conditionsContainer .conditionBubble--1 {
+        background-image: url(//static.ozone.ru/graphics/subscribe/pl/conditions/bullet-1-yellow.jpg);
+    }
+    #conditionsContainer .conditionBubble--2 {
+        background-image: url(//static.ozone.ru/graphics/subscribe/pl/conditions/bullet-2-yellow.jpg);
+    }
+    #conditionsContainer .conditionBubble--3 {
+        background-image: url(//static.ozone.ru/graphics/subscribe/pl/conditions/bullet-3-yellow.jpg);
+    }
+    #conditionsContainer .conditionText {
+        margin-left: 45px;
+        display: block;
+        line-height: 1.3em;
+    }
+    #conditionsContainer .conditionText--1 {
+        width: 152px;
+    }
+    #conditionsContainer .conditionText--2 {
+        width: 176px;
+    }
+    #conditionsContainer .conditionText--3 {
+        width: 166px;
+    }
+    #conditionsContainer .conditionsName {
+        font-family: Arial, sans-serif;
+        font-size: 30px;
+        padding: 22px 0 22px 25px;
+    }
+    #conditionsContainer .conditionLink {
+        color: #0083ca;
+        text-decoration: underline;
+    }
+    #conditionsContainer .conditionLink:hover {
+        text-decoration: none;
+    }
+    #conditionsContainer .conditionLink {
+        color: #0083ca
+    }
+    /* кнопка снизу */
+    #conditionsContainer .buttonContainer {
+        text-align: center;
+        display: none;
+
+    }
+    #conditionsContainer .conditionsProduct__link {
+        padding: 0 15px;
+        height: 32px;
+        box-sizing: border-box;
+        display: inline-block;
+        font-size: 18px;
+        color: white;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        background-color: #00b9f2;
+        text-decoration: none;
+        font-family: Arial, sans-serif;
+    }
+    #conditionsContainer .conditionsProduct__link:after {
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+        content: ' ';
+        border: 5px solid transparent;
+        border-left: 5px solid #ffffff;
+        display: inline-block;
+    }
+    #conditionsContainer .conditionsProduct__link:before {
+        vertical-align: middle;
+        width: 0;
+        content: ' ';
+        color: white;
+        display: inline-block;
+        height: 100%;
+    }
+    #conditionsContainer .conditionsProduct__link:hover {
+        background-color: #0083ca;
+    }
+    /* ---- */
+    /* ----------------------------- */
+    /* картинки полное разрешение */
+    @media only screen and (min-width:  769px) {
+        #conditionsContainer .conditionsBackCenter {
+            background-image: url(//static.ozone.ru/graphics/subscribe/pl/151006-conditions-multi.jpg);
+        }
+    }
+
+    /* стили мобильные*/
+    @media only screen and (max-width: 768px) {
+        #conditionsContainer {
+            min-width: 320px;
+            overflow: hidden;
+        }
+        #conditionsContainer .conditionsBack {
+            height: 150px;
+            background-size: 100% 100%;
+        }
+        #conditionsContainer .conditionsBackCenter {
+            width: auto;
+            background-image: url(//static.ozone.ru/graphics/subscribe/pl/151006-conditions-multi-mobile.jpg);
+            background-size: auto 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            height: 200px;
+
+        }
+        #conditionsContainer .conditionsButton--1 {
+            background: none;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -162px;
+        }
+        #conditionsContainer .conditionsButton--2 {
+            background: none;
+            bottom: 10px;
+            left: 50%;
+            margin-left: 44px;
+            width: 114px;
+        }
+        #conditionsContainer .conditionsStepsContainer {
+            width: auto;
+            min-width: 320px;
+        }
+        #conditionsContainer .conditionsStep {
+            width: 100%;
+            float: none;
+            padding:  15px 10px 15px 10px;;
+            overflow: hidden;
+            }
+        #conditionsContainer .conditionsName {
+            font-size: 24px;
+            padding: 15px;
+        }
+        #conditionsContainer .conditionText {
+            font-size: 15px;
+        }
+        #conditionsContainer .conditionText {
+            width: auto;
+        }
+        #conditionsContainer .buttonContainer {
+            text-align: center;
+        }
+    }
+</style>
+<div id="conditionsContainer">
+    <div class="conditionsBackContainer">
+        <div class="conditionsBackCenter">
+            <a href="/brand/33316972/" class="conditionsButton--1"></a>
+            <a href="/brand/33316972/" class="conditionsButton--2"></a>
+        </div>
+    </div>
+    <div class="conditionsStepsContainer">
+        <p class="conditionsName">
+            Как получить скидку?
+        </p>
+        <div class="conditionsSteps">
+            <div class="conditionsStep conditionsStep--1">
+                <div class="conditionBubble conditionBubble--1"></div>
+                <span class="conditionText conditionText--1">
+                    <a class="conditionLink" href="/context/mycode/">Активируйте</a> кодовое слово "Помощник"
+                </span>
+            </div>
+            <div class="conditionsStep conditionsStep--2">
+                <div class="conditionBubble conditionBubble--2"></div>
+                <span class="conditionText conditionText--2">
+                    Получите скидку 20% на <a class="conditionLink" href="/context/detail/id/27490859/">робот-пылесос Xrobot</a> и <a class="conditionLink" href="/context/detail/id/30609621/"">мультиварку Steba</a>
+                </span>
+            </div>
+            <div class="conditionsStep conditionsStep--3">
+                <div class="conditionBubble conditionBubble--3"></div>
+                <span class="conditionText conditionText--3">Акция действует с 6 по 7 октября 2015 года</span>
+            </div>
+        </div>
+    </div>
+    <div class="buttonContainer">
+        <a href="http://www.ozon.ru/context/detail/id/32528914/?item=32546347" class="conditionsProduct__link">
+            Выбирайте
+        </a>
+    </div>
+</div>
+</body>
+</html>

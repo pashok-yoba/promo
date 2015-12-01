@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <meta charset="UTF-8">
+</head>
+<body>
+<style>
+#may-outer {
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+}
+/*footer */
+#may-outer .may-footer {
+    max-width: 1600px;
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/background-block.jpg);
+    background-size:  100%;
+    min-width: 960px;
+    height: 1019px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    position: relative;
+}
+#may-outer .may-footer-inner {
+    width: 100%;
+    height: 100%;
+    padding-top: 3.25%;
+    /*padding-left: 20.0625%;*/
+    box-sizing: border-box;
+}
+#may-outer .know-more {
+    width: 62.4512099921936%;
+    height: 16.65046535677353%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/know-more.png);
+    margin-left: 20.0625%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: relative;
+}
+#may-outer .text-more {
+    margin-left: 20.0625%;
+    font-family: Aria, sans-serif;
+    font-size: 20px;
+    padding-top: 3.033092037228542%;
+    width: 57.14285714285714%;
+}
+#may-outer .link-item {
+    margin-top: 4.033092037228542%;
+    width: 18.82825917252147%;
+    height: 26.37021716649431%;
+    display: inline-block;
+    /*margin-right: 2.73224043715847%;*/
+    background-size: 100%;
+}
+#may-outer .link-item:hover {
+    opacity: 0.85;
+}
+#may-outer .link-1 {
+    background-image: url(http://ozon.ru/graphics/action/150421-may/book-2.jpg);
+}
+#may-outer .link-2 {
+    background-image: url(http://ozon.ru/graphics/action/150421-may/music-2.jpg);
+}
+#may-outer .link-3 {
+    background-image: url(http://ozon.ru/graphics/action/150421-may/cinema-2.jpg);
+}
+#may-outer .link-4 {
+    background-image: url(http://ozon.ru/graphics/action/150421-may/antic-2.jpg);
+}
+/* **************** */
+/* center */
+#may-outer .may-center {
+    width:100%;
+    height: 1415px;
+    max-width: 1600px;
+    min-width: 960px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 7%;
+    box-sizing: border-box;
+}
+#may-outer .may-thanks {
+    background-image: url(http://ozon.ru/graphics/action/150421-may/thanks1.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 82.3125%;
+    height: 8.692579505300353%;
+    position: relative;
+    top: 2.826855123674912%;
+    left: 8.875%;
+}
+#may-outer .may-family {
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #7f7f7f;
+    text-align: center;
+    margin-top: 2.826855123674912%;
+    margin-bottom: 2.826855123674912%
+}
+#may-outer .may-foto {
+    margin: 0 auto;
+    height: 64.37314487632509%;
+}
+#may-outer .all-fotos {
+    text-align: justify;
+    list-style-type: none;
+    height: 100%;
+    padding:0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#may-outer .foto-item {
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    vertical-align: top;
+    color: #7f7f7f;
+    text-align: center;
+    margin-bottom: 2.747252747252747%;
+    padding: 0;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000;
+}
+#may-outer .item-hover:hover {
+    opacity: 0.85;
+    cursor: pointer;
+}
+#may-outer .foto-name {
+    padding-top: 8px;
+    display: inline-block;
+}
+#may-outer .item-1 {
+    width: 27.60416666666667%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-1 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-1.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-2 {
+    width: 11.5625%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-2 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-2.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-3 {
+    width: 12.70833333333333%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-3 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-3.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-4 {
+    width: 13.4375%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-4 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-41.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-5 {
+    width: 13.10833333333333%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-5 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-5.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-6 {
+    width: 11.875%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-6 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-6.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-7 {
+    width: 14.375%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-7 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-7.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-8 {
+    width: 13.125%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-8 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-8.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-9 {
+    width: 13.75%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-9 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-9.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-10 {
+    width: 13.54166666666667%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-10 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-10.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-11 {
+    width: 12.91666666666667%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-11 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-11.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-12 {
+    width: 14.14583333333333%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-12 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-12.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-13 {
+    width: 40%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-13-1 {
+    width: 35.98247422680412%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-13-1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 75%;
+    display: inline-block;
+}
+#may-outer .foto-image-13-2 {
+    width: 61.91752577319588%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-13.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 75%;
+    display: inline-block;
+}
+#may-outer .item-14 {
+    width: 14.6875%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-14 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-14.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-15 {
+    width: 28.125%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-15-1 {
+    display: inline-block;
+    width: 49%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-15.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .foto-image-15-2 {
+    display: inline-block;
+    width: 49%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-15-1.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-16 {
+    width: 14.14583333333333%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-16 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-16.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-17 {
+    width: 14.8125%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-17 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-17.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-18 {
+    width: 13.6375%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-18 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-18.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-19 {
+    width: 13.22916666666667%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-19 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-19.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-20 {
+    width: 13.22916666666667%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-20 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-20.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-21 {
+    width: 13.325%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-21 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-21.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-22 {
+    width: 14.33333333333333%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-22 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-22.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .item-23 {
+    width: 13.60416666666667%;
+    height: 21.97802197802198%;
+}
+#may-outer .foto-image-23 {
+    width: 100%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/item-23.jpg);
+    background-size: 100%;
+    height: 75%;
+}
+#may-outer .helper-justify {
+    width: 100%;
+    height:0;
+    display: inline-block;
+}
+/* ********************* */
+/* header */
+#may-outer .may-header {
+    background-color: #a93636;
+    position: relative;
+}
+#may-outer .may-header-inner {
+    min-width: 960px;
+    max-width: 1600px;
+    /*     width: 1600px;*/
+    /*  height: 593px;*/
+    margin: 0 auto;
+    position: relative;
+}
+#may-outer .may-left {
+    float: left;
+    width: 47.1875%;
+    padding-left: 9.0625%;
+    padding-top: 2.5%;
+    height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index:10;
+}
+#may-outer .may-date {
+    background-image: url(http://ozon.ru/graphics/action/150421-may/may-date-1.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width:99%;
+    height: 88.02177858439201%;
+}
+#may-outer .may-right {
+    float:right;
+    width: 34.375%;
+    padding-top: 2.5%;
+    padding-right: 11.625%;
+    box-sizing: border-box;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+}
+#may-outer .may-70 {
+    width: 86.81318681318681%;
+    height: 65.88021778584392%;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/may-70-1.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+#may-outer .may-text {
+    padding-top: 2.350813743218807%;
+    font-family: Arial, sans-serif;
+    font-size: 20px;
+    color: #c9c2c2;
+    line-height: 1.3em;
+    padding-left: 5%;
+}
+#may-outer .center {
+    position: absolute;
+    top:0;
+    left: 20%;
+    z-index:1;
+    height: 100%;
+    width: 66.6875%;
+    background-color: #a93636;
+}
+#may-outer .may-video {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+/*overflow */
+#may-outer .left-overflow {
+    position:absolute;
+    height: 100%;
+    width: 34%;
+    background: -moz-linear-gradient(to left, transparent 0%, #a93636 90%, #a93636 100%);
+    background: -webkit-linear-gradient(to left, transparent 0%, #a93636 90%, #a93636 100%);
+    background: -o-linear-linear-gradient(to left, transparent 0%, #a93636 90%, #a93636 100%);
+    background: -ms-linear-linear-gradient(to left, transparent 0%, #a93636 90%, #a93636 100%);/*For IE10*/
+    background: linear-gradient(to left, transparent 0%, #a93636 90%, #a93636 100%);
+    z-index: 5
+}
+#may-outer .right-overflow {
+    position:absolute;
+    height: 100%;
+    width: 25%;
+    background: -moz-linear-gradient(to right, transparent 0%, #a93636 70%, #a93636 100%);
+    background: -webkit-linear-gradient(to right, transparent 0%, #a93636 90%, #a93636 100%);
+    background: -o-linear-linear-gradient(to right, transparent 0%, #a93636 70%, #a93636 100%);
+    background: -ms-linear-linear-gradient(to right, transparent 0%, #a93636 70%, #a93636 100%);/*For IE10*/
+    background: linear-gradient(to right, transparent 0%, #a93636 70%, #a93636 100%);/*For IE10*/
+    right: -10px;
+    z-index: 5
+}
+/*about person */
+#may-outer .may-about {
+    padding-top: 6%;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255,255,255,0.5);
+    display: none;
+}
+#may-outer .may-close-helper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+#may-outer .may-about-inner {
+    position: relative;
+    box-sizing: border-box;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 6%;
+    width: 62.5%;
+    margin: 0 auto;
+    /* height: 77.5%;*/
+    border: 5px solid #e75353;
+    background-color: white;
+    min-width: 860px;
+    z-index: 2;
+}
+#may-outer .may-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 28px;
+    height: 28px;
+    background-image: url(http://ozon.ru/graphics/action/150421-may/close.png);
+    cursor: pointer;
+}
+#may-outer .may-about_left {
+    vertical-align: top;
+    width: 48%;
+    display: inline-block;
+    text-align: center;
+}
+#may-outer .may-about_right {
+    width: 50%;
+    display: inline-block;
+}
+#may-outer .name-about {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 36px;
+    color: #a95b5b;
+}
+#may-outer .name-person {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: #a95b5b;
+    padding-top: 5%;
+}
+#may-outer .person-about {
+    padding: 5% 0 5% 0;
+    font-family: Arial, sans-serif;
+    color: #5c5c5c;
+    font-size: 18px;
+    line-height: 1.4em;
+}
+#may-outer .person-image {
+    width: 80%;
+    display: inline-block;
+}
+#may-outer .img-video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+/*#may-outer .ie {
+    display: none;
+}*/
+#may-outer .center-no-play {
+    position: absolute;
+    height:100%;
+    width: 100%;
+    z-index: 10;
+    top:0;
+    left:0;
+    content: ' '
+}
+#may-outer .footer-items-all {
+    width: 86%;
+    margin: 0 auto;
+    height: 100%;
+    text-align: justify;
+}
+#may-outer .footer-items-all:after {
+    display: inline-block;
+    height: 0;
+    width: 100%;
+    content: ' ';
+}
+#may-outer .img-video-replay {
+    display: none
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    #may-outer .chrome {
+        display: none;
+    }
+    #may-outer .ie {
+        display: block;
+    }
+}
+</style>
+<!--[if IE 9]>
+<style type="text/css">
+    #may-outer .chrome {
+        display: none;
+    }
+    #may-outer .ie {
+        display: block;
+    }
+</style>
+<![endif]-->
+<!--[if lt IE 8]>
+<style type="text/css">
+    #may-outer .may-video {
+        display: none;
+    }
+    #may-outer .img-video {
+        display: block;
+    }
+</style>
+<![endif]-->
+<!--[if IE ]>
+<style type="text/css">
+    #may-outer .left-overflow {
+        background-image: url(http://ozon.ru/graphics/action/150421-may/left.png);
+        background-size: 100% 100%;
+    }
+    #may-outer .right-overflow {
+        background-image: url(http://ozon.ru/graphics/action/150421-may/right.png);
+        background-size: 100% 100%;
+    }
+</style>
+<![endif]-->
+<script>
+    var width;
+    var heightFooter;
+    var sizeFooter;
+    var heightCenter;
+    var marginTop;
+    var heightHeader;
+    var heightNew;
+    var heightOld;
+    var list = [];
+    list[1] = $('<div class="may-about person-item-1"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-1.jpg" ></div><div class="may-about_right"><div class="name-about">Беляков Михаил Михайлович (слева)</div><div class="name-person">участник Великой Отечественной войны – Младший лейтенант И.О. обязанности командира батареи</div><div class="person-about">1922 г.р.<br/>В РККА с июля 1941 года.<br/>место призыва - Козловский РВК , Калининская обл.<br/><br />И.О. обязанности командира батареи 699 истребительно-противотанкового артиллерийского полка 18 отдельной истребительно-противотанковой артиллерийской Двинской Краснознамённой бригады РГК.<br/><br/>Участие в Отечественной войне с февраля 1942 года - Северо-Западный , 1 , 4 Украинский фронт.<br/><br/>Ранен<br />- 01.01.44г.<br />- 13.04.44г.<br /><br />Награжден<br />- орденом - * Красной Звезды * - приказ по 3 Гв. А от 12.01.44 г.<br />- орденом - * Красного Знамени* - приказ по войскам 60 А от 21.05.45 г.</div><div class="name-about">Тесленко Анатолий Иванович (справа)</div><div class="name-person">участник Великой Отечественной войны – Лейтенант Командир огневого взвода</div><div class="person-about">1924 г.р.<br/>В РККА с декабря 1942 года.<br/>место призыва - Ленинский РВК , Сталинградской обл.<br/><br />Командир огневого взвода 295 артиллерийского полка 138 стрелковой Карпатской Краснознамённой дивизии 17 Гвардейского стрелкового Карпатского корпуса 4 Украинского фронта.<br/><br/>Участие в Отечественной  войне с 1942 года - на  2 и 4 Украинском фронте. <br/><br/>Ранен<br />- 02.02.45 г. в р-не Подтурень<br /><br />Награжден<br />- орденом - * Отечественной войны 2ст. * - приказ по 17 гв. стр. корп. от 25.03.45 г.<br />- орденом - * Красной Звезды * - приказ по 138 сд от 01.05.45 г.</div></div></div></div>');
+    list[2] = $('<div class="may-about person-item-2"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-2.jpg" ></div><div class="may-about_right"><div class="name-about">Бровкин Василий Яковлевич</div><div class="name-person">участник Великой Отечественной войны – старший лейтенант</div><div class="person-about">1922 г. рождения.<br/><br/>Место рождения: Горьковская обл., Тонкинский р-н, д. Чердаки.<br/><br/>Участие в войне начал с августа 1941 г. в звании ст. лейтенанта, в 64-ой отдельной Морской Краснознаменной стрелковой бригаде  20-ой армии, в должности фельдшера.<br />Прошел всю войну, участвовал в обороне г. Москвы,  в освобождении Польши и взятии Берлина.После чего участвовал в советско-японской войне.Закончил войну после капитуляции Японии в звании капитана.<br /><br />Боевые награды<br />Орден Красной Звезды, Орден Отечественной войны 2-ой степени, Медаль «За боевые заслуги», Медаль «За взятие Берлина», Медаль «За победу над Японией».</div></div></div></div>');
+    list[3] = $('<div class="may-about person-item-3"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-3.jpg" ></div><div class="may-about_right"><div class="name-about">Виктор Валентинович Веновский</div><div class="name-person">участник Великой Отечественной войны – военный летчик.</div><div class="person-about">За время войны совершил 341 боевой вылет. 151 раз летал за линию фронта и доставлял боеприпасы партизанам. Вывез более 80 раненых.<br/><br/>Выполнял боевое задание: доставлял в тыл врага  продукты и боеприпасы для партизанских отрядов. При возвращении на базу принял воздушный бой с двумя самолетами противника.<br/><br/>Был подбит, катапультировался и добрался до партизан.  От имени Президиума Верховного Совета был награжден первым Орденом Красной Звезды и тремя днями отпуска.<br/><br/>Принял участие в Курской битве. За участие в  этой битве был награжден вторым Орденом  Красной Звезды.<br/><br/>Участвовал в боях при обороне Москвы, освобождении Праги и взятии Берлина, за что был награжден медалями.</div></div></div></div>');
+    list[4] = $('<div class="may-about person-item-4"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-4.jpg" ></div><div class="may-about_right"><div class="name-about">Волков Максим Афанасьевич</div><div class="name-person">участник Великой Отечественной войны – Командир  взвода 110 Стрелкового Полка.</div><div class="person-about">1914 г. рождения.<br/><br/>С 22 июня 1941 года участвовал в боевых действиях в составе Северо-Западного и Калининского фронта.<br/><br/>В 1941 был контужен.<br /><br />Награжден орденом «Красная звезда», а также медалью за «Боевые заслуги»</div></div></div></div>');
+    list[5] = $('<div class="may-about person-item-5"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-5.jpg" ></div><div class="may-about_right"><div class="name-about">Гоголев Иван Петрович (слева)</div><div class="name-person">участник Великой Отечественной войны</div><div class="person-about">1923 г. рождения.<br/><br/>Участвовал в боях с лета 1942 года на Кубани, был пулеметчиком.<br/>Во время летне-осеннего 1942 г. наступления немецких войск на Сталинград и Кавказ попал в плен. Был в лагере военнопленных на территории Кубани.<br />С началом наступления советских войск в 1943 году был департирован  на территорию Франции.<br />С августа  1944 г. воевал в рядах  Французского Сопротивления.</div></div></div></div>');
+    list[6] = $('<div class="may-about person-item-6"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-6.jpg" ></div><div class="may-about_right"><div class="name-about">Гомозов Иван Матвеевич</div><div class="name-person">участник Великой Отечественной войны</div><div class="person-about">Родился 22 июня 1924 года в деревне Ветролом, Хомутинского района.<br/><br/>Был призван на фронт весной 1942 года, в возрасте 17 лет, рядовым.<br/>Под Москвой проходил обучение на сапера в течение 2-х месяцев. Далее был распределён в секретные части разведчиков для разминирования дорог.<br />Служил до 1949 года. Была получена контузия от разорвавшегося снаряда. Прошёл войну от Москвы до Берлина, за что был награжден орденами имедалями.</div></div></div></div>');
+    list[7] = $('<div class="may-about person-item-7"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-7.jpg" ></div><div class="may-about_right"><div class="name-about">Никандр Иванович Гурьев</div><div class="name-person">участник Великой Отечественной войны - Командир разведроты. Капитан.</div><div class="person-about">Призвался в 1941 году Кунцевским РКК.<br/><br/>Был призван на фронт весной 1942 года, в возрасте 17 лет, рядовым.<br/>Прошел почти всю войну. Погиб в Кенигсберге в 1945 году. Командир разведроты. Капитан.</div></div></div></div>');
+    list[8] = $('<div class="may-about person-item-8"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-8.jpg" ></div><div class="may-about_right"><div class="name-about">Ефимов Алексей Ефимович</div><div class="name-person">участник Великой Отечественной войны</div><div class="person-about">Родился в 1911 году<br/><br/>С юных лет был комсомольским лидером.<br/>В 1939 году был призван на курсы Красных командиров, попал на Дальний Восток. Участвовал в сражениях с японцами на Халкин-Голе, на озере Хасан.<br />В 1942 году был переброшен на Западный фронт, где служил замполитом на «Катюше».<br />Победу в 1945 году встретил на территории Румынии и продолжал службу там до 1946 года.<br />Был награжден двумя орденами Отечественной Войны.<br /></div></div></div></div>');
+    list[9] = $('<div class="may-about person-item-9"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-9.jpg" ></div><div class="may-about_right"><div class="name-about">Борис Семенович Карпенко</div><div class="name-person">участник Великой Отечественной войны</div><div class="person-about">Родился 8 апреля 1925 г<br/><br/>Войну встретил на территории Харьковской области, село Глодоссы.<br /><br/>В первые годы войны, будучи еще подростком, попал к немцам и находился в фашистском концлагере в 1941-42 г.г., предположительно на территорииоккупированной фашистами Белорусии, откуда чудом смог сбежать с товарищем.<br/><br />Фронтовую историю отца можно более-менее отследить только с 1943 года. Видимо ему удалось каким-то образом бежать из плена, но рассказывать при жизни никому об этом было нельзя.Отец умер в 1987 году, про плен и концлагерь родственники узнали только в 2012 году.<br />Службу в рядах Советской Армии начал в 1943 году. Дошел до Чехословакии. На границе с Германией возле реки Одер получил боевое ранение. Был госпитализирован. Победу встретил в госпитале.<br /><br />Нагржден шестью боевыми медалями и Орденом Отечественной войны.</div></div></div></div>');
+    list[11] = $('<div class="may-about person-item-11"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-11.jpg" ></div><div class="may-about_right"><div class="name-about">Мелентьев Александр Прокопьевич</div><div class="name-person">участник Великой Отечественной войны - Подполковник гвардейского ударно-штурмового полка</div><div class="person-about">25.07.1920-03.06.1945<br/><br/>С юных лет был комсомольским лидером.<br/>Подполковник гвардейского ударно-штурмового полка. Участник операции по освобождению Молдавии 1944 года, а также  Ясско-Кишеневской операции<br />Участник похода советских войск в Западную Белоруссию 1939 года, советско-финляндской войны 1939-40 годов.<br /></div></div></div></div>');
+    list[12] = $('<div class="may-about person-item-12"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-12.jpg" ></div><div class="may-about_right"><div class="name-about">Николай Васильевич Морозов</div><div class="name-person">участник Великой Отечественной войны</div><div class="person-about">Морозов Николай Васильевич родился в 1903 в деревне Голиково, недалеко от г. Химки.<br/><br/>На войну ушел добровольцем в 1941 г., служил в 4 Стрелковом полку. Последнее письмо, которое он написал своей жене, датируется 13 февраля 1942 г. В нем он пишет:”Милая Маня, не скучай, не тужи обо мне. Скоро вернусь с победой”. Но уже 8 марта того же года он погиб, проявив мужество и героизм, в боях недалеко от г.Ржев. <br/><br />Похоронен в деревне Черносы Тверской области, в братской могиле.<br /></div></div></div></div>');
+    list[13] = $('<div class="may-about person-item-13"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-13-1.jpg" ><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-13.jpg" ></div><div class="may-about_right"><div class="name-about">Валентин и Людмила Новиковы</div><div class="person-about">Людмила Новикова, прошла всю войну с 1941 по 1945гг. Была радисткой.  Их 375-й Отдельный радиодивизион, засылался в тыл врага, откуда они вели радио информирование о местоположении вражеских войск.<br/><br/>Валентин Новиков, так же прошел все войну и так же служил в ОРД. <br/><br /></div></div></div></div>');
+    list[14] = $('<div class="may-about person-item-14"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-14.jpg" ></div><div class="may-about_right"><div class="name-about">Пигида Павел Иванович</div><div class="name-person">участник Великой Отечественной войны - Подполковник, танкист</div><div class="person-about">09.01.1914 - 21.09.2003<br/><br/>Ушел на войну в 1941 году, приписав себе лишний год, чтобы точно вязли. Прошел всю войну, воевал на I Украинском фронте и на II Белорусском.<br/><br />В бою получил тяжелое ранение, во время победного крика «Ура!» пуля попала ему в рот и вылетела через ухо. После восстановительного лечения снова вернулся в  боевые ряды. Последствием ранения стало постепенное ухудшение слуха и полная его потеря к концу жизни. <br/><br />Являлся участником парада Победы на Красной площади в Москве в июне 1945 года. После окончания ВОВ преподавал в Высшей Школе КГБ СССР. Первой наградой деда был Орден за отвагу.<br/><br /></div></div></div></div>');
+    list[15] = $('<div class="may-about person-item-13"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-15.jpg" ><img style="margin-top: 340px;" class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-15-1.jpg" ></div><div class="may-about_right"><div class="name-about">Писцов Александр Григорьевич</div><div class="name-person">участник Великой Отечественной войны - подполковник</div><div class="person-about">15.03.1919 г. – 09.12.1980 г.<br/><br/>В 1941 г.  окончил техникум механизации и был призван в ряды армии на офицерские артиллерийские курсы.<br/>После окончания курсов, в июле 1942 г. воевал на Сталинградском фронте в звании лейтенанта, в должности командира батареи. Был ранен  в середине 1943 г.<br />Воевал  в 1943 г. на Северо-Западном фронте, а с 1944 г. на 4-м Украинском фронте  и 2-ом Прибалтийском Фронте.<br />Окончил войну в звании капитана, в должности начальника штаба 3-го дивизиона 196-й Тяжелой  Гаубично-Артиллерийской бригады, 28-й Артиллерийской дивизии прорыва РГК (резерва верховного главнокомандования). Дивизион участвовал в ликвидации Курляндской группировки.<br /><br />Награжден:<br />медалью "за оборону Сталинграда",<br />орденом "Отечественной войны" 2-й степени,<br />орденом  "Красной Звезды"</div><div class="name-about">Писцова (Сенькина) Евдокия Борисовна</div><div class="name-person">участница Великой Отечественной войны</div><div class="person-about">20.08.1923 г. – 27.03.2003 г.<br/><br/>В июне 1942 г. была призвана в армию, служила телеграфисткой в  4-ом дивизионе Зенитной Артиллерии в 183-ем Краснознаменном Полку.<br/>Полк защищал важный стратегический узел - мост через Дон у железнодорожной станции Лиски. <br />Затем была переведена в штаб дивизии  радиотелеграфисткой, окончание войны встретила под Одессой.<br />Дважды поощрялась отпуском домой.  Это было лучшей наградой для нее во время войны.<br /></div></div></div></div>');
+    list[17] = $('<div class="may-about person-item-17"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-17.jpg" ></div><div class="may-about_right"><div class="name-about">Михаил Никитич Хлопов</div><div class="name-person">участник Великой Отечественной войны</div><div class="person-about">Герой Советского Союза Михаил Никитич Хлопов, участник одной из крупнейших операций, котораяпобедоносно завершилась под Сталинградом 2 февраля 1943. 200 суток шло кровопролитное сражение.<br /><br />Разгром гитлеровцев у стен волжской твердыни создал коренной перелом в ходе войныс фашистской Германией.<br /></div></div></div></div>');
+    list[20] = $('<div class="may-about person-item-20"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-20.jpg" ></div><div class="may-about_right"><div class="name-about">Ходаков Владимир Евдокимович</div><div class="name-person">участник Великой Отечественной войны</div><div class="person-about">1902-1989<br/><br/>Прошел всю войну. Окончил войну подполковником. Боевые награды: Орден Боевого Красного Знамени, Орден Красной Звезды, Орден Великой Отечественной войны 1-ой степени и 2-ой степени, 4 боевые медали, одна боевая медаль за победу над Германией. <br/><br />До войны с семьей жил в городе Ачинске, Красноярский край. С началом войны был отправлен в Белоруссию, далее в Польшу и Чехословакию, дошел до Берлина. После войны продолжал военную службу и еще 2 года жил в Болгарии, Румынии. <br/><br />Одно ранение</div></div></div></div>');
+    list[21] = $('<div class="may-about person-item-21"><div class="may-close-helper"></div><div class="may-about-inner"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-21.jpg" ></div><div class="may-about_right"><div class="name-about">Хрусталев Сергей Захарович</div><div class="name-person">участник Великой Отечественной войны</div><div class="person-about">Родился в 1909 г. под Можайском.      <br />В годы ВОВ служил в войсках ПВО, защищая небо над Москвой от ударов немецкой авиации.  <br /></div></div></div></div>');
+    list[22] = $('<div class="may-about person-item-22"><div class="may-close-helper"></div><div class="may-about-inner" style="padding-bottom: 10px"><div class="may-close"></div><div class="may-about_left"><img class="person-image" src="http://ozon.ru/graphics/action/150421-may/item-22.jpg" ></div><div class="may-about_right"><div class="name-about">Цыба Павел Григорьевич </div><div class="name-person">участник Великой Отечественной войны</div><div class="person-about">1923-2002<br/><br/>Родился 21 декабря 1923 года в селе Луганское Енакиевского р-на Донецкой области в семье крестьянина-бедняка. Родители-Григорий Евтеевич и Акулина Оверьяновна до 1929 года занимались крестьянским трудом,а в 1929 г переехали на ж/д станцию Дебальцево, где отец стал работать на железной дороге.<br /> <br />В 1932 году пошел в школу и в 1939 году закончил 7-летку.В этом же году поступил в Судостроительный техникум в г. Севастополь, где и встретил начало  войны.<br />  <br />В ноябре 1941 года вместе с техникумом был эвакуирован в Астрахань, а в июне 1942 года бы призван в ряды Красной Армии, в Сталинградскую область, в воздушно-десантный полк, где в учебном батальоне  проучился до сентября 1942 года, получив после окончания воинское звание младший лейтенант.<br />    <br />В декабре 1942 гожа в составе 19-го воздушно-десантного полка был зачислен в 120 мм минометную батарею командиром отделения. В феврале 1943 года в составе полка на Северо-Западном фронте принял участие в ликвидации Демянской группировки немцев. В сентябре 1943 года П.Г был назначен комсоргом 3-го батальона 19- го ВДГСП, а сама дивизия была переведена на Степной фронт, и уже 1 октября Павел Григорьевич участвовал в форсировании Днепра восточнее г.Кременчуга у деревни Мишурин Рог.<br /> <br />5 октября 1943 года Павел Григорьевич был тяжело ранен в правую руку. После излечения направлен на 3-й Украинский фронт в 32-й стрелковый полк 19-й стрелковой дивизии 57-й армии.<br />   <br />В августе 1944 года участвовал в боях южнее г.Бендеры. В ноябре при форсировании реки Дунай   получил второе ранение в руку и после излечения вернулся в свою часть, где и воевал  до самого конца войны.<br />  <br />Участвовал в боях  за освобождение Болгарии, Венгрии, Румынии, Югославии, Чехословакии, а закончил войну в Австрии.<br/>  <br />Награжден тремя орденами Великой Отечественной войны, медалями «За отвагу» и «За боевые заслуги», «За победу над  Германией», отмечен специальным благодарностями командования. Кстати, один из орденов нашел Павел Григорьевич только через 20 лет после войны в 1965 году.<br />  <br />После окончания ВОВ Павел Григорьевич  прослужил в рядах Вооруженных сил Советского Союза до конца 1956 года. Сразу после войны в 1945-1948 гг. участвовал в ликвидации вооруженных банд местных фашистских националистов в Прибалтике (т.н. «лесные братья»), а так же в боях с бандеровскими бандами в Западной Украине.<br />        <br />После демобилизации окончил  МЭИ, и работал в Институте Физической Химии Академии наук СССР вплоть до выхода на пенсию. Имеет ряд рационализаторских предложений и свидетельств об изобретениях в сфере, связанной с ядерным потенциалом страны. Награжден 2-мя медалями ВДНХ.</div></div></div></div>');
+    var iframe = $('<iframe id="player" class="may-video ie"  src="https://www.youtube.com/embed/oc3NLaVtrss?enablejsapi=1&wmode=transparent&autoplay=1&showinfo=0&controls=0&playlist=oc3NLaVtrss" frameborder="0" allowfullscreen></iframe>');
+    var iframeIe = $('<iframe class="may-video ie"  src="https://www.youtube.com/embed/oc3NLaVtrss?enablejsapi=1&wmode=transparent&autoplay=1&showinfo=0&controls=0&loop=1&playlist=oc3NLaVtrss" frameborder="0" allowfullscreen></iframe>');
+    function footerSize(){
+        width = $('.may-footer').width();
+        heightFooter = 0.636875 * width;
+        sizeFooter = width/1600 * 20;
+        heightCenter = 1.473958333333333 * width;
+        marginTop = -0.32 * width ;
+        heightHeader = 0.370625 * width;
+        $('.may-footer').css({'height': heightFooter+'px', 'margin-top': marginTop+'px'});
+        $('.text-more').css({'font-size': sizeFooter+'px'});
+        $('.may-center').css({'height': heightCenter+'px'});
+        $('.may-header-inner').css({'height': heightHeader+'px'});
+        $('.may-text').css({'font-size': sizeFooter+'px'});
+    }
+    var player;
+    function onYouTubeIframeAPIReady() {
+        player = new YT.Player( 'player', {
+            events: { 'onStateChange': onPlayerStateChange }
+        });
+    }
+    function onPlayerStateChange(event) {
+        console.log(event.data);
+        switch(event.data) {
+            case 0:
+                    $('.img-video-replay').css({'display': 'block'});
+                    $('#player').css({'display': 'none'});
+                    $('.center-no-play').click(function(){
+                        player.playVideo();
+                        $('#player').css({'display': 'block'})
+                    });
+                break;
+            case 1:
+               $('.center-no-play').unbind('click');
+                break;
+        }
+    }
+    $(function(){
+        if ( !($('html').hasClass('mobile')) ){
+            if ($('html').hasClass('ie_lt10') | $('html').hasClass('ie_lt9') | $('html').hasClass('ie_lt8')) {
+                $('.center').append(iframeIe);
+            }
+            else {
+                $('.may-video ').css({'display': 'none'});
+                $('.center').append(iframe);
+            }
+        }
+        footerSize();
+        $(window).resize(function(){
+            footerSize();
+        });
+        $('.item-hover').on('click', function(){
+            var height = $(this).position().top;
+            var number = $(this).attr('class').split(' ')[2];
+            var numberItem = number.split('item-')[1];
+            console.log(numberItem);
+            var item = list[numberItem];
+            item.appendTo('.may-center');
+            var f = item.find('.may-about-inner');
+            heightOld = $('#may-outer').outerHeight();
+            f.css({'top': height+'px'});
+            item.fadeIn(0);
+            heightNew = $('.may-header').outerHeight() + height + f.outerHeight() + 200;
+            if (heightNew > heightOld) {
+                $('#may-outer').css({'height': heightNew + 'px'});
+            }
+            event.cancelBubble = true;
+            event.stopPropagation();
+        });
+        $('.may-about-inner').on('click', function(){
+            event.cancelBubble = true;
+            event.stopPropagation();
+        });
+        $('.may-close').on('click', function(){
+            $('.may-about').fadeOut(0).remove();
+            $('#may-outer').css({'height': 'auto'});
+        });
+        $('body').on('click', function(){
+            $('.may-about').fadeOut(0).remove();
+            $('#may-outer').css({'height': 'auto'});
+        });
+    })
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<div id="may-outer">
+    <div class="may-header">
+        <div class="may-header-inner">
+            <div class="may-left">
+                <div class="may-date"></div>
+            </div>
+            <div class="may-right">
+                <div class="may-70"></div>
+                <div class="may-text">С гордостью за предков и страну.  Проект «70 лет великой Победы» как дань
+                    памяти великому подвигу каждого участника событий. Помним, гордимся, благодарим!</div>
+            </div>
+            <div class="center">
+                <div class="left-overflow"></div>
+                <div class="right-overflow"></div>
+                <img class="img-video" src="http://ozon.ru/graphics/action/150421-may/page_alt_img1.jpg"/>
+                <img class="img-video img-video-replay" src="http://ozon.ru/graphics/action/150421-may/page_alt_img1.jpg"/>
+            </div>
+        </div>
+        <div class="center-no-play"></div>
+    </div>
+    <div class="may-center">
+        <div class="may-thanks"></div>
+        <div class="may-family">Из семейных архивов сотрудников Ozon.ru</div>
+        <div class="may-foto">
+            <ul class="all-fotos">
+                <li class="foto-item item-hover item-1">
+                    <div class="foto-image-1"></div>
+                    <span class="foto-name">
+                        <span style="display: inline-block; width: 48%">Михаил Михайлович Беляков</span>
+                        <span style="display: inline-block; width: 50%">Анатолий Иванович  Тесленко</span></span>
+                </li>
+                <li class="foto-item item-hover item-2">
+                    <div class="foto-image-2"></div>
+                    <span class="foto-name">Василий Яковлевич Бровкин</span>
+                </li>
+                <li class="foto-item item-hover item-3">
+                    <div class="foto-image-3"></div>
+                    <span class="foto-name">Виктор Валентинович Веновский</span>
+                </li>
+                <li class="foto-item item-hover item-4">
+                    <div class="foto-image-4"></div>
+                    <span class="foto-name">Максим Афанасьевич Волков</span>
+                </li>
+                <li class="foto-item item-hover item-5">
+                    <div class="foto-image-5"></div>
+                    <span class="foto-name">Иван Петрович Гоголев </span>
+                </li>
+                <li class="foto-item item-hover item-6">
+                    <div class="foto-image-6"></div>
+                    <span class="foto-name">Иван Матвеевич Гомозов</span>
+                </li>
+                <li class="foto-item item-hover item-7">
+                    <div class="foto-image-7"></div>
+                    <span class="foto-name">Никандр Иванович Гурьев</span>
+                </li>
+                <li class="foto-item item-hover item-8">
+                    <div class="foto-image-8"></div>
+                    <span class="foto-name">Алексей Ефимович Ефимов</span>
+                </li>
+                <li class="foto-item item-hover item-9">
+                    <div class="foto-image-9"></div>
+                    <span class="foto-name">Борис Семенович Карпенко</span>
+                </li>
+                <li class="foto-item item-10">
+                    <div class="foto-image-10"></div>
+                    <span class="foto-name">Николай Михайлович Коршунов</span>
+                </li>
+                <li class="foto-item item-hover item-11">
+                    <div class="foto-image-11"></div>
+                    <span class="foto-name">Александр Прокопьевич Мелентьев</span>
+                </li>
+                <li class="foto-item item-hover item-12">
+                    <div class="foto-image-12"></div>
+                    <span class="foto-name">Николай Васильевич Морозов</span>
+                </li>
+                <li class="foto-item item-hover item-13">
+                    <div class="foto-image-13-1"></div>
+                    <div class="foto-image-13-2"></div>
+                    <span class="foto-name">Валентин<br /> и Людмила Новиковы</span>
+                </li>
+                <li class="foto-item item-hover item-14">
+                    <div class="foto-image-14"></div>
+                    <span class="foto-name">Павел Иванович Пигида </span>
+                </li>
+                <li class="foto-item item-hover item-15">
+                    <div class="foto-image-15-1"></div>
+                    <div class="foto-image-15-2"></div>
+                    <span class="foto-name">Александр Григорьевич<br />и Евдокия Борисовна<br />Писцовы</span>
+                </li>
+                <li class="foto-item item-16">
+                    <div class="foto-image-16"></div>
+                    <span class="foto-name">Данилов</span>
+                </li>
+                <li class="foto-item item-hover item-17">
+                    <div class="foto-image-17"></div>
+                    <span class="foto-name">Михаил Никитич Хлопов</span>
+                </li>
+                <li class="foto-item item-18">
+                    <div class="foto-image-18"></div>
+                    <span class="foto-name">Иван Сергеевич Флоренский</span>
+                </li>
+                <li class="foto-item item-19">
+                    <div class="foto-image-19"></div>
+                    <span class="foto-name">Виталий Иванович Флоренский</span>
+                </li>
+                <li class="foto-item item-hover item-20">
+                    <div class="foto-image-20"></div>
+                    <span class="foto-name">Владимир Евдокимович Ходаков</span>
+                </li>
+                <li class="foto-item item-hover item-21">
+                    <div class="foto-image-21"></div>
+                    <span class="foto-name">Сергей Захарович Хрусталев</span>
+                </li>
+                <li class="foto-item item-hover item-22">
+                    <div class="foto-image-22"></div>
+                    <span class="foto-name">Павел Григоьевич Цыба </span>
+                </li>
+                <li class="foto-item item-23">
+                    <div class="foto-image-23"></div>
+                    <span class="foto-name">Михаил Фёдорович Шпак</span>
+                </li>
+                <li class="helper-justify"></li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="may-footer">
+        <div class="may-footer-inner">
+            <div class="know-more"></div>
+            <div class="text-more">
+                Было тяжело. Было страшно. Но мужество героев сильнее врага.
+                Узнайте подробности пути к победе из книг, которые написаны кровью и потом солдат.
+            </div>
+            <div class="text-more">
+                На войне как на войне, но было место и музыке, и кино, и веселью.
+                А как иначе? Давайте вместе посмотрим и послушаем, чем вдохновлялись герои. Слава подвигу!
+            </div>
+            <div class="footer-items-all">
+                <a class="link-item link-1" href="/catalog/1132527/?marketingcode=109&sort=bests"></a>
+                <a class="link-item link-2" href="/catalog/1142847/?marketingcode=109"></a>
+                <a class="link-item link-3" href="/catalog/1133455/?marketingcode=109"></a>
+                <a class="link-item link-4" href="/context/catalog/id/1177113/"></a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

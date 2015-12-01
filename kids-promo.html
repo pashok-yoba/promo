@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+<style>
+    #promo *{
+        padding: 0;
+        margin: 0
+    }
+    #promo .promo-header {
+        background-color: #ffa000;
+        width: 100%
+    }
+    #promo .promo-header-inner {
+        position: relative;
+        width: 960px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 14px 0 20px 20px;
+    }
+    #promo .square-header {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: #ffa000;
+        bottom: -15px;
+        right: 150px;
+    }
+    #promo .square-header:after {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: #ffa000;
+        right: -100px;
+        content: ' ';
+    }
+    #promo .promo-wrapper {
+        background-image: url(http://www.ozon.ru/graphics/action/150205-kids-promo/bg.gif);
+        background-repeat: repeat;
+    }
+    #promo .promo-wrapper-inner {
+        position: relative;
+        width: 960px;
+        margin: 0 auto;
+        overflow: hidden;
+        padding-bottom: 50px;
+    }
+    #promo .children-image {
+        position: relative;
+        margin-bottom: -18px;
+        z-index: 2;
+    }
+    #promo .girl-menu {
+        width: 450px;
+        overflow: hidden;
+        float: left;
+    }
+    #promo .promo-list {
+        list-style-type: none;
+    }
+    #promo .items {
+        float: left;
+        position: relative;
+        text-align: center;
+        cursor: pointer;
+    }
+    #promo .helper {
+        display: inline-block;
+        vertical-align: middle;
+        width:0;
+        height: 100%;
+        content: ' ';
+    }
+    #promo .link-image {
+        vertical-align: middle;
+        display: inline-block;
+        box-sizing: border-box;
+    }
+    #promo .girl-babies, #promo .girl-figure, #promo .girl-creation, #promo .girl-set {
+        width: 150px;
+        height: 82px;
+    }
+    #promo .girl-constructor {
+        width: 300px;
+        height: 82px;
+        background-color: #ff4338;
+    }
+    #promo .girl-babies {
+        background-color: #00b9f2;
+    }
+    #promo .girl-figure {
+        background-color: #aa4d9d;
+    }
+    #promo .girl-creation {
+        background-color: #ffa000;
+    }
+    #promo .girl-set {
+        background-color: #85bf00;
+    }
+    #promo .girl-babies_square {
+        position: absolute;
+        background-color: #00b9f2;
+        width: 15px;
+        height: 15px;
+        top: 15px;
+        right: -15px;
+        z-index: 2;
+    }
+    #promo .girl-babies_square:after{
+        display: block;
+        content: ' ';
+        bottom: -37px;
+        background-color: #00b9f2;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+    }
+    #promo .girl-figure_square {
+        position: absolute;
+        background-color: #aa4d9d;
+        width: 15px;
+        height: 15px;
+        bottom: -15px;
+        right: 68px;
+        z-index: 2;
+    }
+    #promo .girl-set_square {
+        position: absolute;
+        background-color: #85bf00;
+        width: 15px;
+        height: 15px;
+        top: -15px;
+        right: 20px;
+        z-index: 2;
+    }
+    #promo .girl-set_square:after{
+        display: block;
+        content: ' ';
+        right: 90px;
+        background-color: #85bf00;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+    }
+    #promo .girl-set_square:before{
+        display: block;
+        content: ' ';
+        right: -35px;
+        top: 50px;
+        background-color: #85bf00;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+    }
+    #promo .girl-constructor_square {
+        position: absolute;
+        background-color: #ff4338;
+        width: 15px;
+        height: 15px;
+        top: -15px;
+        right: 20px;
+        z-index: 2;
+    }
+    #promo .girl-constructor_square:after{
+        display: block;
+        content: ' ';
+        right: 90px;
+        background-color: #ff4338;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+    }
+
+    #promo .boy-menu {
+        width: 450px;
+        overflow: hidden;
+        float: right;
+    }
+    #promo .boy-car, #promo .boy-figure, #promo .boy-hobby, #promo .boy-set {
+             width: 150px;
+             height: 82px;
+    }
+    #promo .boy-constructor {
+        width: 300px;
+        height: 82px;
+        background-color: #00b9f2;
+    }
+    #promo .boy-car {
+        background-color: #ff4338;
+    }
+    #promo .boy-figure {
+        background-color: #ffa000;
+    }
+    #promo .boy-hobby {
+        background-color: #85bf00;
+    }
+    #promo .boy-set {
+        background-color: #aa4d9d;
+    }
+    #promo .boy-car_square {
+        position: absolute;
+        background-color: #ff4338;
+        width: 15px;
+        height: 15px;
+        top: 15px;
+        right: -15px;
+        z-index: 2;
+    }
+    #promo .boy-car_square:after{
+        display: block;
+        content: ' ';
+        bottom: -37px;
+        background-color: #ff4338;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+    }
+    #promo .boy-figure_square {
+        position: absolute;
+        background-color: #ff9f00;
+        width: 15px;
+        height: 15px;
+        bottom: -15px;
+        right: 68px;
+        z-index: 2;
+    }
+    #promo .boy-set_square {
+        position: absolute;
+        background-color: #aa4d9d;
+        width: 15px;
+        height: 15px;
+        top: -15px;
+        right: 20px;
+        z-index: 2;
+    }
+    #promo .boy-set_square:after{
+        display: block;
+        content: ' ';
+        right: 90px;
+        background-color: #aa4d9d;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+    }
+    #promo .boy-set_square:before{
+        display: block;
+        content: ' ';
+        right: -35px;
+        top: 50px;
+        background-color: #aa4d9d;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+    }
+    #promo .boy-constructor_square {
+        position: absolute;
+        background-color: #00b9f2;
+        width: 15px;
+        height: 15px;
+        top: -15px;
+        right: 20px;
+        z-index: 2;
+    }
+    #promo .boy-constructor_square:after{
+        display: block;
+        content: ' ';
+        right: 90px;
+        background-color: #00b9f2;
+        width: 15px;
+        height: 15px;
+        position: absolute;
+    }
+    #promo .promo-logos {
+        position: absolute;
+        top: 10px;
+        left: 231px;
+        width: 478px;
+        height:403px;
+        overflow: hidden;
+}
+    #promo .promo-logos-inner {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        z-index: 2;
+}
+/* logos boys */
+    #promo .constructor-logos-1 {
+    position: absolute;
+    top: 45px;
+    left: 223px;
+}
+    #promo .constructor-logos-2 {
+    position: absolute;
+    top: 127px;
+    left: 152px;
+}
+    #promo .constructor-logos-3 {
+    position: absolute;
+    top: 139px;
+    left: 48px;
+}
+    #promo .constructor-logos-4 {
+    position: absolute;
+    top: 127px;
+    left: 269px;
+}
+    #promo .constructor-logos-5 {
+    position: absolute;
+    top: 222px;
+    left: 115px;
+}
+    #promo .constructor-logos-6 {
+    position: absolute;
+    top: 208px;
+    left: 347px;
+}
+    #promo .constructor-logos-7 {
+     position: absolute;
+     top: 295px;
+     left: 144px;
+}
+    #promo .hobby-logos-1 {
+     position: absolute;
+     top: 50px;
+     left: 189px;
+}
+    #promo .hobby-logos-2 {
+    position: absolute;
+    top: 127px;
+    left: 63px;
+    }
+    #promo .hobby-logos-3 {
+    position: absolute;
+    top: 191px;
+    left: 43px;
+}
+    #promo .hobby-logos-4 {
+    position: absolute;
+    top: 191px;
+    left: 238px;
+}
+    #promo .hobby-logos-5 {
+    position: absolute;
+    top: 262px;
+    left: 166px;
+}
+    #promo .figure-logos-1 {
+    position: absolute;
+    top: 27px;
+    left: 148px;
+}
+    #promo .figure-logos-2 {
+     position: absolute;
+     top: 80px;
+     left: 274px;
+}
+    #promo .figure-logos-3 {
+     position: absolute;
+     top: 117px;
+     left: 59px;
+}
+    #promo .figure-logos-4 {
+     position: absolute;
+     top: 170px;
+     left: 170px;
+    }
+    #promo .figure-logos-5 {
+     position: absolute;
+     top: 168px;
+     left: 51px;
+}
+    #promo .figure-logos-6 {
+     position: absolute;
+     top: 184px;
+     left: 329px;
+    }
+    #promo .figure-logos-7 {
+     position: absolute;
+     top: 229px;
+     left: 126px;
+}
+    #promo .figure-logos-8 {
+     position: absolute;
+     top: 248px;
+     left: 302px;
+}
+    #promo .figure-logos-9 {
+     position: absolute;
+     top: 300px;
+     left: 145px;
+}
+
+
+    #promo .set-logos-1 {
+     position: absolute;
+     top: 31px;
+     left: 222px;
+}
+    #promo .set-logos-2 {
+     position: absolute;
+     top: 87px;
+     left: 245px;
+}
+    #promo .set-logos-3 {
+     position: absolute;
+     top: 111px;
+     left: 58px;
+}
+    #promo .set-logos-4 {
+     position: absolute;
+     top: 121px;
+     left: 164px;
+}
+    #promo .set-logos-5 {
+     position: absolute;
+     top: 158px;
+     left: 267px;
+}
+    #promo .set-logos-6 {
+     position: absolute;
+     top: 195px;
+     left: 30px;
+}
+    #promo .set-logos-7 {
+     position: absolute;
+     top: 219px;
+     left: 242px;
+}
+    #promo .set-logos-8 {
+     position: absolute;
+     top: 215px;
+     left: 345px;
+}
+    #promo .set-logos-9 {
+     position: absolute;
+     top: 255px;
+     left: 107px;
+ }
+    #promo .set-logos-10 {
+     position: absolute;
+     top: 284px;
+     left: 234px;
+ }
+    #promo .set-logos-11 {
+     position: absolute;
+     top: 320px;
+     left: 180px;
+}
+    #promo .car-logos-1 {
+     position: absolute;
+     top: 58px;
+     left: 197px;
+}
+    #promo .car-logos-2 {
+     position: absolute;
+     top: 127px;
+     left: 58px;
+}
+    #promo .car-logos-3 {
+     position: absolute;
+     top: 164px;
+     left: 175px;
+}
+    #promo .car-logos-4 {
+     position: absolute;
+     top: 200px;
+     left: 315px;
+}
+    #promo .car-logos-5 {
+     position: absolute;
+     top: 258px;
+     left: 114px;
+}
+/*--------------------------------*/
+/* logos girl */
+    #promo  .constructor-logos-g-1 {
+        position: absolute;
+        top: 45px;
+        left: 223px;
+    }
+    #promo  .constructor-logos-g-2 {
+        position: absolute;
+        top: 127px;
+        left: 152px;
+    }
+    #promo  .constructor-logos-g-3 {
+        position: absolute;
+        top: 139px;
+        left: 48px;
+    }
+    #promo .constructor-logos-g-4 {
+        position: absolute;
+        top: 146px;
+        left: 250px;
+    }
+    #promo .constructor-logos-g-5 {
+        position: absolute;
+        top: 186px;
+        left: 360px;
+    }
+    #promo .constructor-logos-g-6 {
+        position: absolute;
+        top: 233px;
+        left: 62px;
+    }
+    #promo .constructor-logos-g-7 {
+        position: absolute;
+        top: 295px;
+        left: 144px;
+    }
+    #promo .set-logos-g-1 {
+        position: absolute;
+        top: 22px;
+        left: 164px;
+    }
+    #promo .set-logos-g-2 {
+        position: absolute;
+        top: 92px;
+        left: 245px;
+    }
+    #promo .set-logos-g-3 {
+        position: absolute;
+        top: 117px;
+        left: 54px;
+    }
+    #promo .set-logos-g-4 {
+        position: absolute;
+        top: 145px;
+        left: 183px;
+    }
+    #promo .set-logos-g-5 {
+        position: absolute;
+        top: 201px;
+        left: 38px;
+    }
+    #promo .set-logos-g-6 {
+        position: absolute;
+        top: 230px;
+        left: 142px;
+    }
+    #promo .set-logos-g-7 {
+        position: absolute;
+        top: 200px;
+        left: 379px;
+    }
+    #promo .set-logos-g-8 {
+        position: absolute;
+        top: 309px;
+        left: 172px;
+    }
+    #promo .creation-logos-g-1 {
+        position: absolute;
+        top: 60px;
+        left: 205px;
+    }
+    #promo .creation-logos-g-2 {
+        position: absolute;
+        top: 153px;
+        left: 60px;
+    }
+    #promo .creation-logos-g-3 {
+        position: absolute;
+        top: 197px;
+        left: 331px;
+    }
+    #promo .creation-logos-g-4 {
+        position: absolute;
+        top: 240px;
+        left: 126px;
+    }
+
+    #promo .figure-logos-g-1 {
+        position: absolute;
+        top: 71px;
+        left: 185px;
+    }
+    #promo .figure-logos-g-2 {
+        position: absolute;
+        top: 77px;
+        left: 287px;
+    }
+    #promo .figure-logos-g-3 {
+        position: absolute;
+        top: 174px;
+        left: 65px;
+    }
+    #promo .figure-logos-g-4 {
+        position: absolute;
+        top: 211px;
+        left: 330px;
+    }
+    #promo .figure-logos-g-5 {
+        position: absolute;
+        top: 261px;
+        left: 143px;
+    }
+    #promo .babies-logos-g-1 {
+        position: absolute;
+        top: 38px;
+        left: 165px;
+    }
+    #promo .babies-logos-g-2 {
+        position: absolute;
+        top: 42px;
+        left: 272px;
+    }
+    #promo .babies-logos-g-3 {
+        position: absolute;
+        top: 103px;
+        left: 93px;
+    }
+    #promo .babies-logos-g-4 {
+        position: absolute;
+        top: 121px;
+        left: 220px;
+    }
+    #promo .babies-logos-g-5 {
+        position: absolute;
+        top: 98px;
+        left: 307px;
+    }
+    #promo .babies-logos-g-6 {
+        position: absolute;
+        top: 163px;
+        left: 21px;
+    }
+    #promo .babies-logos-g-7 {
+        position: absolute;
+        top: 161px;
+        left: 111px;
+    }
+    #promo .babies-logos-g-8 {
+        position: absolute;
+        top: 208px;
+        left: 248px;
+    }
+    #promo .babies-logos-g-9 {
+        position: absolute;
+        top: 194px;
+        left: 363px;
+    }
+    #promo .babies-logos-g-10 {
+        position: absolute;
+        top: 239px;
+        left: 63px;
+    }
+    #promo .babies-logos-g-11 {
+        position: absolute;
+        top: 260px;
+        left: 278px;
+    }
+    #promo .babies-logos-g-12 {
+        position: absolute;
+        top: 300px;
+        left: 143px;
+    }
+    #promo .blue {
+        background-color: rgb(77, 205, 246);
+    }
+    #promo .blue:after {
+        background-color: rgb(77, 205, 246);
+    }
+    #promo .blue:before {
+        background-color: rgb(77, 205, 246);
+    }
+    #promo .fio {
+        background-color: rgb(196, 131, 187);
+    }
+    #promo .fio:after {
+        background-color: rgb(196, 131, 187);
+    }
+    #promo .fio:before {
+        background-color: rgb(196, 131, 187);
+    }
+    #promo .orange {
+        background-color: rgb(255, 188, 77);
+    }
+    #promo .orange:after {
+        background-color: rgb(255, 188, 77);
+    }
+    #promo .orange:before {
+        background-color: rgb(255, 188, 77);
+    }
+    #promo .green {
+        background-color: rgb(170, 210, 77);
+    }
+    #promo .green:after {
+        background-color: rgb(170, 210, 77);
+    }
+    #promo .green:before {
+        background-color: rgb(170, 210, 77);
+    }
+    #promo .red {
+        background-color: rgb(255, 124, 116);
+    }
+    #promo .red:after {
+        background-color: rgb(255, 124, 116);
+    }
+    #promo .red:before {
+        background-color: rgb(255, 124, 116);
+    }
+    #promo .items:hover .link-image {
+        border-bottom: 1px solid white;
+    }
+/* --------------------------------- */
+</style>
+<script>
+    function changeLogos(content){
+        var blue = 'rgb(0, 185, 242)';
+        var fio = 'rgb(170, 77, 157)';
+        var orange = 'rgb(255, 160, 0)';
+        var green = 'rgb(133, 191, 0)';
+        var red = 'rgb(255, 67, 56)';
+        var $class = content.attr('class').split(' ')[1];
+        var sex = $class.split('-')[0];
+        $('.items').removeClass('blue fio orange green red');
+        $('.square').removeClass('blue fio orange green red');
+        $('.promo-logos-inner').fadeOut(300);
+        var color = $(content).css('background-color');
+        if ( color == blue){
+            $(content).addClass('blue');
+            $('.'+$class+'_square').addClass('blue');
+        }
+        if ( color == fio){
+            $(content).addClass('fio');
+            $('.'+$class+'_square').addClass('fio');
+        }
+        if ( color == orange){
+            $(content).addClass('orange');
+            $('.'+$class+'_square').addClass('orange');
+        }
+        if ( color == green){
+            $(content).addClass('green');
+            $('.'+$class+'_square').addClass('green');
+        }
+        if ( color == red){
+            $(content).addClass('red');
+            $('.'+$class+'_square').addClass('red');
+        }
+        setTimeout(function(){
+            if (sex == 'boy') {
+                $('.children-image').attr('src', 'http://www.ozon.ru/graphics/action/150205-kids-promo/children4.png' )
+            }
+            if (sex == 'girl') {
+                $('.children-image').attr('src', 'http://www.ozon.ru/graphics/action/150205-kids-promo/children3.png' )
+            }
+            $('.'+$class+'-logos').fadeIn(500);
+        }, 300)
+    }
+    $(function(){
+        $('.items').click(function(){
+            changeLogos($(this));
+        })
+    })
+</script>
+<div id="promo">
+<div class="promo-header">
+    <div class="promo-header-inner">
+           <img src="http://www.ozon.ru/graphics/action/150205-kids-promo/present-kids-1.png" alt="kids"/>
+        <div class="square-header"></div>
+    </div>
+</div>
+<div class="promo-wrapper">
+    <div class="promo-wrapper-inner">
+        <div class="promo-children">
+            <img class="children-image" src="http://www.ozon.ru/graphics/action/150205-kids-promo/children.png" alt="children">
+        </div>
+        <div class="promo-logos">
+            <div class="promo-logos-inner boy-constructor-logos" style="display: none;">
+                <a href="http://www.ozon.ru/catalog/1160282/?brand=19898030"><img class="logos-item constructor-logos-1" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/play-mobil.png"/></a>
+                <a href="http://www.ozon.ru/brand/18578034/"><img class="constructor-logos-2" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/mega-block.png"/></a>
+                <a href="http://www.ozon.ru/brand/18575263/?group=div_kid"><img class="constructor-logos-3" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/ausin.png"/></a>
+                <a href="http://www.ozon.ru/brand/27597613/"><img class="constructor-logos-4" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/lag.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1160282/?brand=25599197"><img class="constructor-logos-5" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/minecraft.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1160282/?brand=19061985"><img class="constructor-logos-6" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/loz.png"/></a>
+                <a href="http://www.ozon.ru/brand/24931284/"><img class="constructor-logos-7" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/bondibon.png"/></a>
+            </div>
+            <div class="promo-logos-inner boy-hobby-logos" style="display: none;">
+                <a href="http://www.ozon.ru/brand/24170265/"><img class="hobby-logos-1" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/wrebbit.png"/></a>
+                <a href="http://www.ozon.ru/brand/24290957/?group=hobby"><img class="hobby-logos-2" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/leonardo.png"/></a>
+                <a href="http://www.ozon.ru/brand/19507342/"><img class="hobby-logos-3" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/revell.png"/></a>
+                <a href="http://www.ozon.ru/context/detail/id/3371991/"><img class="hobby-logos-4" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/rubiks.png"/></a>
+                <a href="http://www.ozon.ru/brand/19447338/"><img class="hobby-logos-5" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/zvezda.png"/></a>
+            </div>
+            <div class="promo-logos-inner boy-figure-logos" style="display: none">
+                <a href="http://www.ozon.ru/catalog/1163831/?brand=24092658"><img class="figure-logos-1" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/jake.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163831/?brand=18538598"><img class="figure-logos-2" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/plants.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163831/?brand=27430045"><img class="figure-logos-3" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/transformers.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163831/?brand=30313205"><img class="figure-logos-4" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/schleich.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163831/?brand=29950946"><img class="figure-logos-5" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/big.png"/></a>
+                <a href="http://www.ozon.ru/brand/22449747/"><img class="figure-logos-6" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/adventure.png"/></a>
+                <a href="http://www.ozon.ru/brand/24327080/"><img class="figure-logos-7" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/turtles.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163831/?brand=28319598"><img class="figure-logos-8" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/max.png"/></a>
+                <a href="http://www.ozon.ru/brand/30912315/"><img class="figure-logos-9" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/big_fig.png"/></a>
+            </div>
+            <div class="promo-logos-inner boy-set-logos" style="display: none">
+                <a href="http://www.ozon.ru/catalog/1175179/?brand=7233934"><img class="set-logos-1" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/chug.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163838/?brand=26311305"><img class="set-logos-2" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/mickey.png"/></a>
+                <a href="http://www.ozon.ru/brand/27607694/"><img class="set-logos-3" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/boom.png"/></a>
+                <a href="http://www.ozon.ru/brand/7246571/"><img class="set-logos-4" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/simba.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163838/?brand=24092657"><img class="set-logos-5" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/thomas.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163832/?brand=30375040"><img class="set-logos-6" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/edison.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163838/?brand=28475778"><img class="set-logos-7" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/klein.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163838/?brand=28475667"><img class="set-logos-8" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/robo.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163832/?brand=8254133"><img class="set-logos-9" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/nerf.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163838/?brand=19682816"><img class="set-logos-10" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/spider.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163838/?brand=21215454"><img class="set-logos-11" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/hti.png"/></a>
+            </div>
+            <div class="promo-logos-inner boy-car-logos" style="display: none;">
+                <a href="http://www.ozon.ru/catalog/1175881/?brand=28840406"><img class="car-logos-1" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/iwin.png"/></a>
+                <a href="http://www.ozon.ru/brand/19383244/"><img class="car-logos-2" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/rastar.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1175881/?brand=25423299"><img class="car-logos-3" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/silverlit.png"/></a>
+                <a href="http://www.ozon.ru/brand/19709960/"><img class="car-logos-4" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/air-hogs.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1175232/?brand=19383856"><img class="car-logos-5" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/hot-wheels.png"/></a>
+            </div>
+            <div class="promo-logos-inner girl-constructor-logos" style="display: none;">
+                <a href="http://www.ozon.ru/catalog/1160282/?brand=19898030"><img class="constructor-logos-g-1" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/play-mobil.png"/></a>
+                <a href="http://www.ozon.ru/brand/18578034/"><img class="constructor-logos-g-2" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/mega-block.png"/></a>
+                <a href="http://www.ozon.ru/brand/18575263/?group=div_kid"><img class="constructor-logos-g-3" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/ausin.png"/></a>
+                <a href="http://www.ozon.ru/brand/19442787/"><img class="constructor-logos-g-4" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/cogo.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1160282/?brand=19438477"><img class="constructor-logos-g-5" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/toy1.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1160282/?brand=18274315"><img class="constructor-logos-g-6" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/nano-block.png"/></a>
+                <a href="http://www.ozon.ru/brand/24931284/"><img class="constructor-logos-g-7" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/bondibon.png"/></a>
+            </div>
+            <div class="promo-logos-inner girl-set-logos" style="display: none;">
+                <a href="http://www.ozon.ru/catalog/1163838/?brand=24326415"><img class="set-logos-g-1" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/pet-shop.png"/></a>
+                <a href="http://www.ozon.ru/brand/211829/"><img class="set-logos-g-2" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/disney.png"/></a>
+                <a href="http://www.ozon.ru/brand/24326415/"><img class="set-logos-g-3" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/rinzo.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163828/?brand=18052682"><img class="set-logos-g-4" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/peppa.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163838/?brand=19383857"><img class="set-logos-g-5" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/minnie.png"/></a>
+                <a href="http://www.ozon.ru/brand/17687966/"><img class="set-logos-g-6" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/sylv.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163831/?brand=19431235"><img class="set-logos-g-7" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/pony.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163838/?brand=21215454"><img class="set-logos-g-8" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/hti.png"/></a>
+            </div>
+            <div class="promo-logos-inner girl-creation-logos" style="display: none;">
+                <a href="http://www.ozon.ru/brand/23917592/"><img class="creation-logos-g-1" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/karras.png"/></a>
+                <a href="http://www.ozon.ru/brand/10871009/"><img class="creation-logos-g-2" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/erich.png"/></a>
+                <a href="http://www.ozon.ru/brand/20351690/"><img class="creation-logos-g-3" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/dm.png"/></a>
+                <a href="http://www.ozon.ru/brand/4782467/"><img class="creation-logos-g-4" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/faber.png"/></a>
+            </div>
+            <div class="promo-logos-inner girl-figure-logos" style="display: none;">
+                <a href="http://www.ozon.ru/brand/30226914/"><img class="figure-logos-g-1" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/djeco.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1159734/?brand=19431235"><img class="figure-logos-g-2" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/pony.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163831/?brand=17687966"><img class="figure-logos-g-3" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/sylv.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163837/?brand=30226914"><img class="figure-logos-g-4" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/minnie.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163831/?brand=30313205"><img class="figure-logos-g-5" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/boys/schleich.png"/></a>
+            </div>
+            <div class="promo-logos-inner girl-babies-logos" style="display: none;">
+                <a href="http://www.ozon.ru/brand/7250107/"><img class="babies-logos-g-1" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/monster.png"/></a>
+                <a href="http://www.ozon.ru/context/detail/id/5303691/"><img class="babies-logos-g-2" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/wmx.png"/></a>
+                <a href="http://www.ozon.ru/brand/7275520/"><img class="babies-logos-g-3" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/barbie.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1159734/?brand=19431235"><img class="babies-logos-g-4" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/little-pony.png"/></a>
+                <a href="http://www.ozon.ru/brand/28006332"><img class="babies-logos-g-5" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/yeyer.png"/></a>
+                <a href="http://www.ozon.ru/brand/19062685/"><img class="babies-logos-g-6" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/lala.png"/></a>
+                <a href="http://www.ozon.ru/brand/24703020/"><img class="babies-logos-g-7" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/flying.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163835/?brand=29684501"><img class="babies-logos-g-8" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/mary-popi.png"/></a>
+                <a href="http://www.ozon.ru/brand/28319633/"><img class="babies-logos-g-9" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/sofia.png"/></a>
+                <a href="http://www.ozon.ru/brand/23579791/"><img class="babies-logos-g-10" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/alexander.png"/></a>
+                <a href="http://www.ozon.ru/brand/19463674/"><img class="babies-logos-g-11" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/dispay-pink.png"/></a>
+                <a href="http://www.ozon.ru/catalog/1163835/?brand=20233895"><img class="babies-logos-g-12" alt="logo" src="http://www.ozon.ru/graphics/action/150205-kids-promo/girls/sonya-rose.png"/></a>
+            </div>
+        </div>
+        <div class="girl-menu">
+            <ul class="promo-list">
+                <li class="items girl-babies">
+                        <img class="link-image" src="http://www.ozon.ru/graphics/action/150205-kids-promo/babies.png"/>
+                    <div class="helper"></div>
+                    <div class="girl-babies_square square"></div>
+                </li>
+                <li class="items girl-figure">
+                    <img class="link-image" src="http://www.ozon.ru/graphics/action/150205-kids-promo/figure.png"/>
+                    <div class="helper"></div>
+                    <div class="girl-figure_square square"></div>
+                </li>
+                <li class="items girl-creation">
+                    <img class="link-image" src="http://www.ozon.ru/graphics/action/150205-kids-promo/creation1.png"/>
+                    <div class="helper"></div>
+                    <div class="girl-creation_square square"></div>
+                </li>
+                <li class="items girl-set">
+                    <img class="link-image" src="http://www.ozon.ru/graphics/action/150205-kids-promo/set.png"/>
+                    <div class="helper"></div>
+                    <div class="girl-set_square square"></div>
+                </li>
+                <li class="items girl-constructor">
+                    <img class="link-image" src="http://www.ozon.ru/graphics/action/150205-kids-promo/constructor.png"/>
+                    <div class="helper"></div>
+                    <div class="girl-constructor_square square"></div>
+                </li>
+            </ul>
+        </div>
+        <div class="boy-menu">
+            <ul class="promo-list">
+                <li class="items boy-car">
+                    <img class="link-image" src="http://www.ozon.ru/graphics/action/150205-kids-promo/car.png"/>
+                    <div class="helper"></div>
+                    <div class="boy-car_square square"></div>
+                </li>
+                <li class="items boy-figure">
+                    <img class="link-image" src="http://www.ozon.ru/graphics/action/150205-kids-promo/figure.png"/>
+                    <div class="helper"></div>
+                    <div class="boy-figure_square square"></div>
+                </li>
+                <li class="items boy-hobby">
+                    <img class="link-image" src="http://www.ozon.ru/graphics/action/150205-kids-promo/hobby.png"/>
+                    <div class="helper"></div>
+                    <div class="boy-hobby_square square"></div>
+                </li>
+                <li class="items boy-set">
+                    <img class="link-image" src="http://www.ozon.ru/graphics/action/150205-kids-promo/set.png"/>
+                    <div class="helper"></div>
+                    <div class="boy-set_square square"></div>
+                </li>
+                <li class="items boy-constructor">
+                    <img class="link-image" src="http://www.ozon.ru/graphics/action/150205-kids-promo/constructor.png"/>
+                    <div class="helper"></div>
+                    <div class="boy-constructor_square square"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

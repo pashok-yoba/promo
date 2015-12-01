@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<style>
+.pageCenterNoLeft {
+    padding: 0;
+
+}
+.pageContent .PageModule {
+    margin: 0;
+}
+#PageContent {
+    padding: 0;
+}
+.pageCenterNoLeft div.pageContent .PageModule {
+    margin: 0;
+}
+#eski-root .wrap {
+    padding: 0;
+}
+#philips {
+    min-width: 1120px;
+    max-width: 1800px;
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+}
+#philips * {
+    padding: 0;
+    margin: 0;
+}
+#philips .philipsHeader {
+    background-color: #f3f5f4;
+}
+#philips .philipsHeaderInner {
+    margin: 0 auto;
+    height: 480px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/back-3.jpg);
+    width: 1124px;
+    position: relative;
+}
+#philips .philipsHeaderInner__detail{
+    position: absolute;
+    top: 264px;
+    left: 84px;
+    width: 600px;
+    font-size: 18px;
+    line-height: 1.3em;
+}
+#philips .philipsHeaderButton {
+    position: absolute;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/button.jpg);
+    width: 129px;
+    height: 31px;
+    bottom: 67px;
+    left: 84px;
+}
+#philips .philipsWrapper {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+}
+#philips .dipLine {
+    overflow: hidden;
+}
+#philips .philipsDipCenter {
+    position: absolute;
+    width: 547px;
+    height: 378px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/ep.jpg);
+    top: 20px;
+    left: 200px
+}
+#philips .philipsDip {
+    position: relative;
+    width: 380px;
+    z-index: 2;
+    padding-top: 180px;
+}
+#philips .philipsDip--left {
+    float: left;
+}
+#philips .philipsDip--right {
+    float: right;
+}
+#philips .philipsDip__name--1 {
+    margin-bottom: 10px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/ceram.jpg);
+    width: 267px;
+    height: 73px
+}
+#philips .philipsDip__name--2 {
+    margin-bottom: 10px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/skin.jpg);
+    width: 250px;
+    height: 73px
+}
+#philips .philipsDip__detail {
+    font-size: 18px;
+    line-height: 1.3em;
+}
+#philips .philipsDip--left-2 {
+    padding-top: 50px;
+    float: left;
+    width: 480px;
+    padding-bottom: 113px;
+}
+#philips .philipsDip--right-2 {
+    padding-top: 50px;
+    float: right;
+    width: 480px;
+    padding-bottom: 113px;
+}
+#philips .video__detail {
+    padding-top: 15px;
+    font-size: 14px;
+    line-height: 1.3em;
+    width: 450px;
+}
+#philips .philipsFeatures {
+    height: 224px;
+    background-color: #f3f5f4;
+}
+#philips .philipsFeaturesInner {
+    width: 960px;
+    margin: 0 auto;
+    position: relative;
+}
+#philips .philipsFeatures__name {
+    width: 251px;
+    height: 40px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/detail.jpg);
+    position: absolute;
+    top: 36px;
+    left: 84px;
+}
+#philips .philipsFeatures__list {
+    padding: 87px  0 0 0;
+}
+#philips .listFeatures {
+    overflow: hidden;
+    list-style-type: none;
+}
+#philips .listFeatures__item {
+    float: left;
+    vertical-align: top;
+    font-size: 18px;
+}
+#philips .listFeatures__item--1 {
+    width: 27.22916666666667%
+}
+#philips .listFeatures__item--2 {
+    width: 23.85416666666667%
+}
+#philips .listFeatures__item--3 {
+    width: 26.5625%;
+}
+#philips .listFeatures__item--4 {
+    width: 22.04166666666667%;
+}
+#philips .listFeatures__item--5 {
+    display: none;
+}
+
+
+#philips .listFeatures__item--1 .itemImg {
+    width: 92px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/icon-1.jpg);
+}
+#philips .listFeatures__item--2 .itemImg {
+    width: 87px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/icon-2.jpg);
+}
+#philips .listFeatures__item--3 .itemImg {
+    width: 85px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/icon-3.jpg);
+}
+#philips .listFeatures__item--4 .itemImg {
+    width: 84px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/icon-4.jpg);
+}
+
+
+#philips .itemImg {
+    float: left;
+    margin-right: 10px;
+    height: 82px;
+    background-size: 100% 100%;
+}
+#philips .philipsListItems {
+    padding: 35px 0 0 0;
+    text-align: center;
+    overflow: hidden;
+    width: 960px;
+    margin: 0 auto;
+    height: 824px;
+    box-sizing: border-box;
+    list-style-type: none;
+    white-space: nowrap;
+    position: relative;
+}
+#philips .philipsItemsDip {
+    width: 300px;
+    padding: 0 10px;
+    display: inline-block;
+    text-align: center;
+    white-space: normal;
+    vertical-align: top;;
+    box-sizing: border-box;
+}
+#philips .philipsItemsDip__img {
+    display: inline-block;
+    height: 204px;
+}
+#philips .philipsItemsDip__img--1 {
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/dip-1.jpg);
+    display: inline-block;
+    width: 134px
+}
+#philips .philipsItemsDip__img--2 {
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/dip-2.jpg);
+    display: inline-block;
+    width: 131px
+}
+#philips .philipsItemsDip__img--3 {
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/dip-3.jpg);
+    display: inline-block;
+    width: 132px
+}
+#philips .philipsItemsDip__img--4 {
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/dip-4.jpg);
+    display: inline-block;
+    width: 116px
+}
+#philips .philipsItemsDip__img--5 {
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/dip-5.jpg);
+    display: inline-block;
+    width: 121px
+}
+#philips .philipsItemsDip__img--6 {
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/dip-6.jpg);
+    display: inline-block;
+    width: 121px
+}
+#philips .philipsItemsDip__img--7 {
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/dip-7.jpg);
+    display: inline-block;
+    width: 108px
+}
+#philips .philipsItemsDip__img--8 {
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/dip-8.jpg);
+    display: inline-block;
+    width: 111px
+}
+#philips .philipsItemsDip__img--9 {
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/dip-9.jpg);
+    display: inline-block;
+    width: 97px
+}
+#philips .philipsItemsDip__img--10 {
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/dip-10.jpg);
+    display: inline-block;
+    width: 112px
+}
+#philips .philipsItemsDip__name {
+    font-size: 18px;
+    padding-top: 20px;
+    font-weight: bold;
+    color: #f167ad;
+}
+#philips .listDetailItem {
+    padding-top: 10px;
+}
+#philips .listDetailItem {
+    list-style-type: disc;
+    list-style-position: inside;
+    text-align: left;
+    font-size: 14px;
+    line-height: 1.3em;
+}
+#philips .listDetailItem li {
+    margin-bottom: 8px;
+}
+#philips .philipsItemsLink {
+    display: inline-block;
+    width: 100px;
+    height: 29px;
+    margin-top: 46px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/button-2.jpg);
+}
+#philips .philipsItemsLink:hover {
+    opacity: 0.8
+}
+#philips .philipsCircle {
+    width: 82px;
+    height: 82px;
+    background-color: #b2eafb;
+    border-radius: 41px;
+    position: absolute;
+    cursor: pointer;
+    top: 235px
+}
+#philips .philipsListItemsContainer {
+    position: relative;
+    min-width: 1120px;
+    box-sizing: border-box;
+    padding: 0 80px 0 80px 0;
+}
+#philips .philipsCircle:hover {
+    opacity: 0.7;
+}
+#philips .philipsCircle:before {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    background-color: #00b9f2;
+    top: 13px;
+    left: 13px;
+    content: ' '
+}
+#philips .philipsCircle:after {
+    position: absolute;
+    border: 15px solid transparent;
+    border-right: 20px solid white;
+    top: 23px;
+    left: 12px;
+    content: ' '
+}
+#philips .philipsleft {
+    left: 10px;
+}
+#philips .philipsright {
+    right: 10px;
+}
+#philips .philipsright:after {
+    position: absolute;
+    border: 15px solid transparent;
+    border-left: 20px solid white;
+    top: 25px;
+    left: 36px;
+    content: ' '
+}
+#philips .philipsGirl {
+    height: 547px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/back-girl.jpg);
+    background-position: center center;
+    display: block;
+}
+#philips .philipsColumn {
+    width: 50%;
+    float: left;
+    padding: 40px 30px 30px 30px;
+    text-align: center;
+    box-sizing: border-box;
+}
+#philips .philipsPresentText {
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.3em;
+}
+#philips .philipsPresentImage {
+    display: inline-block;
+    height: 374px;
+    margin-bottom: 25px;
+}
+#philips .philipsPresentImage--left {
+    width: 249px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/item-1.jpg);
+}
+#philips .philipsPresentImage--right {
+    width: 287px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/item-2.jpg);
+}
+#philips .dipLine-bottom {
+    max-width:  1550px;
+    margin: 0 auto;
+    padding-bottom: 40px;
+}
+#philips .philipsLeftImage {
+    width: 529px;
+    height: 391px;
+    background-image: url(http://ozon.ru/graphics/action/150722-philips-d/back-bottom.jpg);
+    float: left;
+    margin-right: 10px;
+}
+#philips .philipsPresentText--bottom {
+    height: 391px;
+    vertical-align: middle;
+    margin-left: 540px;
+}
+#philips .philipsPresentText--bottom:after  {
+    content: ' ';
+    height: 100%;
+    width: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+#philips .philips-text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    line-height: 1.3em;
+}
+@media only screen and ( min-width: 1700px ) {
+    #philips .philipsDip--right-2 {
+        width: 506px
+    }
+    #philips .philipsDip--right {
+        width: 506px;
+    }
+    #philips .philipsDip--left-2 {
+        padding-bottom: 46px;
+    }
+    #philips .philipsHeaderInner {
+        height: 480px;
+        background-image: url(http://ozon.ru/graphics/action/150722-philips-d/back-1800.jpg);
+        width: 1557px;
+        background-position: center top;
+    }
+    #philips .philipsHeaderInner__detail {
+        width: 693px;
+        left: 15px;
+    }
+    #philips .philipsHeaderButton {
+        left: 15px;
+    }
+    #philips .philipsWrapper {
+        width: 1557px;
+    }
+    #philips .philipsDipCenter {
+        left: 479px;
+        top: 129px;
+    }
+    #philips .philipsDip {
+        padding-top: 40px;
+    }
+    #philips .philipsFeaturesInner {
+        width: 1557px;
+    }
+    #philips .listFeatures__item {
+        padding-top: 30px;
+    }
+    #philips .listFeatures__item--1 {
+        width: 326px;
+    }
+    #philips .listFeatures__item--2 {
+        width: 266px
+    }
+    #philips .listFeatures__item--3 {
+        width: 333px;
+    }
+    #philips .listFeatures__item--4 {
+        width: 340px;
+    }
+    #philips .listFeatures__item--5 {
+        width: 291px;
+        display: block;
+    }
+    #philips .itemImg {
+        height: 118px;
+        margin-top: -30px;
+    }
+
+    #philips .listFeatures__item--1 .itemImg {
+        width: 137px;
+        background-image: url(http://ozon.ru/graphics/action/150722-philips-d/icon-1.jpg);
+    }
+    #philips .listFeatures__item--2 .itemImg {
+        width: 118px;
+        background-image: url(http://ozon.ru/graphics/action/150722-philips-d/icon-2.jpg);
+    }
+    #philips .listFeatures__item--3 .itemImg {
+        width: 124px;
+        background-image: url(http://ozon.ru/graphics/action/150722-philips-d/icon-3.jpg);
+    }
+    #philips .listFeatures__item--4 .itemImg {
+        width: 118px;
+        background-image: url(http://ozon.ru/graphics/action/150722-philips-d/icon-4.jpg);
+    }
+    #philips .listFeatures__item--5 .itemImg {
+        width: 118px;
+        background-image: url(http://ozon.ru/graphics/action/150722-philips-d/icon-5.jpg);
+    }
+    #philips .philipsFeatures {
+        height: 273px;
+    }
+    #philips .philipsFeatures__name {
+        top: 27px;
+    }
+}
+</style>
+<script>
+    var number;
+    function initNumber(){
+        var width = $('#philips').width() - 160;
+        number = Math.floor(width/300);
+        var widthList = 300 * number
+        $('.philipsListItems').css('width',widthList+'px');
+    }
+    function changeItems($this){
+        $('.philipsItemsDip').stop(true, true);
+        var quantity = $('.philipsItemsDip').length;
+        var quantityMove = parseInt($('.philipsItemsDip').eq(0).css('margin-left').split('px')[0])/300;
+        var leftMove = parseInt($('.philipsItemsDip').eq(0).css('margin-left').split('px')[0]);
+        if ($this.hasClass('philipsright')) {
+            var left = (quantityMove - number);
+            if ( (Math.abs(left) < quantity ) && ( leftMove <= 0 ) ) {
+                $('.philipsItemsDip').eq(0).animate({'margin-left': left*300 + 'px'}, 500);
+            }
+        }
+        else {
+            var left = (quantityMove + number);
+            if ( (Math.abs(left) < quantity ) && ( leftMove < 0 ) ) {
+                $('.philipsItemsDip').eq(0).animate({'margin-left': left*300 + 'px'}, 500);
+            }
+        }
+    }
+    $(function(){
+        initNumber();
+        $(window).on('resize', function(){
+            initNumber();
+        })
+        $('.philipsCircle').on('click', function(){
+            changeItems($(this));
+        })
+    })
+</script>
+<div id="philips">
+<div class="philipsHeader">
+    <div class="philipsHeaderInner">
+        <a class="philipsHeaderButton" href="#dip"></a>
+        <p class="philipsHeaderInner__detail">
+            Эпиляторы Philips обеспечивают бережную и эффективную эпиляцию благодаря уникальной системе керамических дисков, удаляющих самые короткие и тонкие волоски, не травмируя кожу.
+        </p>
+    </div>
+</div>
+<div class="philipsWrapper">
+    <div class="philipsDipCenter"></div>
+    <div class="dipLine">
+        <div class="philipsDip philipsDip--left">
+            <div class="philipsDip__name--1"></div>
+            <p class="philipsDip__detail">Керамические диски с текстурированной поверхностью удаляют самые короткие и тонкие волоски, не захватывая, а значит
+                и не травмируя кожу.
+            </p>
+        </div>
+        <div class="philipsDip philipsDip--right">
+            <div class="philipsDip__name--2"></div>
+            <p class="philipsDip__detail">Новая насадка Skin Stretcher* делает процедуру эпиляции менее болезненной и более эффективной: создает оптимальное давление на кожу, разглаживая ее;
+                приподнимает волоски, двигаясь против их роста.
+            </p>
+        </div>
+    </div>
+    <div class="dipLine">
+        <div class="philipsDip philipsDip--left-2">
+            <iframe class="video" width="452" height="254" src="https://www.youtube.com/embed/zr6FO2YewbA" frameborder="0" allowfullscreen></iframe>
+            <p class="video__detail">*Skin Stretcher (насадка для снижения болевых ощущений и эффективной эпиляции). Доступна в моделях <a style="text-decoration: underline; color: #0083ca" href="http://www.ozon.ru/context/detail/id/31425901/">Philips HP6583/02</a> и <a style="text-decoration: underline; color: #0083ca" href="http://www.ozon.ru/context/detail/id/31425902/">Philips HP6523/02</a></p>
+        </div>
+        <div class="philipsDip philipsDip--right-2">
+            <iframe class="video" width="452" height="254" src="https://www.youtube.com/embed/DzXlZf2zzF8" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+<div class="philipsFeatures">
+    <div class="philipsFeaturesInner">
+        <div class="philipsFeatures__name"></div>
+        <ul class="philipsFeatures__list listFeatures">
+            <li class="listFeatures__item listFeatures__item--1">
+                <div class="itemImg"></div>Широкая эпилирующая головка
+            </li>
+            <li class="listFeatures__item listFeatures__item--2">
+                <div class="itemImg"></div>2 режима скорости
+            </li>
+            <li class="listFeatures__item listFeatures__item--3">
+                <div class="itemImg"></div>Эпиляция на сухой и влажной коже
+            </li>
+            <li class="listFeatures__item listFeatures__item--4">
+                <div class="itemImg"></div>Набор аксессуаров в комплекте
+            </li>
+            <li class="listFeatures__item listFeatures__item--5">
+                <div class="itemImg"></div>Моющаяся головка
+            </li>
+        </ul>
+    </div>
+</div>
+<a name="dip"></a>
+<div class="philipsListItemsContainer">
+    <div class="philipsCircle philipsLeft"></div>
+    <div class="philipsCircle philipsright"></div>
+    <ul class="philipsListItems" data-width="3">
+        <li class="philipsItemsDip">
+            <div class="philipsItemsDip__img philipsItemsDip__img--1"></div>
+            <p class="philipsItemsDip__name">Philips Satinelle HP6420</p>
+            <ul class="listDetailItem">
+                <li>Эпилирующие диски для бережной эпиляции удаляют волоски без неприятных ощущений на коже</li>
+                <li>Удаление волосков длиной от 0,5 мм</li>
+                <li>Два режима скорости для бережной и максимально эффективной эпиляции</li>
+                <li>Щеточка для очищения эпилирующих дисков от волосков в комплекте</li>
+                <li>Изогнутая эргономичная ручка для удобства в использовании</li>
+            </ul>
+            <a href="http://www.ozon.ru/context/detail/id/20319931/" class="philipsItemsLink"></a>
+        </li><!--
+            --><li class="philipsItemsDip">
+        <div class="philipsItemsDip__img philipsItemsDip__img--2"></div>
+        <p class="philipsItemsDip__name">Philips Satinelle HP6422</p>
+        <ul class="listDetailItem">
+            <li>Эпилирующие диски для бережной эпиляции удаляют волоски без неприятных ощущений на коже</li>
+            <li>Удаление волосков длиной от 0,5 мм</li>
+            <li>Просто и гигиенично: эпиляционную головку можно мыть под струей воды</li>
+            <li>Два режима скорости для бережной и максимально эффективной эпиляции</li>
+            <li>Изогнутая эргономичная ручка для удобства в использовании</li>
+            <li>Насадка Opti-start с эффектом массажа в комплекте</li>
+            <li>Щеточка для очищения эпилирующих дисков от волосков в комплекте</li>
+            <li>Чехол для удобного хранения в комплекте</li>
+        </ul>
+        <a href="http://www.ozon.ru/context/detail/id/20319930/" class="philipsItemsLink"></a>
+    </li><!--
+            --><li class="philipsItemsDip">
+        <div class="philipsItemsDip__img philipsItemsDip__img--3"></div>
+        <p class="philipsItemsDip__name">Philips Satinelle HP6423</p>
+        <ul class="listDetailItem">
+            <li>Эпилирующие диски для бережной эпиляции удаляют волоски без неприятных ощущений на коже</li>
+            <li>Удаление волосков длиной от 0,5 мм</li>
+            <li>Просто и гигиенично: эпиляционную головку можно мыть под струей воды</li>
+            <li>Два режима скорости для бережной и максимально эффективной эпиляции</li>
+            <li>Изогнутая эргономичная ручка для удобства в использовании</li>
+            <li>Бритвенная головка для гладкого бритья чувствительных участков тела в комплекте</li>
+            <li>Насадка-гребень для подравнивания линии бикини в комплекте</li>
+            <li>Чехол для удобного хранения в комплекте</li>
+            <li>Щеточка для очищения эпилирующих дисков от волосков в комплекте</li>
+        </ul>
+        <a href="http://www.ozon.ru/context/detail/id/20319966/" class="philipsItemsLink"></a>
+    </li><!--
+            --><li class="philipsItemsDip">
+        <div class="philipsItemsDip__img philipsItemsDip__img--4"></div>
+        <p class="philipsItemsDip__name">Philips SatinSoft HP6519</p>
+        <ul class="listDetailItem">
+            <li>Эпилирующие диски удаляют волоски без неприятных ощущений на коже</li>
+            <li>Уникальная технология керамических дисков для максимально эффективной эпиляции без травмирования кожи</li>
+            <li>Моющаяся головка для обеспечения идеальной гигиены</li>
+            <li>Несколько режимов скорости</li>
+            <li>Щеточка для пилинга для предотвращения проблемы вросших волосков в комплекте</li>
+            <li>Массажная насадка в комплекте</li>
+            <li>Насадка для чувствительных участков кожи в комплекте</li>
+        </ul>
+        <a href="http://www.ozon.ru/context/detail/id/8809834/" class="philipsItemsLink"></a>
+    </li><!--
+            --><li class="philipsItemsDip">
+        <div class="philipsItemsDip__img philipsItemsDip__img--5"></div>
+        <p class="philipsItemsDip__name">SatinSoft HP6521</p>
+        <ul class="listDetailItem">
+            <li>Эпилирующие диски удаляют волосы без неприятных ощущений на коже</li>
+            <li>Уникальная технология керамических дисков для максимально эффективной эпиляции без травмирования кожи</li>
+            <li>Моющаяся головка для обеспечения идеальной гигиены</li>
+            <li>Технология Wet&Dry: для использования в душе и на сухой коже</li>
+            <li>Щеточка для пилинга для предотвращения проблемы вросших волосков в комплекте</li>
+            <li>Массажная насадка в комплекте</li>
+            <li>Насадка для чувствительных участков кожи в комплекте</li>
+        </ul>
+        <a href="http://www.ozon.ru/context/detail/id/7974719/" class="philipsItemsLink"></a>
+    </li><!--
+            --><li class="philipsItemsDip">
+        <div class="philipsItemsDip__img philipsItemsDip__img--6"></div>
+        <p class="philipsItemsDip__name">Philips SatinSoft HP6523</p>
+        <ul class="listDetailItem">
+            <li>Эпилирующие диски удаляют волосы без неприятных ощущений на коже</li>
+            <li>Уникальная технология керамических дисков для максимально эффективной эпиляции без травмирования кожи</li>
+            <li>Моющаяся головка для обеспечения идеальной гигиены</li>
+            <li>Технология Wet&Dry: для использования в душе и на сухой коже</li>
+            <li>Насадка Skin Stretcher для снижения болевых ощущений во время эпиляции в комплекте</li>
+            <li>Щеточка для пилинга для предотвращения проблемы вросших волосков в комплекте</li>
+            <li>Массажная насадка в комплекте</li>
+            <li>Насадка для чувствительных участков кожи в комплекте</li>
+        </ul>
+        <a href="http://www.ozon.ru/context/detail/id/31425902/" class="philipsItemsLink"></a>
+    </li>
+        <li class="philipsItemsDip">
+            <div class="philipsItemsDip__img philipsItemsDip__img--7"></div>
+            <p class="philipsItemsDip__name">Philips SatinPerfect HP6570</p>
+            <ul class="listDetailItem">
+                <li>Широкая эпилирующая головка удаляет больше волосков одним движением</li>
+                <li>Уникальная технология керамических дисков для максимально эффективной эпиляции без травмирования кожи</li>
+                <li>Система активной вибрации приподнимает и удаляет непослушные волоски</li>
+                <li>Моющаяся головка для обеспечения идеальной гигиены</li>
+                <li>Подсветка Opti-light обеспечивает видимость самых тонких волосков</li>
+                <li>Насадка для эффективной эпиляции следует изгибам тела </li>
+                <li>Массажная насадка в комплекте</li>
+            </ul>
+            <a href="http://www.ozon.ru/context/detail/id/5162216/" class="philipsItemsLink"></a>
+        </li>
+        <li class="philipsItemsDip">
+            <div class="philipsItemsDip__img philipsItemsDip__img--8"></div>
+            <p class="philipsItemsDip__name">Philips SatinPerfect HP6575</p>
+            <ul class="listDetailItem">
+                <li>Уникальная технология керамических дисков для максимально эффективной эпиляции без травмирования кожи</li>
+                <li>Широкая эпилирующая головка удаляет больше волосков одним движением</li>
+                <li>Технология Wet&Dry: для использования в душе и на сухой коже</li>
+                <li>Бесроводной режим работы</li>
+                <li>Массажная насадка, приподнимающая прилегающие к коже волоски, в комплекте</li>
+                <li>Насадка для чувствительных участков в комплекте</li>
+            </ul>
+            <a href="http://www.ozon.ru/context/detail/id/17911718/" class="philipsItemsLink"></a>
+        </li>
+        <li class="philipsItemsDip">
+            <div class="philipsItemsDip__img philipsItemsDip__img--9"></div>
+            <p class="philipsItemsDip__name">Philips SatinPerfect HP6579</p>
+            <ul class="listDetailItem">
+                <li>Уникальная технология керамических дисков для максимально эффективной эпиляции без травмирования кожи</li>
+                <li>Широкая эпилирующая головка удаляет больше волосков одним движением</li>
+                <li>Технология Wet&Dry: для использования в душе и на сухой коже</li>
+                <li>Бесроводной режим работы</li>
+                <li>Массажная насадка, приподнимающая прилегающие к коже волоски, в комплекте</li>
+                <li>Компактный эпилятор для чувствительных участков безболезненно удаляет волоски на самых деликатных зонах</li>
+            </ul>
+            <a href="http://www.ozon.ru/context/detail/id/17911719/" class="philipsItemsLink"></a>
+        </li>
+        <li class="philipsItemsDip">
+            <div class="philipsItemsDip__img philipsItemsDip__img--10"></div>
+            <p class="philipsItemsDip__name">Philips SatinPerfect HP6583</p>
+            <ul class="listDetailItem">
+                <li>Максимально широкая головка эпилятора удаляет больше волосков за одно движени</li>
+                <li>Более 1300 движений в секунду для быстрой эпиляции</li>
+                <li>Керамические диски с текстурированной поверхностью удаляют даже тонкие, короткие волоски</li>
+                <li>Бритвенная головка идеально повторяет контуры тела и делает бритье комфортным</li>
+                <li>Технология Wet&Dry: для использования в душе и на сухой коже</li>
+                <li>Бесроводной режим работы</li>
+                <li>Насадка Skin Stretcher для снижения болевых ощущений во время эпиляции в комплекте</li>
+                <li>Насадка для чувствительных участков в комплект</li>
+                <li>Компактный пинцет с подсветкой и зеркалом в комплекте/li>
+            </ul>
+            <a href="http://www.ozon.ru/context/detail/id/31425901/" class="philipsItemsLink"></a>
+        </li>
+    </ul>
+</div>
+<div class="philipsGirl" href=""></div>
+<div class="dipLine dipLine-bottom">
+    <div class="philipsColumn philipsColumn--left">
+        <div class="philipsPresentImage philipsPresentImage--left"></div>
+        <p class="philipsPresentText">Новый бикини-трииммер Philips BRT382 идеально подходит для придания формы в зоне бикини благодаря улучшенной геометрии зубчиков. В триммере применены более тонкие закругленные зубчики и улучшен угол наклона
+            для срезания волосков одним движением. В комплекте вы также найдете различные аксессуары для разных вариантов  подравнивания и создания ухоженного вида самых деликатных участков.
+        </p>
+        <a href="http://www.ozon.ru/context/detail/id/31425900/" class="philipsItemsLink"></a>
+    </div>
+    <div class="philipsColumn philipsColumn--right">
+        <div class="philipsPresentImage philipsPresentImage--right"></div>
+        <p class="philipsPresentText">Для тех, кто отдает предпочтение решениям 2-в-1, составлен прекрасный промонабор для всех случаев жизни – Philips HP6548. С помощью эпилятора вы сможете удалять нежелательные волоски на теле, а компактным триммером
+            подравнивать и сбривать волоски в самых чувствительных зонах. Также в комплекте имеется пинцет для коррекции формы бровей и красивый чехол для хранения всех аксессуаров в одном месте.
+        </p>
+        <a href="http://www.ozon.ru/context/detail/id/32488327/" class="philipsItemsLink"></a>
+    </div>
+</div>
+<div class="dipLine dipLine dipLine-bottom">
+    <div class="philipsLeftImage"></div>
+    <div class="philipsPresentText--bottom">
+            <span class="philips-text">Покупая эпиляторы Philips этим летом, у вас есть шанс найти в упаковке декоративный элемент в форме морской звезды. Это даст вам право участвовать в масштабном фотоконкурсе от Philips, в котором разыгрываются сотни
+            подарков, в том числе главные призы - фотоэпиляторы Philips Lumea, прибор для очищения кожи Philips VisaPure и прибор для микродермабразии кожи Philips VisaCare.</span></div>
+</div>
+</div>
+</body>
+</html>

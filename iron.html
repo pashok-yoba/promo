@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script src="http://ozon.ru/graphics/action/150619-baby/TweenMax.min.js"></script>
+</head>
+<body>
+<style>
+    .pageCenterNoLeft {
+        padding: 0;
+
+    }
+    .pageContent .PageModule {
+        margin: 0;
+    }
+    #PageContent {
+        padding: 0;
+    }
+    .pageCenterNoLeft div.pageContent .PageModule {
+        margin: 0;
+    }
+    #eski-root .wrap {
+        padding: 0;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    #iron * {
+        margin: 0;
+        padding: 0;
+    }
+    #iron {
+        font-family: Arial, sans-serif;
+        background-color: black;
+        background-repeat: no-repeat;
+    }
+    #iron .ironBack {
+        max-width: 1583px;
+        min-width: 960px;
+        margin: 0 auto;
+        height: 1578px;
+        background-image: url(//static.ozone.ru/graphics/action/150914-iron/bacground.jpg);
+        background-position: center top;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    #iron .ironInner {
+        width: 960px;
+        margin: 0 auto;
+        padding-top: 528px;
+    }
+
+    #iron .ironFacts {
+        width: 307px;
+        height: 32px;
+        background-image: url(//static.ozone.ru/graphics/action/150914-iron/facts.png);
+        display: inline-block;
+    }
+    /* лист черепов */
+   #iron .ironFactsList {
+       overflow: hidden;
+   }
+    #iron .ironFactsList__item {
+        float: left;
+        overflow: hidden;
+        width: 33.33%;
+        padding-top: 15px;
+        padding-right: 20px;
+        box-sizing: border-box;
+    }
+    #iron .FactsList {
+        list-style-type: none;
+    }
+    #iron .FactsList__head {
+        background-image: url(//static.ozone.ru/graphics/action/150914-iron/cher.png);
+        width: 59px;
+        height: 67px;
+        display: inline-block;
+    }
+    #iron .FactsList__text {
+        padding-top: 10px;
+        font-size:  14px;
+        color: #ffffff;
+        line-height: 22px;
+        text-align: left;
+    }
+    /*--------------------- */
+
+    /* треклист */
+
+    #iron .ironTrackName {
+        width: 175px;
+        height: 35px;
+        background-image: url(//static.ozone.ru/graphics/action/150914-iron/list.png);
+        display: inline-block;
+        margin-top: 74px;
+    }
+    #iron .ironTrackContainer {
+        overflow: hidden;
+    }
+    #iron .ironTracks {
+        width: 50%;
+        float: left;
+    }
+    #iron .ironDiskName {
+        width: 119px;
+        height: 36px;
+        display: inline-block;
+    }
+    #iron .ironDiskName--1 {
+        background-image: url(//static.ozone.ru/graphics/action/150914-iron/name-1.png);
+    }
+    #iron .ironDiskName--2 {
+        background-image: url(//static.ozone.ru/graphics/action/150914-iron/name-2.png);
+        background-repeat: no-repeat;
+    }
+    #iron .ironDisks {
+        overflow: hidden;
+    }
+    #iron .ironTracksList {
+        box-sizing: border-box;
+        padding-left: 100px;
+        list-style-type: none;
+    }
+    #iron .ironTracksList__item {
+        color: #ffffff;
+        font-size: 14px;
+        line-height: 31px;
+        text-align: left;
+    }
+    /* диски */
+    #iron .ironDisks {
+        padding-top: 75px;
+        overflow: hidden;
+    }
+    #iron .ironDiskItem {
+        float: left;
+        width: 480px;
+        position: relative;
+    }
+    #iron .ironDiskItem__image {
+        position: relative;
+        display: inline-block;
+    }
+    #iron .ironDiskItem__image--1 {
+        width: 193px;
+        height: 174px;
+        background-image: url(//static.ozone.ru/graphics/action/150914-iron/image1.png);
+        position: relative;
+        z-index: 5;
+    }
+    #iron .ironDiskItem__inner--1 {
+        width: 78px;
+        height: 149px;
+        background-image: url(//static.ozone.ru/graphics/action/150914-iron/disk-1.png);
+        position: absolute;
+        top: 11px;
+        left: 250px;
+    }
+    #iron .ironDiskItem__image--2 {
+        background-image: url(//static.ozone.ru/graphics/action/150914-iron/img-2.png);
+        width: 174px;
+        height: 174px;
+    }
+    #iron .ironDiskItem__inner--2 {
+        background-image: url(//static.ozone.ru/graphics/action/150914-iron/disk-2.png);
+        width: 42px;
+        height: 147px;
+        position: absolute;
+        top: 14px;
+        left: 280px;
+    }
+    #iron .ironDiskItem__inner--1-active {
+        left: 335px;
+    }
+    #iron .ironDiskItem__inner--2-active {
+        left: 327px;
+    }
+    #iron .ironDisks--buy {
+        padding-top: 45px;
+    }
+    /*------------- button buy -------------------*/
+    #iron .eksmoButton {
+        display: inline-block;
+        text-decoration: none;
+        width: 197px;
+        height: 51px;
+        box-sizing: border-box;
+        border: 1px solid #00a9dd;
+        font-size: 29px;
+        color: white;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        vertical-align: middle;
+
+    }
+    #iron .eksmoButton:before {
+        vertical-align: middle;
+        width: 0;
+        content: ' ';
+        color: white;
+        display: inline-block;
+        height: 100%;
+    }
+    #iron .eksmoButton:after {
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+        content: ' ';
+        border: 5px solid transparent;
+        border-left: 5px solid #ffffff;
+        display: inline-block;
+    }
+    #iron .eksmoButton:hover {
+        background-color: rgba(255,255,255, 0.1);
+    }
+
+    /* стили для полки */
+    .bUniversalShelf {
+        background-color: black;
+        background-position: center top;
+        background-image: url(//static.ozone.ru/graphics/action/150914-iron/back-bottom.jpg);
+        height: 521px;
+    }
+    .eUniversalShelf_Tabs {
+        text-align: center;
+    }
+    .eUniversalShelf_Tab {
+        font-size: 36px;
+        color: #896b5f;
+    }
+    .eUniversalShelf_Tab.mActive {
+        background-color: transparent;
+        color: #ffffff;
+
+    }
+    .jsSlider {
+        margin: 0 auto;
+        background-color: white;
+        padding-top: 20px;
+        min-width: 960px;
+    }
+    .eUniversalShelf_Tab {
+        background-color: transparent;
+    }
+    .bTabsSlider {
+        overflow: hidden;
+        height:285px;
+        background-color: white;
+        max-width: 1430px;
+        margin: 0 auto;
+    }
+    .eUniversalShelf_Tab:hover {
+        background-color: transparent;
+    }
+</style>
+<script>
+    function stop(event) {
+        if (event.preventDefault) {
+            event.preventDefault();
+            event.stopPropagation();
+        }
+        else {
+            event.cancelBubble = true;
+            event.returnValue = false;
+        }
+    }
+    function disactivateDisks() {
+        TweenMax.to(document.getElementsByClassName('ironDiskItem__inner--1')[0], 0.2, {className: '-=ironDiskItem__inner--1-active'} );
+        TweenMax.to(document.getElementsByClassName('ironDiskItem__inner--2')[0], 0.2, {className: '-=ironDiskItem__inner--2-active'} );
+    }
+    function activateDisk1(event){
+        TweenMax.to(document.getElementsByClassName('ironDiskItem__inner--1')[0], 0.2, {className: '+=ironDiskItem__inner--1-active'} );
+        stop(event);
+    }
+    function activateDisk2(event){
+        TweenMax.to(document.getElementsByClassName('ironDiskItem__inner--2')[0], 0.2, {className: '+=ironDiskItem__inner--2-active'} );
+        stop(event);
+    }
+    window.addEventListener('DOMContentLoaded', function(){
+        document.getElementsByClassName('ironDiskItem__image--1')[0].addEventListener("mouseover",activateDisk1);
+        document.getElementsByClassName('ironButton--1')[0].addEventListener("mouseover",activateDisk1);
+
+        document.getElementsByClassName('ironDiskItem__image--2')[0].addEventListener("mouseover",activateDisk2);
+        document.getElementsByClassName('ironButton--2')[0].addEventListener("mouseover",activateDisk2);
+
+        document.getElementById('iron').addEventListener("mouseover",disactivateDisks);
+    })
+</script>
+<div id="iron">
+    <div class="ironBack">
+        <div class="ironInner">
+            <div class="ironFacts"></div>
+            <ul class="ironFactsList">
+                <li class="ironFactsList__item FactsList">
+                    <div class="FactsList__head"></div>
+                    <p class="FactsList__text">
+                        - Пластинка была записана в Париже вместе с одним из лучших рок-продюсеров последних 20 лет Кевином Ширли (Dream Theater, Rush, Him, Joe Satriani), с которым группа записала все свои последние релизы.
+                    </p>
+                </li>
+                <li class="ironFactsList__item FactsList">
+                    <div class="FactsList__head"></div>
+                    <p class="FactsList__text">
+                        - Обложку альбома разработал Марк Уилкинсон, который ранее сотрудничал с Iron Maiden на таких релизах, как Live at Donington и Best of the 'B' Sidesruen, а также разрабытывал обложки для синглов группы «The Wicker Manruen» и «Out of the Silent Planetruen»
+                    </p>
+                </li>
+                <li class="ironFactsList__item FactsList">
+                    <div class="FactsList__head"></div>
+                    <p class="FactsList__text">
+                        - “The Book of Souls” первый в истории группы двойной альбом: 11 треков в общей сложности длятся 92 минуты
+                    </p>
+                </li>
+            </ul>
+            <div class="ironTrackContainer">
+                <div class="ironTrackName"></div>
+                <div class="ironDisks">
+                    <div class="ironTracks">
+                        <div class="ironDiskName ironDiskName--1"></div>
+                        <ul class="ironTracksList">
+                            <li class="ironTracksList__item">1. If Eternity Should Fail (Dickinson) 8:28</li>
+                            <li class="ironTracksList__item">2. Speed Of Light (Smith/ Dickinson) 5:01</li>
+                            <li class="ironTracksList__item">3. The Great Unknown (Smith/ Harris) 6:37</li>
+                            <li class="ironTracksList__item">4. The Red And The Black (Harris) 13:33</li>
+                            <li class="ironTracksList__item">5. When The River Runs Deep (Smith/ Harris) 5:52</li>
+                            <li class="ironTracksList__item">6. The Book Of Souls (Gers/ Harris) 10:27</li>
+                        </ul>
+                    </div>
+                    <div class="ironTracks">
+                        <div class="ironDiskName ironDiskName--2"></div>
+                        <ul class="ironTracksList">
+                            <li class="ironTracksList__item">7. Death Or Glory (Smith/ Dickinson) 5:13</li>
+                            <li class="ironTracksList__item">8. Shadows Of The Valley (Gers/ Harris) 7:32</li>
+                            <li class="ironTracksList__item">9. Tears Of A Clown (Smith/ Harris) 4:59</li>
+                            <li class="ironTracksList__item">10. The Man Of Sorrows (Murray/ Harris) 6:28</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="ironDisks">
+                <div class="ironDiskItem">
+                    <a href="/context/detail/id/33921553/?item=33855477" class="ironDiskItem__image ironDiskItem__image--1"></a>
+                    <div class="ironDiskItem__inner--1"></div>
+                </div>
+                <div class="ironDiskItem">
+                    <div class="ironDiskItem__inner--2"></div>
+                    <a href="/context/detail/id/33921711/?item=33855475" class="ironDiskItem__image ironDiskItem__image--2"></a>
+                </div>
+            </div>
+            <div class="ironDisks ironDisks--buy">
+                <div class="ironDiskItem">
+                    <div class="eksmoBottomBookDetail__button">
+                        <a class="eksmoButton ironButton--1" href="/context/detail/id/33921553/?item=33855477">
+                            Купить CD
+                        </a>
+                    </div>
+                </div>
+                <div class="ironDiskItem">
+                    <div class="eksmoBottomBookDetail__button">
+                        <a class="eksmoButton ironButton--2" href="/context/detail/id/33921711/?item=33855475">
+                            Купить LP
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

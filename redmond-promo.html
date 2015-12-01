@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+<style>
+    #redmond * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+    #redmond {
+        width: 100%;
+        background-color: #070200;
+    }
+    #redmond .redmond-inner {
+        width: 863px;
+        margin: 0 auto;
+        padding-top: 73px;
+        position: relative;
+    }
+    #redmond .redmond-logo {
+        width: 594px;
+        height: 95px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/red-logo1.jpg);
+        background-repeat: no-repeat;
+    }
+    #redmond .redmond-multi-picture {
+        width: 772px;
+      /*  height: 1045px;*/
+        height: 805px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/multi.png);
+        margin-left: 87px;
+        position: relative;
+        z-index: 5;
+    }
+    #redmond .redmond-par {
+        position: absolute;
+        width: 183px;
+        height: 169px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/p1.png);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        top: 265px;
+        left: 85px;
+        transition: all 0.2s;
+    }
+    #redmond .redmond-myster {
+        position: absolute;
+        width: 277px;
+        height: 98px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/master-fly.png);
+        top: 212px;
+        left: 57px;
+    }
+    #redmond .redmond-multi-name {
+        position: absolute;
+        width: 407px;
+        height: 85px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/multi-1.png);
+        top: 354px;
+        left: 57px;
+        z-index: 5
+    }
+    #redmond .redmonnd-cloud {
+        position: absolute;
+        width: 863px;
+        height: 500px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/cloud.jpg);
+        top: 310px;
+        left: 0;
+        z-index: 2;
+    }
+    #redmond .redmond-multi-old {
+        position: absolute;
+        width: 240px;
+        height: 62px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/cost-1.png);
+        top: 773px;
+        left: 143px;
+        z-index: 6;
+    }
+    #redmond .redmond-multi-fm {
+        position: absolute;
+        width: 175px;
+        height: 67px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/multi-name.png);
+        top: 844px;
+        right: 120px;
+        z-index: 6;
+    }
+    #redmond .redmond-multi-buy {
+        position: absolute;
+        top: 929px;
+        right: 120px;
+        z-index: 6;
+    }
+    #redmond .redmond-multi-new {
+        top: 844px;
+        left: 120px;
+        width: 416px;
+        border-radius: 10px;
+        background-color: #f2e100;
+        position: absolute;
+        height: 123px;
+        line-height: 123px;
+        box-sizing: border-box;
+        padding-left: 22px;
+        z-index: 6;
+    }
+    #redmond .redmond-multi-cost {
+        font-family: Verdana, Arial, sans-serif;
+        font-size: 80px;
+        color: #d8003c;
+        font-weight: bold;
+    }
+    #redmond .redmond-multi-r {
+        position:absolute;
+        width: 116px;
+        height: 54px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/red-rub.jpg);
+        top: 51px;
+        right: 23px;
+        display: none;
+    }
+    #redmond .redmond-about {
+        height: 550px;
+        padding-left: 179px;
+    }
+    #redmond .red-about-item {
+        margin-top: 30px;
+        display: none;
+    }
+    #redmond .red-item-1 {
+        width: 544px;
+        height: 53px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/about-1.jpg);
+        margin-top: 43px;
+    }
+    #redmond .red-item-2 {
+        width: 396px;
+        height: 52px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/about-2.jpg);
+    }
+    #redmond .red-item-3 {
+        width: 479px;
+        height: 75px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/about-3.jpg);
+    }
+    #redmond .red-item-4 {
+        width: 572px;
+        height: 54px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/about-4.jpg);
+    }
+    #redmond .red-item-5 {
+        width: 592px;
+        height: 184px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/about-51.jpg);
+    }
+    #redmond .red-bottom {
+        position: relative;
+        padding-bottom: 40px;
+    }
+    #redmond .red-variants {
+        width: 421px;
+        height: 31px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/choose.jpg);
+        margin-left: 120px;
+    }
+    #redmond .red-detail {
+        position: absolute;
+        top: -5px;
+        right: 56px;
+    }
+    #redmond .red-detail-all {
+        width: 676px;
+        height: 261px;
+        background-image: url(http://ozon.ru/graphics/action/150602-redmond/red-pic.jpg);
+        margin-top: 25px;
+        margin-left: 104px;
+    }
+    #redmond .red-about {
+        color: white;
+        margin-left: 120px;
+        margin-top: 25px;
+        display: inline-block;
+        font-family: Myriad Pro, Arial, sans-serif;
+        font-size: 14px;
+    }
+
+</style>
+<script>
+    $(function(){
+        var n = 6699;
+        var textItem =$ ('.redmond-multi-cost');
+        function interval() {
+            textItem.text(n);
+            n = n-85;
+            if (n == 4999) {
+                textItem.text(n);
+                $('.redmond-multi-r').fadeIn(100);
+                clearInterval(intervalID)
+            }
+        }
+        var intervalID=setInterval(interval, 50);
+
+        var e = 0;
+        function aboutItem(selector) {
+            var item = $(selector);
+            if ( e < item.length ){
+                $(item[e]).fadeIn(300, function(){
+                    aboutItem(selector);
+                    e++
+                });
+
+            }
+        }
+        var displayheight = $(window).height();
+        var heightStart = $('.redmond-about').offset().top+150;
+        var ScrollHeight;
+        $(document).scroll(function(){
+
+            if ( heightStart < displayheight +$(window).scrollTop() ) {
+                aboutItem('.red-about-item');
+                $(document).unbind('scroll');
+            }
+        });
+    })
+</script>
+<div id="redmond">
+    <div class="redmond-inner">
+        <div class="redmond-logo"></div>
+        <div class="redmond-myster"></div>
+        <div class="redmond-multi-name"></div>
+        <div class="redmond-multi-picture">
+            <div class="redmond-par"></div>
+        </div>
+        <div class="redmonnd-cloud"></div>
+        <div class="redmond-multi-old"></div>
+        <div class="redmond-multi-fm"></div>
+        <div class="redmond-multi-new">
+            <span class="redmond-multi-cost">6699</span> <span class="redmond-multi-r"></span>
+        </div>
+        <div class="redmond-multi-buy">
+            <a href="/context/detail/id/30918500/" class="redmond-multi-link"><img src="http://ozon.ru/graphics/action/150602-redmond/buy.jpg" width="118" height="39"/></a>
+        </div>
+        <div class="redmond-about">
+            <div class="red-about-item red-item-1"></div>
+            <div class="red-about-item red-item-2"></div>
+            <div class="red-about-item red-item-3"></div>
+            <div class="red-about-item red-item-4"></div>
+            <div class="red-about-item red-item-5"></div>
+        </div>
+        <div class="red-bottom">
+            <div class="red-variants"></div>
+            <div class="red-detail">
+                <a href="/context/detail/id/30918500/"><img src="http://ozon.ru/graphics/action/150602-redmond/detail.jpg" width="171" height="39"/></a>
+            </div>
+            <div class="red-detail-all"></div>
+            <span class="red-about">Срок действия акции до 30.07.2015 г.</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

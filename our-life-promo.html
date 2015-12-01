@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>ss</title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+<body>
+<script>
+    $(window).load(function(){
+        Array.max = function( array ){
+            return Math.max.apply( Math, array );
+        };
+        var cons = 5;
+
+        function init(){
+            var galleryItem = $('.gallery-item');
+            galleryItem.css('display', 'block');
+            var id = 0;
+            galleryItem.each( function(){
+                $(this).attr('id', 'item'+id);
+                $(this).find('.gallery-image').attr('id','image'+id );
+                id++;
+            });
+            $('.gallery-image').css({'display': 'block', 'width': '100%'});
+            var width = $('.container').innerWidth();
+            var masHeight = [cons];
+            var maxLine = Math.floor(galleryItem.length/cons);
+            var numbersInLast = galleryItem.length/cons - maxLine;
+            galleryItem.css({'width': width/cons+'px', position: 'absolute'});
+            var i;
+            for (i = 0; i<cons; i++){
+                var $this = $('#item'+i);
+                $this.css('left', 100/cons*i+'%');
+                masHeight[i] = $this.innerHeight();
+            }
+            i = 0;
+
+            for (var line = 1; line<maxLine; line++){
+                i = 0;
+
+                for (var j = cons*line; j<cons*2*line; j++){
+                    var $this2 = $('#item'+j);
+                    $this2.css({'left': 100/cons*i+'%','top': masHeight[i]+'px'});
+                    masHeight[j-cons*line] += $this2.innerHeight();
+                    i++
+                }
+            }
+            if( numbersInLast != 0 ) {
+                var g = 0;
+                for (var h = cons*line; h <galleryItem.length; h++){
+                    var $this3 = $('#item'+h);
+                    $this3.css({'left': 100/cons*g+'%','top': masHeight[g]+'px'});
+                    masHeight[g] += $this3.innerHeight();
+                    g++
+                }
+            }
+            var heightGallery = Array.max(masHeight);
+            $('.gallery-list').css('height', heightGallery+'px');
+        }
+
+        init();
+
+        $('.year-unit').click(function(){
+            $('.year-unit').css({'background-color': 'white', 'color': '#0083ca'});
+            $('.year-unit-after').css({'border-top': '10px solid white'});
+            $(this).css({'background-color': '#ffcb05', 'color': 'white'});
+            $(this).find('.year-unit-after').css({'border-top': '10px solid #ffcb05'});
+            var year = $(this).attr('id');
+            $('.gallery-item').removeClass('gallery-item').removeAttr('id').fadeOut(100);
+            $('.gallery-image').removeAttr('id')
+            $('.item-'+year).addClass('gallery-item').fadeIn(100);
+            init();
+        });
+
+        $('.gallery-hover').click(function(){
+            var fullScreen = $('.full-screen');
+            $('#our-life').css({'overflow': 'hidden', 'height': $(window).height()+'px'});
+            fullScreen.css({'height': '100%', 'width': '100%', 'text-align': 'center'});
+            var image = $(this).parent().find('.gallery-image').clone();
+            image.css({ 'height': '80%', 'padding-top': '5%', 'width': 'auto', 'display': 'inline-block'});
+            image.appendTo(fullScreen);
+            fullScreen.fadeIn(100);
+
+
+            var close = $('.full-screen_close');
+            close.click(function(){
+                $(this).parent().find('.gallery-image').remove();
+                $('#our-life').css({'overflow': 'auto', 'height': 'auto'});
+                fullScreen.fadeOut(100);
+                init();
+            });
+
+        });
+
+        $('.full-screen_next').click(function(){
+            var fullScreen = $('.full-screen');
+            var image = $(this).parent().find('.gallery-image').fadeOut(100);
+            var number = image.attr('id').split('mage')[1];
+            console.log(number);
+            image.remove();
+            number++;
+            if ($('#item'+number).length){
+                image = $('#image'+number).clone();
+                console.log(image);
+                image.css({ 'height': '80%', 'padding-top': '5%', 'width': 'auto', 'display': 'inline-block'});
+                image.appendTo(fullScreen);
+            }
+            else {
+                image = $('#image'+0).clone();
+                console.log(image);
+                image.css({ 'height': '80%', 'padding-top': '5%', 'width': 'auto', 'display': 'inline-block'});
+                image.appendTo(fullScreen);
+            }
+
+        });
+
+        $('.full-screen_prev').click(function(){
+            var fullScreen = $('.full-screen');
+            var image = $(this).parent().find('.gallery-image').fadeOut(100);
+            var number = image.attr('id').split('mage')[1];
+            var itemLength = $('.gallery-item').length-1;
+            image.remove();
+            number--;
+            if ($('#item'+number).length){
+                image = $('#image'+number).clone();
+                image.css({ 'height': '80%', 'padding-top': '5%', 'width': 'auto', 'display': 'inline-block'});
+                image.appendTo(fullScreen);
+            }
+            else {
+                image = $('#image'+itemLength).clone();
+                console.log(itemLength);
+                image.css({ 'height': '80%', 'padding-top': '5%', 'width': 'auto', 'display': 'inline-block'});
+                image.appendTo(fullScreen);
+            }
+
+        });
+
+        $(window).resize(function(){
+            if ( $('.full-screen').css('display') == 'none') {
+                init();
+            }
+            else {
+                $('#our-life').css({'overflow': 'hidden', 'height': $(window).height()+'px'});
+            }
+        });
+    });
+</script>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    #our-life {
+        width: 100%;
+        position: relative;
+
+    }
+
+    #our-life .our-corporation-image {
+        width: 100%;
+    }
+    #our-life .our-corporation {
+        width: 692px;
+        margin: 36px 0 0 20px;
+    }
+    #our-life .corporation-text {
+        font-family: Verdana;
+        font-size: 12px;
+        color: black;
+        width: 665px;
+        margin: 20px 0 0 20px;
+    }
+    #our-life .years {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    #our-life .year-unit {
+        display: inline-block;
+        text-decoration: underline;
+        cursor: pointer;
+        margin: 0 ;
+        background: white;
+        padding: 6px 16px;
+        box-sizing: border-box;
+        position: relative;
+        color: #0083ca;
+        font-family: Arial;
+        font-size: 22px;
+        transition:background 0.5s
+    }
+    #our-life #year-2011 {
+        color: white;
+        background-color: #ffcb05;
+    }
+    #our-life #year-unit-after-2011 {
+        border: 10px solid transparent;
+        border-top: 10px solid #ffcb05;;
+    }
+    #our-life .year-unit-after {
+        content: '';
+        border: 10px solid transparent;
+        position: absolute; /* Абсолютное позиционирование */
+        left: 27px; bottom: -20px; /* Положение треугольника */
+        border-top: 10px solid white; /* Добавляем треугольник */
+        transition:border 0.5s;
+    }
+    #our-life .text {
+        width: 80%;
+        margin: 0 auto;
+    }
+    #our-life .container {
+        width: 80%;
+        margin: 0 auto;
+    }
+    #our-life .gallery-list {
+        padding-bottom: 20px;
+        list-style-position: inside;
+        list-style-type: none;
+        position: relative;
+        height: 400px;
+
+    }
+    #our-life .item-year-2012 {
+        display: none
+    }
+    #our-life .item-year-2013 {
+        display: none
+    }
+    #our-life .item-year-2011 {
+        display: none
+    }
+    #our-life .item-year-2014 {
+        display: none
+    }
+    #our-life .gallery-item {
+        list-style-type: none;
+        vertical-align: top;
+        box-sizing: border-box;
+        padding: 5px;
+        background: none;
+
+    }
+    #our-life .gallery-hover {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        bottom: 25px;
+        right: 20px;
+        cursor: pointer;
+        transition: all 1s;
+    }
+    #our-life .gallery-hover:hover{
+        background: rgba(255, 255, 255, 0.6);
+    }
+    #our-life .gallery-image {
+        display: none;
+    }
+    #our-life .full-screen {
+        display: none;
+        left:0;
+        top: 0;
+        position: absolute;
+        background: rgba(0, 0, 0, 0.95);
+    }
+    #our-life .full-screen_close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+    #our-life .full-screen_next {
+        position: absolute;
+        top: 50%;
+        right: 3%;
+        cursor: pointer;
+    }
+    #our-life .full-screen_prev {
+        position: absolute;
+        top: 50%;
+        left: 3%;
+        cursor: pointer;
+    }
+</style>
+<div id="our-life">
+    <div class="text">
+    <div class="our-corporation">
+        <img class="our-corporation-image" src="http://static.ozone.ru/graphics/action/141203-our-life/images/our-corporation.png">
+    </div>
+    <p class="corporation-text">
+        OZON.ru приглашает к сотрудничеству энергичных, активных и целеустремленных профессионалов,
+        заинтересованных в самореализации и развитии. Мы предлагаем масштабные оригинальные проекты, позволяющие каждому раскрыть свой потенциал.
+    </p>
+    <div class="years">
+        <span class="year-unit" id="year-2011">2011
+        <div class="year-unit-after" id="year-unit-after-2011"></div></span>
+        <span class="year-unit" id="year-2012">2012
+        <div class="year-unit-after"></div></span>
+        <span class="year-unit" id="year-2013">2013
+        <div class="year-unit-after"></div></span>
+        <span class="year-unit" id="year-2014">2014
+        <div class="year-unit-after"></div></span>
+    </div>
+    </div>
+<div class="container">
+    <ul class="gallery-list">
+        <li class="gallery-item item-year-2011">
+            <img class="gallery-image" src="//static.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-birthday_1.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+        <li class="gallery-item item-year-2011">
+            <img class="gallery-image" src="//static1.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-birthday_5.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+
+        <li class="gallery-item item-year-2011">
+            <img class="gallery-image" src="//static1.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-birthday_2.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+
+        <li class="gallery-item item-year-2011">
+            <img class="gallery-image" src="//static1.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-birthday_3.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+
+        <li class="gallery-item item-year-2011">
+            <img class="gallery-image" src="//static1.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-birthday_4.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+
+       <li class="gallery-item item-year-2011">
+            <img class="gallery-image" src="//static1.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-work_4.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+        <li class="gallery-item item-year-2011">
+            <img class="gallery-image" src="//static1.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-work_3.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+        <li class="item-year-2012">
+            <img class="gallery-image" src="//static1.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-work_1.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+        <li class="item-year-2012">
+            <img class="gallery-image" src="//static1.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-work_2.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+        <li class="item-year-2012">
+            <img class="gallery-image" src="//static1.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-work_3.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+        <li class="item-year-2012">
+            <img class="gallery-image" src="//static1.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-work_4.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+        <li class="item-year-2013">
+            <img class="gallery-image" src="//static.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-birthday_1.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+        <li class="item-year-2013">
+            <img class="gallery-image" src="//static.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-birthday_2.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+        <li class="item-year-2013">
+            <img class="gallery-image" src="//static.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-birthday_3.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+        <li class="item-year-2014">
+            <img class="gallery-image" src="//static.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-birthday_4.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+        <li class="item-year-2014">
+            <img class="gallery-image" src="//static.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-birthday_5.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+        <li class="item-year-2014">
+            <img class="gallery-image" src="//static.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-birthday_1.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+        <li class="item-year-2014">
+            <img class="gallery-image" src="//static.ozone.ru/graphics/action/141203-our-life/img15/2012/2012-birthday_2.jpg">
+            <div class="gallery-hover"></div>
+        </li>
+
+
+
+    </ul>
+    <div class="full-screen">
+        <div class="full-screen_close">
+            <img class="close-screen_image" src="//static.ozone.ru/graphics/action/141203-our-life/images/close.jpg">
+        </div>
+        <div class="full-screen_next">
+            <img src="//static.ozone.ru/graphics/action/141203-our-life/images/next.png">
+        </div>
+        <div class="full-screen_prev">
+            <img src="//static.ozone.ru/graphics/action/141203-our-life/images/prev.png">
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>

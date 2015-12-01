@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://ozon.ru/graphics/action/150619-baby/TweenMax.min.js"></script>
+</head>
+<body>
+
+<style>
+    .detail_leftcell  {
+        width: auto!important
+    }
+    .pageCenterNoLeft {
+        padding: 0;
+
+    }
+    .pageContent .PageModule {
+        margin: 0;
+    }
+    #PageContent {
+        padding: 0;
+    }
+    .pageCenterNoLeft div.pageContent .PageModule {
+        margin: 0;
+    }
+    #heroes {
+        font-family: Arial, sans-serif;
+        min-width: 1000px;
+    }
+    #heroes * {
+        margin: 0;
+        padding: 0;
+    }
+    /*-------------- header ---------------------*/
+    #heroes .heroesHeader {
+        background-color: #1a2f3e;
+        position: relative;
+    }
+    #heroes .heroesHeadderInnerBack {
+        min-width: 1000px;
+        max-width: 1320px;
+        margin: 0 auto;
+        position: relative;
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/heroes-back.jpg);
+        height: 602px;
+        background-position: center;
+    }
+    #heroes .heroesHeadderInner {
+        width: 960px;
+        margin: 0 auto;
+        position: relative;
+    }
+    #heroes .heroesCircle {
+        position: absolute;
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/heroes-circle1.png);
+        width: 354px;
+        height: 353px;
+        top: 17px;
+        left: 30px;
+    }
+    #heroes .heroesButton {
+        width: 137px;
+        height: 35px;
+        box-sizing: border-box;
+        border: 2px solid #ffffff;
+        border-radius: 14px;
+        top: 263px;
+        left: 108px;
+        position: absolute;
+        font-size: 18px;
+        color: white;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+
+    }
+    #heroes .heroesButton:before {
+        vertical-align: middle;
+        width: 0;
+        content: ' ';
+        color: white;
+        display: inline-block;
+        height: 100%;
+    }
+    #heroes .heroesButton:after {
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+        content: ' ';
+        border: 5px solid transparent;
+        border-left: 5px solid #ffffff;
+        display: inline-block;
+    }
+    #heroes .heroesButton-active {
+        box-shadow: inset 0 0 0 17px #ffffff;
+        color: #f04d32;
+        background-color: #fff;
+    }
+    #heroes .heroesButton-active:after {
+        border-left: 5px solid #f04d32;
+    }
+
+
+
+    /* description */
+    #heroes .heroesDescription {
+        width: 960px;
+        margin: 0 auto;
+        box-sizing: border-box;
+        padding: 0 30px;
+    }
+    #heroes .heroesMenu {
+        text-align: center;
+        padding: 5px 0 25px;
+    }
+    #heroes .heroesMenu__point {
+        display: inline-block;
+        padding: 10px;
+        font-size: 18px;
+        position: relative;
+        cursor: pointer;
+    }
+    #heroes .pointActive {
+        background-color: #ff4338;
+        color: #ffffff;
+    }
+    #heroes .pointActive:after {
+        content: ' ';
+        width: 0;
+        height: 0;
+        border: 6px solid transparent;
+        border-top: 6px solid  #ff4338;
+        position: absolute;
+        display: inline-block;
+        bottom: -12px;
+        left: 50%;
+        margin-left: -6px;
+    }
+    #heroes .heroesDashed:hover {
+        text-decoration: underline;
+    }
+    #heroes .heroesDescriptionContainer {
+        height: 600px;
+        position: relative;
+    }
+    #heroes .heroesDescriptionContainer--small {
+        position: relative;
+        height: 250px;
+    }
+    #heroes .heroesDescriptionList {
+        line-height: 24px;
+        list-style-type: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 15px;
+        opacity: 0;
+    }
+    #heroes .heroesDescription__item {
+        padding-bottom: 30px;
+        padding-left: 49px;
+        position: relative;
+    }
+    #heroes .heroesDescription__item:before {
+        content: ' ';
+        display: inline-block;
+        position: absolute;
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/list-item.jpg);
+        width: 33px;
+        height: 26px;
+        left: 0;
+        top: -4px;
+    }
+    #heroes .DescriptionName {
+        font-size: 18px;
+        color: #ff4338;
+    }
+    #heroes .listBlock {
+        opacity: 1;
+    }
+
+    /*slider */
+    #heroes .heroesSlider {
+        border-bottom: 5px solid #ff4338;
+        position: relative;
+        height: 505px;
+    }
+    #heroes .heroesSlide {
+        position: absolute;
+        width: 100%;
+        height: 505px;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+    #heroes .heroesSlideInner {
+        width: 960px;
+        height: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+        position: relative;
+    }
+    #heroes .heroesSlide__text {
+        height: 254px;
+        width: 475px;
+        box-sizing: border-box;
+        padding: 25px 35px;
+        color: #ffffff;
+        font-size: 18px;
+        line-height: 24px;
+        position: absolute;
+        top: 134px;
+    }
+    #heroes .sliderTextBold{
+        font-size: 30px;
+        display: inline-block;
+        padding-bottom: 15px;
+    }
+    #heroes .heroesSlider__left {
+        top: 236px;
+        position: absolute;
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/left.png);
+        width: 20px;
+        height: 48px;
+        left: 50%;
+        margin-left: -490px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+    }
+    #heroes .heroesSlider__right {
+        top: 236px;
+        position: absolute;
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/right.png);
+        width: 20px;
+        height: 48px;
+        right: 50%;
+        margin-right: -490px;
+        cursor: pointer;
+        background-repeat: no-repeat;
+    }
+    #heroes .heroesSlider__left:hover {
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/left-hover.png);
+    }
+    #heroes .heroesSlider__right:hover {
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/right-hover.png);
+    }
+    #heroes .heroesSlider__circles {
+        position: absolute;
+        top: 480px;
+        width: 100%;
+        text-align: center;
+    }
+    #heroes .sliderPointer {
+        display: inline-block;
+        width: 14px;
+        height: 14px;
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.6);
+        margin: 0 3px;
+        border-radius: 7px;;
+    }
+    #heroes .sliderPointer-active {
+        background-color: #f04d32;
+    }
+
+
+    #heroes .heroesSlide--1 {
+        background-color: #233645;
+    }
+    #heroes .heroesSlideInner--1 {
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/slide-1.jpg);
+    }
+    #heroes .heroesSlide__text--1 {
+        background-color: rgba(35, 54, 69, 0.7);
+        left: 0;
+    }
+
+    #heroes .heroesSlide--2 {
+        background-color: #6a331e;
+    }
+    #heroes .heroesSlideInner--2 {
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/slide-2.jpg);
+    }
+    #heroes .heroesSlide__text--2 {
+        background-color: rgba(106, 51, 30, 0.7);
+        right: 0;
+    }
+
+    #heroes .heroesSlide--3 {
+        background-color: #38443a;
+    }
+    #heroes .heroesSlideInner--3 {
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/slide-31.jpg);
+    }
+    #heroes .heroesSlide__text--3 {
+        background-color: rgba(56, 68, 58, 0.7);
+        left: 0;
+    }
+
+    #heroes .heroesSlide--4 {
+        background-color: #5e5252;
+    }
+    #heroes .heroesSlideInner--4 {
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/slide-4.jpg);
+    }
+    #heroes .heroesSlide__text--4 {
+        background-color: rgba(94, 82, 82, 0.7);
+        right: 0;
+    }
+
+    #heroes .heroesSlide--5 {
+        background-color: #2b3d2d;
+    }
+    #heroes .heroesSlideInner--5 {
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/slide-5.jpg);
+    }
+    #heroes .heroesSlide__text--5 {
+        background-color: rgba(43, 61, 45, 0.7);
+        left: 0;
+    }
+    #heroes .activeSlide {
+        opacity: 1;
+    }
+    /*presale */
+    #heroes .heroesPresale {
+        padding-top: 20px;
+        width: 960px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    #heroes .heroesPresaleText {
+        font-size: 30px;
+        color: #ff4338;
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    #heroes .heroesProduct {
+        width: 50%;
+        float: left;
+        text-align: center;
+    }
+    #heroes .heroesProduct__image {
+        display: inline-block;
+        height: 229px;
+    }
+    #heroes .heroesProduct__image--1 {
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/product-1.jpg);
+        width: 152px;
+    }
+    #heroes .heroesProduct__image--2 {
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/product-2.jpg);
+        width: 263px;
+    }
+    #heroes .heroesProduct__name {
+        font-size: 18px;
+    }
+
+
+    #heroes .heroesProduct__link {
+        width: 127px;
+        height: 32px;
+        box-sizing: border-box;
+        display: inline-block;
+        font-size: 18px;
+        color: white;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        background-color: #00b9f2;
+        text-decoration: none;
+        margin: 12px 12px;
+    }
+    #heroes .heroesProduct__link:hover {
+        background-color: #0083ca;
+    }
+    #heroes .heroesProduct__link:before {
+        vertical-align: middle;
+        width: 0;
+        content: ' ';
+        color: white;
+        display: inline-block;
+        height: 100%;
+    }
+    #heroes .heroesProduct__link:after {
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+        content: ' ';
+        border: 5px solid transparent;
+        border-left: 5px solid #ffffff;
+        display: inline-block;
+    }
+    #heroes .heroesProduct__detail {
+        font-size: 14px;
+        cursor: pointer;
+    }
+    #heroes .detailText {
+        display: inline-block;
+    }
+    #heroes .detailText:hover {
+       text-decoration:  underline;
+    }
+
+/* video */
+    #heroes .heroesVideo {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        padding-top: 50px;
+        background-color: rgba(0, 0, 0, 0.7);
+        box-sizing: border-box;
+        display: none;
+    }
+    #heroes .heroesVideoFrame {
+        display: inline-block;
+    }
+    #heroes .heroesVideo__close {
+        position: absolute;
+        width: 20px;
+        height: 19px;
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/close.png);
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+    #heroes .heroesVideo__close:hover {
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/close-hover.png);
+    }
+    #heroes .heroesVideoBlock  {
+        display: block;
+    }
+
+    /* bottom detail */
+    #heroes .heroesBottomDetail {
+        height: 561px;
+        position: relative;
+        margin-top: 27px;
+        background-color: #dcd8d3;
+        box-sizing: border-box;
+  /*      padding-top: 16px;*/
+    }
+    #heroes .heroesBottomDetailImage {
+        position: absolute;
+        height: 507px;
+        width: 899px;
+        left: 50%;
+        top: 26px;
+        margin-left: -450px;
+        opacity: 0;
+    }
+    #heroes .heroesBottomDetailImage--1 {
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/bottom-1.jpg);
+    }
+    #heroes .heroesBottomDetailImage--2 {
+        background-image: url(//static.ozone.ru/graphics/action/150814-heroes/bottom-2.jpg);
+    }
+    #heroes .heroesbottomDetailArrowContainer {
+        width: 960px;
+        margin: 0 auto;
+        position: relative;
+    }
+    #heroes .heroesArrow {
+        width: 0;
+        height: 0;
+        border: 15px solid transparent;
+        border-bottom: 15px solid #dcd8d3;
+        top: -30px;
+        position: absolute;
+        left: 222px;
+
+    }
+    #heroes .activBottomDetail {
+        opacity: 1;
+    }
+    #heroes .heroesPrice {
+        padding-top: 10px;
+        font-size: 16px;
+    }
+
+
+    .heroesLoader {
+        background: url(//static.ozone.ru/graphics/action/150814-heroes/close-hover.png), url(//static.ozone.ru/graphics/action/150814-heroes/left-hover.png), url(//static.ozone.ru/graphics/action/150814-heroes/left-hover.png);
+    }
+</style>
+<script>
+    function change(dataAttribute, dataAttributeDescription, thisElem){
+        var classes = thisElem.className.split(' ');
+        if (classes.indexOf('pointActive') == -1 ){
+            var all = thisElem.parentElement.children;
+            for (var i = 0; i < all.length; i++ ){
+                all[i].className = classes[0];
+            }
+            thisElem.className += ' pointActive';
+        }
+        var attrData = thisElem.getAttribute(dataAttribute);
+        var detailElement = document.querySelectorAll('['+dataAttributeDescription+'="'+attrData+'"]');
+        var allDetailElements = document.querySelectorAll('['+dataAttributeDescription+']');
+        var classDetail = detailElement[0].className.split(' ');
+        if (classDetail.indexOf('listBlock') == -1 ){
+            if (attrData == 1) {
+                TweenMax.to(document.getElementsByClassName('heroesDescriptionContainer'), 0.5, {className: '+=heroesDescriptionContainer--small'});
+            }
+            else {
+                TweenMax.to(document.getElementsByClassName('heroesDescriptionContainer'), 0.5, {className: '-=heroesDescriptionContainer--small'});
+            }
+            TweenMax.to(allDetailElements, 0.5, {className: '-=listBlock'});
+            TweenMax.to(detailElement, 0.5, {className: '+=listBlock'});
+        }
+
+    }
+    function changeBottom(){
+        var classes = this.className.split(' ');
+        if (classes.indexOf('activeDetail') == -1 ){
+            var dataAttribute = this.getAttribute('data-detail-number');
+            var allItemsDetail = document.querySelectorAll('[data-detail-bottom]');
+            var itemDetail = document.querySelector('[data-detail-bottom="'+dataAttribute+'"]');
+            if ( dataAttribute == 1 ){
+                TweenMax.to(document.getElementsByClassName('heroesArrow'), 0.3, {left: '222px'});
+            }
+            else {
+                TweenMax.to(document.getElementsByClassName('heroesArrow'), 0.3, {left: '702px'});
+            }
+            TweenMax.to(allItemsDetail, 0.5, {className: '-=activBottomDetail'});
+            TweenMax.to(itemDetail, 0.5, {className: "+=activBottomDetail"});
+
+        }
+    }
+    function Slider(){
+        var slides = document.getElementsByClassName('heroesSlide');
+        var dataNumber = document.getElementsByClassName('activeSlide')[0].getAttribute('data-slide');
+
+        function rightSlide(){
+            var dataNumber = document.getElementsByClassName('activeSlide')[0].getAttribute('data-slide');
+            var nextData = undefined;
+            if ( dataNumber < slides.length - 1 ) {
+                nextData = +dataNumber + 1;
+            }
+            else {
+                nextData = 0;
+            }
+            var points = document.getElementsByClassName('sliderPointer');
+            for(var i = 0; i < points.length; i++){
+                points[i].className = points[i].className.split(' ')[0];
+            }
+            document.querySelectorAll('[data-number="'+nextData+'"]')[0].className += ' sliderPointer-active';
+            TweenMax.to(document.getElementsByClassName('heroesSlide'), 0.5, {className: '-=activeSlide'});
+            TweenMax.to(document.querySelector('[data-slide="'+nextData+'"]'), 0.5, {className: '+=activeSlide'});
+        }
+
+        function leftSlide(){
+            var dataNumber = document.getElementsByClassName('activeSlide')[0].getAttribute('data-slide');
+            var nextData = undefined;
+            if ( dataNumber > 0 ) {
+                nextData = +dataNumber - 1;
+            }
+            else {
+                nextData = slides.length -1;
+            }
+            var points = document.getElementsByClassName('sliderPointer');
+            for(var i = 0; i < points.length; i++){
+                points[i].className = points[i].className.split(' ')[0];
+            }
+            document.querySelectorAll('[data-number="'+nextData+'"]')[0].className += ' sliderPointer-active';
+            TweenMax.to(document.getElementsByClassName('heroesSlide'), 0.5, {className: '-=activeSlide'});
+            TweenMax.to(document.querySelector('[data-slide="'+nextData+'"]'), 0.5, {className: '+=activeSlide'});
+        }
+
+        function changePoint() {
+            var number = this.getAttribute('data-number');
+            var all = this.parentElement.children;
+            for (var i = 0; i < all.length; i++){
+                all[i].className = all[i].className.split(' ')[0];
+            }
+            this.className = this.className += ' sliderPointer-active';
+            TweenMax.to(document.getElementsByClassName('heroesSlide'), 0.5, {className: '-=activeSlide'});
+            TweenMax.to(document.querySelector('[data-slide="'+number+'"]'), 0.5, {className: '+=activeSlide'});
+
+        }
+
+        document.getElementsByClassName('heroesSlider__right')[0].addEventListener('click', rightSlide);
+        document.getElementsByClassName('heroesSlider__left')[0].addEventListener('click', leftSlide);
+
+        for (var i = 0; i < slides.length; i++ ){
+            var elem = document.createElement('div');
+            elem.setAttribute('class', 'sliderPointer');
+            elem.setAttribute('data-number', ''+i);
+            document.getElementsByClassName('heroesSlider__circles')[0].appendChild(elem);
+            elem.addEventListener('click', changePoint);
+        }
+        document.querySelector('[data-number="'+dataNumber+'"]').className += ' sliderPointer-active';
+        setInterval(rightSlide, 10000);
+    }
+    window.addEventListener('DOMContentLoaded', function(){
+        Slider();
+        var videoYouTube = document.createElement('iframe');
+        videoYouTube.className = 'heroesVideoFrame';
+        videoYouTube.setAttribute('width', '889');
+        videoYouTube.setAttribute('height', '500');
+        videoYouTube.setAttribute('src', 'https://www.youtube.com/embed/_9XcbCL97gY');
+        videoYouTube.setAttribute('frameborder', '0');
+
+        document.getElementsByClassName('heroesCircle__button')[0].addEventListener('click', function(){
+            var video  = document.getElementsByClassName('heroesVideo')[0];
+            video.appendChild(videoYouTube);
+            var classNames = video.className;
+            video.className = classNames + ' ' + 'heroesVideoBlock';
+        });
+
+        document.getElementsByClassName('heroesVideo__close')[0].addEventListener('click', function(){
+            var video = document.getElementsByClassName('heroesVideo')[0];
+            var classNames = video.className.split(' ');
+            var indexClass = classNames.indexOf('heroesVideoBlock');
+            if ( indexClass != -1 ) {
+                classNames.splice(indexClass);
+                video.className = classNames;
+                video.removeChild(videoYouTube);
+            }
+        });
+
+        document.getElementsByClassName('heroesButton')[0].addEventListener('mouseover', function(){
+            TweenMax.to(this, 0.3, {className: "+=heroesButton-active" });
+        });
+        document.getElementsByClassName('heroesButton')[0].addEventListener('mouseout', function(){
+            TweenMax.to(this, 0.2, {className: "-=heroesButton-active" });
+        });
+
+
+        for (var i =0; i < document.getElementsByClassName('heroesMenu__point').length; i++){
+            document.getElementsByClassName('heroesMenu__point')[i].addEventListener('click' ,function(){
+                var thisPoint = this;
+                change('data-point-number', 'data-description-number', thisPoint);
+            });
+        }
+
+        for (var j =0; j < document.getElementsByClassName('heroesProduct__detail').length; j++){
+            document.getElementsByClassName('heroesProduct__detail')[j].addEventListener('click', changeBottom);
+        }
+    });
+</script>
+<script>
+    $(function(){
+        $('.MaterialSection').eq(($('.MaterialSection').length-1)).css({'display': 'none'});
+        var price = [];
+        price[2]= $('.iteminfo[js_itemid="32782252"]').attr('js_price');
+        price[1] = $('.iteminfo[js_itemid="32782253"]').attr('js_price');
+        price[0] = $('.iteminfo[js_itemid="32782254"]').attr('js_price');
+        for ( var i = 0; i < price.length; i++ ) {
+            $('.philips-price').eq(i).text(price[i]);
+        }
+        console.log(priceItem1, priceItem2, priceItem3);
+    });
+</script>
+<div id="heroes">
+    <div class="heroesHeader">
+        <div class="heroesHeadderInnerBack">
+            <div class="heroesHeadderInner">
+                <div class="heroesCircle">
+                    <div class="heroesCircle__button heroesButton">
+                        Видео
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="heroesVideo">
+            <div class="heroesVideo__close"></div>
+        </div>
+    </div>
+    <div class="heroesDescription">
+        <div class="heroesMenu">
+            <div class="heroesMenu__point" data-point-number="1"><span class="heroesDashed">Что вас ждёт?</span></div>
+            <div class="heroesMenu__point pointActive" data-point-number="2"><span class="heroesDashed">Ключевые особенности</span></div>
+        </div>
+        <div class="heroesDescriptionContainer">
+            <ul class="heroesDescriptionList" data-description-number="1">
+                <li class="heroesDescription__item">
+                    Сюжет Героев VII повествует о гражданской войне, которая привела к смене правящей династии Священной Империи.</li>
+                <li class="heroesDescription__item">После смерти императрицы страна полыхает в пламени раздора: многочисленные противники сражаются за пустующий трон. В это время герцог Иван созывает шесть доверенных советников. Этот совет призван помочь ему выбрать правильный путь, чтобы положить конец войне за престолонаследие.</li>
+                <li class="heroesDescription__item">Исследуйте и покорите чарующий мир;
+                    Мудро используйте свои ресурсы;
+                    Ведите в бой армию легендарных существ;
+                    Взрастите своего героя с невероятными способностями и наделите его мощнейшими артефактами.</li>
+            </ul>
+            <ul class="heroesDescriptionList listBlock" data-description-number="2">
+                <li class="heroesDescription__item">
+                    <p class="DescriptionName">Лучшая игра в серии Герои</p>
+                    Насладитесь одной из лучших пошаговых стратегий. Заново откройте для себя уникальность серии Меч и Магия®. Герои®, дополненной современной графикой и новыми игровыми механиками.
+                </li>
+                <li class="heroesDescription__item">
+                    <p class="DescriptionName">Сыграйте за каждую из шести фракций</p>
+                    Опробуйте в деле все шесть уникальных фракций, обладающих своим набором существ, харизматичных героев и собственным графическим стилем. Используйте
+                    особенныестратегические возможности каждой из армий, чтобы проложить себе дорогу к трону!
+                </li>
+                <li class="heroesDescription__item">
+                    <p class="DescriptionName">Исследуйте чарующий мир</p>
+                    Теперь, с новым графическим движком Unreal 3.0, Герои® VII может похвастаться потрясающей детализацией. Мир игры оживает благодаря изменяемым погодным условиям и динамическому освещению.
+                </li>
+                <li class="heroesDescription__item">
+                    <p class="DescriptionName">Мы не закончим, пока я не скажу!</p>
+                    Более 60 часов игрового процесса в огромной кампании для одиночного прохождения и практически безграничные возможности для игры в
+                    режимах "Схватка" и "Дуэль", а также для сетевых сражений и игры в традиционном режимедля нескольких человек за одним компьютером.
+                </li>
+                <li class="heroesDescription__item">
+                    <p class="DescriptionName">Пусть ваш голос будет услышан!</p>
+                    Таких возможностей у вас еще не было! Войдите на сайт Совета Теней и примите участие в разработке игры. Выберите две фракции из шести, которые будут представлены в Герои® VII и голосуйте за функции, которые вы хотели бы видеть в игре. Общайтесь с разработчиками, оставляйте комментарии,
+                    делитесь мнениями и убеждайте других в своей правоте! Каждый шаг принесет вам вознаграждение. Сделайте Герои®VII игрой, которую вы заслуживаете!
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="heroesSlider">
+        <div class="heroesSlide heroesSlide--1 activeSlide" data-slide="0">
+            <div class="heroesSlideInner heroesSlideInner--1">
+                <p class="heroesSlide__text heroesSlide__text--1">
+                    <span class="sliderTextBold">Непокорные племена</span>
+                    <br />
+                    Эльфы – изящные и миролюбивые создания, живущие в гармонии с природой. Они поклоняются Силанне, Дракону земли, и потому переняли ее мудрость и осмотрительность.
+                </p>
+            </div>
+        </div>
+
+        <div class="heroesSlide heroesSlide--2" data-slide="1">
+            <div class="heroesSlideInner heroesSlideInner--2">
+                <p class="heroesSlide__text heroesSlide__text--2">
+                    <span class="sliderTextBold">Непокорные племена</span>
+                    <br />
+                    Кочевые племена орков – разобщенный, но гордый народ, издревле подвергавшийся гонениям. Орки – бесстрашные воины и могущественные шаманы. Превыше всего они ценят свободу.
+                </p>
+            </div>
+        </div>
+
+        <div class="heroesSlide heroesSlide--3" data-slide="2">
+            <div class="heroesSlideInner heroesSlideInner--3">
+                <p class="heroesSlide__text heroesSlide__text--3">
+                    <span class="sliderTextBold">Некрополис</span>
+                    <br />
+                    Сначала некроманты были одной из сект магов, но позже превратились в самостоятельную нацию. Их восприятие темной стороны богини Асхи сродни фанатизму; некроманты одержимы смертью и жизнью после смерти, они стремятся отринуть бремя плоти и превратиться в нежить.
+                </p>
+            </div>
+        </div>
+
+        <div class="heroesSlide heroesSlide--4" data-slide="3">
+            <div class="heroesSlideInner heroesSlideInner--4">
+                <p class="heroesSlide__text heroesSlide__text--4">
+                    <span class="sliderTextBold">Академия</span>
+                    <br />
+                    Маги – гордые искатели знаний, стремящиеся подчинить себе законы природы. Величайшая их слабость в том, что жажда познания порой толкает их на сомнительные поступки и рискованные авантюры.
+                </p>
+            </div>
+        </div>
+
+        <div class="heroesSlide heroesSlide--5" data-slide="4">
+            <div class="heroesSlideInner heroesSlideInner--5">
+                <p class="heroesSlide__text heroesSlide__text--5">
+                    <span class="sliderTextBold">Альянс Света</span>
+                    <br />
+                    Рыцари и жрецы Священной империи поклоняются Эльрату, дракону света. Цель служителей Империи – хранить идеалы чистоты и справедливости, изменить мир в соответствии с заветами Эльрата и озарить его священным светом.
+                </p>
+            </div>
+        </div>
+        <div class="heroesSlider__left"></div>
+        <div class="heroesSlider__right"></div>
+        <div class="heroesSlider__circles"></div>
+    </div>
+    <div class="heroesPresale">
+        <p class="heroesPresaleText">Оформить предзаказ</p>
+        <div class="heroesProduct">
+            <div class="heroesProduct__image heroesProduct__image--1"></div>
+            <p class="heroesProduct__name">Меч и Магия. Герои VII. Эксклюзивное издание</p>
+            <p class="heroesPrice"><span class="philips-price price1"></span><span class="bRub">руб.</span></p>
+            <a href="http://www.ozon.ru/context/detail/id/32528914/?item=32546347" class="heroesProduct__link">
+                В корзину
+            </a>
+            <p class="heroesProduct__detail" data-detail-number="1"><span class="detailText activeDetail">Что внутри?</span></p>
+        </div>
+        <div class="heroesProduct">
+            <div class="heroesProduct__image heroesProduct__image--2"></div>
+            <p class="heroesProduct__name">Меч и Магия. Герои VII. Коллекционное издание</p>
+            <p class="heroesPrice"><span class="philips-price price2"></span><span class="bRub">руб.</span></p>
+            <a href="http://www.ozon.ru/context/detail/id/32528914/?item=32546348" class="heroesProduct__link">
+                В корзину
+            </a>
+            <p class="heroesProduct__detail" data-detail-number="2"><span class="detailText">Что внутри?</span></p>
+        </div>
+    </div>
+    <div class="heroesBottomDetail">
+        <div class="heroesbottomDetailArrowContainer">
+            <div class="heroesArrow"></div>
+        </div>
+        <div class="heroesBottomDetailImage heroesBottomDetailImage--1 activBottomDetail" data-detail-bottom="1"></div>
+        <div class="heroesBottomDetailImage heroesBottomDetailImage--2" data-detail-bottom="2"></div>
+    </div>
+</div>
+<div class="heroesLoader"></div>
+</body>
+</html>

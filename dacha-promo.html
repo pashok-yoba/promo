@@ -1,0 +1,1477 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="vilSlider.js"></script>
+    <meta charset="Utf-8">
+    <style>
+        #sky-outer{
+            height: 218px;
+            width: 100%;
+            background-color: #ffffff;
+            position:relative;
+            overflow: hidden;
+        }
+        #sky-outer .sky-inner {
+            width: 1170px;
+            margin: 0 auto;
+            position: relative;
+        }
+        #sky-outer .garden-logo {
+            width: 748px;
+            height: 75px;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/garden-name.png);
+            margin: 62px auto 0;
+        }
+
+        #land-outer {
+            width: 100%;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/gardeb-background.jpg);
+            background-position: 0 -30px;
+            position: relative;
+            border-radius: 15px;
+        }
+        #land-outer .land-inner {
+            width: 1170px;
+            margin: 0 auto;
+            height: 702px;
+            position: relative;
+        }
+        #land-outer .tree-1 {
+            height: 88px;
+            width: 255px;
+            position: absolute;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/tree-1.png);
+            top: -86px;
+            left: 28px;
+            transition: 2s all;
+            transform-origin: center bottom
+        }
+        #land-outer .tree-2 {
+            height: 71px;
+            width: 70px;
+            position: absolute;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/tree-2.png);
+            top: -69px;
+            right: 312px;
+            transition: 2s all;
+            transform-origin: center bottom
+        }
+        #land-outer .tree-3 {
+            height: 82px;
+            width: 89px;
+            position: absolute;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/tree-3.png);
+            top: -81px;
+            right: 54px;
+            transition: 2s all;
+            transform-origin: center bottom
+        }
+        #land-outer .tree-active-1 {
+            transform: skewX(5deg);
+        }
+
+        #land-outer .mountain-1 {
+            position: absolute;
+            left: 55px;
+            top: -49px;
+            width: 130px;
+            height: 50px;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/mountain-1.png);
+        }
+        #land-outer .mountain-2 {
+            position: absolute;
+            right: 140px;
+            top: -38px;
+            width: 112px;
+            height: 39px;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/mountain-2.png);
+        }
+        #land-outer .border-garden {
+            height: 28px;
+            width: 100%;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/border-garden.png);
+            background-repeat: repeat-x;
+            position: absolute;
+            top: 30px;
+        }
+        #land-outer .border-garden-bottom {
+            height: 28px;
+            width: 100%;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/border-garden.png);
+            background-repeat: repeat-x;
+            position: absolute;
+            bottom: 30px;
+        }
+
+        #land-outer .tree-4 {
+            height: 133px;
+            width: 214px;
+            position: absolute;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/tree-4.png);
+            top: 25px;
+            right: 290px;
+        }
+        #land-outer .tree-5 {
+            height: 141px;
+            width: 135px;
+            position: absolute;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/tree-5.png);
+            background-repeat: no-repeat;
+            left: 15px;
+            top: 387px;
+            transition: 2s all;
+            transform-origin: center bottom
+        }
+        #land-outer .tree-6 {
+            height: 149px;
+            width: 205px;
+            position: absolute;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/tree-6.png);
+            background-repeat: no-repeat;
+            right: 15px;
+            top: 408px;
+        }
+        #land-outer .tree-7 {
+            height: 97px;
+            width: 128px;
+            position: absolute;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/tree-7.png);
+            background-repeat: no-repeat;
+            left: 42px;
+            top: 36px;
+        }
+        #land-outer .tree-11 {
+            height: 116px;
+            width: 116px;
+            position: absolute;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/tree-11.png);
+            background-repeat: no-repeat;
+            right: 55px;
+            top: 15px;
+        }
+        #land-outer .picture{
+            height: 132px;
+            width: 63px;
+            position: absolute;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/malbert.png);
+            background-repeat: no-repeat;
+            left: 561px;
+            top: 445px;
+        }
+        #land-outer .mountain-flowers {
+            height: 107px;
+            width: 329px;
+            position: absolute;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/mountain-flower.png);
+            background-repeat: no-repeat;
+            left: 424px;
+            top: 264px;
+            z-index: 2;
+        }
+        #land-outer .mountain-garden-inner {
+            position: relative;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/mountain-flower.png);
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        #land-outer .garden-gnome {
+            height: 95px;
+            width: 43px;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/garden-gnome-1.png);
+            background-repeat: no-repeat;
+            position: absolute;
+            bottom: -95px;
+            left: 20px;
+            z-index: -1;
+        }
+        #land-outer .bed-outer {
+            width: 234px;
+            height: 135px;
+            position: absolute;
+            top: 235px;
+            right: 123px;
+
+        }
+        #land-outer .bed {
+            width: 234px;
+            height: 135px;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/bed2.png);
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        #land-outer .carrot {
+            width: 29px;
+            height: 28px;
+            background-repeat: no-repeat;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/carrot.png);
+            background-repeat: no-repeat;
+            position: relative;
+            bottom: -28px;
+        }
+        #land-outer .carrot-1 {
+            left: 84px;
+            top: 0;
+            position: absolute;
+            width: 29px;
+            height: 28px;
+            overflow: hidden;
+        }
+        #land-outer .carrot-2 {
+            left: 162px;
+            top: 95px;
+            position: absolute;
+            width: 29px;
+            height: 28px;
+            overflow: hidden;
+        }
+        #land-outer .pumpkins {
+            width: 27px;
+            height: 30px;
+            background-repeat: no-repeat;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/pumkins.png);
+            background-repeat: no-repeat;
+            position: relative;
+            bottom: -28px;
+        }
+        #land-outer .pumpkins-1 {
+            left: 4px;
+            top: 47px;
+            position: absolute;
+            width: 27px;
+            height: 30px;
+            overflow: hidden;
+        }
+        #land-outer .pumpkins-2 {
+            left: 160px;
+            top: 47px;
+            position: absolute;
+            width: 27px;
+            height: 30px;
+            overflow: hidden;
+        }
+        #land-outer .toilet {
+            width: 83px;
+            position:absolute;
+            top: 456px;
+            left: 919px;
+        }
+        #land-outer .toilet-inner {
+            width: 83px;
+            height: 114px;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/toilet.png);
+            position: relative;
+
+        }
+        #land-outer .toilet-years {
+            width:  32px;
+            height:  30px;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/toilet-gif.gif);
+            left: 15px;
+            top: 45px;
+            position: absolute;
+            display: none;
+        }
+        #land-outer .bania {
+            width: 192px;
+            height: 120px;
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/bania.png);
+            right: 117px;
+            z-index: 100;
+            top: 43px;
+            position: absolute;
+        }
+        #land-outer .smoke {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            top: -4px;
+        }
+        #land-outer .smoke-item {
+            position: absolute;
+            left: 22px
+
+        }
+
+        #land-outer .fly {
+            height: 2px;
+            width: 2px;
+            position: absolute;
+            background-color: black;
+        }
+        #land-outer .all-flies {
+            height: 58px;
+            width:  77px;
+            position: relative;
+        }
+        #land-outer .all-flies-outer {
+            position: absolute;
+            width:  77px;
+            right: 350px;
+            top: 70px;;
+        }
+    #land-outer .bicycle-outer {
+        width: 70px;
+        height: 59px;
+        position: absolute;
+        top: 165px;
+        left: 613px;
+    }
+        #land-outer .bicycle {
+            width: 70px;
+            height: 59px;
+            position: relative;
+            z-index: 10;
+        }
+    #land-outer .wheels {
+        position: absolute;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/wheel.png);
+        width: 32px;
+        height: 31px;
+        z-index: -1;
+        background-repeat: no-repeat;
+    }
+        #land-outer .rama {
+            background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/bicycle.png);
+            width: 70px;
+            height: 59px;
+            z-index: 10;
+            position: relative;
+        }
+    #land-outer .wheel-1 {
+        top: 38px;
+        left: -11px;
+
+    }
+    #land-outer .wheel-2 {
+            top: 38px;
+            left: 49px;
+
+    }
+    #land-outer .bicycleAnimateRight {
+        transition: transform 0.4s;
+        transform: rotate(40deg);
+    }
+    #land-outer .bicycleAnimateLeft {
+        transition: transform 0.8s;
+        transform: rotate(-100deg);
+        }
+    #land-outer .umbrella-outer {
+        position: absolute;
+        left: 179px;
+        top: 440px;
+    }
+    #land-outer .umbrella {
+        width: 113px;
+        height: 108px;
+        overflow: hidden;
+
+    }
+    #land-outer .umbrella-left {
+        width: 54px;
+        position: relative;
+        height:  108px;
+        overflow: hidden;
+        float: left;
+        z-index:10;
+        right: -3px;
+    }
+    #land-outer .umbrella-center {
+        width: 35px;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/umberalle-23.png);
+        height: 108px;
+        margin-left: 39px;
+        position: relative;
+
+    }
+    #land-outer .umbrella-right {
+        width: 56px;
+        position: relative;
+        height:  108px;
+        overflow: hidden;
+        float: right;
+        z-index: 10;
+    }
+    #land-outer .umbrella-left_img {
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/umberalle-22.png);
+        width: 54px;
+        height: 48px;
+        background-repeat: no-repeat;
+        transform: rotate(-30deg);
+        transform-origin: right top;
+        transition: all 0.5s;
+    }
+    #land-outer .umbrella-right_img {
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/umberalle-21.png);
+        background-repeat: no-repeat;
+        width: 54px;
+        height: 48px;
+        transform: rotate(30deg);
+        transform-origin: left top;
+        transition: all 0.5s;
+    }
+    #land-outer .barn-outer {
+         position: absolute;
+        top: 432px;
+        right: 343px;
+    }
+    #land-outer .barn {
+        position: relative;
+        width: 121px;
+        height: 117px;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/sar1.png);
+        background-repeat: no-repeat;
+    }
+    #land-outer .shovel {
+        position:absolute;
+        width: 15px;
+        height: 64px;
+        left: 5px;
+        bottom: 0;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/lopata.png);
+        background-repeat: no-repeat;
+        transform-origin: right bottom;
+        transform: rotate(0deg);
+
+    }
+    #land-outer .grabl {
+        position:absolute;
+        width: 19px;
+        height: 63px;
+        left: 25px;
+        bottom: 0;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/grabli.png);
+        background-repeat: no-repeat;
+        transform-origin: right bottom;
+        transform: rotate(0deg);
+    }
+        #land-outer .grabl-anim {
+            transition: all 0.3s;
+            transform: rotate(125deg);
+        }
+    #land-outer .shovel-anim {
+        transition: all 0.3s;
+        transform: rotate(-100deg);
+    }
+    #land-outer .lake-outer {
+        position: absolute;
+        top: 432px;
+        left: 245px;
+    }
+    #land-outer .lake {
+        width: 228px;
+        height: 165px;
+        background-repeat: no-repeat;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/water.png);
+        position: relative;
+    }
+    #land-outer .wave{
+        width: 72px;
+        height: 14px;
+        position: absolute;
+        transition: all 0.5s
+    }
+    #land-outer .wave-1 {
+        left: 82px;
+        top: 30px;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/waves.gif);
+        background-repeat: no-repeat;
+    }
+    #land-outer .wave-2 {
+        left: 22px;
+        top: 78px;
+    }
+    #land-outer .wave-3 {
+        right: 22px;
+        top: 78px;
+    }
+    #land-outer .wave-4 {
+        right: 82px;
+        top: 134px;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/waves.gif);
+        background-repeat: no-repeat;
+    }
+    #land-outer .fish {
+        position: absolute;
+        width: 150px;
+        height: 34px;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/fish_normal.gif);
+        background-repeat: no-repeat;
+        top: 100px;
+        right: 50px;
+    }
+    #land-outer .man {
+        width: 140px;
+        height: 137px;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/man.png);
+        background-repeat: no-repeat;
+        top: 434px;
+        left: 419px;
+        position: absolute;
+    }
+
+
+    #land-outer .road {
+        position: absolute;
+        top: 154px;
+        left: 321px;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/road.png);
+        width: 750px;
+        height: 462px;
+        background-repeat: no-repeat;
+    }
+    #land-outer .dog-outer {
+        position: absolute;
+        left: 419px;
+        top: 85px;
+    }
+    #land-outer .dog {
+        position: relative;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/cat_dog_normal.gif);
+        width: 86px;
+        height: 74px;;
+    }
+    #land-outer .house-outer {
+        position: absolute;
+        left: 118px;
+        top: 9px;
+    }
+    #land-outer .house {
+        position: relative;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/house.png);
+        background-position: 0 0;
+        width: 297px;
+        height: 151px;;
+    }
+    #land-outer .leika-outer {
+        position: absolute;
+        left: 628px;
+        top: 335px;
+        z-index: 5;
+    }
+    #land-outer .leika {
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/leika.png);
+        background-repeat: no-repeat;
+        width: 46px;
+        height: 42px;
+        transition: all 0.55s;
+        transform: rotate(0deg)
+    }
+    #land-outer .water {
+        position: absolute;
+        right: -34px;
+        top: 16px;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/water.gif);
+        background-repeat: no-repeat;
+        width: 32px;
+        height: 48px;
+        display: none;
+    }
+    #land-outer .braize-table-outer {
+        position: absolute;
+        left: 105px;
+        top: 288px;
+        width: 264px;
+        height: 65px;
+    }
+    #land-outer .braize-table {
+        position: relative;
+        width: 264px;
+        height: 65px;
+    }
+    #land-outer .table {
+        position: absolute;
+        top: 0px;
+        left: 26px;
+        width: 153px;
+        height: 61px;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/table.png);
+        background-repeat: no-repeat;
+    }
+    #land-outer .braizer {
+        position: absolute;
+        top: 10px;
+        width: 57px;
+        height: 49px;
+        left: 189px;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/brazier.png);
+        background-repeat: no-repeat;
+    }
+    #land-outer .fruits {
+        position: absolute;
+        background-repeat: no-repeat;
+        width: 150px;
+        height: 50px;
+        top: -50px;
+        left: 20px;
+        display:none;
+    }
+    /* buttons */
+    #land-outer .button-outer {
+        position: absolute;
+        width: 225px;
+        text-align: center;
+    }
+    #land-outer .button {
+        display: inline-block;
+        border-radius: 20px;
+        background-color: #2f872e;
+        font-family: Arial, Verdana, sans-serif;
+        color: white;
+        font-size:  18px;
+        padding: 10px;
+        box-shadow: 0  5px 0 #539725;
+        box-sizing: border-box;
+        cursor: pointer;
+        transition: all 0.5s;
+    }
+    #land-outer .button-home-outer {
+         top: 155px;
+         left: 50px;
+         z-index: 100;
+    }
+    #land-outer .button-dog-outer {
+        top: 80px;
+        z-index: 99;
+        left: -60px
+    }
+    #land-outer .button-child-outer  {
+        padding: 10px 20px 10px 20px;
+        top: 65px;
+        left: -95px;
+        z-index: 98;
+    }
+    #land-outer .button-flies-outer  {
+        top: 100px;
+        left: -60px;
+        z-index: 99;
+    }
+    #land-outer .button-bania-outer  {
+        top: 110px;
+        left: -40px;
+        padding: 10px 20px 10px 20px;
+        z-index: 102;
+    }
+    #land-outer .button-bed-outer  {
+        top: 138px;
+        left: -10px;
+        padding: 10px 20px 10px 20px;
+        z-index: 95
+    }
+    #land-outer .button-barn-outer  {
+        top: 140px;
+        left: -80px;
+        padding: 10px 20px 10px 20px;
+        z-index: 95
+    }
+    #land-outer .button-toilet-outer  {
+        top: 120px;
+        left: -70px;
+    }
+    #land-outer .button-flowers-outer  {
+        top: 48px;
+        left: -25px;
+    }
+    #land-outer .button-gnome-outer  {
+        top: 118px;
+        left: -60px;
+    }
+    #land-outer .button-braizer-outer  {
+        top: 70px;
+        padding: 10px 20px 10px 20px;
+        z-index: 97;
+    }
+    #land-outer .button-umbrella-outer  {
+        top: 110px;
+        padding: 10px 20px 10px 20px;
+        left: -60px;
+        z-index: 10
+    }
+    #land-outer .button-hobby-outer  {
+        top: 140px;
+        padding: 10px 20px 10px 20px;
+        left: 190px;
+        z-index: 96
+    }
+    #land-outer .link {
+        font-size: 15px;
+        line-height: 15px;
+        color: #0083ca;
+        text-decoration: none;
+        padding-bottom: 5px;
+        display: inline-block;
+        zoom: 1;
+    }
+    #land-outer .link:hover{
+        text-decoration: underline;
+    }
+    #land-outer .prmSpis {
+        display: none;
+        width: 205px;
+        text-align: left;
+    }
+    #land-outer .button-active  {
+        color: #2f872e;
+        background-color: white;
+
+    }
+    #land-outer .name {
+        display: inline-block;
+        width:100%;
+        text-align: center;
+    }
+    #land-outer .smoke-brazer {
+        position: absolute;
+        width: 34px;
+        height: 27px;
+        top: -20px;
+        left: 200px;
+        background-image: url(http://static.ozone.ru/graphics/action/150401-garden/1/smoke-4.gif);
+        background-repeat: no-repeat;
+    }
+    </style>
+<!-- slaider -->
+    <style type="text/css">
+        #prm {padding: 0; margin: 0; font-family: Arial;}
+        #prm .prmBot{border-radius: 15px; background-color: #dced97; height: 240px;margin-top: 2px; position: relative;}
+        #prm .prmBot .prmSlider{width: 760px; position: absolute; top: 75px; left: 50%; margin-left: -350px;}
+        #prm .prmBot .prmDate{width: 73px; height: 97px; background: url("/graphics/action/150401-garden/date.png") center center no-repeat; position: absolute; top: 64px; left: 50%; margin-left: -450px;}
+        #prm .prmBot .prmZam{text-align: center; font-size: 24px; color: #2f872e; padding-top: 30px;}
+
+        #prm-banner *{padding: 0px; margin: 0px;}
+        #prm-banner {height: 140px; overflow: hidden; margin: 0px; padding: 0px; position: relative; z-index: 1; min-width: 450px;}
+        #prm-banner .banner-main-container {height: 140px; overflow: hidden; position: relative; min-width: 760px;}
+        #prm-banner .banner-slide {position: absolute; top: 0px; left: 0px; height: 140px; width: 100%; min-width: 760px; background-color: #dced97;}
+        #prm-banner .banner-link {display: block; height: 140px; background-repeat: no-repeat; background-position: center top; text-align: center;}
+        #prm-banner span{display: block; width: 14px; height: 14px; position: absolute; left: 100%;cursor: pointer; z-index: 1000; background-repeat: no-repeat; background-image: url(http://www.ozon.ru/graphics/img/140210_bullets.png);
+            background-position: 0px -14px;}
+        #prm-banner span:hover{background-position: 0px 0px;}
+        #prm-banner .banner-active{background-position: 0px 0px;}
+        #banner-preloader{background-color: #fafafa; z-index: 800;}
+        #prm-banner .banner-nav-bul{display: none; position: relative; top: -20px; margin: 0 auto; height: 14px; width: 100%;}
+        #prm-banner .banner-arrow{height: 44px; width: 18px; background-image: url(http://ozon.ru/graphics/action/150401-garden/arrows.png); background-repeat: no-repeat; position: absolute; top: 20px; z-index: 999; cursor: pointer;}
+        #prm-arrow-left{left: 0px; background-position: 0px 0px;}
+        #prm-arrow-right{right: 0px; background-position: 0px -44px;}
+        #prm-banner .bannerText{padding: 0 35px 0 35px; font-size: 18px; color: #303030;}
+        #prm-banner .bannerText a{color: #303030; text-decoration: underline; font-weight: bold;}
+    </style>
+<!-- ************ -->
+</head>
+<!-- script slidr -->
+<script type="text/javascript">
+    $(function(){
+        $('.prmBlock').mouseover(function(){
+            $(this).parent().addClass('prmActive');
+        }).mouseout(function(){
+                    $(this).parent().removeClass('prmActive');
+                });
+    });
+    $(function(){
+        var slideCount = $('#prm-banner .banner-slide').length - 1;
+        for(var i = 0; i < slideCount; i++)
+        {
+            var margin = - slideCount*20 + 20*i;
+            $('<span style="margin-left: ' + margin + 'px"></span>').appendTo('#prm-banner div.banner-nav-bul');
+        }
+        var b = new mpSliderBI();
+    });
+</script>
+<!-- ******************** -->
+<script>
+/* clouds */
+    function createCloud(selector) {
+        var widthCloud;
+        var topCloud;
+        var leftCloud;
+        var image = new Image();
+        var windowWidth = $(window).width();
+        image.src = "http://static.ozone.ru/graphics/action/150401-garden/1/cloud-1.png"
+        widthCloud = Math.random()*64 + 63;
+        topCloud =  Math.random()*130;
+        leftCloud = Math.random()*windowWidth;
+        image.setAttribute('style', 'width:'+widthCloud+'px; position: absolute; top:'+topCloud+'px; left:'+leftCloud+'px; opacity: 0; height: auto');
+        $(selector).append(image);
+        return image
+    }
+
+    function createListClouds(selector){
+        var allClouds =  5;
+        var listClouds = [allClouds];
+            for (var i = 0; i < allClouds; i++){
+                listClouds[i] = createCloud(selector);
+
+            }
+        return listClouds
+    }
+
+    function animateCloud(elem) {
+        var cloudLeft = $(elem).css('left').split('px')[0];
+        var random = Math.random();
+        var time = 5000 + random*8000;
+        $(elem).animate({'opacity':1, 'left': (cloudLeft -200)+ 'px'},  time, 'linear')
+                .animate({'opacity':0, 'left': (cloudLeft -400) + 'px'}, time, 'linear', function(){
+                    var leftCloud = random*1800;
+                    $(elem).css('left', leftCloud + 'px');
+                    animateCloud(elem)
+                })
+    }
+
+    function animateList(list) {
+        for ( var i = 0; i < list.length; i++ ) {
+            animateCloud(list[i]);
+        }
+    }
+
+/* animate trees */
+    function animateTree1(selector) {
+        setTimeout(function(){
+            $(selector).addClass('tree-active-1');
+            setTimeout(function(){
+                $(selector).removeClass('tree-active-1');
+                animateTree1(selector);
+            }, 2000)
+        }, 2000)
+    }
+
+/*animates fly */
+var flyStop = true;
+
+    function createFly() {
+        var fly = $('<div></div>').addClass('fly');
+        var x = Math.random()*58;
+        var y = Math.random()*77;
+        fly.css({'top': y+'px', 'left': x+'px'});
+        return fly
+    }
+
+    function allFlies(selector){
+        var number = 8;
+        var list = [number];
+        var element = $(selector);
+        for ( var i = 0; i < number; i++ ) {
+            list[i] = createFly();
+            element.append(list[i]);
+        }
+        return list
+    }
+    function animateFly(fly , flyStop1) {
+        if ( flyStop1 === true) {
+            var x = Math.random()*58;
+            var y = Math.random()*77;
+            var time = Math.random()*3000;
+            $(fly).animate({top: y+'px', 'left': x+'px'}, time, function(){
+                animateFly(fly, flyStop);
+            })
+        }
+        else {
+        }
+
+    }
+    function animateAllFlies(list) {
+        for ( var i = 0; i < list.length; i++ ) {
+            animateFly(list[i], flyStop);
+        }
+    }
+    function stopFly(){
+        flyStop = false;
+        var flies = $('.fly');
+        for ( var i=0; i<flies.length; i++){
+            var top = 80 + Math.random()*20;
+            $(flies[i]).stop().animate({'top': top+'px'},500, 'swing');
+        }
+    }
+    function beginFly(){
+        flyStop = true;
+        var flies = $('.fly');
+        flies.stop().each(function(index, element){
+            animateFly(element, flyStop);
+        })
+    }
+
+/* animate gnome */
+    function animateGnomeTop(selector){
+        var gnome = $(selector);
+        gnome.animate({'bottom': '10px'}, 500, 'swing', function(){
+            setTimeout(function(){
+                gnome.css({'background-image': 'url(http://static.ozone.ru/graphics/action/150401-garden/1/garden-gnome-2.png)'});
+                setTimeout(function(){
+                    gnome.css({'background-image': 'url(http://static.ozone.ru/graphics/action/150401-garden/1/garden-gnome-1.png)'});
+                    setTimeout(function(){
+                        gnome.css({'background-image': 'url(http://static.ozone.ru/graphics/action/150401-garden/1/garden-gnome-2.png)'});
+                        setTimeout(function(){
+                            gnome.css({'background-image': 'url(http://static.ozone.ru/graphics/action/150401-garden/1/garden-gnome-1.png)'});
+                        }, 200)
+                    }, 200)
+                }, 200)
+            }, 200)
+        });
+    }
+    function animateGnomeBottom(selector){
+        var gnome = $(selector);
+        gnome.animate({'bottom': '-95px'}, 500, 'swing')
+    }
+/*animate bed */
+    function animateBed(carrot, pumpkin){
+        var carrots = $(carrot);
+        var pumpkins = $(pumpkin);
+        $(carrots[0]).animate({'bottom': '0'}, 300, 'swing', function(){
+            $(pumpkins[0]).animate({'bottom': '0'}, 200, 'swing');
+            setTimeout(function(){
+                $(pumpkins[1]).animate({'bottom': '0'}, 300, 'swing', function(){
+                    $(carrots[1]).animate({'bottom': '0'}, 300, 'swing');
+                });
+            }, 150)
+        })
+    }
+/*  animate gif */
+    function animateGifOver(selector){
+        var years = $(selector);
+        years.css({'display': 'block'});
+    }
+    function animateGifOut(selector){
+        var years = $(selector);
+        years.css({'display': 'none'});
+    }
+/* animate smoke */
+    function createSmoke(){
+        var item =  $('<div> </div>').addClass('smoke-item').css({'border-radius': '5px', 'width': '10px', 'height': '10px', 'background-color': '#ccf0fc'});
+        $('.smoke').append(item);
+        return item;
+    }
+
+    function animateSmoke(item, time , stop){
+        if ( stop === true){
+            item.animate({'top': '-120px', 'border-radius': '25px', 'width': '50px', 'height': '50px', 'opacity': '0.1', 'left': '2px'}, time, function(){
+                $(this).css({'border-radius': '5px', 'width': '10px', 'height': '10px', 'background-color': '#ccf0fc', 'top': '0', 'opacity': 1, 'left': '22px'});
+                animateSmoke(item, time, stop);
+            });
+        }
+
+    }
+    var numberSmoke = 6;
+    var flagSmoke = true;
+    function listSmoke(number) {
+            var item;
+            var list = [number];
+            for (var i = 0; i < number; i++ ){
+                item = createSmoke();
+                list[i] = item;
+            }
+        return list
+    }
+    function startAnimationSmoke(list, number, time) {
+        if (number < list.length) {
+            animateSmoke(list[number], time, flagSmoke);
+            setTimeout(function(){
+                startAnimationSmoke(list, number+1, time) ;
+            }, time/numberSmoke);
+        }
+    }
+    function animationFlagStart(){
+        flagSmoke = true;
+        startAnimationSmoke(listSmoke(numberSmoke), 0, 2000);
+    }
+    function animationFlagStop(){
+        flagSmoke = false;
+        $('.smoke-item').remove();
+    }
+/* animation bicycle */
+    function animationBicycleHover(selector){
+        var bicycle = $(selector);
+        var wheels = $('.wheels');
+        wheels.addClass('bicycleAnimateRight');
+        bicycle.animate({'left': '5px'}, 300, 'swing',function(){
+            wheels.removeClass('bicycleAnimateRight');
+            wheels.addClass('bicycleAnimateLeft');
+            bicycle.animate({'left': '-50px'}, 500, 'swing');
+        })
+    }
+    function animationBicycleOut(selector){
+        var bicycle = $(selector);
+        var wheels = $('.wheels');
+        wheels.css({'transform': 'rotate(0deg'});
+        bicycle.animate({'left': '0'}, 600, 'swing',function(){
+            wheels.removeClass('bicycleAnimateLeft');
+            wheels.attr('style', '');
+        })
+    }
+/* animation umbrella */
+    function animationUmbrellaOver(){
+        var umbrellas = $('.umbrella-right_img').add('.umbrella-left_img');
+        umbrellas.css({'transform': 'rotate(0deg)'});
+    }
+    function animationUmbrellaOut(){
+        var umbrella_right = $('.umbrella-right_img');
+        var umbrella_left = $('.umbrella-left_img');
+        umbrella_right.css({'transform': 'rotate(30deg)'});
+        umbrella_left.css({'transform': 'rotate(-30deg)'});
+
+    }
+
+/* animation  shovel */
+    function animationStartShovel(){
+        $('.shovel').addClass('shovel-anim');
+    }
+    function animationOutShovel(){
+        $('.shovel').removeClass('shovel-anim');
+    }
+/*animation dog */
+    function animationStartDog(){
+        $('.dog').css({'background-image': 'url(http://static.ozone.ru/graphics/action/150401-garden/1/cat_dog.gif)'});
+    }
+/*animation house */
+    function animationHouseStrat(){
+        $('.house').css({'background-position': '0 152px'});
+    }
+    function animationHouseOut(){
+        $('.house').css({'background-position': '0 0'});
+    }
+/* animation grabl */
+    function animationStartGrabl(){
+        $('.grabl').addClass('grabl-anim');
+    }
+/* animation leika */
+    function animStartLeika() {
+        $('.leika').css({'transform': 'rotate(40deg)'});
+        setTimeout(function(){
+            $('.water').css({'display': 'block'})
+                }, 300);
+    }
+
+    function animEndLeika() {
+        $('.leika').css({'transform': 'rotate(0deg)'});
+        setTimeout(function(){
+            $('.water').css({'display': 'none'})
+        }, 200);
+    }
+/* animation fruits */
+    function animFruits(){
+        var rand = Math.random();
+        if ( rand < 0.3) {
+            $('.fruits').css({'background-image': 'url(http://static.ozone.ru/graphics/action/150401-garden/1/table_all.gif)', 'display': 'block'});
+        }
+        $('.fruits').css({'background-image': 'url(http://static.ozone.ru/graphics/action/150401-garden/1/table_normal.gif)', 'display': 'block'});
+    }
+/* animation lake */
+    function animationLAke() {
+        $('.fish').css({'background-image': 'url(http://static.ozone.ru/graphics/action/150401-garden/1/fish.gif)'});
+    }
+    function animationLakeOut(){
+        $('.fish').css({'background-image': 'url(http://static.ozone.ru/graphics/action/150401-garden/1/fish_normal.gif)'});
+    }
+/* animation wave */
+    function animationWave(){
+        setTimeout(function(){
+            $('.wave-2').css({'background-image': 'url(http://static.ozone.ru/graphics/action/150401-garden/1/waves-1.gif)'});
+            $('.wave-3').css({'background-image': 'url(http://static.ozone.ru/graphics/action/150401-garden/1/waves-1.gif)'});
+        }, 500);
+    }
+    var flag = true;
+    $(function(){
+
+
+        var listClouds = createListClouds('#sky-outer');
+        animateList(listClouds);
+
+        animateTree1('.tree');
+
+        var listFlyes = allFlies('.all-flies');
+        animateAllFlies(listFlyes);
+
+        $('.button-flies').on('mouseenter', function(){
+                stopFly();
+        })
+
+        $('.button-flies').on('mouseleave', function(){
+                beginFly();
+        });
+        $('.button-gnome').on('mouseenter', function(){
+            animateGnomeTop('.garden-gnome');
+        })
+        $('.button-gnome').on('mouseleave', function(){
+            animateGnomeBottom('.garden-gnome')
+        });
+        $('.button-bed').on('mouseenter', function(){
+            animateBed('.carrot', '.pumpkins');
+        })
+        $('.button-toilet').on('mouseenter', function(){
+            animateGifOver('.toilet-years');
+        })
+        $('.button-toilet').on('mouseleave', function(){
+            animateGifOut('.toilet-years')
+        });
+        $('.button-bania').on('mouseenter', function(){
+            animationFlagStart();
+        })
+        $('.button-bania').on('mouseleave', function(){
+            animationFlagStop();
+        });
+        $('.button-child').on('mouseenter', function(){
+            animationBicycleHover('.bicycle');
+        })
+        $('.button-child').on('mouseleave', function(){
+            animationBicycleOut('.bicycle');
+        })
+        $('.button-umbrella').on('mouseenter', function(){
+            animationUmbrellaOver()
+        })
+        $('.button-umbrella').on('mouseleave', function(){
+            animationUmbrellaOut();
+        })
+        $('.button-barn').on('mouseenter', function(){
+            animationStartShovel();
+            setTimeout(function(){
+                animationStartGrabl();
+            }, 350)
+        })
+        $('.button-dog').on('mouseenter', function(){
+            animationStartDog()
+        })
+
+        $('.button-home').on('mouseenter', function(){
+            animationHouseStrat()
+        })
+        $('.button-home').on('mouseleave', function(){
+            animationHouseOut()
+         })
+        $('.button-flowers').on('mouseenter', function(){
+            animStartLeika()
+        })
+        $('.button-flowers').on('mouseleave', function(){
+            animEndLeika()
+        })
+        $('.button-braizer').on('mouseenter', function(){
+            animFruits();
+        })
+        $('.button-hobby').on('mouseenter', function(){
+            animationLAke();
+        });
+        $('.button-hobby').on('mouseleave', function(){
+            animationLakeOut();
+        })
+        $('.button').on('mouseenter', function(){
+            $(this).addClass('button-active');
+            $(this).find('.prmSpis').stop().show(500);
+
+        })
+        $('.button').on('mouseleave', function(){
+                $(this).removeClass('button-active');
+                $(this).find('.prmSpis').stop().hide(500);
+
+        })
+        $('#land-outer').on('mouseenter', function(){
+            $('.button').removeClass('button-active').find('.prmSpis').stop().slideUp(500);
+            $('.water').css({'display': 'none'});
+            $('.button').trigger('mouseleave');
+        });
+        $('.link').on('mouseenter',function() {
+           event.stopPropagation();
+       });
+        $('.link').on('mouseleave',function() {
+            event.stopPropagation();
+        });
+        animationWave();
+
+    })
+</script>
+<body>
+<div id="sky-outer">
+    <div class="sky-inner">
+        <div class="garden-logo"></div>
+    </div>
+</div>
+<div id="land-outer">
+    <div class="border-garden"></div>
+    <div class="land-inner">
+        <div class="road"></div>
+        <div class="dog-outer">
+            <div class="dog">
+                <div class="button-outer button-dog-outer">
+                    <div class="button button-dog">
+                        <span class="name">Животные</span>
+                        <div class="prmSpis">
+                            <a class="link" href="/catalog/1145914/?store=1">Зоокорма и лакомства</a><br/>
+                            <a class="link" href="/catalog/1145915/?store=1">Аксессуары и переноски</a><br/>
+                            <a class="link" href="/catalog/1147057/?store=1">Товары и средства по уходу</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tree-7"></div>
+        <div class="house-outer">
+            <div class="house">
+                <div class="button-outer button-home-outer">
+                    <div class="button button-home">
+                        <span class="name">Загородный дом</span>
+                        <div class="prmSpis">
+                            <a class="link" href="/catalog/1146544/?brand=28994757,19709375,21015313,19044886,25312438,28105832,25658283,21421913,20341113,20074388,14012073,19605966,19095622,19059340,19048292,18829410,18580388,18400378,7573640,7310681&store=1,1&price=500-8000&merchant=0,0&sort=bests">Интерьер для дачи</a><br/>
+                            <a class="link" href="/catalog/1145567/?store=1&price=500-5000">Кухня</a><br/>
+                            <a class="link" href="/catalog/1155470/?price=500-10000&store=1">Кухонная техника</a><br/>
+                            <a class="link" href="/catalog/1159322/?store=1">Термосумки</a><br/>
+                            <a class="link" href="/catalog/1133727/?store=1">Обогреватели</a><br/>
+                            <a class="link" href="/catalog/1145480/?store=1">Бытовая химия</a><br/>
+                            <a class="link" href="/catalog/1139586/?store=1&sort=bests">Книги по строительству</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tree-1 tree"></div>
+        <div class="tree-2 tree"></div>
+        <div class="tree-3 tree"></div>
+        <div class="tree-4"></div>
+        <div class="tree-5"></div>
+        <div class="tree-6"></div>
+        <div class="tree-11"></div>
+        <div class="picture"></div>
+        <div class="mountain-1"></div>
+        <div class="mountain-2"></div>
+        <div class="mountain-flowers">
+            <div class="mountain-garden-inner">
+                <div class="garden-gnome"></div>
+            </div>
+            <div class="button-outer button-gnome-outer">
+                <div class="button button-gnome">
+                    <span class="name">Ландшафт</span>
+                    <div class="prmSpis">
+                        <a class="link" href="/catalog/1171340/?destination=45814&store=1">Садовое и уличное освещение</a><br/>
+                        <a class="link" href="/catalog/1146873/?store=1">Садовый декор</a><br/>
+                        <a class="link"  href="/catalog/1139681/?publicationperiod=1147727&mediatype=1147731&russianlanguage=1&store=1">Книги по ландшафтному дизайну</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="leika-outer">
+            <div class="leika"></div>
+            <div class="water"></div>
+            <div class="button-outer button-flowers-outer">
+                <div class="button button-flowers">
+                    <span class="name">Цветник и газон</span>
+                    <div class="prmSpis">
+                        <a class="link" href="/catalog/1176738/?type=37217,43053,37218,37220,37221,45452,37223,37219,43046,43045,43055,43047,45453,43052,43050&store=1">Садовые инструменты</a><br/>
+                        <a class="link" href="/catalog/1135619/?type=33273,33274,46325,47426,46809,43871,47466,46810,38919,36811&store=1">Садовая техника</a><br/>
+                        <a class="link" href="/catalog/1146876/&store=1">Семена</a><br/>
+                        <a class="link" href="/catalog/1176963/?store=1">Удобрения</a><br/>
+                        <a class="link" href="/catalog/1146867/?store=1&sort=bests">Полив</a><br/>
+                        <a class="link" href="/catalog/1139679/?publicationperiod=1147727&mediatype=1147731&russianlanguage=1&store=1">Книги по садовым растениям</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bed-outer">
+            <div class="bed">
+                <div class="carrot-1">
+                    <div class="carrot"></div>
+                </div>
+                <div class="carrot-2">
+                    <div class="carrot"></div>
+                </div>
+
+                <div class="pumpkins-1">
+                    <div class="pumpkins"></div>
+                </div>
+                <div class="pumpkins-2">
+                    <div class="pumpkins"></div>
+                </div>
+                <div class="button-outer button-bed-outer">
+                    <div class="button button-bed">
+                        <span class="name">Огород</span>
+                        <div class="prmSpis">
+                            <a class="link" href="/catalog/1151422/?store=1">Парники и теплицы</a><br/>
+                            <a class="link" href="/catalog/1176738/?type=43051,37224,43046,45453,45452,43055,43053,43052,43050,43049,43047,43045,43013,43009,37223,37221,37220,37219,37218,37217&store=1">Садовые инструменты</a><br/>
+                            <a class="link" href="/catalog/1176963/?store=1">Удобрения</a><br/>
+                            <a class="link" href="/catalog/1146876/&store=1">Семена</a><br/>
+                            <a class="link" href="/catalog/1146867/?store=1">Полив</a><br/>
+                            <a class="link" href="/catalog/1139686/?publicationperiod=1147727&mediatype=1147731&russianlanguage=1&store=1">Книги по садоводству</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="toilet">
+            <div class="toilet-inner">
+                <div class="toilet-years"></div>
+            </div>
+            <div class="button-outer button-toilet-outer">
+                <div class="button button-toilet">
+                    <span class="name">Биотуалет</span>
+                    <div class="prmSpis">
+                        <a class="link" href="/catalog/1146880/?store=1">Био-туалеты и септики</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bania">
+            <div class="smoke"></div>
+            <div class="button-outer button-bania-outer">
+                <div class="button button-bania">
+                    <span class="name">Баня</span>
+                    <div class="prmSpis">
+                        <a class="link" href="/catalog/1176806/?store=1">Банные принадлежности</a><br/>
+                        <a class="link" href="/catalog/1176806/?type=44451&store=1">Масла для бани</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bicycle-outer">
+            <div class="bicycle">
+                <div class="wheels wheel-1"></div>
+                <div class="wheels wheel-2"></div>
+                <div class="rama"></div>
+            </div>
+            <div class="button-outer button-child-outer">
+                <div class="button button-child">
+                    <span class="name">Дети</span>
+                    <div class="prmSpis">
+                        <a class="link" href="/catalog/1172648/?store=1">Спортивные комплексы</a><br/>
+                        <a class="link" href="/catalog/1159631/?store=1">Детский транспорт</a><br/>
+                        <a class="link" href="/catalog/1163827/?store=1">Подвижные игры</a><br/>
+                        <a class="link" href="/catalog/1163836/?store=1">Радиоуправляемые игрушки</a><br/>
+                        <a class="link" href="/catalog/1148003/?store=1">Наборы для творчества</a><br/>
+                        <a class="link" href="/catalog/1163832/?store=1">Игрушечное оружие</a><br/>
+                        <a class="link" href="/catalog/1175920/?store=1&sort=bests">Детская комната</a><br/>
+                        <a class="link" href="/catalog/1137439/?mediatype=1147731&store=1&sort=bests">Детские книги</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="umbrella-outer">
+            <div class="umbrella">
+                <div class="umbrella-left">
+                    <div class="umbrella-left_img"></div>
+                </div>
+                <div class="umbrella-right">
+                    <div class="umbrella-right_img"></div>
+                </div>
+                <div class="umbrella-center"></div>
+            </div>
+            <div class="button-outer button-umbrella-outer">
+                <div class="button button-umbrella">
+                    <span class="name">Отдых</span>
+                    <div class="prmSpis">
+                        <a class="link" href="/catalog/1173840/?store=1">Гамаки</a><br/>
+                        <a class="link" href="/catalog/1173839/?store=1">Садовые качели</a><br/>
+                        <a class="link" href="/catalog/1151427/?store=1">Бассейны</a><br/>
+                        <a class="link" href="/catalog/1159326/?store=1">Палатки, тенты и шатры</a><br/>
+                        <a class="link" href="/catalog/1158883/?destination=46499,46497,46498&store=1">Крема для загара</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="barn-outer">
+            <div class="barn">
+                <div class="shovel"></div>
+                <div class="grabl"></div>
+            </div>
+            <div class="button-outer button-barn-outer">
+                <div class="button button-barn">
+                    <span class="name">Сарай</span>
+                    <div class="prmSpis">
+                        <a class="link" href="/catalog/1176738/?store=1">Садовые инструменты</a><br/>
+                        <a class="link" href="/catalog/1135619/?store=1">Садовая техника</a><br/>
+                        <a class="link" href="/catalog/1175006/?store=1">Наборы инструментов</a><br/>
+                        <a class="link" href="/catalog/1155472/?price=1000-180000&store=1">Электроинструменты</a><br/>
+                        <a class="link" href="/context/catalog/id/1160943/?store=1">Хранение инструментов</a><br/>
+                        <a class="link" href="/catalog/1146535/&store=1">Хозяйственные товары</a><br/>
+                        <a class="link" href="/catalog/1139593/?store=1&sort=bests">Книги по строительству</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="lake-outer">
+            <div class="lake">
+                <div class="wave wave-1"></div>
+                <div class="wave wave-2"></div>
+                <div class="wave wave-3"></div>
+                <div class="wave wave-4"></div>
+                <div class="fish"></div>
+            </div>
+            <div class="button-outer button-hobby-outer">
+                <div class="button button-hobby">
+                    <span class="name">Хобби</span>
+                    <div class="prmSpis">
+                        <a class="link" href="/catalog/1139177/?store=1&sort=bests">Книги о рыбалке</a><br/>
+                        <a class="link" href="/catalog/1139544/?mediatype=1147731&store=1&sort=bests">Книги о рукоделии</a><br/>
+                        <a class="link" href="/context/broderie/">Рукоделие</a><br/>
+                        <a class="link" href="/context/bs_fishing/">Рыбалка</a><br/>
+                        <a class="link" href="/catalog/1159259/?typesport=1159354">Пневматика и Страйкбол</a><br/>
+                        <a class="link" href="/catalog/1159283/?store=1">Спорт и тренажеры</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="man"></div>
+        <div class="braize-table-outer">
+            <div class="braize-table">
+                <div class="smoke-brazer"></div>
+                <div class="braizer"></div>
+                <div class="table"></div>
+                <div class="fruits"></div>
+            </div>
+            <div class="button-outer button-braizer-outer">
+                <div class="button button-braizer">
+                    <span class="name">Барбекю</span>
+                    <div class="prmSpis">
+                        <a class="link" href="/catalog/1159320/?store=1">Мангалы</a><br/>
+                        <a class="link" href="/catalog/1159323/?store=1">Шампуры и решетки</a><br/>
+                        <a class="link" href="/catalog/1176945/?store=1">Садовая мебель</a><br/>
+                        <a class="link" href="/catalog/1159322/?store=1 ">Термосумки</a><br/>
+                        <a class="link" href="/catalog/1139632/?mediatype=1147731&store=1&sort=bests">Кулинарные книги</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="all-flies-outer">
+            <div class="all-flies"></div>
+            <div class="button-outer button-flies-outer">
+                <div class="button button-flies">
+                    <span class="name">Насекомые</span>
+                    <div class="prmSpis">
+                        <a class="link" href="/catalog/1151425/?store=1">Защита от насекомых</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="border-garden-bottom">
+    </div>
+</div>
+<div id="prm">
+    <div class="prmBot">
+        <div class="prmZam">Дачникам на заметку</div>
+        <div class="prmDate"></div>
+        <div class="prmSlider">
+            <div id="prm-banner">
+                <div class="banner-main-container">
+                    <div class="banner-slide">
+                        <div class="bannerText">Природа просыпается в апреле! И знаете, не всегда это хорошо. Полчища вредителей и болезнетворных бактерий уже готовы атаковать ваш садик! Не допустим! Как можно скорее <a href="/catalog/1176738/?type=37224">очистите</a> отмершую кору, добавьте удобрения во время <a href="/catalog/1176738/?type=43049,37223,37217&store=1">перекопки</a>, уберите прошлогодние плоды. Дело за малым: опрыскайте кроны деревьев и кустарников средствами для защиты. Всё найдёте <a href="/catalog/1176963/?rangeapplication=56663">здесь</a></div>
+                    </div>
+                    <div class="banner-slide">
+                        <div class="bannerText">Всему своё время. Вот апрель – отличная пора для посадки <a href="/catalog/1173907/?timeplantingground=26698">саженцев деревьев</a>, <a href="/catalog/1173913/?timeplantingground=26698">кустарников</a> и их прививок. Если не удалось произвести обрезку ягодных кустов в марте, то сделайте это сейчас с помощью <a href="/catalog/1176738/?type=37221&store=1">удобных ножниц</a> или <a href="/catalog/1176738/?type=43046&store=1">кустореза</a>.</div>
+                    </div>
+                    <div class="banner-slide">
+                        <div class="bannerText">Отдыхать и кушать салаты из свежих овощей будем после. А сейчас главное – это как следует подготовить почву для посадки культур. Помните, что <a href="/catalog/1176963/?store=1">органические удобрения</a> нужно сразу же запахивать в землю, чтобы не происходило потери питательных веществ. Посмотрим, если к концу месяца будет тёплая погода и земля прогреется, то можно будет смело высаживать большинство <a href="/catalog/1173905/?timeplantingground=26698&store=1">овощей</a> с <a href="/catalog/1173906/?timeplantingground=26698&store=1">ягодами</a>. Купите удобрения и нужные семена заранее.</div>
+                    </div>
+                    <div class="banner-slide">
+                        <div class="bannerText">Делите и размножайте! А точнее, пересаживайте ароматные и яркие <a href="/catalog/1173903/?typeplant=50785,50795,50796,50788,50782,50843,50847,50794,50839,50792,50815,50805,50804,50783&timeplantingground=26698&store=1">цветочные многолетники</a>. У нас вы наверняка подберёте цветочки по душе.Кстати, апрель – вполне подходящий месяц для высеивания <a href="/catalog/1173903/?typeplant=50772,50776,50832,50803,50762,50814,50799,50761,50759,50757,50755&timeplantingground=26698&store=1">холодостойких однолетников</a>. Начните сейчас и ждите ваши первые живые букеты в этом году!</div>
+                    </div>
+                    <div class="banner-slide">
+                        <div class="bannerText">Сейчас самое время как следует прочесать <a href="/catalog/1176738/?type=37218&store=1">хорошими граблями</a>  подсохший газон. Почва при этом станет пушистой и насытится воздухом. А затем рассыпьте по газону гранулы азотных <a href="/catalog/1176963/?type=56658&store=1">удобрений</a> и новые <a href="/catalog/1173912/?timeplantingground=26698&store=1">семена травы</a>. На такой ухоженной почве травка растет особенно плотно.</div>
+                    </div>
+                    <div class="banner-slide" id="banner-preloader"></div>
+                </div>
+                <div id="prm-arrow-left" class="banner-arrow"></div>
+                <div id="prm-arrow-right" class="banner-arrow"></div>
+                <div class="banner-nav-bul"></div>
+            </div>
+            <div id="banner-line"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

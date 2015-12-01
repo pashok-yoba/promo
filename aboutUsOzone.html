@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="http://static.ozone.ru/graphics/about/jquery.tinyscrollbar.js"></script>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    #prm {
+        min-width: 960px;
+        overflow: hidden;
+    }
+    #about-company .about-logo {
+        min-width: 960px;
+        width: 100%;
+        height: 378px;
+        background-image: url(http://static.ozone.ru/graphics/about/images/about-logo.png);
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        position: relative;
+        margin-bottom: 18px;
+    }
+    #TabbedPanels1 .TabbedPanelsContent {
+        padding: 5px 0;
+    }
+    #TabbedPanels1 .history-logo_outer {
+        min-width: 960px;
+        max-width: 1400px;
+        position: relative;
+
+    }
+    #TabbedPanels1 .history-logo_image {
+        padding: 0;
+    }
+    #TabbedPanels1 .history-logo {
+        min-width: 960px;
+        max-width: 1400px;
+        top: 165px;
+        left: 23px;
+        position: relative;
+        height: 56px;
+        margin: 0 auto;
+    }
+    #TabbedPanels1 .about-left-column {
+        width: 269px;
+        float: left;
+    }
+    #TabbedPanels1 .about-image {
+        padding: 0;
+        margin-bottom: 61px;
+        margin-left: -1000px;
+        display: block;
+    }
+    #TabbedPanels1 .pr-image {
+        padding:0;
+    }
+    #TabbedPanels1 .columns {
+        overflow: hidden;
+        min-width: 960px;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+    #TabbedPanels1 .about-right-column {
+        padding-left: 21px;
+        font-family: Arial;
+        margin-left: 269px;
+        line-height:  1.44em;
+    }
+    #TabbedPanels1 .about-main-text {
+        font-size: 15px;
+        font-weight: bold;
+        padding-right: 71px;
+        margin:0;
+    }
+    #TabbedPanels1 .left-column-text {
+        box-sizing: border-box;
+        padding-right: 22px;
+        float: left;
+        width: 48%;
+        padding-top: 21px;
+    }
+    #TabbedPanels1 .column-text {
+        font-size: 15px;
+        padding-bottom: 31px;
+        margin: 0;
+    }
+    #TabbedPanels1 .text-bold {
+        font-weight: bold;
+    }
+    #TabbedPanels1 .right-column-text {
+        margin-left: 48%;
+        padding-top: 21px;
+    }
+    #TabbedPanels1 .right-inner {
+        overflow: hidden;
+    }
+    #TabbedPanels1 .youtube-video {
+        text-align: center;
+    }
+    #TabbedPanels1 .video-inner {
+        display: inline-block;
+    }
+    #TabbedPanels1 .investors {
+        min-width: 960px;
+        max-width: 1400px;
+        margin: 0 auto;
+        font-size: 18px;
+        font-family: Arial;
+        color: #7d7e7e;
+        padding-top: 46px;
+        overflow: hidden;
+        padding-bottom: 40px;
+    }
+    #TabbedPanels1 .investors-image {
+        height: 100%
+    }
+    #TabbedPanels1 .investors-name {
+        height: 55px;
+        float: left;
+        margin-left: 33px;
+        margin-bottom: 20px;
+    }
+    #TabbedPanels1 .investors-text {
+        padding-bottom: 26px;
+    }
+    #TabbedPanels1 .text-ozon {
+        font-family: Arial;
+        font-size: 18px;
+        padding: 0 0 59px 0;
+        color: #787878;
+        opacity: 0;
+    }
+    #TabbedPanels1 .about-circle {
+        position: relative;
+    }
+    #TabbedPanels1 .circle1 {
+        margin-left: 11px;
+        height: 92px;
+        overflow: hidden;
+        width: 185px;
+        position: relative;
+        z-index: 10;
+    }
+    #TabbedPanels1 .circle1-image {
+        transition: transform 1s;
+        transform: rotate(-122deg);
+        -ms-transition: transform 1s;
+        -ms-transform: rotate(-122deg);
+        width:100%;
+    }
+    #TabbedPanels1 .circle2 {
+        height: 102px;
+        overflow: hidden;
+        width: 205px;
+        position: relative;
+        z-index: 10;
+    }
+    #TabbedPanels1 .circle2-image {
+        margin-top: -105px;
+        transition: transform 1s;
+        transform: rotate(145deg);
+        -ms-transition: transform 1s;
+        -ms-transform: rotate(145deg);
+        width:100%;
+    }
+    #TabbedPanels1 .circle3 {
+        height: 172px;
+        width: 86px;
+        position: absolute;
+        left: 99px;
+        top: 6px;
+        overflow: hidden;
+    }
+    #TabbedPanels1 .circle3-image {
+        height:100%;
+        margin-left: -175px;
+    }
+    #TabbedPanels1 .pr33 {
+        position: absolute;
+        left: 0;
+        top: -42px;
+        opacity: 0;
+    }
+    #TabbedPanels1 .pr26 {
+        position: absolute;
+        top: -5px;
+        left: 176px;
+        opacity: 0;
+    }
+    #TabbedPanels1 .pr41 {
+        position: absolute;
+        top: 162px;
+        left: 179px;
+        opacity: 0;
+    }
+</style>
+<style>
+    #scrollbar1 { width: 100%; margin: 20px 0 10px; height: 270px; }
+    #scrollbar1 .viewport {position: relative; height: 270px; }
+    #scrollbar1 .overview { list-style: none; position: absolute; left: 0; top: 0; padding: 0; margin: 0; }
+    #scrollbar1 .scrollbar {
+        background-image: url(/img/fon_scroll.png);
+        background-repeat: repeat-x;
+        background-position: 0px 2px;
+        height: 20px;
+        position: relative;
+    }
+    #scrollbar1 .track { background: transparent url(images/bg-scrollbar-trackend-y.png) no-repeat 0 100%; height: 100%; width:13px; position: relative; padding: 0 1px; }
+    #scrollbar1 .thumb {
+        width: 40px;
+        height: 20px;
+        position: absolute;
+        overflow: hidden;
+        cursor: pointer;
+        top: 1px;
+        left: -5px;
+        background-color: #00b6f1;
+    }
+    .bDates .bChooseDate { overflow: visible; }
+    #scrollbar1 .thumb .end { background: transparent url(images/bg-scrollbar-thumb-y.png) no-repeat 50% 0; overflow: hidden; height: 5px; width: 25px; }
+    #scrollbar1 .disable { display: none; }
+    .noSelect { user-select: none; -o-user-select: none; -moz-user-select: none; -khtml-user-select: none; -webkit-user-select: none; }
+    .bDates{
+        margin-top: 30px;
+        font-family: Arial;
+        background-color:#f1f1f1;
+        padding-bottom:41px;
+    }
+    .bDates .mDates{
+        overflow:hidden;
+    }
+    .bDates .eDates{
+        width:2750px;
+        border-collapse:collapse;
+        margin:0 0 81px 60px;
+    }
+    #prm .bDates .eName{
+        min-width: 960px;
+        max-width: 1400px;
+        margin: 0 auto;
+        font-family: Arial;
+        font-size:30px;
+        color:#808285;
+        padding:33px 0 0 2px;
+    }
+    .bDates .eDate{
+        color:#27b4e8;
+        font-size:18px;
+        margin-bottom:9px;
+    }
+    .bDates .eEvent{
+        color:#787878;
+        font-size: 15px;
+        margin-left:-2px;
+        padding:0 70px 22px 0;
+        border-bottom:14px solid #b5dfff;
+    }
+    .bDates .eDates td{
+        vertical-align:bottom;
+        width:300px;
+        padding:0;
+    }
+    .bDates .eDisk{
+        background-image:url(http://static.ozone.ru/graphics/about/img/disk.png);
+        background-repeat:no-repeat;
+        background-position:0px 0px;
+        height:32px;
+        margin:-23px 0 0 -3px;
+    }
+
+    .bDates .bChooseDate .eFirstYear,
+    .bDates .bChooseDate .eLastYear{
+        font-size:18px;
+        color:#00b6f1;
+        margin-top:-2px;
+    }
+    .bDates .bChooseDate .eFirstYear{
+        margin-right:5px;
+    }
+    .bDates .bChooseDate .eLastYear{
+        margin-left:5px;
+    }
+    .bDates .eScrollLine{
+        background-image:url(http://static.ozone.ru/graphics/about/img/fon_scroll.png);
+        background-repeat:repeat-x;
+        background-position:0px 2px;
+        height:20px;
+        width:318px;
+        position:relative;
+        margin-top:-1px;
+    }
+    .bDates .bChooseDate .eFirstYear,
+    .bDates .bChooseDate .eLastYear,
+    .bDates .bChooseDate .eScrollLine{
+        float:left;
+        margin-top:-1px;
+    }
+    .bDates .bChooseDate{
+        width:431px;
+        margin:40px auto;
+    }
+    .bDates .eScrollLine .eScroll{
+        width:40px;
+        height:21px;
+        position:absolute;
+        top:0px;
+        left:40px;
+        background-color:#00b6f1;
+    }
+
+
+</style>
+<div id="prm">
+<div class="TabbedPanels" id="TabbedPanels1">
+<div class="TabbedPanelsContentGroup">
+<div class="TabbedPanelsContent">
+   <div id="about-company">
+       <div class="about-logo">
+                <div class="history-logo">
+                    <img class="history-logo_image" src="http://static.ozone.ru/graphics/about/images/history.png" />
+                </div>
+       </div>
+   </div>
+   <div class="columns">
+    <div class="about-left-column">
+        <div class="about-image" id="about1">
+            <img class="pr-image" src="http://static.ozone.ru/graphics/about/images/3-5-mln.jpg">
+        </div>
+           <img class="about-image" id="about2" src="http://static.ozone.ru/graphics/about/images/51-pr.jpg">
+           <img class="about-image" id="about3" src="http://static.ozone.ru/graphics/about/images/41-pr.jpg">
+           <img class="about-image" id="about4"src="http://static.ozone.ru/graphics/about/images/about-one-percent.jpg">
+        <p class="text-ozon">Продажи Ozon.ru</p>
+        <div class="about-circle">
+            <div class="circle1">
+                <img class="circle1-image" src="http://static.ozone.ru/graphics/about/images/circle1.png">
+            </div>
+            <div class="circle2">
+                <img class="circle2-image" src="http://static.ozone.ru/graphics/about/images/circle2.png">
+            </div>
+            <div class="circle3">
+                <img class="circle3-image" src="http://static.ozone.ru/graphics/about/images/circle3.png">
+            </div>
+            <div class="pr pr33">
+                <img src="http://static.ozone.ru/graphics/about/images/33pr.png">
+            </div>
+            <div class="pr pr26">
+                <img src="http://static.ozone.ru/graphics/about/images/26pr.png">
+            </div>
+            <div class="pr pr41">
+                <img src="http://static.ozone.ru/graphics/about/images/41pr.png">
+            </div>
+        </div>
+    </div>
+    <div class="about-right-column">
+        <div class="right-inner">
+            <p class="about-main-text">
+                Онлайн-мегамаркет Ozon.ru был открыт в 1998 году и является одним из первых российских проектов электронной коммерции в сегменте В2С.
+                Сегодня Ozon.ru – это часть холдинга OZON, в который также входит онлайн-тревел агентство Ozon.travel, fashion-проект Sapato и служба доставки для интернет-магазинов О-Курьер.
+            </p>
+            <div class="left-column-text">
+                <p class="column-text">
+                    После переноса операционной базы онлайн-мегамаркета из Санкт-Петербурга в Москву началось активное развитие проекта по всем направлениям. К существующим в ассортименте книгам и
+                    музыкальным дискам добавились видео-товары, компьютерные игры и программные продукты, открылся раздел букинистики и антикварных книг.
+                </p>
+                <p class="column-text">
+                    <span class="text-bold">В 2005 году</span> посетителям сайта стали доступны электроника, компьютерная техника, фототовары и мобильные телефоны — этот сегмент вышел на второе место по объёмам продаж после книг.
+                </p>
+                <p class="column-text">
+                    <span class="text-bold">В 2007 году</span> были добавлены товары для детей, семьи и дома. Сегодня на сайте можно купить практически всё, за эти годы Ozon.ru прошел путь
+                    от магазина медийных товаров до онлайн-мегамаркета с самым широким в Рунете ассортиментом товаров – 3 500 000 товаров в 14 категориях.
+                </p>
+            </div>
+            <div class="right-column-text">
+                <p class="column-text">
+                    <span class="text-bold">Ежедневно на сайт Ozon.ru заходят около 700 000 посетителей.</span> Ассортимент онлайн-мегамаркета разделен на большие разделы, товары в которых собраны в постоянно обновляемые каталоги. Чтобы найти необходимый товар, можно воспользоваться
+                    и системой поиска, которая позволяет осуществлять эффективный и быстрый поиск по самому широкому спектру параметров, которые в обычных магазинах недоступны.
+                </p>
+                <p class="column-text">
+                    Магазин поддерживает 19 способов оплаты и способов доставки заказов, которые позволяют покупателям в зависимости от места проживания подобрать оптимальное сочетание.
+                </p>
+            </div>
+        </div>
+        <div class="youtube-video">
+            <div class="video-inner">
+            <iframe width="560" height="315" src="//www.youtube.com/embed/YE5DG1zSON0?list=UUa5t4JYLYu9SHVraIDFQNHQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</div>
+</div>
+    <div class="bDates">
+        <div class="mDates">
+            <div class="eName">Ozon.ru в датах:</div>
+            <div id="scrollbar1">
+                <div class="viewport">
+                    <div class="overview">
+                        <table class="eDates">
+                            <tr>
+                                <td>
+                                    <div class="eDate">1998</div>
+                                    <div class="eEvent">Появление книжного интернет-магазина Ozon.ru.</div>
+                                    <div class="eDisk"></div>
+                                </td>
+                                <td>
+                                    <div class="eDate">2001/2002</div>
+                                    <div class="eEvent">Добавление категорий  видео, музыка, софт и DVD.</div>
+                                    <div class="eDisk"></div>
+                                </td>
+                                <td>
+                                    <div class="eDate">2002/2003</div>
+                                    <div class="eEvent">Создание курьерской службы О-Курьер.
+                                        Появление разделов бизнес-книги, книги для детей, антиквариат и букинистика.</div>
+                                    <div class="eDisk"></div>
+                                </td>
+                                <td>
+                                    <div class="eDate">2004/2005</div>
+                                    <div class="eEvent">Открытие разделов  электроника, фото и видеотовары, коллекционные и иностранные CD.</div>
+                                    <div class="eDisk"></div>
+                                </td>
+                                <td>
+                                    <div class="eDate">2006/2007</div>
+                                    <div class="eEvent">Открытие операционно-логистического комплекса Горизонт-2 в г. Твери.
+                                        Появление разделов: дом и интерьер, игрушки, подарки, спорт и отдых, красота,  уцененная электроника.</div>
+                                    <div class="eDisk"></div>
+                                </td>
+                                <td>
+                                    <div class="eDate">2008/2009</div>
+                                    <div class="eEvent">Открытие операционно-логистического комплекса Боровлево-2 в г. Твери площадью 12 000 квадратных метров.
+                                        Запуск разделов книги на иностранных языках, цифровые книги, а также запуск площадки для сторонних интернет-магазинов - Торговая площадка.</div>
+                                    <div class="eDisk"></div>
+                                </td>
+                                <td>
+                                    <div class="eDate">2010</div>
+                                    <div class="eEvent">Запуск собственной электронной читалки OZON.Galaxy.
+                                        Внедрение  печати книг по требованию.</div>
+                                    <div class="eDisk"></div>
+                                </td>
+                                <td>
+                                    <div class="eDate">2011</div>
+                                    <div class="eEvent">Открытие пунктов выдачи заказов в Казахстане.</div>
+                                    <div class="eDisk"></div>
+                                </td>
+                                <td>
+                                    <div class="eDate">2012</div>
+                                    <div class="eEvent">Открытие второй очереди комплекса в Твери площадью 16 000 квадратных метров. Запуск раздела Одежда.</div>
+                                    <div class="eDisk"></div>
+                                </td>
+                                <td>
+                                    <div class="eDate">2013</div>
+                                    <div class="eEvent">Появление проектов за пределами России – в Казахстане и в Прибалтике. Запуск приложения для чтения книг на платформе iOS – OzonReader.
+                                        Запуск программы лояльности Ozon.Status.</div>
+                                    <div class="eDisk"></div>
+                                </td>
+                                <td>
+                                    <div class="eDate">2014</div>
+                                    <div class="eEvent">Появление проектов за пределами России – в Польше и в Израиле.</div>
+                                    <div class="eDisk"></div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                    <div class="bChooseDate">
+                        <div class="eFirstYear">1998</div>
+                    <div class="eScrollLine">
+                        <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+                    </div>
+                    <div class="eLastYear">2014</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(window).load(function(){
+            var image1 = $('#about1');
+            var image2 = $('#about2');
+            var image3 = $('#about3');
+            var image4 = $('#about4');
+            var circle1 = $('.circle1');
+        var heightWindow = $(window).height();
+        var height1 = image1.offset().top;
+        var height2 = image2.offset().top;
+        var height3 = image3.offset().top;
+        var height4 = image4.offset().top;
+        var heightCircle = circle1.offset().top;
+            var windowScroll = $(window).scrollTop();
+            if ( heightWindow >= height4 ){
+                image1.animate({'margin-left': '0'}, 300);
+                image1.removeAttr('id');
+                setTimeout(function(){
+                    image2.animate({'margin-left': '0'}, 300);
+                }, 300);
+                image2.removeAttr('id');
+                setTimeout(function(){
+                    image3.animate({'margin-left': '0'}, 300);
+                }, 600);
+                image3.removeAttr('id');
+                setTimeout(function(){
+                    image4.animate({'margin-left': '0'}, 300);
+                }, 900);
+                image4.removeAttr('id');
+            }
+            $(window).scroll(function(){
+                windowScroll = $(window).scrollTop();
+                if (windowScroll >= (height4 -heightWindow) ){
+                    image1.animate({'margin-left': '0'}, 300);
+                    image1.removeAttr('id');
+                        setTimeout(function(){
+                            image2.animate({'margin-left': '0'}, 300);
+                        }, 300);
+                    image2.removeAttr('id');
+                         setTimeout(function(){
+                            image3.animate({'margin-left': '0'}, 300);
+                        }, 600);
+                    image3.removeAttr('id');
+                         setTimeout(function(){
+                            image4.animate({'margin-left': '0'}, 300);
+                                }, 900);
+                    image4.removeAttr('id');
+                }
+                if (windowScroll >= (heightCircle - heightWindow)){
+                    console.log('ss');
+                    $('.circle1-image').css({'transform': 'rotate(0deg)'});
+                    $('.circle2-image').css({'transform': 'rotate(0deg)'});
+                    setTimeout(function(){
+                        $('.circle3-image').animate({'margin-left': '-86'},500);
+                        $('.pr').animate({'opacity': '1'},500);
+                        $('.text-ozon').animate({'opacity': '1'},500);
+                    }, 500)
+
+                }
+            });
+        })
+    </script>
+    <script type="text/javascript">
+        $(window).load(function() {
+            setTimeout(function(){
+            $('#scrollbar1').tinyscrollbar({
+                axis: "x",
+                trackSize: 320,
+                thumbSize: 40
+            });
+            }, 500);
+        });
+    </script>
+    <div class="investors">
+        <p class="investors-text">
+            Среди инвесторов холдинга:
+        </p>
+        <div class="investors-name">
+            <img class="investors-image" src="http://static.ozone.ru/graphics/about/images/sponsor-baring.png">
+        </div>
+        <div class="investors-name">
+            <img class="investors-image" src="http://static.ozone.ru/graphics/about/images/sponsor-index.png">
+        </div>
+        <div class="investors-name">
+            <img class="investors-image" src="http://static.ozone.ru/graphics/about/images/sponsor-ru.png">
+        </div>
+        <div class="investors-name">
+            <img class="investors-image" src="http://static.ozone.ru/graphics/about/images/sponsor-rakutren.png">
+        </div>
+        <div class="investors-name">
+            <img class="investors-image" src="http://static.ozone.ru/graphics/about/images/sponsor-intel.png">
+        </div>
+        <div class="investors-name">
+            <img class="investors-image" src="http://static.ozone.ru/graphics/about/images/sponsor-hv.png">
+        </div>
+        <div class="investors-name">
+            <img class="investors-image" src="http://static.ozone.ru/graphics/about/images/sponsor-cisco.png">
+        </div>
+        <div class="investors-name">
+            <img class="investors-image" src="http://static.ozone.ru/graphics/about/images/sponsor-mts.png">
+        </div>
+        <div class="investors-name">
+        <img class="investors-image" src="http://static.ozone.ru/graphics/about/images/sponsor-cinema.png">
+    </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

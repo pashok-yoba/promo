@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+</head>
+<body>
+<style>
+    #pozner {
+        position: relative;
+    }
+    #pozner *{
+        padding: 0;
+        margin:0;
+    }
+    #pozner .pozner-back {
+        width: 100%;
+        height: 244px;
+        background-color: #186a9b;
+    }
+    #pozner .pozner-center {
+        margin: -244px auto;
+        width: 920px;
+        position: relative;
+    }
+    #pozner .pozner-header {
+        height: 304px;
+        background-image: url('http://ozon.ru/graphics/action/150525-pozner/pozner-2.jpg');
+        background-repeat: no-repeat;
+    }
+    #pozner .pozner-text {
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        line-height: 1.3em;
+    }
+    #pozner .poznre-text--first {
+        margin-top: -44px;
+        width: 638px;
+    }
+    #pozner .poznre-text--second {
+        padding-top: 20px;
+        width: 550px;
+    }
+    #pozner .poznre-ast-logo {
+        position: absolute;
+        width: 116px;
+        height: 82px;
+        background-image: url('http://ozon.ru/graphics/action/150525-pozner/pozner-logo.jpg');
+        background-repeat: no-repeat;
+        top: 300px;
+        right: 20px;
+    }
+    #pozner .pozner-slider {
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        height: 174px;
+        margin-top: 33px;
+        padding-bottom: 50px;
+    }
+    #pozner .pozner-left {
+        height: 100%;
+        width: 33px;
+        background-image: url('http://ozon.ru/graphics/action/150525-pozner/pozner-left.jpg');
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    #pozner .pozner-right {
+        height: 100%;
+        width: 33px;
+        background-image: url('http://ozon.ru/graphics/action/150525-pozner/pozner-rigght.jpg');
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    #pozner .pozner-slider-center {
+        margin-left: 33px;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 6666px;
+    }
+    #pozner .foto-item {
+        float: left;
+        cursor: pointer;
+        padding: 2px;
+        margin: 0;
+    }
+    #pozner .pozner-foto {
+        position: absolute;
+        width:100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        top: 0;
+        left:0;
+        display: none;
+        text-align: center;
+    }
+    #pozner .foto-container {
+        display: inline-block;
+        height: 80%;
+        margin-top: 50px;
+        position:relative;
+    }
+    #pozner .foto-detail {
+        height: 100%;
+    }
+
+</style>
+<script>
+$(function(){
+    var numberIterm = 0;
+    var marginLeft = 0;
+
+    function changeImage(item) {
+        var items =  $('.foto-item');
+        var margin = 0;
+        var numderTemp = numberIterm;
+        if (item.attr('class') == 'pozner-right') {
+            if ( numberIterm + 3 < items.length){
+                for (var i = numberIterm; i < numberIterm+3; i++){
+                    margin = margin + $(items[i]).outerWidth();
+                    numderTemp = i+1;
+                }
+                numberIterm = numderTemp;
+                margin = $('.pozner-slider-center').css('margin-left').split('px')[0] - margin;
+                $('.pozner-slider-center').animate({'margin-left': margin+'px'}, 500);
+            }
+
+        }
+        if (item.attr('class') == 'pozner-left') {
+            if ( numberIterm - 3 > -1){
+                for (var j = numberIterm-1; j > numberIterm-4; j--){
+                    console.log(j);
+                    margin = margin + $(items[j]).outerWidth();
+                    numderTemp = j;
+                }
+                numberIterm = numderTemp;
+                margin = +$('.pozner-slider-center').css('margin-left').split('px')[0] +margin;
+                console.log(margin)
+                $('.pozner-slider-center').animate({'margin-left': margin+'px'}, 500);
+            }
+
+        }
+    }
+
+    function detailFoto(id){
+        var hoverBlack =  $('.pozner-foto');
+        var poznerHeight = $('#pozner').height();
+        hoverBlack.css({'height': poznerHeight+'px'});
+        hoverBlack.css({'display': 'block'});
+        var name = id.attr('src').split('150525-pozner/')[1].split('light.jpg')[0];
+        var photo = $('<img class="foto-detail" src="http://ozon.ru/graphics/action/150525-pozner/'+name+'.jpg" alt="foto">');
+        photo.appendTo($('.foto-container'));
+        console.log(name)
+
+    }
+$('.pozner-left').on('click', function(){
+    changeImage($(this));
+});
+    $('.pozner-right').on('click', function(){
+        changeImage($(this));
+    })
+    $('.foto-item').on('click', function() {
+        detailFoto($(this));
+    })
+    $('.pozner-foto').on('click', function(){
+        $('.pozner-foto').css({'display': 'none'});
+        $('.foto-detail').remove();
+    })
+})
+</script>
+<div id="pozner">
+    <div class="pozner-back"></div>
+    <div class="pozner-center">
+        <div class="pozner-header"></div>
+        <div class="pozner-text poznre-text--first">28 апреля. Ozon.ru и AST организовали творческую встречу с Владимиром Познером. На встречу были приглашены покупатели Ozon.ru, студенты и
+            преподаватели факультета журналистики МГУ. Все остались очень довольны, ведь истории и суждения, высказанные Владимиром Познером всегда взохновляющие и интересные.
+        </div>
+        <div class="pozner-text poznre-text--second">На встрече была предсталена новая книга Владимира Познера "Противостояние"
+            На Ozon.ru есть все книги Познера. Читайте. Не пожалеете.<br />
+            Фотоматериалы предоставлены фотослужбой факультета журналистики МГУ
+        </div>
+        <div class="poznre-ast-logo"></div>
+        <div class="pozner-slider">
+            <div class="pozner-left"></div>
+            <div class="pozner-right"></div>
+            <div class="pozner-slider-center">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-1light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-2light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-3light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-4light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-5light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-6light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-7light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-8light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-9light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-10light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-11light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-12light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-13light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-14light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-15light.jpg" alt="foto">
+                <img class="foto-item" src="http://ozon.ru/graphics/action/150525-pozner/foto-h-16light.jpg" alt="foto">
+            </div>
+        </div>
+    </div>
+    <div class="pozner-foto">
+        <div class="foto-container"></div>
+    </div>
+</div>
+</body>
+</html>

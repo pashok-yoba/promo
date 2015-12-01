@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<style>
+    .pageCenterNoLeft {
+        padding: 0;
+
+    }
+    .pageContent .PageModule {
+        margin: 0;
+    }
+    #PageContent {
+        padding: 0;
+    }
+    .pageCenterNoLeft div.pageContent .PageModule {
+        margin: 0;
+    }
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    #woman * {
+        margin: 0;
+        padding: 0;
+    }
+    #woman {
+        height: 550px;
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/back-2-2.jpg');
+        min-width: 1000px;
+        position: relative;
+        background-size: auto 100%;
+        text-align: right;
+    }
+    #woman .womanContainer {
+        min-width: 1000px;
+        max-width: 1300px;
+        width: 100%;
+        display: inline-block;
+        position: relative;
+    }
+    #woman .girlImage {
+        width: 482px;
+        height: 394px;
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/shkura.png');
+        background-repeat: no-repeat;
+        right: 0;
+        top: 43px;
+        position: absolute;
+        background-size: auto 100%;
+    }
+    #woman .girlImage__cloud {
+        display: none;
+        position: absolute;
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/cloud-2.png');
+        background-repeat: no-repeat;
+    }
+    #woman .womanName {
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/name.png');
+        width: 587px;
+        height: 65px;
+        position: absolute;
+        left: 50px;
+        top: 33px;
+        z-index: 2;
+        background-size: 100% 100%;
+    }
+    #woman .womanMenu {
+        width: 564px;
+        overflow: hidden;
+        padding-top:123px;
+        padding-left: 46px;
+        position: relative;
+        z-index: 3;
+        list-style-type: none;
+    }
+    #woman .womanMenu__item {
+        width: 33.33333333333333%;
+        padding: 4px;
+        box-sizing: border-box;
+        height: 180px;
+        float: left;
+    }
+    #woman .WomanLink {
+        display: block;
+        background-color: #ffffff;
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+    #woman .WomanImage {
+        top: 11.02941176470588%;
+        height: 62.42647058823529%;
+        background-size: 100% 100%;
+        position: relative;
+        margin: 0 auto;
+    }
+    #woman .WomanImage--1 {
+        width: 62.13235294117647%;
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/menu-1.jpg');
+    }
+    #woman .WomanImage--2 {
+        width: 54.04411764705882%;
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/menu-2.jpg');
+    }
+    #woman .WomanImage--3 {
+        width: 47.42647058823529%;
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/menu-3.jpg');
+    }
+    #woman .WomanImage--4 {
+        width: 63.23529411764706%;
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/menu-4.jpg');
+    }
+    #woman .WomanImage--5 {
+        width: 55.14705882352941%;
+        top: 9.029412%;
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/menu-5.jpg');
+    }
+    #woman .WomanImage--6 {
+        width: 65.44117647058824%;
+        top: 9.029412%;
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/menu-6.jpg');
+    }
+    #woman .WomanLink__text {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        bottom: 4.11111111111111%;
+        height: 13.33333333333333%;
+    }
+    #woman .WomanLink__text--4 {
+        height: 15.55555555555556%;
+    }
+    #woman .WomanLink__text--6 {
+        height: 26.75%;
+    }
+    #woman .WomanLink__textImage--1 {
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/menu-text-1.jpg');
+        width: 65.44444444444444%;
+        height: 100%;
+        display: inline-block;
+        background-size: 100% 100%;
+    }
+    #woman .WomanLink__textImage--2 {
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/menu-text-2.jpg');
+        width: 63.33333333333333%;
+        height: 100%;
+        display: inline-block;
+        background-size: 100% 100%;
+    }
+    #woman .WomanLink__textImage--3 {
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/menu-text-3.jpg');
+        width: 50%;
+        height: 100%;
+        display: inline-block;
+        background-size: 100% 100%;
+    }
+    #woman .WomanLink__textImage--4 {
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/menu-text-4.jpg');
+        width: 46.66666666666667%;
+        height: 100%;
+        display: inline-block;
+        background-size: 100% 100%;
+    }
+    #woman .WomanLink__textImage--5 {
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/menu-text-5.jpg');
+        width: 52.59259259259259%;
+        height: 100%;
+        display: inline-block;
+        background-size: 100% 100%;
+    }
+    #woman .WomanLink__textImage--6 {
+        background-image: url('//static.ozone.ru/graphics/action/150812-zopa/menu-text-6.jpg');
+        width: 81.11111111111111%;
+        height: 100%;
+        display: inline-block;
+        background-size: 100% 100%;
+    }
+    @media only screen and ( min-width: 1301px ) {
+        #woman .womanContainer {
+            min-width: 1301px;
+            max-width: 1600px;
+            width: 100%;
+        }
+        #woman {
+            height: 870px;
+        }
+        #woman .womanMenu {
+            padding-top: 195px;
+            width: 660px;
+        }
+        #woman .womanMenu__item {
+            height: 220px;
+        }
+        #woman .womanName {
+            width: 916px;
+            height: 97px;
+        }
+        #woman .girlImage {
+            top: 126px;
+            width: 653px;
+            height: 533px;
+        }
+
+    }
+    @media only screen and ( min-width: 1601px ) {
+        #woman .womanContainer {
+            min-width: 1601px;
+            max-width: 1900px;
+            width: 100%;
+        }
+        #woman {
+            height: 870px;
+        }
+        #woman .womanMenu {
+            padding-top: 195px;
+            width: 840px;
+        }
+        #woman .womanMenu__item {
+            height: 280px;
+        }
+        #woman .womanName {
+            width: 916px;
+            height: 97px;
+        }
+        #woman .girlImage {
+            top: 126px;
+            width: 653px;
+            height: 533px;
+        }
+
+    }
+    @media only screen and ( min-width: 1901px ) {
+        #woman .womanContainer {
+            min-width: 1500px;
+            max-width: none;
+            width: 100%;
+        }
+        #woman .girlImage {
+            width: 818px;
+            height: 675px;
+            background-image: url('//static.ozone.ru/graphics/action/150812-zopa/shkura.png');
+            background-repeat: no-repeat;
+            right: 0;
+            top: 214px;
+            position: absolute;
+        }
+        #woman .girlImage__cloud {
+            position: absolute;
+            background-image: url('//static.ozone.ru/graphics/action/150812-zopa/cloud-2.png');
+            background-repeat: no-repeat;
+            width: 847px;
+            height: 278px;
+            top: -92px;
+            left: 0;
+        }
+        #woman .womanName {
+            background-image: url('//static.ozone.ru/graphics/action/150812-zopa/name.png');
+            width: 1088px;
+            height: 120px;
+            position: absolute;
+            background-size: 100% 100%;
+            left: 55px;
+            top: 92px;
+            z-index: 2;
+        }
+        #woman .womanMenu {
+            overflow: hidden;
+            padding-top:256px;
+            position: relative;
+            z-index: 3;
+            list-style-type: none;
+        }
+    }
+    @media only screen and ( min-width: 2200px ) {
+        #woman {
+            background-size: cover;
+            height: 880px;
+            background-image: url('//static.ozone.ru/graphics/action/150812-zopa/back-2.jpg');
+            min-width: 1000px;
+            position: relative;
+        }
+        #woman .womanContainer {
+            min-width: 1500px;
+            max-width: none;
+            width: 100%;
+        }
+        #woman .girlImage {
+            width: 964px;
+            height: 788px;
+            background-image: url('//static.ozone.ru/graphics/action/150812-zopa/shkura.png');
+            background-repeat: no-repeat;
+            right: 0;
+            top: 92px;
+            position: absolute;
+        }
+        #woman .girlImage__cloud {
+            position: absolute;
+            background-image: url('//static.ozone.ru/graphics/action/150812-zopa/cloud-2.png');
+            background-repeat: no-repeat;
+            width: 847px;
+            height: 278px;
+            top: -92px;
+            left: 0;
+        }
+        #woman .womanName {
+            background-image: url('//static.ozone.ru/graphics/action/150812-zopa/name.png');
+            width: 1360px;
+            height: 150px;
+            position: absolute;
+            left: 55px;
+            top: 92px;
+            z-index: 2;
+        }
+        #woman .womanMenu {
+            width: 1500px;
+            overflow: hidden;
+            padding-top:326px;
+            position: relative;
+            z-index: 3;
+            list-style-type: none;
+        }
+        #woman .womanMenu__item {
+            width: 16.66666666666667%;
+            padding: 4px;
+            box-sizing: border-box;
+            height: 250px;
+            float: left;
+        }
+        #woman .WomanLink {
+            display: block;
+            background-color: #ffffff;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+</style>
+<div id="woman">
+    <div class="womanContainer">
+        <div class="womanName"></div>
+        <div class="girlImage">
+            <div class="girlImage__cloud"></div>
+        </div>
+        <ul class="womanMenu">
+            <li class="womanMenu__item">
+                <a href="/catalog/1175435/" class="WomanLink" target="_blank">
+                    <div class="WomanImage WomanImage--1"></div>
+                    <div class="WomanLink__text">
+                        <div class="WomanLink__textImage--1"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="womanMenu__item">
+                <a href="/catalog/1175433/" class="WomanLink" target="_blank">
+                    <div class="WomanImage WomanImage--2"></div>
+                    <div class="WomanLink__text">
+                        <div class="WomanLink__textImage--2"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="womanMenu__item">
+                <a href="/catalog/1175436/?areause=37463" class="WomanLink" target="_blank">
+                    <div class="WomanImage WomanImage--3"></div>
+                    <div class="WomanLink__text">
+                        <div class="WomanLink__textImage--3"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="womanMenu__item">
+                <a href="/catalog/1175436/?areause=41069" class="WomanLink" target="_blank">
+                    <div class="WomanImage WomanImage--4"></div>
+                    <div class="WomanLink__text WomanLink__text--4">
+                        <div class="WomanLink__textImage--4"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="womanMenu__item">
+                <a href="/catalog/1175436/?areause=37472,43187" class="WomanLink" target="_blank">
+                    <div class="WomanImage WomanImage--5"></div>
+                    <div class="WomanLink__text WomanLink__text--6">
+                        <div class="WomanLink__textImage--5"></div>
+                    </div>
+                </a>
+            </li>
+            <li class="womanMenu__item">
+                <a href="/catalog/1175436/?areause=37465,37466" class="WomanLink" target="_blank">
+                    <div class="WomanImage WomanImage--6"></div>
+                    <div class="WomanLink__text WomanLink__text--6">
+                        <div class="WomanLink__textImage--6"></div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

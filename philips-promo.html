@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://ozon.ru/graphics/action/150619-baby/TweenMax.min.js"></script>
+    <title></title>
+</head>
+<body>
+<style>
+.pageContent {
+    padding-top: 0;
+}
+.pageCenterNoLeft {
+    padding: 0;
+}
+.pageCenterNoLeft div.pageContent .PageModule {
+    margin:0;
+}
+
+
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    #philips * {
+        padding: 0;
+        margin: 0;
+    }
+    #philips {
+        background-color: #f2cfab;
+        font-family: Arial, sans-serif;
+    }
+    #philips .philips-back {
+        max-width: 1458px;
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/back-philips.jpg);
+        margin: 0 auto;
+    }
+    #philips .philips-inner {
+        margin: 0 auto;
+        width: 961px;
+        background-color: white;
+    }
+    #philips .philips-header {
+        height: 518px;
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/philips-header.jpg);
+        position: relative;
+    }
+    #philips .philips-header__model {
+        position: absolute;
+        width: 100px;
+        right: 0;
+        top: 384px;
+        color: white;
+        line-height: 1.3em;
+    }
+    #philips .philips-header__description {
+        position: absolute;
+        color: white;
+        width: 543px;
+        font-size: 27px;
+        left: 30px;
+        top: 390px;
+        line-height: 1.3em;
+    }
+    #philips .philips-middle {
+        overflow: hidden;
+        position: relative;
+    }
+    #philips .philips-picture {
+        width: 486px;
+        height: 379px;
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/philips-middle.jpg);
+        float: right;
+    }
+    #philips .philips-description {
+        position: absolute;
+        box-sizing: border-box;
+        border: 2px solid #7fdcf8;
+        font-size: 15px;
+        line-height: 1.3em;
+        padding: 20px;
+        color: #636363;
+        background-color: rgba(255, 255, 255, 0.5);
+        -webkit-transition: opacity 0.250s;
+        -o-transition: opacity 0.250s;
+        -ms-transition: opacity 0.250s;
+        -moz-transition: opacity 0.250s;
+        transition: opacity 0.250s;
+    }
+    #philips .philips-description-1 {
+        width: 525px;
+        top: 25px;
+        left: 30px;
+        opacity: 0.7;
+    }
+    #philips .philips-description-2 {
+        width: 433px;
+        top: 230px;
+        left: 30px;
+        opacity: 0.7;
+    }
+    #philips .active-description {
+        opacity: 1.0;
+    }
+    #philips .philips-description-link {
+        width: 122px;
+        height: 100%;
+        position: absolute;
+        right: -122px;
+        top: 0;
+    }
+    #philips .philips-description-link:after {
+        display: inline-block;
+        height: 100%;
+        width: 0;
+        vertical-align: middle;
+        content: ' ';
+    }
+    #philips .philips-description-link__line-gor {
+        background-color: #7fdcf8;
+        width: 122px;
+        height: 2px;
+        display: inline-block;
+        position: relative;
+    }
+    #philips .philips-description-link__line-vert {
+        background-color: #7fdcf8;
+        width: 2px;
+        height: 88px;
+        position: absolute;
+        bottom: -88px;
+        right: 0;
+    }
+    #philips .philips-description-link__line-circle {
+        width: 36px;
+        height: 36px;
+        border-radius: 18px;
+        background-color: #07abdf;
+        display: block;
+        position: absolute;
+        bottom: -18px;
+        left: -18px;
+        cursor: pointer;
+    }
+    #philips .philips-description-link__line-circle:after {
+        content: ' ';
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        background-color: white;
+        display: block;
+        position: absolute;
+        top: 8px;
+        left: 8px;
+    }
+    #philips .philips-description-link__line-circle:before {
+        content: ' ';
+        width: 46px;
+        height: 46px;
+        border-radius: 23px;
+        background-color: #07abdf;
+        opacity: 0.5;
+        display: block;
+        position: absolute;
+        top: -5px;
+        left: -5px;
+    }
+    #philips .philips-description-link__line-vert-2 {
+        height: 49px;
+        top: -49px;
+    }
+    #philips .philips-description-link__line-circle-2 {
+        top: -18px;
+    }
+
+    #philips .philips-video {
+        position: relative;
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/philips-video.jpg);
+        height: 400px;
+    }
+    #philips .philips-video__name {
+        font-size: 24px;
+        color: white;
+        position: absolute;
+        top: 25px;
+    }
+    #philips .philips-video__name-1 {
+        left: 153px;
+    }
+    #philips .philips-video__name-2 {
+        left: 618px;
+    }
+    #philips .philips-video__play {
+        width: 97px;
+        height: 65px;
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/play-video.png);
+        position: absolute;
+        background-position: 0 -65px;
+        top: 192px;
+        cursor: pointer;
+    }
+    #philips .philips-video__play:hover {
+        background-position: 0 0;
+    }
+    #philips .philips-video__play-1 {
+        left: 187px;
+    }
+    #philips .philips-video__play-2 {
+        left: 667px;
+    }
+    #philips .philips-table-outer {
+        padding-left: 55px;
+    }
+    #philips .philips-table__column-1 {
+        width:255px;
+        font-size: 15px;
+        font-weight: bold;
+        color: #636363;
+    }
+    #philips .philips-table__item-columns {
+        width: 217px;
+        color: #636363;
+    }
+    #philips .philips-colums  {
+        border-bottom: 1px solid #e3e3e3;
+        line-height: 40px;;
+    }
+    #philips .philips-table__column-1--name {
+        line-height: 1.3em;
+        font-size: 24px;
+        font-weight: normal;
+    }
+    #philips .philips-link {
+        color: #0083ca;
+        font-size: 15px;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    #philips .philips-link:hover {
+        text-decoration: none;
+    }
+    #philips .philips-colums--noneBorder {
+        border: none;
+    }
+    #philips .philips-colums--noHeight {
+        line-height: 1.3em;
+        padding: 10px 0;
+    }
+    #philips .philips-link__image {
+        display: block;
+        width: 95px;
+        height: 35px;
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/table-buy.png);
+    }
+    #philips .philips-link__image:hover {
+        background-position: 0 -35px;
+    }
+    #philips .philips-question {
+        width: 19px;
+        height: 19px;
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/question.jpg);
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        position: relative;
+    }
+    #philips .philips-link-description {
+        position:absolute;
+        left:  117px;
+        top: -80px;
+        width: 453px;
+        border: 2px solid #7fdcf8;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: white;
+        display: none;
+    }
+    #philips .philips-link-description:after {
+        content: ' ';
+        width:0;
+        height:0;
+        display: block;
+        clear: both;
+    }
+    #philips .philips-link-description:before {
+        position: absolute;
+        width: 100px;
+        height: 2px;
+        background-color: #7fdcf8;
+        top: 86px;
+        content: ' ';
+        left: -100px;
+    }
+    #philips .philips-link-description__img {
+        float: left;
+    }
+    #philips .philips-link-description__img-1 {
+             background-image: url(http://ozon.ru/graphics/action/150708-philips/pop-1.jpg);
+             width: 66px;
+             height: 65px;
+         }
+
+    #philips .philips-link-description__list {
+        margin-left: 97px;
+        list-style-position: outside;
+        line-height: 1.3em;
+        font-weight: normal;
+    }
+    #philips .philips-link-description__img-2 {
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/pop-2.jpg);
+        width: 66px;
+        height: 65px;
+        float: none;
+        margin-bottom: 7px;
+    }
+    #philips .philips-link-description__img-3 {
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/pop-3.jpg);
+        width: 66px;
+        height: 65px;
+        float: none;
+    }
+    #philips .philips-link-description__text {
+        margin-left: 87px;
+        list-style-position: outside;
+        line-height: 1.3em;
+        font-weight: normal;
+        float: right;
+    }
+    #philips .philips-link-description__img-4 {
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/pop-4.jpg);
+        width: 66px;
+        height: 65px;
+        float: none;
+        margin-bottom: 7px;
+    }
+    #philips .philips-link-description__img-5 {
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/pop-5.jpg);
+        width: 66px;
+        height: 65px;
+        float: none;
+    }
+    #philips .philips-link-description__img-6 {
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/pop-6.jpg);
+        width: 66px;
+        height: 65px;
+        float: none;
+    }
+    #philips .philips-link-description__img-7 {
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/pop-7.jpg);
+        width: 66px;
+        height: 65px;
+        float: none;
+        margin-bottom: 7px;
+    }
+    #philips .philips-link-description__img-8 {
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/pop-8.jpg);
+        width: 66px;
+        height: 65px;
+        float: none;
+        margin-bottom: 7px;
+    }
+    #philips .philips-link-description__img-9 {
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/pop-9.jpg);
+        width: 66px;
+        height: 65px;
+        float: none;
+    }
+    #philips .philips-link-description__img-10 {
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/pop-10.jpg);
+        width: 66px;
+        height: 65px;
+        float: none;
+    }
+
+    #philips .philips-video-hover {
+        position: absolute;
+        top:0;
+        left:0;
+        height:100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.60);
+        display: none;
+    }
+    #philips .philips-video__close {
+        background-image: url(http://ozon.ru/graphics/action/150708-philips/close.jpg);
+        right: 10px;
+        top: 10px;
+        cursor: pointer;
+        width: 33px;
+        height: 33px;
+        position: absolute;
+    }
+    #philips .philips-video-item {
+        position: absolute;
+        top: 5px;
+        left: 133px;
+    }
+</style>
+
+
+<style>
+    .SearchResults {
+        display: none;;
+    }
+    .philips-price {
+        font-weight: bold;
+    }
+</style>
+<script>
+/*    $(function(){
+        $('.MaterialSection').eq(($('.MaterialSection').length-1)).css({'display': 'none'});
+        var price = [];
+    price[2]= $('.iteminfo[js_itemid="32782252"]').attr('js_price');
+    price[1] = $('.iteminfo[js_itemid="32782253"]').attr('js_price');
+    price[0] = $('.iteminfo[js_itemid="32782254"]').attr('js_price');
+        for ( var i = 0; i < price.length; i++ ) {
+            $('.philips-price').eq(i).text(price[i]);
+        }
+        console.log(priceItem1, priceItem2, priceItem3);
+    });*/
+</script>
+<script>
+    $(function(){
+        var animationCircle = TweenMax.to(document.getElementsByClassName('active-circle'), 0.9, {scale: 0.6, repeat: -1});
+        var video1 = $('<iframe class="philips-video-item" id="fancybox-frame-1" width="693" height="390" name="fancybox-frame1436435704185" frameborder="0" hspace="0" src="https://www.youtube.com/embed/0VkRChVzmos"></iframe>');
+        var video2 = $('<iframe class="philips-video-item"  id="fancybox-frame-2" width="693" height="390" name="fancybox-frame1436435755356" frameborder="0" hspace="0" src="https://www.youtube.com/embed/A-8rLHwZfxk"></iframe>');
+        $('.philips-video-hover').append(video1);
+        $('.philips-question').on('mouseenter', function(){
+            var description = $(this).find('.philips-link-description');
+            if (description.css('display') != 'block') {
+                $('.philips-link-description').fadeOut(250);
+                description.fadeToggle(250);
+                $(this).parents('.philips-table__row').on('mouseleave', function(){
+                    description.fadeOut(250);
+                    $(this).unbind('mouseleave');
+                });
+            }
+        })
+
+
+        $('.philips-description').on('click', function(){
+            $('.philips-description').removeClass('active-description');
+            animationCircle.seek(0);
+            animationCircle.kill();
+            $('.philips-description-link__line-circle').removeClass('active-circle');
+            $(this).addClass('active-description');
+            $(this).find('.philips-description-link__line-circle').addClass('active-circle');
+            animationCircle = TweenMax.to(document.getElementsByClassName('active-circle'), 0.9, {scale: 0.6, repeat: -1}).play();
+        });
+
+
+
+        $('.philips-video__play').on('click', function(){
+            if ($(this).hasClass('philips-video__play-1')) {
+                $('.philips-video-hover').append(video1);
+            }
+            if ($(this).hasClass('philips-video__play-2')) {
+                $('.philips-video-hover').append(video2);
+            }
+            $('.philips-video-hover').fadeIn(250);
+        });
+        $('.philips-video__close').on('click', function(){
+            $('.philips-video-item').remove();
+            $('.philips-video-hover').fadeOut(250);
+        });
+        var price = [];
+        price[2]= $('.iteminfo[js_itemid="32782252"]').attr('js_price');
+        price[1] = $('.iteminfo[js_itemid="32782253"]').attr('js_price');
+        price[0] = $('.iteminfo[js_itemid="32782254"]').attr('js_price');
+        for ( var i = 0; i < price.length; i++ ) {
+            $('.philips-price').eq(i).text(price[i]);
+        }
+    })
+</script>
+<div id="philips">
+    <div class="philips-back">
+        <div class="philips-inner">
+            <div class="philips-header">
+                <div class="philips-header__model">Модель
+                    FC8820/01</div>
+                <div class="philips-header__description">Распознает и тщательно устраняет пыль даже в труднодоступных местах
+                    благодаря 22 интеллектуальным датчикам </div>
+            </div>
+            <div class="philips-middle">
+                <div class="philips-picture"></div>
+                <div class="philips-description philips-description-1 active-description">
+                    <p class="philips-text">Каждый робот-пылесос из модельной линейки SmartPro обладает умной системой обнаружения Smart Detection System, которая представляет собой набор из интеллектуальных датчиков (до 22 шт.),
+                    гироскопа и акселерометра, и позволяет пылесосу самостоятельно выполнять уборку и выбирать оптимальный режим для тщательной уборки дома.
+                    </p>
+                    <div class="philips-description-link"><div class="philips-description-link__line-gor"><div class="philips-description-link__line-vert"><div class="philips-description-link__line-circle active-circle"></div></div></div></div>
+                </div>
+                <div class="philips-description philips-description-2">
+                    <p class="philips-text">Сенсорный бампер с ИК-датчиками позволяет роботу объехать такие препятствия как стены, осветительные приборы и кабели,
+                    при этом провести качественную очистку напольного покрытия.</p>
+                    <div class="philips-description-link"><div class="philips-description-link__line-gor"><div class="philips-description-link__line-vert philips-description-link__line-vert-2"><div class="philips-description-link__line-circle philips-description-link__line-circle-2"></div></div></div></div>
+                </div>
+            </div>
+            <div class="philips-video">
+                <p class="philips-video__name philips-video__name-1">SmartPro Active</p>
+                <p class="philips-video__name philips-video__name-2">SmartPro Compact</p>
+                <div class="philips-video__play philips-video__play-1"></div>
+                <div class="philips-video__play philips-video__play-2"></div>
+                <div class="philips-video-hover"><div class="philips-video__close"></div></div>
+            </div>
+            <div class="philips-table-outer">
+                <table class="philips-table" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1 philips-table__column-1--name philips-colums--noneBorder">
+                            Роботы-пылесосы
+                            Philips SmartPro
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--noneBorder">
+                            <img src="http://ozon.ru/graphics/action/150708-philips/philips-item-1.jpg" width="184" height="130"/>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--noneBorder">
+                            <img src="http://ozon.ru/graphics/action/150708-philips/philips-item-2.jpg" width="191" height="130"/>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--noneBorder">
+                            <img src="http://ozon.ru/graphics/action/150708-philips/philips-item-3.jpg" width="192" height="130"/>
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1 philips-colums--links">
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--links">
+                            <a class="philips-link" href="#">FC8820</a>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--links">
+                            <a class="philips-link" href="#">FC8810</a>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--links">
+                            <a class="philips-link" href="#">FC8710</a>
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1">
+                            Smart Detection System
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да, 22 датчика
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да, 22 датчика
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да, 18 датчиков
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1">
+                            Режимы уборки <div class="philips-question">
+                            <div class="philips-link-description">
+                                <p class="philips-link-description__name">4 режима для уборки различных участков</p>
+                                <div class="philips-link-description__img philips-link-description__img-1"></div>
+                                <ol class="philips-link-description__list description-list">
+                                    <li class="description-list__item"> При обнаружении относительно большого пространства робот-пылесос выбирает режим «Z» и совершает зигзагообразные движения. </li>
+                                    <li class="description-list__item"> В режиме «По спирали» робот совершает спиралевидные движения, постепенно увеличивая радиус.</li>
+                                    <li class="description-list__item"> В режиме «Вдоль стен» прибор перемещается по периметру помещения параллельно стенам.</li>
+                                    <li class="description-list__item"> В режиме «Отскок» при столкновении с предметом робот отскочит в сторону и направится в хаотичном направлении.</li>
+                                </ol>
+                            </div>
+                        </div>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            4 + турбо
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            4
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            4
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1">
+                            Распознование пыли
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1">
+                            Время работы
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            120 мин
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            90 мин
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            120 мин
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1">
+                            Аккумулятор
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Литий-ионный
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Литий-ионный
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Литий-ионный
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1">
+                            Составление расписания
+                            <div class="philips-question">
+                                <div class="philips-link-description">
+                                    <p class="philips-link-description__name">Составление расписания</p>
+                                    <p class="philips-link-description__text">
+                                        Робот-пылесос позволяет создавать расписание на всю неделю или на 24 часа, поэтому вы сможете запрограммировать план уборки на ближайшие
+                                        7 дней или на 24 часа. Даже если вас нет дома, робот-пылесос приступает к работе, чтобы всегда поддерживать чистоту и порядок
+                                    </p>
+                                    <div class="philips-link-description__img philips-link-description__img-2"></div>
+                                    <div class="philips-link-description__img philips-link-description__img-3"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            На неделю
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            На неделю
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            На 24 ч
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1">
+                            Пульт ДУ
+                            <div class="philips-question" style="z-index: 10">
+                                <div class="philips-link-description">
+                                    <p class="philips-link-description__name">Пульт ДУ</p>
+                                    <p class="philips-link-description__text">Дистанционное управление роботом-пылесосом.
+                                    </p>
+                                    <div class="philips-link-description__img philips-link-description__img-4"></div>
+                                    <p class="philips-link-description__text">Дистанционное управление с функцией световой указки.**Доступно в модели FC8820
+                                    </p>
+                                    <div class="philips-link-description__img philips-link-description__img-5"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--noHeight">
+                            Да, с функцией световой указки
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1">
+                            Док-станция
+                            <div class="philips-question" style="z-index:10">
+                                <div class="philips-link-description">
+                                    <p class="philips-link-description__name">Док-станция</p>
+                                    <p class="philips-link-description__text">При низком уровне заряда аккумулятора робот-пылесос Philips автоматически возвращается на док-станцию для выполнения зарядки, после чего он будет снова готов к работе.
+                                    </p>
+                                    <div class="philips-link-description__img philips-link-description__img-6"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1">
+                            3-этапная система очистки
+                            <div class="philips-question">
+                                <div class="philips-link-description">
+                                    <p class="philips-link-description__name">3-этапная система очистки</p>
+                                    <p class="philips-link-description__text">Сначала две длинные щетки направляют грязь и пыль по траектории движения робота-пылесоса. Затем насадка собирает всю пыль и грязь
+                                        благодаря мощному мотору. В конце съемная насадка для влажной уборки собирает самую мелкую пыль, улучшая результат уборки.
+                                    </p>
+                                    <div class="philips-link-description__img philips-link-description__img-7"></div>
+                                    <div class="philips-link-description__img philips-link-description__img-8"></div>
+                                    <div class="philips-link-description__img philips-link-description__img-9"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            2-этапная
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1">
+                            Виртуальная стена
+                            <div class="philips-question">
+                                <div class="philips-link-description">
+                                    <p class="philips-link-description__name">Виртуальная стена</p>
+                                    <p class="philips-link-description__text">Виртуальная стена устанавливает границы, за которые робот-пылесос не может выйти.
+                                    </p>
+                                    <div class="philips-link-description__img philips-link-description__img-10"></div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            Да
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            -
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            -
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1">
+                            Размер пылесборника
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            0,4 л
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            0,4 л
+                        </td>
+                        <td class="philips-colums philips-table__item-columns">
+                            0,25 л
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1 philips-colums--noHeight ">
+                            Размеры и вес
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--noHeight ">
+                            8х33 см<br />1,95 кг
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--noHeight ">
+                            8х33 см<br /> 1,93 кг
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--noHeight ">
+                            6х33 см<br /> (ультратонкий)1,7 кг
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1 philips-colums--noHeight ">
+                            Цена
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--noHeight ">
+                            <span class="philips-price price1"></span><span class="bRub">руб.</span>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--noHeight ">
+                            <span class="philips-price price2"></span><span class="bRub">руб.</span>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--noHeight ">
+                            <span class="philips-price price3"></span><span class="bRub">руб.</span>
+                        </td>
+                    </tr>
+                    <tr class="philips-table__row">
+                        <td class="philips-colums philips-table__column-1 ">
+
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--noHeight ">
+                            <a href="" class="philips-link__image"></a>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--noHeight ">
+                            <a href="" class="philips-link__image"></a>
+                        </td>
+                        <td class="philips-colums philips-table__item-columns philips-colums--noHeight ">
+                            <a href="" class="philips-link__image"></a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
